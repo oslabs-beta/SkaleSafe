@@ -2,12 +2,13 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const dotenv = require('dotenv');
-// dotenv.config(); // <<< IS THIS NECESSARY?
+dotenv.config(); // <<< IS THIS NECESSARY?
+const process = require('process');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 
 // REQUIRE IN LOCAL FILES HERE
-const PORT = process.env.PORT || 3000 // .env NOT FULLY SETUP YET
+const PORT = process.env.PORT || 3000 // IN .env PORT IS SET TO 4000
 
 
 app.use(express.json());

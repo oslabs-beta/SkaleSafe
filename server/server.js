@@ -8,7 +8,7 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 
 // REQUIRE IN LOCAL FILES HERE
-const PORT = process.env.PORT || 3000 // IN .env PORT IS SET TO 4000
+const PORT = process.env.PORT // IN .env, PORT IS SET TO 3000
 
 
 app.use(express.json());

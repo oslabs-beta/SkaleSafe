@@ -8,8 +8,7 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 
 // REQUIRE IN LOCAL FILES HERE
-const PORT = process.env.PORT // IN .env, PORT IS SET TO 3000
-
+const PORT = process.env.PORT; // IN .env, PORT IS SET TO 3000
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // <<< IS 'true' HERE NECESSARY?
@@ -18,14 +17,9 @@ app.use(cookieParser());
 
 // TEST ROUTE TO CHECK FUNCTIONALITY
 app.get('/', (req, res) => {
-    res.status(200).json('GET requrest received');
-})
-
-
-
-
-
+  res.status(200).json('GET requrest received');
+});
 
 app.listen(PORT, () => {
-    console.log(`Server listening on port: ${PORT}...`)
+  console.log(`Server listening on port: ${PORT}...`);
 });

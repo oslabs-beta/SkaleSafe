@@ -15,10 +15,10 @@ app.use(express.urlencoded({ extended: true })); // <<< IS 'true' HERE NECESSARY
 app.use(cors());
 app.use(cookieParser());
 
-
-
-
-
+// TEST ROUTE TO CHECK FUNCTIONALITY
+app.get('/', (req, res) => {
+    res.status(200).json('GET requrest received');
+})
 
 
 

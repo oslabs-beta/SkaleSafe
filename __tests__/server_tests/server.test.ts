@@ -1,5 +1,6 @@
 const request = require('supertest');
-import { app } from '../../server/server';
+// import { app } from '../../server/server';
+const app = require('../../server/server');
 
 // homepage successfully loads with res.status = 200.
 describe('GET /', () => {

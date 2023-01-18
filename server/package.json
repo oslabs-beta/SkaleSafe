@@ -1,8 +1,8 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "This is a test web server.",
-  "main": "index.js",
+  "description": "This is an express server to handle the calls of frontend, backend, and database calls",
+  "main": "server.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon --watch './**/*.ts' --exec 'ts-node' server.ts"

@@ -3,8 +3,8 @@ import React from "react";
 
 const Navbar = () => {
     return (
-        <nav className="w-screen h-24 bg-blue-200">
-            <ul className="flex flex-row items-center justify-end  gap-x-3 mr-8">
+        <nav className="w-screen h-24 flex flex-row items-center justify-end bg-blue-200">
+            <ul className="flex flex-row gap-x-3 mr-8 ">
                 <li>
                     <Link to='/'>Home</Link>
                 </li>

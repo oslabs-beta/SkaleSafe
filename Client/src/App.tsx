@@ -1,6 +1,4 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import React  from 'react'
 import { Link, Route, Routes } from 'react-router-dom'
 import {Home} from './ReactRoutertest/Home.js';
 import {Signup} from './ReactRoutertest/Signup.js';
@@ -40,4 +38,3 @@ function App() {
   }
 
 export default App
-

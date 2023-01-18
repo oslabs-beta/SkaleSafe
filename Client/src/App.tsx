@@ -1,34 +1,43 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
+import { Link, Route, Routes } from 'react-router-dom'
+import {Home} from './ReactRoutertest/Home.js';
+import {Signup} from './ReactRoutertest/Signup.js';
+import {Login} from './ReactRoutertest/Login.js';
+import {Error} from './ReactRoutertest/Error.js';
 
+//Links are setup to allow only <routes> to change; the whole app is not re-rendered
+//Nested routes
+  //parent child routes; element only given to children as appropriate
+  //if the parent route needs to be rendered, use index for the route instead of path
+  //sharing a layout is possible amongst children via passing an element that carries the layout into the parent
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+  <>
+  <nav>
+    <ul>
+      <li>
+        <Link to='/'>Home</Link>
+      </li>
+      <li>
+        <Link to='/login'>Login</Link>
+      </li>
+      <li>
+        <Link to='/signup'>Signup</Link>
+      </li>
+    </ul>
+  </nav>
+
+  <Routes>
+    <Route path ='/' element={<Home/>} />
+    <Route path='/signup' element= {<Signup/>}/>
+    <Route path='/Login' element= {<Login/>}/>
+    <Route path='*' element= {<Error/>}/>
+  </Routes>
+  </>
   )
-}
+  }
 
 export default App
+

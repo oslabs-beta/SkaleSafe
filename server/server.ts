@@ -38,6 +38,12 @@ app.post('/upload', upload.single('file'), (req, res) => {
   }
 });
 
+// Add Cluster POST from Axios:
+app.post('/add-cluster', (req, res) => {
+  console.log('from /add-cluster');
+  console.log('req.body: ', req.body);
+});
+
 app.listen(PORT, () => {
   console.log(`Server running: http://localhost:${PORT}/`);
 });

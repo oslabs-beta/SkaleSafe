@@ -1,3 +1,6 @@
+import React from 'react';
+import AddCluster from './components/addCluster/AddCluster';
+import NewCluster from './components/addCluster/NewCluster';
 import { Link, Route, Routes } from 'react-router-dom'
 
 import {Error} from './ReactRoutertest/Error.js';
@@ -34,6 +37,11 @@ function App() {
     <Route path='/Login' element= {<Login/>}/>
     <Route path='*' element= {<Error/>}/>
   </Routes>
+  
+  <div className=''>
+      <h1 className='text-3xl font-bold underline'>This is my test heading</h1>
+      {/* <AddCluster /> */}
+  </div>
   </>
   )
   }

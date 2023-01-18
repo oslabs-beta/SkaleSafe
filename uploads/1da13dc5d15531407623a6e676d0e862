@@ -1,0 +1,38 @@
+# local storage mongo-pvc:
+
+# (PVC) what do we want:
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongo-pvc
+spec:
+  storageClassName: danslocalstorage
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: standard
+
+
+---
+
+# (PV) how do we want it implemented:
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: local-storage
+spec: 
+  storageClassName: danslocalstorage
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "data/example-storage"
+    type: DirectoryOrCreate
+
+
+# PVC finds a PV by evaluating how much storage it has to offer.
+# PVC searches for a match, then assigns itself to a PV via 3 requirements:
+# 1) enough storage, 2) correct accessModes, 3) matching storageClassName

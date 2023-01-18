@@ -1,9 +1,10 @@
-import React  from 'react'
 import { Link, Route, Routes } from 'react-router-dom'
-import {Home} from './ReactRoutertest/Home.js';
-import {Signup} from './ReactRoutertest/Signup.js';
-import {Login} from './ReactRoutertest/Login.js';
+
 import {Error} from './ReactRoutertest/Error.js';
+import {Home} from './ReactRoutertest/Home.js';
+import {Login} from './ReactRoutertest/Login.js';
+import React  from 'react'
+import {Signup} from './ReactRoutertest/Signup.js';
 
 //Links are setup to allow only <routes> to change; the whole app is not re-rendered
 //Nested routes

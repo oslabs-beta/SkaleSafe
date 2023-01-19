@@ -29,6 +29,8 @@ const AddCluster = () => {
     // setGrafanaURL('');
     // setThanosPort('');
   };
+  const inputField =
+    'border-b-2 pb-2 border-violet-300 w-full focus:outline-none focus:border-violet-600 focus:border-b-3';
 
   return (
     <div className='min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12'>
@@ -52,81 +54,56 @@ const AddCluster = () => {
                   <input
                     type='text'
                     id='clusterURL'
+                    className={inputField}
                     name='clusterURL'
+                    autoComplete='off'
                     placeholder='Cluster URL'
                     onChange={(e) => setClusterURL(e.target.value)}
-                    className='peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600'
                   />
-                  <label
-                    htmlFor='clusterURL'
-                    className='absolute cursor-text left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm'
-                  >
-                    Cluster URL
-                  </label>
                 </div>
                 <div className='relative'>
                   <input
                     type='text'
                     id='kubernetesPort'
+                    className={inputField}
                     name='kubernetesPort'
+                    autoComplete='off'
                     placeholder='Kubernetes Port'
                     onChange={(e) => setKubernetesPort(e.target.value)}
-                    className='peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600'
                   />
-                  <label
-                    htmlFor='kubernetes port'
-                    className='absolute cursor-text left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm'
-                  >
-                    Kubernetes Port
-                  </label>
                 </div>
                 <div className='relative'>
                   <input
                     type='text'
                     id='pw'
+                    className={inputField}
                     name='pw'
+                    autoComplete='off'
                     placeholder='Thanos (sidecar) Port'
                     onChange={(e) => setThanosPort(e.target.value)}
-                    className='peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600'
                   />
-                  <label
-                    htmlFor='thanos port'
-                    className='absolute cursor-text left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm'
-                  >
-                    Thanos (sidecar) Port
-                  </label>
                 </div>
                 <div className='relative'>
                   <input
                     type='text'
                     id='clusterName'
+                    className={inputField}
                     name='clusterName'
+                    autoComplete='off'
                     placeholder='Cluster Name'
                     onChange={(e) => setClusterName(e.target.value)}
-                    className='peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600'
                   />
-                  <label
-                    htmlFor='cluster name'
-                    className='absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm'
-                  >
-                    Cluster Name
-                  </label>
                 </div>
                 <div className='relative'>
                   <input
                     type='text'
                     id='grafanaURL'
+                    className={inputField}
                     name='grafanaURL'
+                    autoComplete='off'
                     placeholder='grafanaURL'
                     onChange={(e) => setGrafanaURL(e.target.value)}
-                    className='peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600'
                   />
-                  <label
-                    htmlFor='grafana url'
-                    className='absolute cursor-text left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm'
-                  >
-                    Grafana URL
-                  </label>
                 </div>
                 <div className='relative'>
                   <input
@@ -145,75 +122,3 @@ const AddCluster = () => {
 };
 
 export default AddCluster;
-
-// <div className='wrapper fadeInDown'>
-// <div id='formContent'>
-//   <div className='fadeIn first'>
-//     <h1>Logo</h1>
-//   </div>
-
-//   <form
-//     onSubmit={submitFormData}
-//     // action="{{ url('/') }}"
-//     method='GET'
-//   >
-//     {/* first name */}
-//     <input
-//       type='text'
-//       id='clusterURL'
-//       className='fadeIn second'
-//       name='clusterURL'
-//       placeholder='Cluster URL'
-//       onChange={(e) => setClusterURL(e.target.value)}
-//     />
-//     {/* last name */}
-//     <input
-//       type='text'
-//       id='kubernetesPort'
-//       className='fadeIn second'
-//       name='kubernetesPort'
-//       placeholder='Kubernetes Port'
-//       onChange={(e) => setKubernetesPort(e.target.value)}
-//     />
-//     {/* thanosPort */}
-//     <input
-//       type='text'
-//       id='pw'
-//       className='fadeIn third'
-//       name='pw'
-//       placeholder='Thanos (sidecar) Port'
-//       onChange={(e) => setThanosPort(e.target.value)}
-//     />
-//     {/* city */}
-//     <input
-//       type='text'
-//       id='clusterName'
-//       className='fadeIn third'
-//       name='clusterName'
-//       placeholder='Cluster Name'
-//       onChange={(e) => setClusterName(e.target.value)}
-//     />
-//     {/* grafanaURL */}
-//     <input
-//       type='text'
-//       id='grafanaURL'
-//       className='fadeIn third'
-//       name='grafanaURL'
-//       placeholder='grafanaURL'
-//       onChange={(e) => setGrafanaURL(e.target.value)}
-//     />
-//     <input
-//       type='submit'
-//       className='fadeIn todo-button'
-//       style={{ marginTop: 20 }}
-//       value='Sign Up'
-//     />
-//   </form>
-
-//   <div id='formFooter'>
-//     <a className='underlineHover' href='#'>
-//       Forgot Password?
-//     </a>
-//   </div>
-// </div>
-// </div>

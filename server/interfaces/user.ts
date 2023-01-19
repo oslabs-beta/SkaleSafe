@@ -1,8 +1,10 @@
-import { Schema } from "mongoose";
+import { Schema, Types } from "mongoose";
 
-interface User {
-    _id: string,
-    email: string,
-    username: string,
-    token: string
+export interface UserObj extends Document {
+    _id: Types.ObjectId;
+    firstname: string;
+    lastname: string;
+    email: string;
+    username: string;
+    password: string;
 }

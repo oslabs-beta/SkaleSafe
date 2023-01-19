@@ -11,16 +11,16 @@ const AddCluster = () => {
   const submitFormData = (e) => {
     e.preventDefault();
 
-    const newUser = {
+    const addCluster = {
       clusterURL,
       kubernetesPort,
       clusterName,
       grafanaURL,
       thanosPort,
     };
-    console.log(newUser);
+    console.log(addCluster);
 
-    axios.post('http://localhost:3002/add-cluster', newUser);
+    axios.post('http://localhost:3002/add-cluster', addCluster);
 
     // reset states
     // setClusterURL('');

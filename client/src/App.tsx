@@ -9,6 +9,7 @@ import Navbar from './components/navbar/Navbar';
 import React from 'react';
 import { Signup } from './ReactRoutertest/Signup';
 import AddCluster from './components/addCluster/AddCluster';
+import NewUser from './components/newUser/NewUser';
 
 //Links are setup to allow only <routes> to change; the whole app is not re-rendered
 //Nested routes
@@ -24,6 +25,7 @@ const App = () => {
         <Route path='/signup' element={<Signup />} />
         <Route path='/Login' element={<Login />} />
         <Route path='/cluster' element={<AddCluster />} />
+        <Route path='/new' element={<NewUser />} />
         <Route path='*' element={<Error />} />
       </Routes>
     </div>

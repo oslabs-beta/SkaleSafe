@@ -1,13 +1,20 @@
 import 'dotenv/config';
 
+import express, { ErrorRequestHandler, NextFunction, Request, Response } from 'express';
+
+// Add Cluster Route...
+import addClusterRouter from './routes/addCluster/addCluster';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
-import express from 'express';
 import multer from 'multer';
 import path from 'path';
 import process from 'process';
-// import userRouter from './routes/userRouter';
+// ROUTES---
+// Prom Route...
+import promRouter from './routes/prom/prom';
+//User Route
+import userRouter from './routes/user/userRouter';
 
 const PORT = process.env.PORT || 3002;
 
@@ -19,25 +26,25 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
 
-app.use('/users', );
+app.use('/users', userRouter);
+app.use('/prom', promRouter);
+app.use('/add-cluster', addClusterRouter);
 
-
-
-app.get('/', (req, res) => {
+app.get('/', (req: Request, res: Response) => {
   res.send('This is a test!');
 });
 
-// ROUTES---
-// Prom Route...
-import promRouter from './routes/prom/prom';
-app.use('/prom', promRouter);
-// Add Cluster Route...
-import addClusterRouter from './routes/addCluster/addCluster';
-app.use('/add-cluster', addClusterRouter);
-
-app.get('/database', (req, res) => {
+app.get('/database', (req: Request, res: Response) => {
   // test db route
   res.send('You have reached the database route');
+});
+
+app.use('*', (err: ErrorRequestHandler, req: Request, res: Response, next: NextFunction) => {
+  
+})
+
+app.use((err: ErrorRequestHandler, req: Request, res: Response, next: NextFunction) => {
+
 });
 
 app.listen(PORT, () => {

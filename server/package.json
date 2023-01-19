@@ -5,7 +5,9 @@
   "main": "server.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon --watch './**/*.ts' --exec 'ts-node' server.ts"
+    "server": "nodemon --watch './**/*.ts' --exec 'ts-node' server.ts",
+    "tsc": "tsc",
+    "ts-node": "ts-node"
   },
   "keywords": [],
   "author": "",

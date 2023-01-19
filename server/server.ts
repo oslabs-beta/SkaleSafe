@@ -26,31 +26,21 @@ app.use('/users', );
 app.get('/', (req, res) => {
   res.send('This is a test!');
 });
+
+// ROUTES---
+// Prom Route...
+import promRouter from './routes/prom/prom';
+app.use('/prom', promRouter);
+// Add Cluster Route...
+import addClusterRouter from './routes/addCluster/addCluster';
+app.use('/add-cluster', addClusterRouter);
+
 app.get('/database', (req, res) => {
   // test db route
   res.send('You have reached the database route');
 });
 
-// UPLOAD:
-// retrieve files uploaded by user:
-app.post('/upload', upload.single('file'), (req, res) => {
-  try {
-    // access the file as req.file
-    console.log(req.file);
-    res.send({ message: 'File uploaded successfully' });
-  } catch (err) {
-    console.error(err);
-    res.status(500).send(err);
-  }
-});
-
-// Add Cluster POST from Axios:
-app.post('/add-cluster', (req, res) => {
-  console.log('from /add-cluster');
-  console.log('req.body: ', req.body);
-});
-
 app.listen(PORT, () => {
   console.log(`Server running: http://localhost:${PORT}/`);
 });
-// to start -> "npm run server" ... make sure youre in server folder.
+// to start individually -> "npm run server" ... make sure youre in server folder.

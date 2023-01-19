@@ -1,9 +1,14 @@
 import 'dotenv/config'
 
-import { ErrorRequestHandler, NextFunction } from "express";
+import { Error, Schema, model } from 'mongoose';
 
+import { ErrorRequestHandler } from "express";
 import { UserObj } from './../interfaces/user';
+import bcrypt from "bcryptjs";
+
 const mongoose = require('mongoose');
+
+
 const { DB_URI, SALT_WORK_FACTOR } = process.env;
 
 mongoose.connect(DB_URI, {
@@ -13,29 +18,30 @@ mongoose.connect(DB_URI, {
 .then(() => console.log('Connected to MongoDB Database'))
 .catch((err: ErrorRequestHandler) => {
     console.error(`Error connecting to MongoDB Database: ${err}`);
+    return 
 })
 
-const Schema = mongoose.Schema;
-// const bcrypt = require('bcryptjs');
 
-const userSchema = new Schema({
+const userSchema = new Schema<UserObj>({
+    firstname: {type: String, required: true},
+    lastname: {type: String, required: true},
     email: { type: String, required: true },
-    username: { type: String, required: true, unique: true },
+    username: { type: String, required: true, unique: true, minlength: 8, hide: true},
     password: { type: String, required: true }
 });
 
-// userSchema.pre('save', function(next: NextFunction) {
-//     if(this.isNew || this.isModified('password')) {
-//         bcrypt
-//             .hash(this.password, SALT_WORK_FACTOR)
-//             .then((hash: any) => {
-//                 this.password = hash;
-//                 return next();
-//             })
-//             .catch((err: ErrorRequestHandler) => {
-//                 return next(`Error in hash: ${err}`)
-//             })
-//     }
-// })
+userSchema.pre('save' , function(next) {
+    if(this.isNew || this.isModified('password')) {
+        bcrypt
+            .hash(this.password, SALT_WORK_FACTOR)
+            .then((hash: string) => {
+                this.password = hash;
+                return next();
+            })
+            .catch((err: Error) => {
+                return next(err)
+            })
+    }
+})
 
-module.exports = mongoose.model('User', userSchema);
+module.exports =  model('User', userSchema);

@@ -1,5 +1,6 @@
-import axios from 'axios';
 import React, { useState } from 'react';
+
+import axios from 'axios';
 
 const AddCluster = () => {
   const [clusterURL, setClusterURL] = useState('');
@@ -8,7 +9,7 @@ const AddCluster = () => {
   const [grafanaURL, setGrafanaURL] = useState('');
   const [thanosPort, setThanosPort] = useState('');
 
-  const submitFormData = (e) => {
+  const submitFormData = (e: any) => {
     e.preventDefault();
 
     const newUser = {

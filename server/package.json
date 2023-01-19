@@ -35,6 +35,7 @@
     "nodemon": "^2.0.20",
     "process": "^0.11.10",
     "ts-node": "^10.9.1",
+    "tsc-watch": "^6.0.0",
     "typescript": "^4.9.4"
   }
 }

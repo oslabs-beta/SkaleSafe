@@ -1,8 +1,8 @@
 import { Schema } from "mongoose";
 
-interface User {
-    _id: string,
-    email: string,
-    username: string,
-    token: string
+export interface UserObj {
+    _id: string;
+    email: string;
+    username: string;
+    password: string;
 }

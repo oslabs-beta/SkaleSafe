@@ -1,12 +1,14 @@
-import express from 'express';
+import 'dotenv/config';
+
 import bodyParser from 'body-parser';
-import path from 'path';
-import dotenv from 'dotenv';
-import process from 'process';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
+import express from 'express';
 import multer from 'multer';
-dotenv.config();
+import path from 'path';
+import process from 'process';
+// import userRouter from './routes/userRouter';
+
 const PORT = process.env.PORT || 3002;
 
 // allows backend to get file:
@@ -16,6 +18,10 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
+
+app.use('/users', );
+
+
 
 app.get('/', (req, res) => {
   res.send('This is a test!');

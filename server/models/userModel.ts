@@ -1,10 +1,10 @@
+import 'dotenv/config'
+
 import { ErrorRequestHandler, NextFunction } from "express";
 
-import dotenv from 'dotenv';
-
-dotenv.config();
+import { UserObj } from './../interfaces/user';
 const mongoose = require('mongoose');
-const { DB_URI } = process.env;
+const { DB_URI, SALT_WORK_FACTOR } = process.env;
 
 mongoose.connect(DB_URI, {
     useNewUrlParser: true,
@@ -16,8 +16,7 @@ mongoose.connect(DB_URI, {
 })
 
 const Schema = mongoose.Schema;
-const { SALT_WORK_FACTOR } = process.env;
-const bcrypt = require('bcryptjs');
+// const bcrypt = require('bcryptjs');
 
 const userSchema = new Schema({
     email: { type: String, required: true },

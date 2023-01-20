@@ -1,7 +1,7 @@
-import express from 'express';
+import express, {Request, Response} from 'express';
 const router = express.Router();
 
-router.get('/', (req, res) => res.send('hello from Cluster router'));
+router.get('/', (req: Request, res: Response) => res.send('hello from Cluster router'));
 
 // Add Cluster POST from Axios:
 router.post('/', (req, res) => {

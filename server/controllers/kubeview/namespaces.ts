@@ -4,6 +4,10 @@ import { Request, Response, NextFunction } from 'express';
 // reference:
 // https://kubeview.benco.io/cmd/server/
 
+// /api/namespaces    --> Return a list of namespaces
+// /api/scrape/{ns}	  --> Main data gathering call, returns objects in given namespace
+// /api/config	      --> Called by front end to get NAMESPACE_SCOPE setting
+
 export const namespaces = (req: Request, res: Response, next: NextFunction) => {
   const options = {
     host: 'localhost',

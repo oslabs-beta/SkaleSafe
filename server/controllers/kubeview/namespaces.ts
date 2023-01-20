@@ -1,11 +1,14 @@
 import * as http from 'http';
 import { Request, Response, NextFunction } from 'express';
 
+// reference:
+// https://kubeview.benco.io/cmd/server/
+
 export const namespaces = (req: Request, res: Response, next: NextFunction) => {
   const options = {
     host: 'localhost',
     port: 8080,
-    path: '/scrape',
+    path: '/api/scrape',
   };
 
   http

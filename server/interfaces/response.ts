@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 
-import { type } from "os";
-
-export type ResponseObj = {
-
-}
+export type ResponseObj = (
+ req: Request,
+ res: Response,
+ next: NextFunction,
+) => void;

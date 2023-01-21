@@ -7,8 +7,8 @@ import {Error} from './ReactRoutertest/Error.js';
 
 //Links are setup to allow only <routes> to change; the whole app is not re-rendered
 //Nested routes
-  //parent child routes; element only given to children as appropriate
-  //if the parent route needs to be rendered, use index for the route instead of path
+  //parent to child relationship within routes; element only given to children as appropriate
+  //if the parent route needs to be rendered, create a new child route using index for the route instead of path
   //sharing a layout is possible amongst children via passing an element that carries the layout into the parent
 function App() {
   return (

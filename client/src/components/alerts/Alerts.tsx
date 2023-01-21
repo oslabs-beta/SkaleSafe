@@ -1,11 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react';
 
-type Props = {}
+import Toggle from './toggle/Toggle';
+
+type Props = {
+  description: string;
+};
 
 const Alerts = (props: Props) => {
   return (
-    <div>Alerts</div>
-  )
-}
+    <div className='flex flex-col mt-20 gap-y-3'>
+      <Toggle />
+      <Toggle />
+      <Toggle />
+      <Toggle />
+      <Toggle />
+      <Toggle />
+      <Toggle />
+    </div>
+  );
+};
+
+export default Alerts;
 
 export default Alerts

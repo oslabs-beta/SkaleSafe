@@ -44,6 +44,7 @@ function Sidebar() {
                                     <span>Home</span>
                                 </a>
                             </li>
+                            {/* make alerts render on the screen on click: path='/alerts' */}
                             <li className="rounded-sm" onClick={() => console.log('Alerts clicked!')}>
                                 <a
                                     href="#"

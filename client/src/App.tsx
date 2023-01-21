@@ -2,9 +2,9 @@ import { Route, Routes } from 'react-router-dom';
 import React from 'react';
 
 // import AddCluster from './components/addCluster/AddCluster';
-import { Error } from './components/Error.tsx';
-import { Home } from './components/Home.tsx';
-import SignIn  from './components/SignIn.tsx';
+import { Error } from './components/Error';
+import { Home } from './components/Home';
+import SignIn  from './components/SignIn';
 import Navbar from './components/navbar/Navbar';
 import AddCluster from './components/addCluster/AddCluster';
 import NewUser from './components/newUser/NewUser';

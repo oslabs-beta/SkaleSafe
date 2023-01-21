@@ -17,7 +17,7 @@ router.post('/signup', userController.createUser, (req: Request, res: Response) 
     // res.status(200).send()
 });
 
-router.post('/signup', userController.createUser, (req: Request, res: Response) => {
+router.post('/signin', userController.verifyUser, (req: Request, res: Response) => {
     // res.status(200).send()
 });
 

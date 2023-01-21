@@ -8,6 +8,7 @@ import bodyParser from 'body-parser';
 import connectDB from './models/db';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
+import mongoose from 'mongoose';
 import multer from 'multer';
 import path from 'path';
 import process from 'process';
@@ -17,13 +18,15 @@ import promRouter from './routes/prom/prom';
 //User Route
 import userRouter from './routes/user/userRouter';
 
+mongoose.set('strictQuery', true);
+
 const PORT = process.env.PORT || 3002;
 
 // allows backend to get file:
 const upload = multer({ dest: 'uploads/' });
 const app = express();
 
-connectDB();
+// connectDB();
 
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -32,15 +35,16 @@ app.use(cors());
 app.use('/users', userRouter);
 app.use('/prom', promRouter);
 app.use('/add-cluster', addClusterRouter);
+app.use('/client', express.static(path.resolve(__dirname, '../client')));
 
 app.get('/', (req: Request, res: Response) => {
-  res.send('This is a test!');
+  res.sendFile(path.resolve(__dirname, '../client/index.html'));
 });
 
-app.get('/database', (req: Request, res: Response) => {
-  // test db route
-  res.send('You have reached the database route');
-});
+// app.get('/database', (req: Request, res: Response) => {
+//   // test db route
+//   res.send('You have reached the database route');
+// });
 
 app.use('*', (err: ErrorRequestHandler, req: Request, res: Response, next: NextFunction) => {
   res.status(404).send('Not Found');

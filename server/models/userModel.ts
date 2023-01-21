@@ -1,22 +1,11 @@
-import 'dotenv/config'
-
 import mongoose, { Error, Schema, model } from 'mongoose';
 
 import { UserObj } from './../interfaces/user';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 // import bcrypt from "bcryptjs";
-
-// const { SALT_WORK_FACTOR } = process.env;
-
-// mongoose.connect(DB_URI, {
-//     useNewUrlParser: true,
-//     dbName: 'SkaleSafe1'
-// })
-// .then(() => console.log('Connected to MongoDB Database'))
-// .catch((err: ErrorRequestHandler) => {
-//     console.error(`Error connecting to MongoDB Database: ${err}`);
-
-// })
 
 const userSchema = new Schema<UserObj>({
     firstname: {type: String, required: true},

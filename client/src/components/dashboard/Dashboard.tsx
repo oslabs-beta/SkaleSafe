@@ -9,7 +9,7 @@ type Props = {}
 
 const Dashboard = (props: Props) => {
 
-const [active, setActive] = useState(1)
+const [active, setActive] = useState(1);
 // clicking on the different options on the sidebar changes the 'active' state above
 
   return (
@@ -121,7 +121,7 @@ const [active, setActive] = useState(1)
                             </li>
                             <li className="rounded-sm" onClick={() => console.log('Logout clicked!')}>
                                 <a
-                                    href="#"
+                                    href="/signin"
                                     className="flex items-center p-2 space-x-3 rounded-md"
                                 >
                                     <svg
@@ -148,8 +148,6 @@ const [active, setActive] = useState(1)
                 </div>
             </div>
         </div>
-    </div>
-    {/* CODE TO BE MOVED TO Sidebar.jsx ENDS HERE */}
           {/* {active === 1 && (
               <ClusterInfo />
           )} */}
@@ -159,6 +157,8 @@ const [active, setActive] = useState(1)
           {/* {active === 3 && (
               <Profile />
           )} */}
+    </div>
+    {/* CODE TO BE MOVED TO Sidebar.jsx ENDS HERE */}
     </div>
   )
 }

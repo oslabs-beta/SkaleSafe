@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 
-type Props = {};
+type Props = {
+  name: string;
+};
 
 const Toggle = (props: Props) => {
+  const { name } = props;
   const [toggle, setToggle] = useState(true);
 
   const switchColor = toggle
@@ -14,7 +17,7 @@ const Toggle = (props: Props) => {
 
   return (
     <>
-      <div className='flex flex-grid justify-center items-center '>
+      <div className='flex flex-grid justify-left items-center '>
         <p className={`mr-3 ${onOffColor}`}>{toggle ? 'Off' : 'On'}</p>
 
         {/* Toggle container */}
@@ -31,10 +34,10 @@ const Toggle = (props: Props) => {
 
           {/* Message */}
         </div>
-        <p className='ml-8 text-gray-800'>Pod traffic above 70% threshold</p>
+        <p className='ml-8 text-gray-800'>{name}</p>
       </div>
     </>
   );
 };
 
-export default Toggle
+export default Toggle;

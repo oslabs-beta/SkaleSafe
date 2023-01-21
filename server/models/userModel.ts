@@ -1,11 +1,19 @@
-import mongoose, { Error, Schema, model } from 'mongoose';
+import{ Error, Schema, model } from 'mongoose';
 
 import { UserObj } from './../interfaces/user';
-import dotenv from 'dotenv';
 
-dotenv.config();
-
+const mongoose = require('mongoose');
 // import bcrypt from "bcryptjs";
+
+// const { DB_URI } = process.env;
+// // const DB_URI = "mongodb+srv://admin:XACBc7MLwhPZLkY@skalesafe1.71hd29l.mongodb.net/test"
+
+// mongoose.connect(DB_URI)
+// .then(() => console.log('Connected to MongoDB Database'))
+// .catch((err: Error) => {
+//     console.error(`Error connecting to MongoDB Database: ${err}`);
+
+// })
 
 const userSchema = new Schema<UserObj>({
     firstname: {type: String, required: true},

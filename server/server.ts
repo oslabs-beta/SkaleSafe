@@ -26,7 +26,7 @@ const PORT = process.env.PORT || 3002;
 const upload = multer({ dest: 'uploads/' });
 const app = express();
 
-// connectDB();
+connectDB();
 
 app.use(bodyParser.json());
 app.use(cookieParser());

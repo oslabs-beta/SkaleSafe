@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
 
-const NewUser = () => {
+const SignIn = () => {
   const [clusterURL, setClusterURL] = useState('');
   const [kubernetesPort, setKubernetesPort] = useState('');
   const [clusterName, setClusterName] = useState('');
@@ -56,14 +56,14 @@ const NewUser = () => {
                 className={activeTab === 1 ? active : nonActive}
                 onClick={() => setActiveTab(1)}
               >
-                Sign Up
+                Welcome
               </button>
-              <button
+              {/* <button
                 className={activeTab === 2 ? active : nonActive}
                 onClick={() => setActiveTab(2)}
               >
                 Add Cluster Info
-              </button>
+              </button> */}
             </div>
             <div className='divide-y divide-gray-200'>
               <form
@@ -103,7 +103,7 @@ const NewUser = () => {
                         onClick={() => setActiveTab(2)}
                         className='bg-transparent px-8 py-3 mt-6 cursor-pointer rounded-md text-lg focus:scale-95 border-violet-300 border-2 text-violet-800 hover:text-white hover:shadow-[inset_13rem_0_0_0] hover:shadow-violet-500 duration-[400ms,700ms] transition-[color,box-shadow]'
                       >
-                        Next step...
+                        Sign In!
                       </button>
                     </div>
                   </div>
@@ -192,4 +192,4 @@ const NewUser = () => {
   );
 };
 
-export default NewUser;
+export default SignIn;

@@ -17,6 +17,6 @@
     "jsx": "react-jsx",
     "rootDir": "."
   },
-  "include": [ "client/src"],
+  "include": [ "Client/src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -1,6 +1,5 @@
-const mongoose = require('mongoose');
-// import mongoose from 'mongoose';
-const { MONGO_URI } = process.env;
+// const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const options = {
     useNewUrlParser: true,

@@ -8,7 +8,6 @@ import bodyParser from 'body-parser';
 import connectDB from './models/db';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
-import mongoose from 'mongoose';
 import multer from 'multer';
 import path from 'path';
 import process from 'process';
@@ -17,8 +16,6 @@ import process from 'process';
 import promRouter from './routes/prom/prom';
 //User Route
 import userRouter from './routes/user/userRouter';
-
-mongoose.set('strictQuery', true);
 
 const PORT = process.env.PORT || 3002;
 

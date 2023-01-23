@@ -4,9 +4,12 @@
 
 
 body {
+    background-image: url('/Users/owner/Codesmith/SkaleSafe/Client/assets/SkaleSafe.png');
+    background-repeat: no-repeat;
+    background-size: 80vw 80vh;
     display: flex;
     justify-content: center;
-    background-color:teal;
+    background-color:black;
     margin: 0;
     padding: 0;
 }

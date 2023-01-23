@@ -20,7 +20,7 @@ export default function Sidebar() {
                     </div>
                     <div className="flex-1">
                         <ul className="pt-2 pb-4 space-y-1 text-sm">
-                            <li className="rounded-sm">
+                            <li className="rounded-sm" onClick={() => console.log('Home clicked!')}>
                                 <a
                                     href="#"
                                     className="flex items-center p-2 space-x-3 rounded-md"
@@ -42,7 +42,8 @@ export default function Sidebar() {
                                     <span>Home</span>
                                 </a>
                             </li>
-                            <li className="rounded-sm">
+                            {/* make alerts render on the screen on click: path='/alerts' */}
+                            <li className="rounded-sm" onClick={() => console.log('Alerts clicked!')}>
                                 <a
                                     href="#"
                                     className="flex items-center p-2 space-x-3 rounded-md"
@@ -61,10 +62,10 @@ export default function Sidebar() {
                                             d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
                                         />
                                     </svg>
-                                    <span>Inbox</span>
+                                    <span>Alerts</span>
                                 </a>
                             </li>
-                            <li className="rounded-sm">
+                            <li className="rounded-sm" onClick={() => console.log('Donations clicked!')}>
                                 <a
                                     href="#"
                                     className="flex items-center p-2 space-x-3 rounded-md"
@@ -83,10 +84,10 @@ export default function Sidebar() {
                                             d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
                                         />
                                     </svg>
-                                    <span>Orders</span>
+                                    <span>Donations</span>
                                 </a>
                             </li>
-                            <li className="rounded-sm">
+                            <li className="rounded-sm" onClick={() => console.log('Settings clicked!')}>
                                 <a
                                     href="#"
                                     className="flex items-center p-2 space-x-3 rounded-md"
@@ -113,7 +114,7 @@ export default function Sidebar() {
                                     <span>Settings</span>
                                 </a>
                             </li>
-                            <li className="rounded-sm">
+                            <li className="rounded-sm" onClick={() => console.log('Logout clicked!')}>
                                 <a
                                     href="#"
                                     className="flex items-center p-2 space-x-3 rounded-md"
@@ -132,41 +133,21 @@ export default function Sidebar() {
                                             d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
                                         />
                                     </svg>
-                                    <span>Logout</span>
+                                    <div>
+                                        <span>Logout</span>
+                                    </div>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div className="container mx-auto mt-12">
-                <div className="grid grid-cols-1 gap-6 mb-6 lg:grid-cols-3">
-                    <div className="w-full px-4 py-5 bg-white rounded-lg shadow">
-                        <div className="text-sm font-medium text-gray-500 truncate">
-                            Total users
-                        </div>
-                        <div className="mt-1 text-3xl font-semibold text-gray-900">
-                            12,00
-                        </div>
-                    </div>
-                    <div className="w-full px-4 py-5 bg-white rounded-lg shadow">
-                        <div className="text-sm font-medium text-gray-500 truncate">
-                            Total Profit
-                        </div>
-                        <div className="mt-1 text-3xl font-semibold text-gray-900">
-                            $ 450k
-                        </div>
-                    </div>
-                    <div className="w-full px-4 py-5 bg-white rounded-lg shadow">
-                        <div className="text-sm font-medium text-gray-500 truncate">
-                            Total Orders
-                        </div>
-                        <div className="mt-1 text-3xl font-semibold text-gray-900">
-                            20k
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     );
 }
+
+
+// export default Sidebar;
+
+
+

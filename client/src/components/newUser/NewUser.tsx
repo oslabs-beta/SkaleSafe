@@ -1,5 +1,5 @@
-import axios from 'axios';
 import React from 'react'
+import axios from 'axios';
 import { useState } from 'react';
 
 const NewUser = () => {
@@ -31,7 +31,7 @@ const NewUser = () => {
     };
     console.log(newUser);
 
-    axios.post('http://localhost:3002/new-user', newUser);
+    axios.post('http://localhost:3000/users/signup', newUser);
 
     // reset states
     // setClusterURL('');
@@ -69,7 +69,6 @@ const NewUser = () => {
             <div className='divide-y divide-gray-200'>
               <form
                 onSubmit={submitFormData}
-                method='GET'
                 className='py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7'
               >
                 {activeTab === 1 && (

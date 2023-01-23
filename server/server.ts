@@ -1,6 +1,6 @@
 import 'dotenv/config';
 
-import express, { ErrorRequestHandler, NextFunction, Request, Response } from 'express';
+import express, { ErrorRequestHandler, NextFunction, Request, RequestHandler, Response } from 'express';
 
 // Add Cluster Route...
 import addClusterRouter from './routes/addCluster/addCluster';
@@ -27,6 +27,7 @@ connectDB();
 
 app.use(bodyParser.json());
 app.use(cookieParser());
+app.use(express.urlencoded({extended: true})as RequestHandler)
 app.use(cors());
 
 app.use('/users', userRouter);

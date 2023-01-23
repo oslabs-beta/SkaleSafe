@@ -1,5 +1,5 @@
-import axios from 'axios';
 import React from 'react'
+import axios from 'axios';
 import { useState } from 'react';
 
 const NewUser = () => {
@@ -10,6 +10,9 @@ const NewUser = () => {
   const [thanosPort, setThanosPort] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [username, setUsername] = useState('');
 
   const [activeTab, setActiveTab] = useState(1);
 
@@ -23,6 +26,9 @@ const NewUser = () => {
     const newUser = {
       email,
       password,
+      firstName, 
+      lastName,
+      username,
       clusterURL,
       kubernetesPort,
       clusterName,
@@ -31,7 +37,7 @@ const NewUser = () => {
     };
     console.log(newUser);
 
-    axios.post('http://localhost:3002/new-user', newUser);
+    axios.post('http://localhost:3000/users/signup', newUser);
 
     // reset states
     // setClusterURL('');
@@ -69,7 +75,6 @@ const NewUser = () => {
             <div className='divide-y divide-gray-200'>
               <form
                 onSubmit={submitFormData}
-                method='GET'
                 className='py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7'
               >
                 {activeTab === 1 && (
@@ -97,6 +102,42 @@ const NewUser = () => {
                         autoComplete='off'
                         placeholder='Your Password'
                         onChange={(e) => setPassword(e.target.value)}
+                      />
+                    </div>
+                      {/* First Name */}
+                      <div className='relative'>
+                      <input
+                        type='firstName'
+                        id='firstName'
+                        className={inputField}
+                        name='firstName'
+                        autoComplete='off'
+                        placeholder='Your First Name'
+                        onChange={(e) => setFirstName(e.target.value)}
+                      />
+                    </div>
+                      {/* Last Name */}
+                      <div className='relative'>
+                      <input
+                        type='lastName'
+                        id='lastName'
+                        className={inputField}
+                        name='lastName'
+                        autoComplete='off'
+                        placeholder='Your Last Name'
+                        onChange={(e) => setLastName(e.target.value)}
+                      />
+                    </div>
+                      {/* username */}
+                      <div className='relative'>
+                      <input
+                        type='username'
+                        id='username'
+                        className={inputField}
+                        name='username'
+                        autoComplete='off'
+                        placeholder='Your Username'
+                        onChange={(e) => setUsername(e.target.value)}
                       />
                     </div>
                     <div className='relative'>

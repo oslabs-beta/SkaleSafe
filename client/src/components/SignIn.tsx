@@ -1,5 +1,5 @@
-import axios from 'axios';
 import React from 'react'
+import axios from 'axios';
 import { useState } from 'react';
 
 const SignIn = () => {
@@ -31,7 +31,7 @@ const SignIn = () => {
     };
     console.log(newUser);
 
-    axios.post('http://localhost:3002/new-user', newUser);
+    axios.post('http://localhost:3000/users/signin', newUser);
 
     // reset states
     // setClusterURL('');
@@ -121,5 +121,3 @@ const SignIn = () => {
 };
 
 export default SignIn;
-
-

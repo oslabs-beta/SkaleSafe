@@ -1,4 +1,4 @@
-import { Schema, Types } from "mongoose";
+import { Types } from "mongoose";
 
 export interface UserObj extends Document {
     _id: Types.ObjectId;

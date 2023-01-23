@@ -24,7 +24,10 @@ const Navbar = () => {
                     <Link to='/signup'><button>Sign Up</button></Link>
                 </li> */}
                 {/* <li>
-                    <Link to='/addCluster'><button>Add Your Cluster</button></Link>
+                    <Link to='/addCluster'><button>Add a Cluster</button></Link>
+                </li>
+                <li>
+                    <Link to='/dashboard'><button>My Dashboard</button></Link>
                 </li> */}
             </ul>
         </nav>

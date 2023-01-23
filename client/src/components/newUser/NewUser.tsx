@@ -10,6 +10,9 @@ const NewUser = () => {
   const [thanosPort, setThanosPort] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [username, setUsername] = useState('');
 
   const [activeTab, setActiveTab] = useState(1);
 
@@ -23,6 +26,9 @@ const NewUser = () => {
     const newUser = {
       email,
       password,
+      firstName, 
+      lastName,
+      username,
       clusterURL,
       kubernetesPort,
       clusterName,
@@ -98,12 +104,57 @@ const NewUser = () => {
                         onChange={(e) => setPassword(e.target.value)}
                       />
                     </div>
+                      {/* First Name */}
+                      <div className='relative'>
+                      <input
+                        type='firstName'
+                        id='firstName'
+                        className={inputField}
+                        name='firstName'
+                        autoComplete='off'
+                        placeholder='Your First Name'
+                        onChange={(e) => setFirstName(e.target.value)}
+                      />
+                    </div>
+                      {/* Last Name */}
+                      <div className='relative'>
+                      <input
+                        type='lastName'
+                        id='lastName'
+                        className={inputField}
+                        name='lastName'
+                        autoComplete='off'
+                        placeholder='Your Last Name'
+                        onChange={(e) => setLastName(e.target.value)}
+                      />
+                    </div>
+                      {/* username */}
+                      <div className='relative'>
+                      <input
+                        type='username'
+                        id='username'
+                        className={inputField}
+                        name='username'
+                        autoComplete='off'
+                        placeholder='Your Username'
+                        onChange={(e) => setUsername(e.target.value)}
+                      />
+                    </div>
                     <div className='relative'>
+                      {/* Added 2nd button here */}
+                    <input
+                        type='submit'
+                        className='bg-transparent px-8 py-3 mt-6 cursor-pointer rounded-md text-lg focus:scale-95 border-violet-300 border-2 text-violet-800 hover:text-white hover:shadow-[inset_13rem_0_0_0] hover:shadow-violet-500 duration-[400ms,700ms] transition-[color,box-shadow]'
+                        onClick={//insert if (auth verified) logic here with functional block bearing .replace
+                          //url needs to be generic 
+                          () => window.location.replace('http://127.0.0.1:4000/dashboard')}
+                        value='Sign me up!'
+                      />
                       <button
                         onClick={() => setActiveTab(2)}
                         className='bg-transparent px-8 py-3 mt-6 cursor-pointer rounded-md text-lg focus:scale-95 border-violet-300 border-2 text-violet-800 hover:text-white hover:shadow-[inset_13rem_0_0_0] hover:shadow-violet-500 duration-[400ms,700ms] transition-[color,box-shadow]'
                       >
-                        Next step...
+                        Add your cluster
                       </button>
                     </div>
                   </div>
@@ -178,7 +229,10 @@ const NewUser = () => {
                       <input
                         type='submit'
                         className='bg-transparent px-8 py-3 mt-6 cursor-pointer rounded-md text-lg focus:scale-95 border-violet-300 border-2 text-violet-800 hover:text-white hover:shadow-[inset_13rem_0_0_0] hover:shadow-violet-500 duration-[400ms,700ms] transition-[color,box-shadow]'
-                        value='Submit'
+                        onClick={//insert if (auth verified) logic here with functional block bearing .replace
+                          //url needs to be generic 
+                          () => window.location.replace('http://127.0.0.1:4000/dashboard')}
+                        value='Sign me up!'
                       />
                     </div>
                   </div>

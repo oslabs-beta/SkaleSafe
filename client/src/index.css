@@ -10,6 +10,9 @@
 
 
 body {
+    background-image: url('/Users/owner/Codesmith/SkaleSafe/Client/assets/SkaleSafe.png');
+    background-repeat: no-repeat;
+    background-size: 80vw 80vh;
     display: flex;
     font-family: 'Merriweather', sans-serif;
     justify-content: center;

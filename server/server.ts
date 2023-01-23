@@ -13,6 +13,7 @@ import process from 'process';
 // ROUTES---
 import promRouter from './routes/prometheus/prometheus';
 import userRouter from './routes/user/userRouter';
+import grafRouter from './routes/grafana/grafana';
 
 const PORT = process.env.PORT || 3002;
 
@@ -30,6 +31,8 @@ app.use('/users', userRouter);
 app.use('/prom', promRouter);
 app.use('/add-cluster', addClusterRouter);
 app.use('/client', express.static(path.resolve(__dirname, '../client')));
+
+app.use('/graf', grafRouter);
 
 app.get('/', (req: Request, res: Response) => {
   res.sendFile(path.resolve(__dirname, '../client/index.html'));

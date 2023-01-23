@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+    display: flex;
+    justify-content: center;
+    background-color:teal;
+    margin: 0;
+    padding: 0;
+}
+
+p{
+    display: flex;
+    justify-content: center;
+    font-size: 60;
+    color: white;
+}
+
+h1{
+    color: black;
+}

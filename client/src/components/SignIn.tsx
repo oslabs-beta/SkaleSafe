@@ -101,86 +101,13 @@ const SignIn = () => {
                     </div>
                     <div className='relative'>
                       <button
-                        onClick={() => setActiveTab(2)}
+                        onClick={//insert if (auth verified) logic here with functional block bearing .replace
+                          //url needs to be generic 
+                          () => window.location.replace('http://127.0.0.1:4000/dashboard')}
                         className='bg-transparent px-8 py-3 mt-6 cursor-pointer rounded-md text-lg focus:scale-95 border-violet-300 border-2 text-violet-800 hover:text-white hover:shadow-[inset_13rem_0_0_0] hover:shadow-violet-500 duration-[400ms,700ms] transition-[color,box-shadow]'
                       >
                         Sign In!
                       </button>
-                    </div>
-                  </div>
-                )}
-                {activeTab === 2 && (
-                  <div>
-                    {/* Add Cluster */}
-                    <div className='relative'>
-                      <input
-                        type='text'
-                        id='clusterURL'
-                        className={inputField}
-                        name='clusterURL'
-                        autoComplete='off'
-                        placeholder='Cluster URL'
-                        onChange={(e) => setClusterURL(e.target.value)}
-                      />
-                    </div>
-
-                    {/* Kubernetes Port */}
-                    <div className='relative'>
-                      <input
-                        type='text'
-                        id='kubernetesPort'
-                        className={inputField}
-                        name='kubernetesPort'
-                        autoComplete='off'
-                        placeholder='Kubernetes Port'
-                        onChange={(e) => setKubernetesPort(e.target.value)}
-                      />
-                    </div>
-
-                    {/* Thanos Port */}
-                    <div className='relative'>
-                      <input
-                        type='text'
-                        id='pw'
-                        className={inputField}
-                        name='pw'
-                        autoComplete='off'
-                        placeholder='Thanos (sidecar) Port'
-                        onChange={(e) => setThanosPort(e.target.value)}
-                      />
-                    </div>
-
-                    {/* Cluster Name */}
-                    <div className='relative'>
-                      <input
-                        type='text'
-                        id='clusterName'
-                        className={inputField}
-                        name='clusterName'
-                        autoComplete='off'
-                        placeholder='Cluster Name'
-                        onChange={(e) => setClusterName(e.target.value)}
-                      />
-                    </div>
-
-                    {/* Grafana URL */}
-                    <div className='relative'>
-                      <input
-                        type='text'
-                        id='grafanaURL'
-                        className={inputField}
-                        name='grafanaURL'
-                        autoComplete='off'
-                        placeholder='grafanaURL'
-                        onChange={(e) => setGrafanaURL(e.target.value)}
-                      />
-                    </div>
-                    <div className='relative'>
-                      <input
-                        type='submit'
-                        className='bg-transparent px-8 py-3 mt-6 cursor-pointer rounded-md text-lg focus:scale-95 border-violet-300 border-2 text-violet-800 hover:text-white hover:shadow-[inset_13rem_0_0_0] hover:shadow-violet-500 duration-[400ms,700ms] transition-[color,box-shadow]'
-                        value='Submit'
-                      />
                     </div>
                   </div>
                 )}

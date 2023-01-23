@@ -7,10 +7,15 @@ const specificMetricsList = async (
   next: NextFunction
 ) => {
   try {
-    const metrics = ['metric-1', 'metric-2', 'metric-3', 'metric-4'];
+    const metrics = [
+      'kube_namespace_labels',
+      'kube_pod_labels',
+      'kubelet_running_pods',
+      'machine_cpu_cores',
+    ];
     let metricsData: any = {};
     for (let metric of metrics) {
-      const query = `{__name__=~"${metric}", job="prom-job"}`;
+      const query = `{__name__=~"${metric}"}`;
       const { data } = await axios.get(
         `http://localhost:9090/api/v1/query?query=${query}`
       );

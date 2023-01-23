@@ -7,3 +7,5 @@ const Profile = (props: Props) => {
     <div>Profile</div>
   )
 }
+
+export default Profile;

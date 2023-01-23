@@ -32,15 +32,16 @@ app.use(cors());
 app.use('/users', userRouter);
 app.use('/prom', promRouter);
 app.use('/add-cluster', addClusterRouter);
+app.use('/client', express.static(path.resolve(__dirname, '../client')));
 
 app.get('/', (req: Request, res: Response) => {
-  res.send('This is a test!');
+  res.sendFile(path.resolve(__dirname, '../client/index.html'));
 });
 
-app.get('/database', (req: Request, res: Response) => {
-  // test db route
-  res.send('You have reached the database route');
-});
+// app.get('/database', (req: Request, res: Response) => {
+//   // test db route
+//   res.send('You have reached the database route');
+// });
 
 app.use('*', (err: ErrorRequestHandler, req: Request, res: Response, next: NextFunction) => {
   res.status(404).send('Not Found');

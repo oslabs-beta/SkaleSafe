@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import Toggle from './toggle/Toggle';
 
 const Alerts = () => {

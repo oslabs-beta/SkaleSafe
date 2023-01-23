@@ -100,11 +100,20 @@ const NewUser = () => {
                       />
                     </div>
                     <div className='relative'>
+                      {/* Added 2nd button here */}
+                    <input
+                        type='submit'
+                        className='bg-transparent px-8 py-3 mt-6 cursor-pointer rounded-md text-lg focus:scale-95 border-violet-300 border-2 text-violet-800 hover:text-white hover:shadow-[inset_13rem_0_0_0] hover:shadow-violet-500 duration-[400ms,700ms] transition-[color,box-shadow]'
+                        onClick={//insert if (auth verified) logic here with functional block bearing .replace
+                          //url needs to be generic 
+                          () => window.location.replace('http://127.0.0.1:4000/dashboard')}
+                        value='Sign me up!'
+                      />
                       <button
                         onClick={() => setActiveTab(2)}
                         className='bg-transparent px-8 py-3 mt-6 cursor-pointer rounded-md text-lg focus:scale-95 border-violet-300 border-2 text-violet-800 hover:text-white hover:shadow-[inset_13rem_0_0_0] hover:shadow-violet-500 duration-[400ms,700ms] transition-[color,box-shadow]'
                       >
-                        Next step...
+                        Add your cluster
                       </button>
                     </div>
                   </div>
@@ -179,7 +188,10 @@ const NewUser = () => {
                       <input
                         type='submit'
                         className='bg-transparent px-8 py-3 mt-6 cursor-pointer rounded-md text-lg focus:scale-95 border-violet-300 border-2 text-violet-800 hover:text-white hover:shadow-[inset_13rem_0_0_0] hover:shadow-violet-500 duration-[400ms,700ms] transition-[color,box-shadow]'
-                        value='Submit'
+                        onClick={//insert if (auth verified) logic here with functional block bearing .replace
+                          //url needs to be generic 
+                          () => window.location.replace('http://127.0.0.1:4000/dashboard')}
+                        value='Sign me up!'
                       />
                     </div>
                   </div>

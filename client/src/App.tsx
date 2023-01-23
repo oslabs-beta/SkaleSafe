@@ -10,6 +10,7 @@ import AddCluster from './components/addCluster/AddCluster';
 import NewUser from './components/newUser/NewUser';
 import Alerts from './components/alerts/Alerts';
 import Dashboard from './components/dashboard/Dashboard';
+import Profile from './components/profile/Profile'
 
 //Links are setup to allow only <routes> to change; the whole app is not re-rendered
 //Nested routes
@@ -26,6 +27,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/profile' element={<Profile />} />
         <Route path='/alerts' element={<Alerts />} />
         <Route path='/signup' element={<NewUser />} />
         <Route path='/signin' element={<SignIn />} />

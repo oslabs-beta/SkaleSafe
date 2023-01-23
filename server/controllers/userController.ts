@@ -31,10 +31,14 @@ const errorHandler = (errInfo: any)  => {
 
 const userController: userController = {
     createUser: (req: Request, res: Response, next: NextFunction) => {
-        const {firstname, lastname, email, username, password} = req.body;
+        const { email, password } = req.body;
 
-        User.create({firstname, lastname, email, username, password})
-            .then((user: UserObj) => {console.log(user)})
+        User.create({ email, password})
+            .then((user: UserObj) => {
+                console.log(user)
+                res.locals.user = user;
+                return next();
+            })
             .catch((err: Error) => {
                 return next({
                     method: 'createUser',
@@ -45,14 +49,18 @@ const userController: userController = {
     },
     // getUser: (req: Request, res: Response, next: NextFunction) => {},
     verifyUser: (req: Request, res: Response, next: NextFunction)=> {
-        const {username, password} = req.body;
+        const {email, password} = req.body;
 
-        if(!username || !password) {
+        if(!email || !password) {
             return next('Username or Password is incorrect');
         }
 
-        User.findOne({ username })
-            .then((user: UserObj) =>{ console.log(user)})
+        User.findOne({ email })
+            .then((user: UserObj) =>{ 
+                console.log(user)
+                res.locals.user = user;
+                return next();
+            })
             .catch((err: Error) => {
                 return next({
                     method: 'verifyUser',

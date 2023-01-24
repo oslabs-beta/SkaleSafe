@@ -11,8 +11,6 @@ const SignIn = () => {
   const [grafanaURL, setGrafanaURL] = useState('');
   const [thanosPort, setThanosPort] = useState('');
   const [isSignedIn, setIsSignedIn] = useState(false)
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
   const [formData, setFormData] = useState<SignInData>({
     username: '',
     password: ''
@@ -49,15 +47,16 @@ const SignIn = () => {
     .then((res) => {
       if(res.data.message === 'Successful Login!') {
         setIsSignedIn(true);
+        setFormData({
+          username: '',
+          password: ''
+        })
       }
     }).catch(err => {
-      console.log(err);
+      console.log(err.message);
     });
 
-    setFormData({
-      username: '',
-      password: ''
-    })
+
 
     // reset states
     // setClusterURL('');
@@ -72,7 +71,7 @@ const SignIn = () => {
     'text-primary-color font-semibold border-b-2 border-primary-color pt-1 text-2xl';
 
   return (
-    <div className='flex flex-col justify-center sm:py-40'>
+    <div className='w-screen flex flex-row justify-center sm:py-20 lg:py-80'>
       <div className='relative w-1/2 py-3 sm:max-w-xl sm:mx-auto'>
         <div className='absolute inset-0 bg-gradient-to-r from-sapphire-blue/90 to-light-blue/90 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl'></div>
         <div className='relative px-4 py-10 bg-gradient-to-r from-prussian-blue/90 to-teal-blue/90 shadow-lg sm:rounded-3xl sm:p-20'>
@@ -123,7 +122,7 @@ const SignIn = () => {
                       type='submit'
                       className='px-8 py-3 mt-6 mr-2 cursor-pointer rounded-md text-lg focus:scale-95 border-off-white border-2 text-off-white hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]'
                     >
-                      Sign In!
+                      Sign In
                     </button>
                   </div>
                 </div>

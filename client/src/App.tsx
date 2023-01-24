@@ -2,12 +2,12 @@ import { Route, Routes } from 'react-router-dom';
 
 import AddCluster from './components/addCluster/AddCluster';
 import Alerts from './components/alerts/Alerts';
+import ContactUs from './components/contactUs/ContactUs'
 import Dashboard from './components/dashboard/Dashboard';
 import { Error } from './components/Error';
-import { Home } from './components/Home';
+import HomeContainer from './containers/HomeContainer';
 import Navbar from './components/navbar/Navbar';
 import Profile from './components/profile/Profile'
-import {ContactUs} from './components/contactUs/ContactUs'
 import SignIn  from './components/SignIn';
 import Signup from './components/signup/Signup';
 
@@ -21,12 +21,10 @@ import Signup from './components/signup/Signup';
 
 const App = () => {
   return (
-    <div className=''>
-       <Navbar />
+    <div>
+      <Navbar />
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/contactus' element = {<ContactUs/>}/>
-        <Route path='/home' element={<Home />} />
+        <Route path='/home' element={<HomeContainer />} />
         <Route path='/dashboard'>
           <Route index element = {<Dashboard />}></Route>
           <Route path='/dashboard/addcluster' element={<AddCluster />} />

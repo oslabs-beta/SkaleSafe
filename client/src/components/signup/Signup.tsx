@@ -5,7 +5,7 @@ import SignUpData from '../../interfaces/signup';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
 
-const NewUser = () => {
+const Signup = () => {
   const navigate = useNavigate();
   const [clusterURL, setClusterURL] = useState('');
   const [kubernetesPort, setKubernetesPort] = useState('');
@@ -91,7 +91,7 @@ const NewUser = () => {
 
   return (
     // This moves the boxes down and away from the navbar
-    <div className='flex flex-col justify-center sm:py-40'>
+    <div className='w-screen flex flex-col justify-center sm:py-40 '>
       {/* This one adjusts the boxes sizes to be small */}
       <div className='relative w-1/2 py-3 sm:max-w-xl sm:mx-auto'>
         {/* This div is specifically for the back box */}
@@ -297,4 +297,4 @@ const NewUser = () => {
   );
 };
 
-export default NewUser;
+export default Signup;

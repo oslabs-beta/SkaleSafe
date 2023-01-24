@@ -7,10 +7,10 @@ import Dashboard from './components/dashboard/Dashboard';
 import { Error } from './components/Error';
 import { Home } from './components/Home';
 import Navbar from './components/navbar/Navbar';
-import NewUser from './components/newUser/NewUser';
 import Profile from './components/profile/Profile'
 import React from 'react';
 import SignIn  from './components/SignIn';
+import Signup from './components/signup/Signup';
 
 //Links are setup to allow only <routes> to change; the whole app is not re-rendered
 //Nested routes
@@ -29,8 +29,8 @@ const App = () => {
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/alerts' element={<Alerts />} />
-        <Route path='/user/signup' element={<NewUser />} />
-        <Route path='/user/signin' element={<SignIn />} />
+        <Route path='/users/signup' element={<Signup />} />
+        <Route path='/users/signin' element={<SignIn />} />
         <Route path='/dashboard/addcluster' element={<AddCluster />} />
         <Route path='*' element={<Error />} />
       </Routes>

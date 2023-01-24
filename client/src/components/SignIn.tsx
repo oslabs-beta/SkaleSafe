@@ -1,32 +1,65 @@
 import { useEffect, useState } from 'react';
 
 import React from 'react'
+import SignInData from '../interfaces/signin';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
+  const navigate = useNavigate();
   const [clusterURL, setClusterURL] = useState('');
   const [kubernetesPort, setKubernetesPort] = useState('');
   const [clusterName, setClusterName] = useState('');
   const [grafanaURL, setGrafanaURL] = useState('');
   const [thanosPort, setThanosPort] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [isSignedIn, setIsSignedIn] = useState(false)
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
+  const [formData, setFormData] = useState<SignInData>({
+    username: '',
+    password: ''
+  })
+
+  useEffect(() => {
+    if(isSignedIn) {
+      navigate('/dashboard')
+    } else {
+      console.log('Error logging in')
+    }
+  }, [isSignedIn, navigate])
+
+
+  const handleChange = (event: any) => {
+    const {name, value} = event.target;
+    setFormData({...formData, [name]: value});
+  }
 
   const submitFormData = (e: any) => {
     e.preventDefault();
 
-    const newUser = {
-      email,
-      password,
-      clusterURL,
-      kubernetesPort,
-      clusterName,
-      grafanaURL,
-      thanosPort,
-    };
-    console.log(newUser);
+    // const newUser = {
+    //   email,
+    //   password,
+    //   clusterURL,
+    //   kubernetesPort,
+    //   clusterName,
+    //   grafanaURL,
+    //   thanosPort,
+    // };
 
-    axios.post('http://localhost:3000/users/signin', newUser);
+    axios.post('http://localhost:3000/users/signin', formData)
+    .then((res) => {
+      if(res.data.message === 'Successful Login!') {
+        setIsSignedIn(true);
+      }
+    }).catch(err => {
+      console.log(err);
+    });
+
+    setFormData({
+      username: '',
+      password: ''
+    })
 
     // reset states
     // setClusterURL('');
@@ -62,33 +95,34 @@ const SignIn = () => {
                   {/* Email */}
                   <div className='relative'>
                     <input
-                      type='email'
-                      id='email'
+                      type='username'
+                      id='username'
                       className={inputField}
-                      name='email'
+                      name='username'
                       autoComplete='off'
-                      placeholder='Your Email'
-                      onChange={(e) => setEmail(e.target.value)}
+                      value={formData.username}
+                      placeholder='Username'
+                      required
+                      onChange={(e) => handleChange(e)}
                     />
                   </div>
                   {/* Password */}
                   <div className='relative'>
                     <input
-                      type='text'
+                      type='password'
                       id='password'
                       className={inputField}
                       name='password'
                       autoComplete='off'
+                      value={formData.password}
                       placeholder='Your Password'
-                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                      onChange={(e) => handleChange(e)}
                     />
                   </div>
                   <div className='relative'>
                     <button
-                      onClick={//insert if (auth verified) logic here with functional block bearing .replace
-                        //url needs to be generic 
-                        () => window.location.replace('http://localhost:4000/dashboard')
-                      }
+                      type='submit'
                       className='px-8 py-3 mt-6 mr-2 cursor-pointer rounded-md text-lg focus:scale-95 border-off-white border-2 text-off-white hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]'
                     >
                       Sign In!

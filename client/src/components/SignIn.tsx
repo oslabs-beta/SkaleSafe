@@ -1,4 +1,3 @@
-import React from 'react'
 import axios from 'axios';
 import { useState } from 'react';
 
@@ -108,6 +107,18 @@ const SignIn = () => {
                       >
                         Sign In!
                       </button>
+                      {/* Added signup redirect here*/}
+                    
+                    <div className='relative'>
+                      New to SkaleSafe? 
+                      <button
+                      // needs a generic url VVVV
+                        onClick={() => window.location.assign('http://127.0.0.1:4000/signup')}
+                        className='bg-transparent px-8 py-3 mt-6 cursor-pointer rounded-md text-lg focus:scale-95 border-violet-300 border-2 text-violet-800 hover:text-white hover:shadow-[inset_13rem_0_0_0] hover:shadow-violet-500 duration-[400ms,700ms] transition-[color,box-shadow]'
+                      >
+                        Sign Up!
+                      </button>
+                    </div>
                     </div>
                   </div>
                 )}

@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom"
-import React from "react";
 
 const Navbar = () => {
     return (
-        <nav className="w-screen h-24 flex flex-row items-center justify-center bg-blue-200">
+        <nav className="w-screen h-24 flex flex-row items-center justify-center bg-white">
             <ul className="flex flex-row gap-x-3 mr-8 ">
                 <li>
                     <Link to='/'><button>Home</button></Link>
@@ -19,6 +18,9 @@ const Navbar = () => {
                 </li>
                 <li>
                     <Link to='/dashboard'><button>My Dashboard</button></Link>
+                </li>
+                <li>
+                    <Link to='/contactus'><button>Contact Us</button></Link>
                 </li>
             </ul>
         </nav>

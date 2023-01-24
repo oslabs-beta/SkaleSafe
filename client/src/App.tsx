@@ -1,5 +1,4 @@
 import { Route, Routes } from 'react-router-dom';
-import React from 'react';
 
 // import AddCluster from './components/addCluster/AddCluster';
 import { Error } from './components/Error';
@@ -11,6 +10,7 @@ import NewUser from './components/newUser/NewUser';
 import Alerts from './components/alerts/Alerts';
 import Dashboard from './components/dashboard/Dashboard';
 import Profile from './components/profile/Profile'
+import {ContactUs} from './components/contactUs/ContactUs'
 
 //Links are setup to allow only <routes> to change; the whole app is not re-rendered
 //Nested routes
@@ -26,6 +26,7 @@ const App = () => {
        <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='contactus' element = {<ContactUs/>}/>
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/alerts' element={<Alerts />} />

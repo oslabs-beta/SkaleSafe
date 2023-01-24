@@ -1,4 +1,4 @@
-import React from 'react'
+
 import axios from 'axios';
 import { useState } from 'react';
 
@@ -140,7 +140,7 @@ const NewUser = () => {
                         onChange={(e) => setUsername(e.target.value)}
                       />
                     </div>
-                    <div className='relative'>
+                    <div className='display-flex justify-content-right'>
                       {/* Added 2nd button here */}
                     <input
                         type='submit'

@@ -13,7 +13,6 @@ const grafSearch = async (
   try {
     const response = await axios.get(
       `${grafanaUrl}/api/search`,
-      // `${grafanaUrl}/api/dashboards/uid/your_dashboard_id`,
       {
         auth: {
           username: username,
@@ -23,11 +22,15 @@ const grafSearch = async (
     );
     const queryData: any = response.data;
     console.log(queryData);
-    next();
+    res.send(queryData);
+    res.locals.queryData = queryData;
+
   } catch (err) {
     console.log(err);
     res.status(500).send(err);
   }
+  next();
 };
 
 export default grafSearch;
+

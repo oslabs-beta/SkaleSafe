@@ -24,7 +24,7 @@ const Navbar = () => {
             
             <ul className="flex flex-row gap-x-4">
                 {pathname === '/dashboard' ? (
-                        [['Add Cluster', '/dashboard/addCluster'], ['My Dashboard', '/dashboard'], ['Log Out', '/home']].map(([title, url]) => (
+                        [['Add Cluster', '/dashboard/addCluster'], ['My Dashboard', '/dashboard'], ['The Team', '/dashboard/theteam']].map(([title, url]) => (
                             <li>
                                 <Link to={url}>
                                     <button className={links}>{title}</button>
@@ -32,7 +32,7 @@ const Navbar = () => {
                             </li>
                         ))
                     ) : (
-                        [['Home', '/home'], ['About', '/about'], ['Documentation', '/documentation'], ['The Team', '/team']].map(([title, url]) => (
+                        [['Home', '/home'], ['About', '/about'], ['Documentation', '/documentation'], ['The Team', '/theteam']].map(([title, url]) => (
                             <li>
                                 <Link to={url}>
                                     <button className={links}>{title}</button>

@@ -10,6 +10,8 @@ import Navbar from './components/navbar/Navbar';
 import Profile from './components/profile/Profile'
 import SignIn  from './components/SignIn';
 import Signup from './components/signup/Signup';
+import About from './components/About/About'
+import Documentation from './components/Documentation/Documentation';
 
 //Links are setup to allow only <routes> to change; the whole app is not re-rendered
 //Nested routes
@@ -20,15 +22,22 @@ import Signup from './components/signup/Signup';
 // add on click to sign/add your cluster to redirect to dashboard
 
 const App = () => {
-  return (
+  return (<>
     <div>
+      <div>
       <Navbar />
+      </div>
+
+      <div>
       <Routes>
         <Route path='/home' element={<HomeContainer />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/documentation' element={<Documentation />} />
+        <Route path='theteam' element={<ContactUs />} />
         <Route path='/dashboard'>
-          <Route index element = {<Dashboard />}></Route>
+          <Route index element = {<Dashboard />}/>
           <Route path='/dashboard/addcluster' element={<AddCluster />} />
-          <Route path='/dashboard/contactus' element={<ContactUs />} />
+          <Route path=':theteam' element={<ContactUs />} />
         </Route>
         <Route path='/profile' element={<Profile />} />
         <Route path='/alerts' element={<Alerts />} />
@@ -37,7 +46,9 @@ const App = () => {
         
         <Route path='*' element={<Error />} />
       </Routes>
+      </div>
     </div>
+    </>
   );
 };
 

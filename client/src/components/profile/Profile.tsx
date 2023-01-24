@@ -3,7 +3,17 @@ type Props = {}
 
 const Profile = (props: Props) => {
   return (
-    <div>Profile</div>
+    <>
+    <div> 
+      <br/>
+      <br/>
+      <br/>
+      <p>Profile</p>
+    </div>
+   
+    </>
+  
+    
   )
 }
 

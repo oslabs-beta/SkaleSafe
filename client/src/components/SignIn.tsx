@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react';
-
-import React from 'react'
 import SignInData from '../interfaces/signin';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';

@@ -2,12 +2,12 @@ import { Route, Routes } from 'react-router-dom';
 
 import AddCluster from './components/addCluster/AddCluster';
 import Alerts from './components/alerts/Alerts';
+import ContactUs from './components/contactUs/ContactUs'
 import Dashboard from './components/dashboard/Dashboard';
 import { Error } from './components/Error';
 import HomeContainer from './containers/HomeContainer';
 import Navbar from './components/navbar/Navbar';
 import Profile from './components/profile/Profile'
-import React from 'react';
 import SignIn  from './components/SignIn';
 import Signup from './components/signup/Signup';
 
@@ -25,12 +25,16 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path='/home' element={<HomeContainer />} />
-        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/dashboard'>
+          <Route index element = {<Dashboard />}></Route>
+          <Route path='/dashboard/addcluster' element={<AddCluster />} />
+          <Route path='/dashboard/contactus' element={<ContactUs />} />
+        </Route>
         <Route path='/profile' element={<Profile />} />
         <Route path='/alerts' element={<Alerts />} />
         <Route path='/users/signup' element={<Signup />} />
         <Route path='/users/signin' element={<SignIn />} />
-        <Route path='/dashboard/addcluster' element={<AddCluster />} />
+        
         <Route path='*' element={<Error />} />
       </Routes>
     </div>

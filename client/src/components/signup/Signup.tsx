@@ -5,7 +5,7 @@ import SignUpData from '../../interfaces/signup';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
 
-const NewUser = () => {
+const Signup = () => {
   const navigate = useNavigate();
   const [clusterURL, setClusterURL] = useState('');
   const [kubernetesPort, setKubernetesPort] = useState('');
@@ -297,4 +297,4 @@ const NewUser = () => {
   );
 };
 
-export default NewUser;
+export default Signup;

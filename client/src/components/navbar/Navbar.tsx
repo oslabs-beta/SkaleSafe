@@ -6,7 +6,7 @@ const Navbar = () => {
     const pathname = location.pathname;
     const [activeTab, setActiveTab] = useState(1);
     
-    const links = 'border-b border-honeydew text-honeydew text-sm px-2 py-1 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]'
+    const links = 'border-b border-prussian-blue text-prussian-blue text-md px-2 py-1 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]'
     const sign = '';
     // useEffect(() => {
     //     // const = JSON.parse(localStorage.getItem('user'));
@@ -16,7 +16,7 @@ const Navbar = () => {
     // },[])
 
     return (
-        <nav className="fixed w-screen h-16 flex flex-row items-center justify-between bg-honeydew/10 px-20">
+        <nav className="fixed w-screen h-16 flex flex-row items-center justify-between bg-honeydew/20 px-20">
             <div className="flex flex-row justify-between items-center">
                 <img className="w-8 max-h-sm" src='../../../assets/SkaleSafe-nobg.png' alt="A fish inside a shield"/>
                 <h1 className="text-primary-color text-3xl pl-3">SkaleSafe</h1>

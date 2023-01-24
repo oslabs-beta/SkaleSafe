@@ -1,14 +1,16 @@
-import { Link, useLocation } from "react-router-dom"
-import React, { useEffect, useState } from "react";
+import { Link, useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { SignupModal } from '../signupModal/SignupModal';
 
 const Navbar = () => {
-    const location = useLocation();
+  const location = useLocation();
     const { hash } = location;
     const pathname = location.pathname;
     const [activeTab, setActiveTab] = useState(1);
+
+  const links =
+    'border-b border-prussian-blue text-prussian-blue text-md px-2 py-1 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]';
     
-    const links = 'border-b border-prussian-blue text-prussian-blue text-md px-2 py-1 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]'
-    const sign = '';
     useEffect(() => {
         if(hash) {
             const id = hash.replace('#', '');
@@ -55,10 +57,11 @@ const Navbar = () => {
                         </li>
                     ) : (
                         [['Sign In', '/users/signin'], ['Sign Up', '/users/signup']].map(([title, url]) => (
-                            <li>
+                            <li className='flex gap-x-8 items-center'>
                                 <Link to={url}>
                                     <button className={links}>{title}</button>
                                 </Link>
+                                <SignupModal />
                             </li>
                         ))
                     )

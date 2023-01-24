@@ -24,7 +24,6 @@ const ContactUs = () => {
                 <a className="cursor-pointer bg-primary-color rounded-full p-2" href={member.github} target='_blank' rel='noreferrer'>
                   <AiFillGithub  className="fill-honeydew" size={30}/>
                 </a>
-                
               </div>
             </div>
           ))

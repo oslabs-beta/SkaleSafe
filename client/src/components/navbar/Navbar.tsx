@@ -21,8 +21,8 @@ const Navbar = () => {
             </div>
             
             <ul className="flex flex-row gap-x-4 mr-8 ">
-                {pathname === '/dashboard' ? (
-                    [['Add Cluster', '/dahsboard/addCluster'], ['My Dashboard', '/dashboard'], ['Log Out', '/home']].map(([title, url]) => (
+                {pathname === '/dashboard'   ? (
+                    [['Add Cluster', '/dashboard/addCluster'], ['My Dashboard', '/dashboard'], ['Log Out', '/users/signin'], ['Contact Us', '/dashboard/contactus']].map(([title, url]) => (
                         <li>
                             <Link to={url}>
                                 <button className={links}>{title}</button>
@@ -30,7 +30,7 @@ const Navbar = () => {
                         </li>
                         ))
                     ) : (
-                        [['Home', '/home'], ['Sign In', '/user/signin'], ['Sign Up', '/user/signup']].map(([title, url]) => (
+                        [['Home', '/home'], ['Sign In', '/users/signin'], ['Sign Up', '/users/signup'], ['Contact Us', '/contactus']].map(([title, url]) => (
                         <li>
                             <Link to={url}>
                                 <button className={links}>{title}</button>
@@ -40,6 +40,7 @@ const Navbar = () => {
                     )
                 }
             </ul>
+           
         </nav>
     )
 }

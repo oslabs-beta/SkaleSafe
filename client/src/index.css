@@ -11,8 +11,8 @@
 
 body {
     height: 100vh;
-    background-image: url('/Users/owner/Codesmith/SkaleSafe/Client/assets/SkaleSafe.png');
-    background-repeat: no-repeat;
+    /* background-image: url('/Users/owner/Codesmith/SkaleSafe/Client/assets/SkaleSafe.png');
+    background-repeat: no-repeat; */
     /* background-size: 80vw 80vh; */
     display: flex;
     font-family: 'Merriweather', sans-serif;
@@ -22,3 +22,6 @@ body {
     padding: 0;
 }
 
+#Dev2{
+    display:inline-block;
+}

@@ -27,9 +27,9 @@ const errorHandler = (errInfo: any)  => {
 
 const sessionController: sessionController = {
     isLoggedIn: (req: Request, res: Response, next: NextFunction) => {
-        console.log('this is req cookies', req.cookies);
+        console.log('this is req cookies', req.cookies.user);
 
-        Session.findOne({cookieId: req.cookies})
+        Session.findOne({cookieId: req.cookies.user})
             .then((data: any) => {
                 console.log(data)
                 if(!data) {

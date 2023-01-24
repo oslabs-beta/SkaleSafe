@@ -1,5 +1,6 @@
-import mongoose from 'mongoose';
 import 'dotenv/config';
+
+import mongoose from 'mongoose';
 
 const options = {
   useNewUrlParser: true,
@@ -10,7 +11,7 @@ const options = {
 const connectDB = async (): Promise<void> => {
   // use the try catch method to connect to the database
   try {
-    const URI = process.env.DB_URI as string;
+    const URI = process.env.MONGO_URI as string;
     const connect = await mongoose.connect(URI, options);
     console.log('Connected to the DB');
   } catch (err) {

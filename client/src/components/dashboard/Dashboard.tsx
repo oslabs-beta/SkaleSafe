@@ -1,15 +1,18 @@
+import { AiOutlineCluster, AiOutlineControl, AiOutlineWarning } from 'react-icons/ai'
 import React, { useState } from 'react'
-import { AiOutlineWarning, AiOutlineControl, AiOutlineCluster } from 'react-icons/ai'
 import { RiLogoutBoxLine, RiProfileLine, RiSettings3Line } from 'react-icons/ri'
-import { GrCluster } from 'react-icons/gr'
-
-// RiLogoutBoxLine
-
 
 // import Sidebar from '../sidebar/Sidebar.jsx'
 import Alerts from '../alerts/Alerts.tsx'
 import ClusterInfo from '../clusterInfo/ClusterInfo'
+import { GrCluster } from 'react-icons/gr'
+import Home from '../Home.tsx'
 import Profile from '../profile/Profile'
+import Sidebar from '../sidebar/Sidebar'
+
+// RiLogoutBoxLine
+
+
 
 type Props = {}
 
@@ -20,7 +23,7 @@ const [active, setActive] = useState(1);
 // clicking on the different options on the sidebar changes the 'active' state above
 
   return (
-    <div>
+    <div className='w-screen'>
     {/* CODE TO BE MOVED TO Sidebar.jsx STARTS HERE */}
       <div className='flex'>
           {/* <Sidebar /> WILL REPLACE 'CODE TO BE MOVED' ONCE REDUX IS IMPLEMENTED*/}
@@ -62,7 +65,7 @@ const [active, setActive] = useState(1);
                             </li>
                             <li className="rounded-sm" onClick={() => console.log('Settings clicked!')}>
                                 <a
-                                    href="#"
+                                    href=""
                                     className="flex items-center p-2 space-x-3 rounded-md"
                                 >
                                     <RiSettings3Line size={24}/>
@@ -71,7 +74,7 @@ const [active, setActive] = useState(1);
                             </li>
                             <li className="rounded-sm" onClick={() => console.log('Logout clicked!')}>
                                 <a
-                                    href="/signin"
+                                    href="/users/signin"
                                     className="flex items-center p-2 space-x-3 rounded-md"
                                 >
                                     <RiLogoutBoxLine size={24}/>

@@ -16,12 +16,20 @@ module.exports = {
       'light-blue': '#0EA8CF',
       pink: '#b784a7',
       purple: '#540E99',
+      honeydew: '#F0FFF0',
     },
     fontFamily: {
       serif: ['Merriweather', 'sans-serif'],
       poppins: ['Poppins', 'sans-serif'],
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        kubernetes: "url('./client/assets/kubernetes.jpg')",
+      },
+      height: {
+        128: '32rem',
+      },
+    },
   },
   plugins: [],
 };

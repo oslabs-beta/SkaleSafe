@@ -4,8 +4,10 @@ import React, { useEffect, useState } from "react";
 const Navbar = () => {
     const location = useLocation();
     const pathname = location.pathname;
-    const links = 'border-2 border-white rounded-lg text-white px-8 py-2 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]'
-
+    const [activeTab, setActiveTab] = useState(1);
+    
+    const links = 'border-b border-honeydew text-honeydew text-sm px-2 py-1 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]'
+    const sign = '';
     // useEffect(() => {
     //     // const = JSON.parse(localStorage.getItem('user'));
     //     // if(user) {
@@ -14,32 +16,51 @@ const Navbar = () => {
     // },[])
 
     return (
-        <nav className="w-screen h-24 flex flex-row items-center justify-between from-transparent bg-gradient-to-r from-prussian-blue to-teal-blue">
-            <div className="flex flex-row justify-between items-center ml-8">
-                <img className="w-10 max-h-sm" src='../../../assets/SkaleSafe-nobg.png' alt="A fish inside a shield"/>
-                <h1 className="text-primary-color text-4xl pl-3">SkaleSafe</h1>
+        <nav className="fixed w-screen h-16 flex flex-row items-center justify-between bg-honeydew/10 px-20">
+            <div className="flex flex-row justify-between items-center">
+                <img className="w-8 max-h-sm" src='../../../assets/SkaleSafe-nobg.png' alt="A fish inside a shield"/>
+                <h1 className="text-primary-color text-3xl pl-3">SkaleSafe</h1>
             </div>
             
-            <ul className="flex flex-row gap-x-4 mr-8 ">
+            <ul className="flex flex-row gap-x-4">
                 {pathname === '/dashboard' ? (
-                    [['Add Cluster', '/dahsboard/addCluster'], ['My Dashboard', '/dashboard'], ['Log Out', '/home']].map(([title, url]) => (
-                        <li>
-                            <Link to={url}>
-                                <button className={links}>{title}</button>
-                            </Link>
-                        </li>
+                        [['Add Cluster', '/dashboard/addCluster'], ['My Dashboard', '/dashboard'], ['Log Out', '/home']].map(([title, url]) => (
+                            <li>
+                                <Link to={url}>
+                                    <button className={links}>{title}</button>
+                                </Link>
+                            </li>
                         ))
                     ) : (
-                        [['Home', '/home'], ['Sign In', '/user/signin'], ['Sign Up', '/user/signup']].map(([title, url]) => (
-                        <li>
-                            <Link to={url}>
-                                <button className={links}>{title}</button>
-                            </Link>
-                        </li>
+                        [['Home', '/home'], ['About', '/about'], ['Documentation', '/documentation'], ['The Team', '/team']].map(([title, url]) => (
+                            <li>
+                                <Link to={url}>
+                                    <button className={links}>{title}</button>
+                                </Link>
+                            </li>
                         ))
                     )
                 }
             </ul>
+            <ul className="flex flex-row gap-x-4 mr-8 ">
+                {pathname === '/dashboard' ? (
+                        <li>
+                            <Link to='/home'>
+                                <button className={links}>Logout</button>
+                            </Link>
+                        </li>
+                    ) : (
+                        [['Sign In', '/users/signin'], ['Sign Up', '/users/signup']].map(([title, url]) => (
+                            <li>
+                                <Link to={url}>
+                                    <button className={links}>{title}</button>
+                                </Link>
+                            </li>
+                        ))
+                    )
+                }
+            </ul>
+
         </nav>
     )
 }

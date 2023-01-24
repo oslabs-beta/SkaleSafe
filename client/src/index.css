@@ -18,6 +18,7 @@ body {
     font-family: 'Merriweather', sans-serif;
     justify-content: center;
     background-color: theme('colors.off-white');
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
 }

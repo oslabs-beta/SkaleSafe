@@ -1,26 +1,27 @@
+/* Merriweather font */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap');
+/* Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
 body {
-    background-image: url('/Users/owner/Codesmith/SkaleSafe/Client/assets/SkaleSafe.png');
-    background-repeat: no-repeat;
-    background-size: 80vw 80vh;
+    height: 100vh;
+    /* background-image: url('/Users/owner/Codesmith/SkaleSafe/Client/assets/SkaleSafe.png');
+    background-repeat: no-repeat; */
+    /* background-size: 80vw 80vh; */
     display: flex;
+    font-family: 'Merriweather', sans-serif;
     justify-content: center;
-    background-color:white;
+    background-color: theme('colors.off-white');
     margin: 0;
     padding: 0;
 }
 
-p{
-    display: flex;
-    justify-content: center;
-    font-size: 60;
-    color: white;
-}
-
-h1{
-    color: black;
+#Dev2{
+    display:inline-block;
 }

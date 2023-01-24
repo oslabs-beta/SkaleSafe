@@ -1,16 +1,15 @@
 import { Route, Routes } from 'react-router-dom';
 
-// import AddCluster from './components/addCluster/AddCluster';
-import { Error } from './components/Error';
-import { Home } from './components/Home';
-import SignIn  from './components/SignIn';
-import Navbar from './components/navbar/Navbar';
 import AddCluster from './components/addCluster/AddCluster';
-import NewUser from './components/newUser/NewUser';
 import Alerts from './components/alerts/Alerts';
 import Dashboard from './components/dashboard/Dashboard';
+import { Error } from './components/Error';
+import { Home } from './components/Home';
+import Navbar from './components/navbar/Navbar';
 import Profile from './components/profile/Profile'
 import {ContactUs} from './components/contactUs/ContactUs'
+import SignIn  from './components/SignIn';
+import Signup from './components/signup/Signup';
 
 //Links are setup to allow only <routes> to change; the whole app is not re-rendered
 //Nested routes
@@ -27,12 +26,17 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/contactus' element = {<ContactUs/>}/>
-        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/home' element={<Home />} />
+        <Route path='/dashboard'>
+          <Route index element = {<Dashboard />}></Route>
+          <Route path='/dashboard/addcluster' element={<AddCluster />} />
+          <Route path='/dashboard/contactus' element={<ContactUs />} />
+        </Route>
         <Route path='/profile' element={<Profile />} />
         <Route path='/alerts' element={<Alerts />} />
-        <Route path='/signup' element={<NewUser />} />
-        <Route path='/signin' element={<SignIn />} />
-        <Route path='/addcluster' element={<AddCluster />} />
+        <Route path='/users/signup' element={<Signup />} />
+        <Route path='/users/signin' element={<SignIn />} />
+        
         <Route path='*' element={<Error />} />
       </Routes>
     </div>

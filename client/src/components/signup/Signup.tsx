@@ -1,44 +1,77 @@
+import { useEffect, useState } from 'react';
 
+import React from 'react'
+import SignUpData from '../../interfaces/signup';
 import axios from 'axios';
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 
 const NewUser = () => {
+  const navigate = useNavigate();
   const [clusterURL, setClusterURL] = useState('');
   const [kubernetesPort, setKubernetesPort] = useState('');
   const [clusterName, setClusterName] = useState('');
   const [grafanaURL, setGrafanaURL] = useState('');
   const [thanosPort, setThanosPort] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [username, setUsername] = useState('');
+  const [isSignedUp, setIsSignedUp] = useState(false);
+  const [formData, setFormData] = useState<SignUpData>({
+    firstname: '',
+    lastname: '',
+    email: '',
+    username: '',
+    password: ''
+  })
 
   const [activeTab, setActiveTab] = useState(1);
+
+  useEffect(() => {
+    if(isSignedUp) {
+      navigate('/dashboard');
+    } else {
+      console.log('There was an error signing up');
+    }
+  }, [isSignedUp, navigate]);
 
   const handleNextButton = () => {
     setActiveTab(activeTab + 1);
   };
 
-  const submitFormData = (e: any) => {
+  const handleChange = (event: any) => {
+    const {name, value} = event.target;
+    setFormData({...formData, [name]: value});
+  }
+
+  const submitFormData = (e?: any) => {
     e.preventDefault();
 
-    const newUser = {
-      email,
-      password,
-      firstName, 
-      lastName,
-      username,
-      clusterURL,
-      kubernetesPort,
-      clusterName,
-      grafanaURL,
-      thanosPort,
-    };
-    console.log(newUser);
+    // const newUser = {
+    //   firstName: formData.firstname, 
+    //   lastName: formData.lastname,
+    //   email: formData.email,
+    //   username: formData.username,
+    //   password: formData.password,
+    //   // clusterURL,
+    //   // kubernetesPort,
+    //   // clusterName,
+    //   // grafanaURL,
+    //   // thanosPort,
+    // };
 
-    axios.post('http://localhost:3000/users/signup', newUser);
+    axios.post('http://localhost:3000/users/signup', formData)
+    .then((res) => {
+      console.log(res)
+    })
+    .catch((err) => {
+      console.log(err)
+    });
 
+    setIsSignedUp(true)
+    setFormData({
+        firstname: '',
+        lastname: '',
+        email: '',
+        username: '',
+        password: ''
+    });
     // reset states
     // setClusterURL('');
     // setKubernetesPort('');
@@ -47,17 +80,27 @@ const NewUser = () => {
     // setThanosPort('');
   };
   const inputField =
-    'border-b-2 mb-4 pb-2 mb-2 border-violet-300 w-full focus:outline-none focus:border-violet-600 focus:border-b-3';
+    'border-b-2 rounded-lg mb-4 h-11 px-2 border-sapphire-blue w-full focus:outline-none focus:border-fuzzy-wuzzy focus:border-b-3';
   const active =
-    'text-violet-600 font-semibold border-b-2 border-violet-600 pt-1 text-lg';
-  const nonActive = 'text-lg text-gray-600';
+    'text-primary-color font-semibold border-b-2 border-primary-color pt-1 text-lg';
+  
+  const nonActive = 'text-lg text-off-white hover:text-purple hover:border-b-2';
+
+  const button = 
+    'px-8 py-3 mt-6 mr-2 cursor-pointer rounded-md text-lg focus:scale-95 border-off-white border-2 text-off-white hover:text-purple hover:shadow-[inset_13rem_0_0_0] hover:shadow-primary-color/80 hover:border-purple duration-[400ms,700ms] transition-[color,box-shadow]';
 
   return (
-    <div className='flex flex-col justify-center sm:py-12'>
+    // This moves the boxes down and away from the navbar
+    <div className='flex flex-col justify-center sm:py-40'>
+      {/* This one adjusts the boxes sizes to be small */}
       <div className='relative w-1/2 py-3 sm:max-w-xl sm:mx-auto'>
-        <div className='absolute inset-0 bg-gradient-to-r from-violet-300 to-violet-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl'></div>
-        <div className='relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20'>
+        {/* This div is specifically for the back box */}
+        <div className='absolute inset-0 bg-gradient-to-r from-sapphire-blue/90 to-light-blue/90 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl'></div>
+        {/* This styling is for the front box and allows you to see the inputs and text */}
+        <div className='relative px-4 py-10 bg-gradient-to-r from-prussian-blue/90 to-teal-blue/90 shadow-lg sm:rounded-3xl sm:p-20'>
+          {/* This div makes the boxes square and maxes them out */}
           <div className='max-w-md mx-auto mb-[-50px]'>
+            {/* This is for the sign up and add cluster info tabs */}
             <div className='flex place-content-center gap-x-20 mt-[-30px] mb-10'>
               <button
                 className={activeTab === 1 ? active : nonActive}
@@ -72,14 +115,39 @@ const NewUser = () => {
                 Add Cluster Info
               </button>
             </div>
-            <div className='divide-y divide-gray-200'>
               <form
                 onSubmit={submitFormData}
                 className='py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7'
               >
                 {activeTab === 1 && (
                   <div>
-                    {' '}
+                    {/* First Name */}
+                    <div className='relative'>
+                      <input
+                        type='firstname'
+                        id='first-name'
+                        className={inputField}
+                        name='firstname'
+                        autoComplete='off'
+                        value={formData.firstname}
+                        placeholder='First Name'
+                        required
+                        onChange={(e) => handleChange(e)}
+                      />
+                    </div>
+                    {/* Last Name */}
+                    <div className='relative'>
+                      <input
+                        type='lastname'
+                        id='last-name'
+                        className={inputField}
+                        name='lastname'
+                        autoComplete='off'
+                        placeholder='Last Name'
+                        required
+                        onChange={(e) => {handleChange(e)}}
+                      />
+                    </div>
                     {/* Email */}
                     <div className='relative'>
                       <input
@@ -88,44 +156,10 @@ const NewUser = () => {
                         className={inputField}
                         name='email'
                         autoComplete='off'
-                        placeholder='Your Email'
-                        onChange={(e) => setEmail(e.target.value)}
-                      />
-                    </div>
-                    {/* Password */}
-                    <div className='relative'>
-                      <input
-                        type='text'
-                        id='password'
-                        className={inputField}
-                        name='password'
-                        autoComplete='off'
-                        placeholder='Your Password'
-                        onChange={(e) => setPassword(e.target.value)}
-                      />
-                    </div>
-                      {/* First Name */}
-                      <div className='relative'>
-                      <input
-                        type='firstName'
-                        id='firstName'
-                        className={inputField}
-                        name='firstName'
-                        autoComplete='off'
-                        placeholder='Your First Name'
-                        onChange={(e) => setFirstName(e.target.value)}
-                      />
-                    </div>
-                      {/* Last Name */}
-                      <div className='relative'>
-                      <input
-                        type='lastName'
-                        id='lastName'
-                        className={inputField}
-                        name='lastName'
-                        autoComplete='off'
-                        placeholder='Your Last Name'
-                        onChange={(e) => setLastName(e.target.value)}
+                        value={formData.email}
+                        placeholder='Email'
+                        required
+                        onChange={(e) => handleChange(e)}
                       />
                     </div>
                       {/* username */}
@@ -136,26 +170,42 @@ const NewUser = () => {
                         className={inputField}
                         name='username'
                         autoComplete='off'
-                        placeholder='Your Username'
-                        onChange={(e) => setUsername(e.target.value)}
+                        value={formData.username}
+                        placeholder='Username'
+                        required
+                        onChange={(e) => handleChange(e)}
                       />
                     </div>
-                    <div className='display-flex justify-content-right'>
-                      {/* Added 2nd button here */}
-                    <input
-                        type='submit'
-                        className='bg-transparent px-8 py-3 mt-6 cursor-pointer rounded-md text-lg focus:scale-95 border-violet-300 border-2 text-violet-800 hover:text-white hover:shadow-[inset_13rem_0_0_0] hover:shadow-violet-500 duration-[400ms,700ms] transition-[color,box-shadow]'
-                        onClick={//insert if (auth verified) logic here with functional block bearing .replace
-                          //url needs to be generic 
-                          () => window.location.replace('http://127.0.0.1:4000/dashboard')}
-                        value='Sign me up!'
+                    {/* Password */}
+                    <div className='relative'>
+                      <input
+                        type='password'
+                        id='password'
+                        className={inputField}
+                        name='password'
+                        autoComplete='off'
+                        value={formData.password}
+                        placeholder='Password'
+                        required
+                        onChange={(e) => handleChange(e)}
                       />
-                      <button
+                    </div>
+
+                    <div className='relative'>
+                      {/* Added 2nd button here */}
+                    <button 
+                      type='submit'
+                      className={button}
+                    >
+                      Sign Up!
+                    </button>
+                        
+                      {/* <button
                         onClick={() => setActiveTab(2)}
-                        className='bg-transparent px-8 py-3 mt-6 cursor-pointer rounded-md text-lg focus:scale-95 border-violet-300 border-2 text-violet-800 hover:text-white hover:shadow-[inset_13rem_0_0_0] hover:shadow-violet-500 duration-[400ms,700ms] transition-[color,box-shadow]'
+                        className={button}
                       >
                         Add your cluster
-                      </button>
+                      </button> */}
                     </div>
                   </div>
                 )}
@@ -228,10 +278,12 @@ const NewUser = () => {
                     <div className='relative'>
                       <input
                         type='submit'
-                        className='bg-transparent px-8 py-3 mt-6 cursor-pointer rounded-md text-lg focus:scale-95 border-violet-300 border-2 text-violet-800 hover:text-white hover:shadow-[inset_13rem_0_0_0] hover:shadow-violet-500 duration-[400ms,700ms] transition-[color,box-shadow]'
+                        className={button}
                         onClick={//insert if (auth verified) logic here with functional block bearing .replace
                           //url needs to be generic 
-                          () => window.location.replace('http://127.0.0.1:4000/dashboard')}
+                          () => submitFormData
+                          // () => window.location.replace('http://127.0.0.1:4000/dashboard')
+                        }
                         value='Sign me up!'
                       />
                     </div>
@@ -239,7 +291,6 @@ const NewUser = () => {
                 )}
               </form>
             </div>
-          </div>
         </div>
       </div>
     </div>

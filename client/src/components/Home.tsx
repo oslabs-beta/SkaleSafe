@@ -1,8 +1,13 @@
 export function Home(){
-    return <>
-   
-    <br></br><br></br><br></br><br></br><br></br><br></br>
-    {/* <img src='/Users/owner/Codesmith/SkaleSafe/Client/assets/SkaleSafe.png' alt='Logo Image/> */}
-    <p>Welcome CTRI!</p>
-    </>
+    return (
+    <>
+        <div className='display:flex justify-content:left'>
+            <img className="w-100 h-100" src='../../../assets/SkaleSafe.png' alt="A fish inside a shield"/>
+        </div>
+        <br/>
+
+        <div>
+            <p>Description of SkaleSafe - DISPLAYED TO THE RIGHT</p>
+        </div>
+    </>)
 }

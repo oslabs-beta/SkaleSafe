@@ -3,17 +3,21 @@ import React, { useEffect, useState } from "react";
 
 const Navbar = () => {
     const location = useLocation();
+    const { hash } = location;
     const pathname = location.pathname;
     const [activeTab, setActiveTab] = useState(1);
     
     const links = 'border-b border-prussian-blue text-prussian-blue text-md px-2 py-1 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]'
     const sign = '';
-    // useEffect(() => {
-    //     // const = JSON.parse(localStorage.getItem('user'));
-    //     // if(user) {
-    //     //     setIsAuthenticated(true)
-    //     // }
-    // },[])
+    useEffect(() => {
+        if(hash) {
+            const id = hash.replace('#', '');
+            const element = document.getElementById(id);
+            if(element) {
+                element.scrollIntoView({ behavior: 'smooth'});
+            }
+        }
+    },[hash]);
 
     return (
         <nav className="fixed w-screen h-16 flex flex-row items-center justify-between bg-honeydew/20 px-20">
@@ -32,7 +36,7 @@ const Navbar = () => {
                             </li>
                         ))
                     ) : (
-                        [['Home', '/home'], ['About', '/about'], ['Documentation', '/documentation'], ['The Team', '/team']].map(([title, url]) => (
+                        [['Home', '#home'], ['About', '#about'], ['Documentation', '#documentation'], ['The Team', '#team']].map(([title, url]) => (
                             <li>
                                 <Link to={url}>
                                     <button className={links}>{title}</button>
@@ -45,7 +49,7 @@ const Navbar = () => {
             <ul className="flex flex-row gap-x-4 mr-8 ">
                 {pathname === '/dashboard' ? (
                         <li>
-                            <Link to='/home'>
+                            <Link to='#home'>
                                 <button className={links}>Logout</button>
                             </Link>
                         </li>

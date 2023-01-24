@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
+
 import { SignupModal } from '../signupModal/SignupModal';
 
 const Navbar = () => {
@@ -19,14 +20,23 @@ const Navbar = () => {
                 element.scrollIntoView({ behavior: 'smooth'});
             }
         }
-    },[hash]);
+
+        else if(location.pathname === '/home') {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            })
+        }
+    },[hash, location]);
 
     return (
         <nav className="fixed w-screen h-16 flex flex-row items-center justify-between bg-honeydew/20 px-20">
-            <div className="flex flex-row justify-between items-center">
-                <img className="w-8 max-h-sm" src='../../../assets/SkaleSafe-nobg.png' alt="A fish inside a shield"/>
-                <h1 className="text-primary-color text-3xl pl-3">SkaleSafe</h1>
-            </div>
+            <Link to='/home'>
+                <div className="flex flex-row justify-between items-center">
+                    <img className="w-8 max-h-sm" src='../../../assets/SkaleSafe-nobg.png' alt="A fish inside a shield"/>
+                    <h1 className="text-primary-color text-3xl pl-3">SkaleSafe</h1>
+                </div>
+            </Link>
             
             <ul className="flex flex-row gap-x-4">
                 {pathname === '/dashboard' ? (
@@ -38,7 +48,7 @@ const Navbar = () => {
                             </li>
                         ))
                     ) : (
-                        [['Home', '#home'], ['About', '#about'], ['Documentation', '#documentation'], ['The Team', '#team']].map(([title, url]) => (
+                        [['Home', '/home'], ['About', '#about'], ['Documentation', '#documentation'], ['The Team', '#team']].map(([title, url]) => (
                             <li>
                                 <Link to={url}>
                                     <button className={links}>{title}</button>
@@ -51,7 +61,7 @@ const Navbar = () => {
             <ul className="flex flex-row gap-x-4 mr-8 ">
                 {pathname === '/dashboard' ? (
                         <li>
-                            <Link to='#home'>
+                            <Link to='/home'>
                                 <button className={links}>Logout</button>
                             </Link>
                         </li>
@@ -59,9 +69,10 @@ const Navbar = () => {
                         [['Sign In', '/users/signin'], ['Sign Up', '/users/signup']].map(([title, url]) => (
                             <li className='flex gap-x-8 items-center'>
                                 <Link to={url}>
-                                    <button className={links}>{title}</button>
+                                    <SignupModal />
+                                    {/* <button className={links}>{title}</button> */}
                                 </Link>
-                                <SignupModal />
+                                
                             </li>
                         ))
                     )

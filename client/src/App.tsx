@@ -24,7 +24,7 @@ const App = () => {
     <div>
       <Navbar />
       <Routes>
-        <Route path='/' element={<HomeContainer />} />
+        <Route path='/home' element={<HomeContainer />} />
         <Route path='/dashboard'>
           <Route index element = {<Dashboard />}></Route>
           <Route path='/dashboard/addcluster' element={<AddCluster />} />

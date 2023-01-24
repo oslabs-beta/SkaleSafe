@@ -2,6 +2,7 @@ import 'dotenv/config';
 
 import express, { ErrorRequestHandler, NextFunction, Request, RequestHandler, Response } from 'express';
 
+
 // Add Cluster Route...
 import addClusterRouter from './routes/addCluster/addCluster';
 import bodyParser from 'body-parser';
@@ -13,6 +14,7 @@ import process from 'process';
 // ROUTES---
 import promRouter from './routes/prometheus/prometheus';
 import userRouter from './routes/user/userRouter';
+import grafRouter from './routes/grafana/grafana';
 
 const PORT = process.env.PORT || 3002;
 
@@ -23,13 +25,29 @@ connectDB();
 
 app.use(bodyParser.json());
 app.use(cookieParser());
+
+// app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:8888',
+  optionsSuccessStatus: 200
+}));
+
+
+app.use((req, res, next) => {
+  res.setHeader("X-Frame-Options", "allow-from http://localhost:8888");
+  console.log("X-Frame-Options");
+  next();
+});
+
 app.use(express.urlencoded({extended: true})as RequestHandler)
-app.use(cors());
+
 
 app.use('/users', userRouter);
 app.use('/prom', promRouter);
 app.use('/add-cluster', addClusterRouter);
 app.use('/client', express.static(path.resolve(__dirname, '../client')));
+
+app.use('/graf', grafRouter);
 
 app.get('/', (req: Request, res: Response) => {
   res.sendFile(path.resolve(__dirname, '../client/index.html'));

@@ -73,7 +73,7 @@ const [active, setActive] = useState(1);
                             </li>
                             <li className="rounded-sm" onClick={() => console.log('Logout clicked!')}>
                                 <a
-                                    href="/signin"
+                                    href="/users/signin"
                                     className="flex items-center p-2 space-x-3 rounded-md"
                                 >
                                     <RiLogoutBoxLine size={24}/>

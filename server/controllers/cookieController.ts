@@ -7,8 +7,22 @@ interface cookieController {
     setSSIDCookie: ResponseObj;
 }
 
+const errorHandler = (errInfo: any)  => {
+    const { method, type, err } = errInfo;
+
+    return {
+        log: `userController.${method} ${type}: ERROR: ${
+            typeof err === 'object' ? JSON.stringify(err) : err
+        }`,
+        message: {
+            err: `Error occcured in userController.${method}. Check the server logs for more details.`
+        }
+    }    
+}
+
 const cookieController: cookieController = {
-    addCookie: (req: Request, res: Response, next: NextFunction) => {
+    addCookie: (req: Request, res: Response, next: NextFunction) => { 
+    
         if(res.locals.user) {
             let randNum = Math.random().toString();
             randNum = randNum.substring(2, randNum.length);
@@ -17,8 +31,12 @@ const cookieController: cookieController = {
                 httpOnly: true,
                 secure: true
             })
+            return next();
         }
-        return next();
+        else {
+
+        }
+        
     },
     setSSIDCookie: (req: Request, res: Response, next: NextFunction) => {
         if(res.locals.user) {
@@ -26,6 +44,7 @@ const cookieController: cookieController = {
                 httpOnly: true,
                 secure: true
             })
+            return next();
         }
     }
 };

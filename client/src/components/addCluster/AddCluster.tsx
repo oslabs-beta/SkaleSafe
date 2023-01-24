@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import axios from 'axios';
 
@@ -34,7 +34,7 @@ const AddCluster = () => {
     'border-b-2 pb-2 border-violet-300 w-full focus:outline-none focus:border-violet-600 focus:border-b-3';
 
   return (
-    <div className='min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12'>
+    <div className='w-screen min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12'>
       <div className='relative w-1/2 py-3 sm:max-w-xl sm:mx-auto'>
         <div className='absolute inset-0 bg-gradient-to-r from-violet-300 to-violet-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl'></div>
         <div className='relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20'>
@@ -111,6 +111,9 @@ const AddCluster = () => {
                     type='submit'
                     className='bg-transparent px-8 py-3 mt-10 cursor-pointer rounded-md text-lg focus:scale-95 border-violet-300 border-2 text-violet-800 hover:text-white hover:shadow-[inset_13rem_0_0_0] hover:shadow-violet-500 duration-[400ms,700ms] transition-[color,box-shadow]'
                     value='Add Cluster'
+                    onClick={//insert if (auth verified) logic here with functional block bearing .replace
+                      //url needs to be generic 
+                      () => window.location.replace('http://127.0.0.1:4000/dashboard')}
                   />
                 </div>
               </form>

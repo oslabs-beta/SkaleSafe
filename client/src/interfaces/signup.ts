@@ -1,10 +1,10 @@
-import { Types } from "mongoose";
 
-export interface UserObj extends Document {
-    _id: Types.ObjectId;
+interface SignUpData {
     firstname: string;
     lastname: string;
     email: string;
     username: string;
     password: string;
 }
+
+export default SignUpData;

@@ -9,8 +9,11 @@ mongoose.set('strictQuery', true);
 const SALT_WORK_FACTOR = 10;
 
 const userSchema = new Schema<UserObj>({
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true, minlength: 8, hide: true },
+    firstname: { type: String, required: true },
+    lastname: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
+    username: { type: String, required: true, unique: true },
+    password: { type: String, required: true, minlength: 8, hide: true },
 });
 
 userSchema.pre('save', function (next) {

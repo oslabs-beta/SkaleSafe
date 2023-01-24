@@ -1,20 +1,19 @@
+import { useEffect, useState } from 'react';
+
 import React from 'react'
+import SignUpData from '../../interfaces/signup';
 import axios from 'axios';
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 
 const NewUser = () => {
+  const navigate = useNavigate();
   const [clusterURL, setClusterURL] = useState('');
   const [kubernetesPort, setKubernetesPort] = useState('');
   const [clusterName, setClusterName] = useState('');
   const [grafanaURL, setGrafanaURL] = useState('');
   const [thanosPort, setThanosPort] = useState('');
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
-  // const [firstName, setFirstName] = useState('');
-  // const [lastName, setLastName] = useState('');
-  // const [username, setUsername] = useState('');
-
-  const [formData, setFormData] = useState({
+  const [isSignedUp, setIsSignedUp] = useState(false);
+  const [formData, setFormData] = useState<SignUpData>({
     firstname: '',
     lastname: '',
     email: '',
@@ -22,32 +21,57 @@ const NewUser = () => {
     password: ''
   })
 
-
   const [activeTab, setActiveTab] = useState(1);
+
+  useEffect(() => {
+    if(isSignedUp) {
+      navigate('/dashboard');
+    } else {
+      console.log('There was an error signing up');
+    }
+  }, [isSignedUp, navigate]);
 
   const handleNextButton = () => {
     setActiveTab(activeTab + 1);
   };
 
+  const handleChange = (event: any) => {
+    const {name, value} = event.target;
+    setFormData({...formData, [name]: value});
+  }
+
   const submitFormData = (e?: any) => {
     e.preventDefault();
 
     // const newUser = {
-    //   // firstName, 
-    //   // lastName,
-    //   // email,
-    //   // username,
-    //   // password,
+    //   firstName: formData.firstname, 
+    //   lastName: formData.lastname,
+    //   email: formData.email,
+    //   username: formData.username,
+    //   password: formData.password,
     //   // clusterURL,
     //   // kubernetesPort,
     //   // clusterName,
     //   // grafanaURL,
     //   // thanosPort,
     // };
-    console.log(formData);
 
-    axios.post('http://localhost:3000/users/signup', formData);
+    axios.post('http://localhost:3000/users/signup', formData)
+    .then((res) => {
+      console.log(res)
+    })
+    .catch((err) => {
+      console.log(err)
+    });
 
+    setIsSignedUp(true)
+    setFormData({
+        firstname: '',
+        lastname: '',
+        email: '',
+        username: '',
+        password: ''
+    });
     // reset states
     // setClusterURL('');
     // setKubernetesPort('');
@@ -100,25 +124,28 @@ const NewUser = () => {
                     {/* First Name */}
                     <div className='relative'>
                       <input
-                        type='firstName'
-                        id='firstName'
+                        type='firstname'
+                        id='first-name'
                         className={inputField}
-                        name='firstName'
+                        name='firstname'
                         autoComplete='off'
+                        value={formData.firstname}
                         placeholder='First Name'
-                        onChange={(e) => setFormData({...formData, firstname: e.target.value})}
+                        required
+                        onChange={(e) => handleChange(e)}
                       />
                     </div>
                     {/* Last Name */}
                     <div className='relative'>
                       <input
-                        type='lastName'
-                        id='lastName'
+                        type='lastname'
+                        id='last-name'
                         className={inputField}
-                        name='lastName'
+                        name='lastname'
                         autoComplete='off'
                         placeholder='Last Name'
-                        onChange={(e) => setFormData({...formData, lastname: e.target.value})}
+                        required
+                        onChange={(e) => {handleChange(e)}}
                       />
                     </div>
                     {/* Email */}
@@ -129,8 +156,10 @@ const NewUser = () => {
                         className={inputField}
                         name='email'
                         autoComplete='off'
+                        value={formData.email}
                         placeholder='Email'
-                        onChange={(e) => setFormData({...formData, email: e.target.value})}
+                        required
+                        onChange={(e) => handleChange(e)}
                       />
                     </div>
                       {/* username */}
@@ -141,20 +170,24 @@ const NewUser = () => {
                         className={inputField}
                         name='username'
                         autoComplete='off'
+                        value={formData.username}
                         placeholder='Username'
-                        onChange={(e) => setFormData({...formData, username: e.target.value})}
+                        required
+                        onChange={(e) => handleChange(e)}
                       />
                     </div>
                     {/* Password */}
                     <div className='relative'>
                       <input
-                        type='text'
+                        type='password'
                         id='password'
                         className={inputField}
                         name='password'
                         autoComplete='off'
+                        value={formData.password}
                         placeholder='Password'
-                        onChange={(e) => setFormData({...formData, password: e.target.value})}
+                        required
+                        onChange={(e) => handleChange(e)}
                       />
                     </div>
 

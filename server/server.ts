@@ -1,11 +1,6 @@
 import 'dotenv/config';
 
-import express, {
-  ErrorRequestHandler,
-  NextFunction,
-  Request,
-  Response,
-} from 'express';
+import express, { ErrorRequestHandler, NextFunction, Request, RequestHandler, Response } from 'express';
 
 
 // Add Cluster Route...
@@ -16,7 +11,6 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import path from 'path';
 import process from 'process';
-
 // ROUTES---
 import promRouter from './routes/prometheus/prometheus';
 import userRouter from './routes/user/userRouter';
@@ -31,6 +25,7 @@ connectDB();
 
 app.use(bodyParser.json());
 app.use(cookieParser());
+
 // app.use(cors());
 app.use(cors({
   origin: 'http://localhost:8888',
@@ -43,6 +38,9 @@ app.use((req, res, next) => {
   console.log("X-Frame-Options");
   next();
 });
+
+app.use(express.urlencoded({extended: true})as RequestHandler)
+
 
 app.use('/users', userRouter);
 app.use('/prom', promRouter);

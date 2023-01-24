@@ -5,6 +5,8 @@ import { GrCluster } from 'react-icons/gr'
 
 // RiLogoutBoxLine
 
+import Sidebar from '../sidebar/Sidebar'
+import Home from '../Home.tsx'
 
 // import Sidebar from '../sidebar/Sidebar.jsx'
 import Alerts from '../alerts/Alerts.tsx'
@@ -62,7 +64,7 @@ const [active, setActive] = useState(1);
                             </li>
                             <li className="rounded-sm" onClick={() => console.log('Settings clicked!')}>
                                 <a
-                                    href="#"
+                                    href=""
                                     className="flex items-center p-2 space-x-3 rounded-md"
                                 >
                                     <RiSettings3Line size={24}/>

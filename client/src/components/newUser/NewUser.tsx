@@ -8,11 +8,20 @@ const NewUser = () => {
   const [clusterName, setClusterName] = useState('');
   const [grafanaURL, setGrafanaURL] = useState('');
   const [thanosPort, setThanosPort] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [username, setUsername] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
+  // const [firstName, setFirstName] = useState('');
+  // const [lastName, setLastName] = useState('');
+  // const [username, setUsername] = useState('');
+
+  const [formData, setFormData] = useState({
+    firstname: '',
+    lastname: '',
+    email: '',
+    username: '',
+    password: ''
+  })
+
 
   const [activeTab, setActiveTab] = useState(1);
 
@@ -23,21 +32,21 @@ const NewUser = () => {
   const submitFormData = (e?: any) => {
     e.preventDefault();
 
-    const newUser = {
-      firstName, 
-      lastName,
-      email,
-      username,
-      password,
-      // clusterURL,
-      // kubernetesPort,
-      // clusterName,
-      // grafanaURL,
-      // thanosPort,
-    };
-    console.log(newUser);
+    // const newUser = {
+    //   // firstName, 
+    //   // lastName,
+    //   // email,
+    //   // username,
+    //   // password,
+    //   // clusterURL,
+    //   // kubernetesPort,
+    //   // clusterName,
+    //   // grafanaURL,
+    //   // thanosPort,
+    // };
+    console.log(formData);
 
-    axios.post('http://localhost:3000/users/signup', newUser);
+    axios.post('http://localhost:3000/users/signup', formData);
 
     // reset states
     // setClusterURL('');
@@ -62,7 +71,7 @@ const NewUser = () => {
       {/* This one adjusts the boxes sizes to be small */}
       <div className='relative w-1/2 py-3 sm:max-w-xl sm:mx-auto'>
         {/* This div is specifically for the back box */}
-        <div className='absolute inset-0 bg-gradient-to-r from-sapphire-blue/90 to-light-blue/90  shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl'></div>
+        <div className='absolute inset-0 bg-gradient-to-r from-sapphire-blue/90 to-light-blue/90 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl'></div>
         {/* This styling is for the front box and allows you to see the inputs and text */}
         <div className='relative px-4 py-10 bg-gradient-to-r from-prussian-blue/90 to-teal-blue/90 shadow-lg sm:rounded-3xl sm:p-20'>
           {/* This div makes the boxes square and maxes them out */}
@@ -97,7 +106,7 @@ const NewUser = () => {
                         name='firstName'
                         autoComplete='off'
                         placeholder='First Name'
-                        onChange={(e) => setFirstName(e.target.value)}
+                        onChange={(e) => setFormData({...formData, firstname: e.target.value})}
                       />
                     </div>
                     {/* Last Name */}
@@ -109,7 +118,7 @@ const NewUser = () => {
                         name='lastName'
                         autoComplete='off'
                         placeholder='Last Name'
-                        onChange={(e) => setLastName(e.target.value)}
+                        onChange={(e) => setFormData({...formData, lastname: e.target.value})}
                       />
                     </div>
                     {/* Email */}
@@ -121,7 +130,7 @@ const NewUser = () => {
                         name='email'
                         autoComplete='off'
                         placeholder='Email'
-                        onChange={(e) => setEmail(e.target.value)}
+                        onChange={(e) => setFormData({...formData, email: e.target.value})}
                       />
                     </div>
                       {/* username */}
@@ -133,7 +142,7 @@ const NewUser = () => {
                         name='username'
                         autoComplete='off'
                         placeholder='Username'
-                        onChange={(e) => setUsername(e.target.value)}
+                        onChange={(e) => setFormData({...formData, username: e.target.value})}
                       />
                     </div>
                     {/* Password */}
@@ -145,22 +154,19 @@ const NewUser = () => {
                         name='password'
                         autoComplete='off'
                         placeholder='Password'
-                        onChange={(e) => setPassword(e.target.value)}
+                        onChange={(e) => setFormData({...formData, password: e.target.value})}
                       />
                     </div>
 
                     <div className='relative'>
                       {/* Added 2nd button here */}
-                    <input
-                        type='submit'
-                        className={button}
-                        onClick={//insert if (auth verified) logic here with functional block bearing .replace
-                          //url needs to be generic 
-                          () => submitFormData()
-                          // () => window.location.replace('http://127.0.0.1:4000/dashboard')
-                        }
-                        value='Sign me up!'
-                      />
+                    <button 
+                      type='submit'
+                      className={button}
+                    >
+                      Sign Up!
+                    </button>
+                        
                       {/* <button
                         onClick={() => setActiveTab(2)}
                         className={button}

@@ -10,7 +10,12 @@ module.exports = {
       'sapphire-blue': '#126180',
       'prussian-blue': '#003153',
       'fuzzy-wuzzy': '#CC7178',
-      'off-white': '#f5f5f5',
+      'off-white': '#e5e7eb',
+      white: '#FFFFFF',
+      black: '#000000',
+      'light-blue': '#0EA8CF',
+      pink: '#b784a7',
+      purple: '#540E99',
     },
     fontFamily: {
       serif: ['Merriweather', 'sans-serif'],

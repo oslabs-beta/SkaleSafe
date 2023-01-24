@@ -10,24 +10,15 @@
 
 
 body {
+    height: 100vh;
     background-image: url('/Users/owner/Codesmith/SkaleSafe/Client/assets/SkaleSafe.png');
     background-repeat: no-repeat;
-    background-size: 80vw 80vh;
+    /* background-size: 80vw 80vh; */
     display: flex;
     font-family: 'Merriweather', sans-serif;
     justify-content: center;
-    background-color: theme('colors.dark-grey');
+    background-color: theme('colors.off-white');
     margin: 0;
     padding: 0;
 }
 
-p{
-    display: flex;
-    justify-content: center;
-    font-size: 60;
-    color: white;
-}
-
-h1{
-    color: black;
-}

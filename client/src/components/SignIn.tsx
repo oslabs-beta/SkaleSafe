@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import SignInData from '../interfaces/signin';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -47,16 +48,16 @@ const SignIn = () => {
     .then((res) => {
       if(res.data.message === 'Successful Login!') {
         setIsSignedIn(true);
-        setFormData({
-          username: '',
-          password: ''
-        })
       }
     }).catch(err => {
       console.log(err.message);
     });
 
-
+    setIsSignedIn(true);
+    setFormData({
+      username: '',
+      password: ''
+    })
 
     // reset states
     // setClusterURL('');

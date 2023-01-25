@@ -26,18 +26,18 @@ connectDB();
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-// app.use(cors());
-app.use(cors({
-  origin: 'http://localhost:8888',
-  optionsSuccessStatus: 200
-}));
+app.use(cors());
+// app.use(cors({
+//   origin: 'http://localhost:8888',
+//   optionsSuccessStatus: 200
+// }));
 
 
-app.use((req, res, next) => {
-  res.setHeader("X-Frame-Options", "allow-from http://localhost:8888");
-  console.log("X-Frame-Options");
-  next();
-});
+// app.use((req, res, next) => {
+//   res.setHeader("X-Frame-Options", "allow-from http://localhost:8888");
+//   console.log("X-Frame-Options");
+//   next();
+// });
 
 app.use(express.urlencoded({extended: true})as RequestHandler)
 

@@ -13,7 +13,6 @@ const ContactUs = () => {
       <div className="h-4/5 w-full flex flex-rox gap-20 items-center justify-center">
         {Team.map((member) => (
             <div className={developer}>
-              {/* image does not need to be static; can reference our profile pics in linked in for example */}
               <h2 className="text-xl font-bold text-prussian-blue tracking-wide">{member.name}</h2>
               <img className="lg:w-36 lg:h-36 md:w-32 md:h-32 rounded-full border-2 border-honeydew shadow-sm shadow-honeydew" src={member.image} alt="A fish inside a shield"/> 
               <p>This is where the bio can go</p>

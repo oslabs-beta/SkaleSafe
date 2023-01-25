@@ -17,22 +17,20 @@ router.get('/signup', (req: Request, res: Response) => {
 
 router.post('/signup', 
 userController.createUser, 
-// cookieController.addCookie, 
-// sessionController.startSession,
-// cookieController.setSSIDCookie,
+cookieController.addCookie, 
+sessionController.startSession,
+cookieController.setSessionCookie,
 (req: Request, res: Response) => {
-    res.status(200).send('Signup a success')
+    res.status(200).json(res.locals.user);
 });
 
 router.post('/signin', 
 userController.verifyUser, 
-// cookieController.addCookie, 
+cookieController.addCookie, 
 // sessionController.isLoggedIn, 
-// cookieController.setSSIDCookie, 
+// cookieController.setSessionCookie, 
 (req: Request, res: Response) => {
-    res.status(200).json({
-        message: 'Successful Login!'
-    })
+    res.status(200).json(res.locals.user);
 });
 
 export default router;

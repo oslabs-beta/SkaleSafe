@@ -18,18 +18,31 @@ const userSchema = new Schema<UserObj>({
 
 userSchema.pre('save', function (next) {
   if (this.isNew || this.isModified('password')) {
-    bcrypt
-      .hash(this.password, SALT_WORK_FACTOR)
+    const user = this;
+    
+    bcrypt.hash(user.password, SALT_WORK_FACTOR)
       .then((hash: string) => {
-        this.password = hash;
+        user.password = hash;
         return next();
       })
       .catch((err: Error) => {
         return next(err);
       });
+  } else  {
+    next();
   }
 });
 
 const User = model('User', userSchema);
 
 module.exports = User;
+
+
+// function (err: Error, hash: string) {
+//   if(err) {
+//     return next(err);
+//   } else {
+//     user.password = hash;
+//     next();
+//   }
+// }

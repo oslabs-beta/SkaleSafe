@@ -10,6 +10,9 @@ import Navbar from './components/navbar/Navbar';
 import Profile from './components/profile/Profile'
 import SignIn  from './components/SignIn';
 import Signup from './components/signup/Signup';
+import About from './components/About/About'
+import Documentation from './components/Documentation/Documentation';
+import Demo from './components/Demo/demo'
 
 //Links are setup to allow only <routes> to change; the whole app is not re-rendered
 //Nested routes
@@ -22,21 +25,30 @@ import Signup from './components/signup/Signup';
 const App = () => {
   return (
     <div>
+    
       <Navbar />
+
+      <div>
       <Routes>
+      <Route path='/' element={<HomeContainer />} />
         <Route path='/home' element={<HomeContainer />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/documentation' element={<Documentation />} />
+        <Route path='/theteam' element={<ContactUs />} />
         <Route path='/dashboard'>
-          <Route index element = {<Dashboard />}></Route>
+          <Route index element = {<Dashboard />}/>
           <Route path='/dashboard/addcluster' element={<AddCluster />} />
-          <Route path='/dashboard/contactus' element={<ContactUs />} />
+          <Route path=':theteam' element={<ContactUs />} />
         </Route>
         <Route path='/profile' element={<Profile />} />
         <Route path='/alerts' element={<Alerts />} />
         <Route path='/users/signup' element={<Signup />} />
         <Route path='/users/signin' element={<SignIn />} />
+        <Route path='/demo' element={<Demo/>}/>
         
         <Route path='*' element={<Error />} />
       </Routes>
+      </div>
     </div>
   );
 };

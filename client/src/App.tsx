@@ -23,7 +23,7 @@ import Demo from './components/Demo/demo'
 // add on click to sign/add your cluster to redirect to dashboard
 
 const App = () => {
-  return (<>
+  return (
     <div>
     
       <Navbar />
@@ -50,7 +50,6 @@ const App = () => {
       </Routes>
       </div>
     </div>
-    </>
   );
 };
 

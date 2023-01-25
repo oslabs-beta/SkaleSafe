@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import SignInData from '../interfaces/signin';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -15,15 +16,6 @@ const SignIn = () => {
     username: '',
     password: ''
   })
-
-  useEffect(() => {
-    if(isSignedIn) {
-      navigate('/dashboard')
-    } else {
-      console.log('Error logging in')
-    }
-  }, [isSignedIn, navigate])
-
 
   const handleChange = (event: any) => {
     const {name, value} = event.target;
@@ -45,18 +37,19 @@ const SignIn = () => {
 
     axios.post('http://localhost:3000/users/signin', formData)
     .then((res) => {
-      if(res.data.message === 'Successful Login!') {
+      if(res.status === 200) {
         setIsSignedIn(true);
-        setFormData({
-          username: '',
-          password: ''
-        })
+        navigate('/dashboard');
       }
     }).catch(err => {
       console.log(err.message);
     });
 
-
+    // setIsSignedIn(true);
+    setFormData({
+      username: '',
+      password: ''
+    })
 
     // reset states
     // setClusterURL('');

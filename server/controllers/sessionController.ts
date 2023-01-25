@@ -31,16 +31,9 @@ const sessionController: sessionController = {
 
         Session.findOne({cookieId: req.cookies.user})
             .then((data: any) => {
-                console.log(data)
-                if(!data) {
-                    console.log('This means there was no data')
-                    res.redirect('/signup');
-                } else {
-                    return next();
-                }
+                next();
             })
             .catch((err: ErrorRequestHandler) => {
-                console.log('this one means we hit the catch')
                 res.redirect('/signup');
                 return next({
                   method: 'isLoggedIn',
@@ -51,7 +44,6 @@ const sessionController: sessionController = {
     },
     startSession: (req: Request, res: Response, next: NextFunction) => {
         const { _id } = res.locals.user;
-        console.log(_id)
 
         Session.create({ cookieId: _id })
             .then((session: object) => {

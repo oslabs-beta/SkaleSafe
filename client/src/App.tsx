@@ -4,15 +4,14 @@ import AddCluster from './components/addCluster/AddCluster';
 import Alerts from './components/alerts/Alerts';
 import ContactUs from './components/contactUs/ContactUs'
 import Dashboard from './components/dashboard/Dashboard';
+import Demo from './components/Demo/demo'
 import { Error } from './components/Error';
 import HomeContainer from './containers/HomeContainer';
 import Navbar from './components/navbar/Navbar';
 import Profile from './components/profile/Profile'
 import SignIn  from './components/SignIn';
-import Signup from './components/signup/Signup';
-import About from './components/About/About'
-import Documentation from './components/Documentation/Documentation';
-import Demo from './components/Demo/demo'
+// import Signup from './components/signup/Signup';
+import { SignupModal } from './components/signupModal/SignupModal';
 
 //Links are setup to allow only <routes> to change; the whole app is not re-rendered
 //Nested routes
@@ -23,7 +22,7 @@ import Demo from './components/Demo/demo'
 // add on click to sign/add your cluster to redirect to dashboard
 
 const App = () => {
-  return (<>
+  return (
     <div>
     
       <Navbar />
@@ -32,9 +31,6 @@ const App = () => {
       <Routes>
       <Route path='/' element={<HomeContainer />} />
         <Route path='/home' element={<HomeContainer />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/documentation' element={<Documentation />} />
-        <Route path='/theteam' element={<ContactUs />} />
         <Route path='/dashboard'>
           <Route index element = {<Dashboard />}/>
           <Route path=':addcluster' element={<AddCluster />} />
@@ -42,15 +38,13 @@ const App = () => {
         </Route>
         <Route path='/profile' element={<Profile />} />
         <Route path='/alerts' element={<Alerts />} />
-        <Route path='/users/signup' element={<Signup />} />
         <Route path='/users/signin' element={<SignIn />} />
-        <Route path='/demo' element={<Demo/>}/>
+        <Route path='/demo' element={<Demo />}/>
         
         <Route path='*' element={<Error />} />
       </Routes>
       </div>
     </div>
-    </>
   );
 };
 

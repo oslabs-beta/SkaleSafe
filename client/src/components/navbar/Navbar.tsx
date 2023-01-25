@@ -1,8 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 
-import { SignupModal } from '../signupModal/SignupModal';
-
 const Navbar = () => {
   const location = useLocation();
     const { hash } = location;
@@ -11,7 +9,7 @@ const Navbar = () => {
   const outLinks =
     'border-b border-prussian-blue text-prussian-blue text-md px-2 py-1 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]';
 
-    const inLinks = 'text-md px-2 py-1 '
+    const inLinks = 'text-md px-2 py-1'
 
 
     useEffect(() => {
@@ -57,7 +55,7 @@ const Navbar = () => {
                             </li>
                         ))
                     ) : (
-                        [['Home', '/home'], ['About', '#about'], ['Demo', '#demo'], ['Documentation', '#documentation'], ['The Team', '#theteam']].map(([title, url]) => (
+                        [['Home', '/home'], ['About', '#about'], ['Demo', '#demo'], ['Documentation', '#documentation'], ['The Team', '#team']].map(([title, url]) => (
                             <li>
                                 <Link to={url}>
                                     <button className={outLinks}>{title}</button>
@@ -75,11 +73,9 @@ const Navbar = () => {
                             </Link>
                         </li>
                     ) : (
-                        // <SignupModal />
                         [['Sign In', '/users/signin'], ['Sign Up', '/users/signup']].map(([title, url]) => (
                             <li className='flex gap-x-8 items-center'>
                                 <Link to={url}>
-                                    {/* <SignupModal /> */}
                                     <button className={outLinks}>{title}</button>
                                 </Link>
                             </li>

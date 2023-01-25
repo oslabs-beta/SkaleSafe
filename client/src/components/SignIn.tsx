@@ -17,15 +17,6 @@ const SignIn = () => {
     password: ''
   })
 
-  useEffect(() => {
-    if(isSignedIn) {
-      navigate('/dashboard')
-    } else {
-      console.log('Error logging in')
-    }
-  }, [isSignedIn, navigate])
-
-
   const handleChange = (event: any) => {
     const {name, value} = event.target;
     setFormData({...formData, [name]: value});
@@ -46,14 +37,15 @@ const SignIn = () => {
 
     axios.post('http://localhost:3000/users/signin', formData)
     .then((res) => {
-      if(res.data.message === 'Successful Login!') {
+      if(res.status === 200) {
         setIsSignedIn(true);
+        navigate('/dashboard');
       }
     }).catch(err => {
       console.log(err.message);
     });
 
-    setIsSignedIn(true);
+    // setIsSignedIn(true);
     setFormData({
       username: '',
       password: ''

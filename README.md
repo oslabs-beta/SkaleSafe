@@ -44,11 +44,11 @@ Upon contributing, you agree that your contributions will be licensed under its 
 ## The Core Team
 Please feel free to reach out to us if you would like to contribute or if you have any questions or concerns!
 
-- **Bethany Mattern** 
-- **Leonardo Brian Campos** - [Github](https://github.com/MetaBrian) - [LinkedIn](https://www.linkedin.com/in/brian-campos-475673261/)
-- **Daniel Doody** 
-- **Kelvin Shamy** 
-- **Sang Rea Han** 
+- **Bethany Mattern** - [Github](https://github.com/bethanycable) - [LinkedIn] (https://www.linkedin.com/in/bethany-a-mattern/)
+- **Leonardo Brian Campos** - [Github](https://github.com/MetaBrian) & [LinkedIn](https://www.linkedin.com/in/leonardo-brian-campos/)
+- **Daniel Doody** - [Github](https://github.com/daniel-doody) - [LinkedIn]()
+- **Kelvin Shamy** - [Github](https://github.com/KelvinShamy)- [LinkedIn](https://www.linkedin.com/in/kelvin-shamy-839798a1/)
+- **Sang Rea Han** - [Github](https://github.com/sxhanx) - [LinkedIn]()
 <br/>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

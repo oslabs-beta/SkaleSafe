@@ -1,5 +1,4 @@
 import { Error, Schema, model } from 'mongoose';
-
 import { UserObj } from './../interfaces/user';
 import bcrypt from 'bcryptjs';
 
@@ -9,11 +8,15 @@ mongoose.set('strictQuery', true);
 const SALT_WORK_FACTOR = 10;
 
 const userSchema = new Schema<UserObj>({
-    firstname: { type: String, required: true },
-    lastname: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
-    username: { type: String, required: true, unique: true },
-    password: { type: String, required: true, minlength: 8, hide: true },
+  firstname: { type: String, required: true },
+  lastname: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  username: { type: String, required: true, unique: true },
+  password: { type: String, required: true, minlength: 8, hide: true },
+  grafURL: { type: String, required: true, minlength: 8, hide: true },
+  grafUsername: { type: String, required: true, minlength: 8, hide: true },
+  grafPassword: { type: String, required: true, minlength: 8, hide: true },
+  grafUID: { type: String, required: true, minlength: 8, hide: true },
 });
 
 userSchema.pre('save', function (next) {

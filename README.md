@@ -37,7 +37,7 @@ CTRI-13 Team 4
 <br/>
 
 ## License
-By contributing, you agree that your contributions will be licensed under its [MIT License](/LICENSE).
+Upon contributing, you agree that your contributions will be licensed under its [MIT License](/LICENSE).
 
 <br/>
 

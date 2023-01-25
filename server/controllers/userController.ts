@@ -77,10 +77,6 @@ const userController: userController = {
           .then((result: boolean) => {
             if (result) {
               res.locals.user = user;
-              // Add cookie of the username
-              res.cookie('username', user.username, {
-                expires: new Date(Date.now() + 900000),
-              });
             }
             return next();
           })

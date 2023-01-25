@@ -31,14 +31,13 @@ router.post(
   '/signin',
   userController.verifyUser,
   async (req: Request, res: Response) => {
-    // add cookie (userId)
-    // const newCookie = await res.locals.name;
-    // res.cookie('userId', newCookie, { maxAge: 900000, httpOnly: true });
-    // console.log('added cookie:', newCookie);
-    // res.status(200).json({
-    //   message: 'Successful Login!',
-    // });
-    console.log('passed verifyUser middleware');
+    const username = res.locals.user.username;
+    console.log('from res.locals.user:', username);
+    // Add cookie of the username
+    res.cookie('token', 'testing');
+    res.status(200).json({
+      message: 'Successful Login!',
+    });
   }
 );
 

@@ -11,16 +11,16 @@ const SignIn = () => {
   const [clusterName, setClusterName] = useState('');
   const [grafanaURL, setGrafanaURL] = useState('');
   const [thanosPort, setThanosPort] = useState('');
-  const [isSignedIn, setIsSignedIn] = useState(false)
+  const [isSignedIn, setIsSignedIn] = useState(false);
   const [formData, setFormData] = useState<SignInData>({
     username: '',
-    password: ''
-  })
+    password: '',
+  });
 
   const handleChange = (event: any) => {
-    const {name, value} = event.target;
-    setFormData({...formData, [name]: value});
-  }
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
   const submitFormData = (e: any) => {
     e.preventDefault();
@@ -35,21 +35,33 @@ const SignIn = () => {
     //   thanosPort,
     // };
 
-    axios.post('http://localhost:3000/users/signin', formData)
-    .then((res) => {
-      if(res.status === 200) {
-        setIsSignedIn(true);
-        navigate('/dashboard');
-      }
-    }).catch(err => {
-      console.log(err.message);
-    });
+    axios
+      .post('http://localhost:3000/users/signin', formData)
+      .then((res) => {
+        if (res.status === 200) {
+          // console.log(formData.username);
+
+          // Using Local Storage to track user/permissions:
+          // local storage functions:  https://developer.mozilla.org/en-US/docs/Web/API/Storage/clear
+          localStorage.setItem('username', formData.username);
+          // to retrieve username... use localStorage.getItem(keyname)
+          // to delete username (session)... use localStorage.clear()
+
+          // placed cookie here...
+          // setCookie('token', formData.username, 900);
+          setIsSignedIn(true);
+          navigate('/dashboard');
+        }
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
 
     // setIsSignedIn(true);
     setFormData({
       username: '',
-      password: ''
-    })
+      password: '',
+    });
 
     // reset states
     // setClusterURL('');
@@ -70,11 +82,7 @@ const SignIn = () => {
         <div className='relative px-4 py-10 bg-gradient-to-r from-prussian-blue/90 to-teal-blue/90 shadow-lg sm:rounded-3xl sm:p-20'>
           <div className='max-w-md mx-auto mb-[-50px]'>
             <div className='flex place-content-center gap-x-20 mt-[-30px] mb-10'>
-              <button
-                className={active}
-              >
-                Welcome
-              </button>
+              <button className={active}>Welcome</button>
             </div>
             <div className='divide-y divide-gray-200'>
               <form

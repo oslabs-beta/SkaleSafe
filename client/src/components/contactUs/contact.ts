@@ -22,7 +22,7 @@ const team: member[] = [
     {
         name: 'Dianel Doody',
         image: '../../../assets/SkaleSafe-nobg.png',
-        linkedin: '',
+        linkedin: 'https://www.linkedin.com/in/daniel-doody/',
         github: 'https://github.com/daniel-doody',
     },
     {
@@ -34,7 +34,7 @@ const team: member[] = [
     {
         name: 'Sang Rea Han',
         image: '../../../assets/SkaleSafe-nobg.png',
-        linkedin: '',
+        linkedin: 'https://www.linkedin.com/in/sangreahan/',
         github: 'https://github.com/sxhanx',
     }
 ]

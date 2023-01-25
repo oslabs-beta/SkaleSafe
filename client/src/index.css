@@ -1,7 +1,7 @@
-/* Merriweather font */
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap');
 /* Poppins font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+/* Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 
 @tailwind base;
@@ -15,7 +15,7 @@ body {
     background-repeat: no-repeat; */
     /* background-size: 80vw 80vh; */
     display: flex;
-    font-family: 'Merriweather', sans-serif;
+    font-family: theme('fontFamily.roboto');
     justify-content: center;
     background-color: theme('colors.off-white');
     overflow-x: hidden;

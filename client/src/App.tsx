@@ -10,6 +10,7 @@ import Navbar from './components/navbar/Navbar';
 import Profile from './components/profile/Profile'
 import SignIn  from './components/SignIn';
 import Signup from './components/signup/Signup';
+import { SignupModal } from './components/signupModal/SignupModal';
 
 //Links are setup to allow only <routes> to change; the whole app is not re-rendered
 //Nested routes
@@ -32,7 +33,7 @@ const App = () => {
         </Route>
         <Route path='/profile' element={<Profile />} />
         <Route path='/alerts' element={<Alerts />} />
-        <Route path='/users/signup' element={<Signup />} />
+        <Route path='/users/signup' element={<SignupModal />} />
         <Route path='/users/signin' element={<SignIn />} />
         
         <Route path='*' element={<Error />} />

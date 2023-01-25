@@ -66,11 +66,12 @@ const Navbar = () => {
                             </Link>
                         </li>
                     ) : (
+                        // <SignupModal />
                         [['Sign In', '/users/signin'], ['Sign Up', '/users/signup']].map(([title, url]) => (
                             <li className='flex gap-x-8 items-center'>
                                 <Link to={url}>
-                                    <SignupModal />
-                                    {/* <button className={links}>{title}</button> */}
+                                    {/* <SignupModal /> */}
+                                    <button className={links}>{title}</button>
                                 </Link>
                                 
                             </li>

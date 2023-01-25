@@ -9,7 +9,7 @@ const ContactUs = () => {
 
   return (
     <div id="team" className='h-[48rem] w-screen px-20 bg-honeydew flex flex-col items-center justify-center'>
-      <h1 className="text-3xl text-sapphire-blue font-bold">Contact Us</h1>
+      <h1 className="text-3xl text-sapphire-blue font-bold uppercase tracking-wider border-b-4">Meet The Team</h1>
       <div className="h-4/5 w-full flex flex-rox gap-20 items-center justify-center">
         {Team.map((member) => (
             <div className={developer}>

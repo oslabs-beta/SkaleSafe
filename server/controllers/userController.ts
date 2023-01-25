@@ -66,11 +66,9 @@ const userController: userController = {
             error: 'Invalid credentials. User does not exist',
           });
         }
-
-        // add cookie (userId)
-        res.cookie('userId', user._id, { maxAge: 900000, httpOnly: true });
-        console.log('added cookie:', user._id);
-
+        res.locals.name = user.username;
+        console.log('res.locals.name from middleware:', res.locals.name);
+        console.log('username from middleware', user.username);
         const plainPassword = password;
         const hashPassword = user.password;
 
@@ -79,8 +77,12 @@ const userController: userController = {
           .then((result: boolean) => {
             if (result) {
               res.locals.user = user;
-              return next();
+              // Add cookie of the username
+              res.cookie('username', user.username, {
+                expires: new Date(Date.now() + 900000),
+              });
             }
+            return next();
           })
           .catch((err: ErrorRequestHandler) => {
             return next({

@@ -19,6 +19,8 @@ const axiosDashboard = async (
   try {
     const response = await axios.get(
       `${grafanaUrl}/api/dashboards/home`,
+      // `${grafanaUrl}/d/85a562078cdf77779eaa1add43ccec1e/kubernetes-compute-resources-namespace-pods`,
+      
       {
           headers: {
               'Authorization': `Basic ${basicAuth}`,

@@ -13,14 +13,15 @@ module.exports = {
       'off-white': '#e5e7eb',
       white: '#FFFFFF',
       black: '#000000',
+      grey: '#6b7280',
       'light-blue': '#0EA8CF',
       pink: '#b784a7',
       purple: '#540E99',
       honeydew: '#F0FFF0',
     },
     fontFamily: {
-      serif: ['Merriweather', 'sans-serif'],
       poppins: ['Poppins', 'sans-serif'],
+      roboto: ['Roboto', 'sans-serif'],
     },
     extend: {
       backgroundImage: {

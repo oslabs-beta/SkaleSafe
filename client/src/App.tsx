@@ -37,7 +37,7 @@ const App = () => {
         <Route path='/theteam' element={<ContactUs />} />
         <Route path='/dashboard'>
           <Route index element = {<Dashboard />}/>
-          <Route path='/dashboard/addcluster' element={<AddCluster />} />
+          <Route path=':addcluster' element={<AddCluster />} />
           <Route path=':theteam' element={<ContactUs />} />
         </Route>
         <Route path='/profile' element={<Profile />} />

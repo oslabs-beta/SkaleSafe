@@ -15,12 +15,12 @@ const team: member[] = [
     },
     {
         name: 'Leonardo Brian Campos',
-        image: '../../../assets/SkaleSafe-nobg.png',
-        linkedin: '',
+        image: '../../../assets/Brian&Kai.jpg',
+        linkedin: 'https://www.linkedin.com/in/leonardo-brian-campos/',
         github: 'https://github.com/MetaBrian',
     },
     {
-        name: 'Dianel Doody',
+        name: 'Daniel Doody',
         image: '../../../assets/SkaleSafe-nobg.png',
         linkedin: '',
         github: 'https://github.com/daniel-doody',

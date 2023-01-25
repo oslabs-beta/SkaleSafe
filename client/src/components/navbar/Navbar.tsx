@@ -43,7 +43,7 @@ const Navbar = () => {
 
             <ul className="flex flex-row gap-x-4">
                 {pathname === '/dashboard' ? (
-                        [['Add Cluster', '/dashboard/addCluster'], ['My Dashboard', '/dashboard'], ['The Team', '/dashboard/theteam']].map(([title, url]) => (
+                        [['Add Cluster', '/dashboard/addcluster'], ['My Dashboard', '/dashboard'], ['The Team', '/dashboard/theteam']].map(([title, url]) => (
                             <li>
                                 <Link to={url}>
                                     <button className={links}>{title}</button>

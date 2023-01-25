@@ -37,10 +37,13 @@ const Navbar = () => {
                     <h1 className="text-primary-color text-3xl pl-3">SkaleSafe</h1>
                 </div>
             </Link>
-            
+                {/* <button className='border-b border-prussian-blue text-prussian-blue text-md px-2 py-1 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]' onClick={() => window.open('https://github.com/oslabs-beta/SkaleSafe', '_blank')}>
+                    GitHub
+                </button> */}
+
             <ul className="flex flex-row gap-x-4">
                 {pathname === '/dashboard' ? (
-                        [['Add Cluster', '/dashboard/addCluster'], ['My Dashboard', '/dashboard'], ['Log Out', '/home']].map(([title, url]) => (
+                        [['Add Cluster', '/dashboard/addCluster'], ['My Dashboard', '/dashboard'], ['The Team', '/dashboard/theteam']].map(([title, url]) => (
                             <li>
                                 <Link to={url}>
                                     <button className={links}>{title}</button>
@@ -48,7 +51,7 @@ const Navbar = () => {
                             </li>
                         ))
                     ) : (
-                        [['Home', '/home'], ['About', '#about'], ['Documentation', '#documentation'], ['The Team', '#team']].map(([title, url]) => (
+                        [['Home', '/home'], ['About', '#about'], ['Demo', '#demo'], ['Documentation', '#documentation'], ['The Team', '#theteam']].map(([title, url]) => (
                             <li>
                                 <Link to={url}>
                                     <button className={links}>{title}</button>
@@ -78,8 +81,8 @@ const Navbar = () => {
                         ))
                     )
                 }
+                
             </ul>
-
         </nav>
     )
 }

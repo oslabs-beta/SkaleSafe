@@ -20,7 +20,7 @@ const team: member[] = [
         github: 'https://github.com/MetaBrian',
     },
     {
-        name: 'Dianel Doody',
+        name: 'Daniel Doody',
         image: '../../../assets/SkaleSafe-nobg.png',
         linkedin: 'https://www.linkedin.com/in/daniel-doody/',
         github: 'https://github.com/daniel-doody',

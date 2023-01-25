@@ -4,12 +4,13 @@ import AddCluster from './components/addCluster/AddCluster';
 import Alerts from './components/alerts/Alerts';
 import ContactUs from './components/contactUs/ContactUs'
 import Dashboard from './components/dashboard/Dashboard';
+import Demo from './components/Demo/demo'
 import { Error } from './components/Error';
 import HomeContainer from './containers/HomeContainer';
 import Navbar from './components/navbar/Navbar';
 import Profile from './components/profile/Profile'
 import SignIn  from './components/SignIn';
-import Signup from './components/signup/Signup';
+// import Signup from './components/signup/Signup';
 import { SignupModal } from './components/signupModal/SignupModal';
 
 //Links are setup to allow only <routes> to change; the whole app is not re-rendered
@@ -23,21 +24,26 @@ import { SignupModal } from './components/signupModal/SignupModal';
 const App = () => {
   return (
     <div>
+    
       <Navbar />
+
+      <div>
       <Routes>
+      <Route path='/' element={<HomeContainer />} />
         <Route path='/home' element={<HomeContainer />} />
         <Route path='/dashboard'>
-          <Route index element = {<Dashboard />}></Route>
+          <Route index element = {<Dashboard />}/>
           <Route path='/dashboard/addcluster' element={<AddCluster />} />
-          <Route path='/dashboard/contactus' element={<ContactUs />} />
+          <Route path=':theteam' element={<ContactUs />} />
         </Route>
         <Route path='/profile' element={<Profile />} />
         <Route path='/alerts' element={<Alerts />} />
-        <Route path='/users/signup' element={<SignupModal />} />
         <Route path='/users/signin' element={<SignIn />} />
+        <Route path='/demo' element={<Demo />}/>
         
         <Route path='*' element={<Error />} />
       </Routes>
+      </div>
     </div>
   );
 };

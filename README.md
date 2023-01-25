@@ -4,7 +4,7 @@ CTRI-13 Team 4
 
 # Technologies Utilized
 
-<br>
+<br/>
 
 ### Frontend Development
 
@@ -13,7 +13,7 @@ CTRI-13 Team 4
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 
-<br>
+<br/>
 
 ### Backend Development
 
@@ -25,7 +25,7 @@ CTRI-13 Team 4
 ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 
-<br>
+<br/>
 
 ### Monitoring & Data Visualization
 
@@ -34,7 +34,12 @@ CTRI-13 Team 4
 ![Grafana](https://img.shields.io/badge/grafana-%23F46800.svg?style=for-the-badge&logo=grafana&logoColor=white)
 ![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=Prometheus&logoColor=white)
 
-</br>
+<br/>
+
+## License
+By contributing, you agree that your contributions will be licensed under its [MIT License](/LICENSE).
+
+<br/>
 
 ## The Core Team
 Please feel free to reach out to us if you would like to contribute or if you have any questions or concerns!

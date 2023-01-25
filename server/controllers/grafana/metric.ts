@@ -5,6 +5,9 @@ const grafanaUrl = 'http://localhost:8888';
 const username = 'admin';
 const password = 'prom-operator';
 
+let authBuffer = Buffer.from(username+":"+password, "utf8");
+let basicAuth = authBuffer.toString("base64");
+
 const grafSearch = async (
   req: Request,
   res: Response,
@@ -14,12 +17,11 @@ const grafSearch = async (
     const response = await axios.get(
       `${grafanaUrl}/api/search`,
       {
-        auth: {
-          username: username,
-          password: password,
-        },
-      }
-    );
+        headers: {
+            'Authorization': `Basic ${basicAuth}`,
+            'Content-Type': 'application/json',
+        }
+    });
     const queryData: any = response.data;
     console.log(queryData);
     res.send(queryData);

@@ -13,17 +13,18 @@ const userSchema = new Schema<UserObj>({
   email: { type: String, required: true, unique: true },
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true, minlength: 8, hide: true },
-  grafURL: { type: String, required: true, minlength: 8, hide: true },
-  grafUsername: { type: String, required: true, minlength: 8, hide: true },
-  grafPassword: { type: String, required: true, minlength: 8, hide: true },
-  grafUID: { type: String, required: true, minlength: 8, hide: true },
+  grafURL: { type: String, required: false },
+  grafUsername: { type: String, required: false },
+  grafPassword: { type: String, required: false },
+  grafUID: { type: String, required: false },
 });
 
 userSchema.pre('save', function (next) {
   if (this.isNew || this.isModified('password')) {
     const user = this;
-    
-    bcrypt.hash(user.password, SALT_WORK_FACTOR)
+
+    bcrypt
+      .hash(user.password, SALT_WORK_FACTOR)
       .then((hash: string) => {
         user.password = hash;
         return next();
@@ -31,7 +32,7 @@ userSchema.pre('save', function (next) {
       .catch((err: Error) => {
         return next(err);
       });
-  } else  {
+  } else {
     next();
   }
 });
@@ -39,7 +40,6 @@ userSchema.pre('save', function (next) {
 const User = model('User', userSchema);
 
 module.exports = User;
-
 
 // function (err: Error, hash: string) {
 //   if(err) {

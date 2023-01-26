@@ -25,7 +25,7 @@ const grafSearch = async (
     });
     const queryData: any = response.data;
     console.log(queryData);
-    res.send(queryData);
+    res.send(`http://localhost:8888${queryData[0]["url"]}`);
     res.locals.queryData = `http://localhost:8888${queryData[0]["url"]}`;
 
     console.log(queryData[0]["url"]);

@@ -46,7 +46,7 @@ const Navbar = () => {
                 </button> */}
 
             <ul className="flex flex-row gap-x-4">
-                {pathname === '/dashboard' || '/dashboard/addCluster' ? (
+                {pathname === ('/dashboard' || '/dashboard/addCluster') ? (
                         [['Add Cluster', '/dashboard/addCluster'], ['My Dashboard', '/dashboard']].map(([title, url]) => (
                             <li>
                                 <Link to={url}>
@@ -66,7 +66,7 @@ const Navbar = () => {
                 }
             </ul>
             <ul className="flex flex-row gap-x-4">
-                {pathname === '/dashboard' || '/dashboard/addCluster' ? (
+                {pathname === ('/dashboard' || '/dashboard/addCluster') ? (
                         <li className='flex flex-row justify-center items-center'>
                             <p className='text-xl text-honeydew mr-4'>Welcome John Wick</p>
                             <img className='w-10 h-10 rounded-full' src='../../../assets/profile.png' alt='profile photo'/>

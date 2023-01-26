@@ -13,7 +13,7 @@ const Alerts = () => {
     'Alert 7',
     'Alert 8',
   ];
-// className='flex flex-col mt-14 w-1/3 ml-[35%] gap-y-3 text-honeydew'
+  
   return (
     <div className="w-screen h-screen flex flex-col mt-24 w-1/3 ml-[30%] text-honeydew">
       <h1 className="center-self text-4xl font-bold uppercase tracking-wider">

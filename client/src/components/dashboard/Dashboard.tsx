@@ -33,12 +33,12 @@ const Dashboard = (props: Props) => {
   const listElement = 'rounded-sm hover:scale-105';
 
   return (
-    <div className='w-screen'>
+    <div className='w-screen h-screen'>
       {/* CODE TO BE MOVED TO Sidebar.jsx STARTS HERE */}
       <div className='flex'>
         {/* <Sidebar /> WILL REPLACE 'CODE TO BE MOVED' ONCE REDUX IS IMPLEMENTED*/}
         <div className='flex'>
-          <div className='flex flex-col h-screen p-3 bg-white shadow w-60'>
+          <div className='flex flex-col p-3 bg-white shadow w-60'>
             <div className='space-y-3'>
               <div className='flex items-center pt-6'>
                 <h2 className='text-xl pl-4 font-bold'>Dashboard</h2>

@@ -4,7 +4,7 @@ import { ResponseObj } from "../interfaces/response";
 
 interface cookieController {
     addCookie: ResponseObj;
-    setSSIDCookie: ResponseObj;
+    setSessionCookie: ResponseObj;
 }
 
 const errorHandler = (errInfo: any)  => {
@@ -33,12 +33,9 @@ const cookieController: cookieController = {
             })
             return next();
         }
-        else {
-
-        }
-        
     },
-    setSSIDCookie: (req: Request, res: Response, next: NextFunction) => {
+    
+    setSessionCookie: (req: Request, res: Response, next: NextFunction) => {
         if(res.locals.user) {
             res.cookie('session', res.locals.user._id, {
                 httpOnly: true,

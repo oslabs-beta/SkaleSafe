@@ -3,13 +3,12 @@ import { grafArray } from './clusterInfoData';
 type Props = {};
 
 const ClusterInfo = (props: Props) => {
-    // <iframe
-    //   src='http://localhost:8888/graf/d-solo/alertmanager-overview/alertmanager-overview?orgId=1&refresh=30s&from=1674700023028&to=1674703623028&panelId=2'
-    //   width='450'
-    //   height='200'
-    //   frameBorder='0'
-    // ></iframe>
-
+  // <iframe
+  //   src='http://localhost:8888/graf/d-solo/alertmanager-overview/alertmanager-overview?orgId=1&refresh=30s&from=1674700023028&to=1674703623028&panelId=2'
+  //   width='450'
+  //   height='200'
+  //   frameBorder='0'
+  // ></iframe>
 
   return (
     <div className='w-screen h-screen flex flex-col items-center justify-evenly text-honeydew'>

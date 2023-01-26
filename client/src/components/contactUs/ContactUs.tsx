@@ -15,7 +15,7 @@ const ContactUs = () => {
             <div className={developer}>
               {/* image does not need to be static; can reference our profile pics in linked in for example */}
               <h2 className="text-xl font-bold text-honeydew tracking-wide text-center break-words m-0">{member.name}</h2>
-              <img className="lg:w-36 lg:h-36 md:w-32 md:h-32 rounded-full border-4 border-honeydew shadow-sm shadow-honeydew" src={member.image} alt="A fish inside a shield"/> 
+              <img className="lg:w-36 lg:h-36 md:w-32 md:h-32 rounded-full border-4 border-honeydew shadow-sm shadow-honeydew" src={member.image} alt={member.alt}/> 
               {/* <p>This is where the bio can go</p> */}
               <div className="flex flex-row gap-8">
                 <a className="cursor-pointer bg-sapphire-blue rounded-full p-2" href={member.linkedin} target='_blank' rel='noreferrer'>

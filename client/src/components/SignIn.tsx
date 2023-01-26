@@ -51,7 +51,7 @@ const SignIn = () => {
         }
       })
       .catch((err) => {
-        console.log(err.message);
+        console.log(err);
       });
 
     setFormData({

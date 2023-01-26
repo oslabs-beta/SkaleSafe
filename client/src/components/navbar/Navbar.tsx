@@ -7,7 +7,7 @@ const Navbar = () => {
     const pathname = location.pathname;
 
   const outLinks =
-    'border-b border-honeydew text-honeydew text-md px-2 py-1 hover:scale-110 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]';
+    'text-honeydew text-xl font-semi px-2 py-1 hover:scale-110 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]';
 
     const inLinks = 'text-md px-2 py-1'
 
@@ -29,15 +29,15 @@ const Navbar = () => {
         }
     },[hash, location]);
 
-    const loggedOut = "fixed w-screen h-20 flex flex-row items-center justify-between bg-honeydew/10 px-20 shadow-md shadow-honeydew/10";
+    const loggedOut = "fixed w-screen h-20 flex flex-row items-center justify-between bg-honeydew/10 px-14 shadow-md shadow-honeydew/10";
     const loggedin = "w-screen h-16 flex flex-row items-center justify-between bg-gradient-to-r from-sapphire-blue to-primary-color px-20"
 
 
     return (
         <nav className={pathname === '/dashboard' ? loggedin : loggedOut}>
             <Link to='/home'>
-                <div className="flex flex-row justify-between items-center">
-                    <img className="w-8 max-h-sm" src='../../../assets/SkaleSafe-nobg.png' alt="A fish inside a shield"/>
+                <div className="flex flex-row justify-evenly items-center bg-prussian-blue w-60 h-12 rounded-full">
+                    <img className="w-8 max-h-sm " src='../../../assets/SkaleSafe-nobg.png' alt="A fish inside a shield"/>
                     <h1 className="text-primary-color text-3xl pl-3">SkaleSafe</h1>
                 </div>
             </Link>
@@ -65,7 +65,7 @@ const Navbar = () => {
                     )
                 }
             </ul>
-            <ul className="flex flex-row gap-x-4 mr-8 ">
+            <ul className="flex flex-row gap-x-4">
                 {pathname === '/dashboard' ? (
                         <li>
                             <Link to='/home'>

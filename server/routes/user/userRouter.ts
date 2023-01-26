@@ -1,7 +1,7 @@
 import express, { Request, Response } from 'express';
-import cookieParser from 'cookie-parser';
 
 import cookieController from '../../controllers/cookieController';
+import cookieParser from 'cookie-parser';
 import sessionController from '../../controllers/sessionController';
 import userController from '../../controllers/userController';
 
@@ -30,15 +30,14 @@ router.post(
 router.post(
   '/signin',
   userController.verifyUser,
-  async (req: Request, res: Response) => {
+(req: Request, res: Response) => {
     // add cookie (userId)
     // const newCookie = await res.locals.name;
     // res.cookie('userId', newCookie, { maxAge: 900000, httpOnly: true });
     // console.log('added cookie:', newCookie);
-    // res.status(200).json({
-    //   message: 'Successful Login!',
-    // });
-    console.log('passed verifyUser middleware');
+    res.status(200).json({
+      message: 'Successful Login!',
+    });
   }
 );
 

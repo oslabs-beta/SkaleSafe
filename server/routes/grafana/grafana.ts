@@ -17,6 +17,8 @@ const router = express.Router();
 // - name: GF_AUTH_ANONYMOUS_ENABLED
 // value: "true"
 
+// serve_from_sub_path to true.
+
 //after the pod restarts, restart the port forwarding for the new grafana pod
 
 
@@ -25,8 +27,11 @@ router.get('/', axiosDashboard, (req: Request, res: Response) => {
     res.send(res.locals.queryData);
 });
 
-router.get('/test', grafSearch, (req: Request, res: Response) =>
-  console.log('successfully ran graf search middleware')
+router.get('/test', grafSearch, (req: Request, res: Response) => {
+  console.log('successfully ran graf search middleware');
+  res.redirect(res.locals.link);
+}
+
 );
 
 // router.get('/api', createAPITokens, (req: Request, res: Response) =>

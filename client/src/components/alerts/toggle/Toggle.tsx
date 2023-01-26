@@ -9,15 +9,15 @@ const Toggle = (props: Props) => {
   const [toggle, setToggle] = useState(true);
 
   const switchColor = toggle
-    ? 'bg-white'
-    : 'bg-violet-500 transform translate-x-5';
+    ? 'bg-primary-color'
+    : 'bg-honeydew transform translate-x-6';
 
-  const onOffColor = toggle ? 'text-gray-400' : 'text-gray-800 font-semibold';
-  const toggleBackground = toggle ? 'bg-gray-300' : 'bg-gray-200';
+  const onOffColor = toggle ? 'text-honeydew' : 'text-honeydew font-semibold';
+  const toggleBackground = toggle ? 'bg-honeydew' : 'bg-primary-color';
 
   return (
     <>
-      <div className='flex flex-grid justify-left items-center '>
+      <div className='flex flex-grid justify-left items-center'>
         <p className={`mr-3 ${onOffColor}`}>{toggle ? 'Off' : 'On'}</p>
 
         {/* Toggle container */}
@@ -34,7 +34,7 @@ const Toggle = (props: Props) => {
 
           {/* Message */}
         </div>
-        <p className='ml-8 text-gray-800'>{name}</p>
+        <p className='ml-8 text-honey-dew'>{name}</p>
       </div>
     </>
   );

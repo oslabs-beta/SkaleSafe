@@ -27,7 +27,7 @@ const team: member[] = [
     },
     {
         name: 'Kelvin Shamy',
-        image: '../../../assets/SkaleSafe-nobg.png',
+        image: '../../../assets/kelvin.jpeg',
         linkedin: 'https://www.linkedin.com/in/kelvin-shamy-839798a1/',
         github: 'https://github.com/KelvinShamy',
     },

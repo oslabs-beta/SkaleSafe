@@ -8,12 +8,6 @@ interface member {
 
 const team: member[] = [
     {
-        name: 'Bethany Mattern',
-        image: '../../../assets/bethany.jpg',
-        linkedin: 'https://www.linkedin.com/in/bethany-a-mattern/',
-        github: 'https://github.com/bethanycable',
-    },
-    {
         name: 'Leonardo Brian Campos',
         image: '../../../assets/SkaleSafe-nobg.png',
         linkedin: 'https://www.linkedin.com/in/leonardo-brian-campos/',
@@ -21,9 +15,15 @@ const team: member[] = [
     },
     {
         name: 'Daniel Doody',
-        image: '../../../assets/SkaleSafe-nobg.png',
+        image: '../../../assets/daniel.png',
         linkedin: 'https://www.linkedin.com/in/daniel-doody/',
         github: 'https://github.com/daniel-doody',
+    },
+    {
+        name: 'Bethany Mattern',
+        image: '../../../assets/bethany.jpg',
+        linkedin: 'https://www.linkedin.com/in/bethany-a-mattern/',
+        github: 'https://github.com/bethanycable',
     },
     {
         name: 'Kelvin Shamy',

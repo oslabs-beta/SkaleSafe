@@ -1,5 +1,4 @@
-
-type Props = {}
+type Props = {};
 
 const Profile = (props: Props) => {
   return (

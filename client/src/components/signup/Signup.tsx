@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 
-import React from 'react'
+import React from 'react';
 import SignUpData from '../../interfaces/signup';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -18,26 +18,25 @@ const Signup = () => {
     lastname: '',
     email: '',
     username: '',
-    password: ''
-  })
+    password: '',
+  });
 
   const [activeTab, setActiveTab] = useState(1);
-
 
   const handleNextButton = () => {
     setActiveTab(activeTab + 1);
   };
 
   const handleChange = (event: any) => {
-    const {name, value} = event.target;
-    setFormData({...formData, [name]: value});
-  }
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
   const submitFormData = (e?: any) => {
     e.preventDefault();
 
     // const newUser = {
-    //   firstName: formData.firstname, 
+    //   firstName: formData.firstname,
     //   lastName: formData.lastname,
     //   email: formData.email,
     //   username: formData.username,
@@ -49,24 +48,25 @@ const Signup = () => {
     //   // thanosPort,
     // };
 
-    axios.post('http://localhost:3000/users/signup', formData)
-    .then((res) => {
-      if(res.status === 200) {
-        setIsSignedUp(true);
-        navigate('/dashboard')
-      }
-    })
-    .catch((err) => {
-      console.log(err)
-    });
+    axios
+      .post('http://localhost:3000/users/signup', formData)
+      .then((res) => {
+        if (res.status === 200) {
+          // setIsSignedUp(true);
+          navigate('/dashboard');
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
-    setIsSignedUp(true)
+    setIsSignedUp(true);
     setFormData({
-        firstname: '',
-        lastname: '',
-        email: '',
-        username: '',
-        password: ''
+      firstname: '',
+      lastname: '',
+      email: '',
+      username: '',
+      password: '',
     });
     // reset states
     // setClusterURL('');
@@ -79,10 +79,10 @@ const Signup = () => {
     'border-b-2 rounded-lg mb-4 h-11 px-2 border-sapphire-blue w-full focus:outline-none focus:border-fuzzy-wuzzy focus:border-b-3';
   const active =
     'text-primary-color font-semibold border-b-2 border-primary-color pt-1 text-lg';
-  
+
   const nonActive = 'text-lg text-off-white hover:text-purple hover:border-b-2';
 
-  const button = 
+  const button =
     'px-8 py-3 mt-6 mr-2 cursor-pointer rounded-md text-lg focus:scale-95 border-off-white border-2 text-off-white hover:text-purple hover:shadow-[inset_13rem_0_0_0] hover:shadow-primary-color/80 hover:border-purple duration-[400ms,700ms] transition-[color,box-shadow]';
 
   return (
@@ -111,182 +111,182 @@ const Signup = () => {
                 Add Cluster Info
               </button>
             </div>
-              <form
-                onSubmit={submitFormData}
-                className='py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7'
-              >
-                {activeTab === 1 && (
-                  <div>
-                    {/* First Name */}
-                    <div className='relative'>
-                      <input
-                        type='firstname'
-                        id='first-name'
-                        className={inputField}
-                        name='firstname'
-                        autoComplete='off'
-                        value={formData.firstname}
-                        placeholder='First Name'
-                        required
-                        onChange={(e) => handleChange(e)}
-                      />
-                    </div>
-                    {/* Last Name */}
-                    <div className='relative'>
-                      <input
-                        type='lastname'
-                        id='last-name'
-                        className={inputField}
-                        name='lastname'
-                        autoComplete='off'
-                        placeholder='Last Name'
-                        required
-                        onChange={(e) => {handleChange(e)}}
-                      />
-                    </div>
-                    {/* Email */}
-                    <div className='relative'>
-                      <input
-                        type='email'
-                        id='email'
-                        className={inputField}
-                        name='email'
-                        autoComplete='off'
-                        value={formData.email}
-                        placeholder='Email'
-                        required
-                        onChange={(e) => handleChange(e)}
-                      />
-                    </div>
-                      {/* username */}
-                      <div className='relative'>
-                      <input
-                        type='username'
-                        id='username'
-                        className={inputField}
-                        name='username'
-                        autoComplete='off'
-                        value={formData.username}
-                        placeholder='Username'
-                        required
-                        onChange={(e) => handleChange(e)}
-                      />
-                    </div>
-                    {/* Password */}
-                    <div className='relative'>
-                      <input
-                        type='password'
-                        id='password'
-                        className={inputField}
-                        name='password'
-                        autoComplete='off'
-                        value={formData.password}
-                        placeholder='Password'
-                        required
-                        onChange={(e) => handleChange(e)}
-                      />
-                    </div>
+            <form
+              onSubmit={submitFormData}
+              className='py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7'
+            >
+              {activeTab === 1 && (
+                <div>
+                  {/* First Name */}
+                  <div className='relative'>
+                    <input
+                      type='firstname'
+                      id='first-name'
+                      className={inputField}
+                      name='firstname'
+                      autoComplete='off'
+                      value={formData.firstname}
+                      placeholder='First Name'
+                      required
+                      onChange={(e) => handleChange(e)}
+                    />
+                  </div>
+                  {/* Last Name */}
+                  <div className='relative'>
+                    <input
+                      type='lastname'
+                      id='last-name'
+                      className={inputField}
+                      name='lastname'
+                      autoComplete='off'
+                      placeholder='Last Name'
+                      required
+                      onChange={(e) => {
+                        handleChange(e);
+                      }}
+                    />
+                  </div>
+                  {/* Email */}
+                  <div className='relative'>
+                    <input
+                      type='email'
+                      id='email'
+                      className={inputField}
+                      name='email'
+                      autoComplete='off'
+                      value={formData.email}
+                      placeholder='Email'
+                      required
+                      onChange={(e) => handleChange(e)}
+                    />
+                  </div>
+                  {/* username */}
+                  <div className='relative'>
+                    <input
+                      type='username'
+                      id='username'
+                      className={inputField}
+                      name='username'
+                      autoComplete='off'
+                      value={formData.username}
+                      placeholder='Username'
+                      required
+                      onChange={(e) => handleChange(e)}
+                    />
+                  </div>
+                  {/* Password */}
+                  <div className='relative'>
+                    <input
+                      type='password'
+                      id='password'
+                      className={inputField}
+                      name='password'
+                      autoComplete='off'
+                      value={formData.password}
+                      placeholder='Password'
+                      required
+                      onChange={(e) => handleChange(e)}
+                    />
+                  </div>
 
-                    <div className='relative'>
-                      {/* Added 2nd button here */}
-                    <button 
-                      type='submit'
-                      className={button}
-                    >
+                  <div className='relative'>
+                    {/* Added 2nd button here */}
+                    <button type='submit' className={button}>
                       Sign Up!
                     </button>
-                        
-                      {/* <button
+
+                    {/* <button
                         onClick={() => setActiveTab(2)}
                         className={button}
                       >
                         Add your cluster
                       </button> */}
-                    </div>
                   </div>
-                )}
-                {activeTab === 2 && (
-                  <div>
-                    {/* Add Cluster */}
-                    <div className='relative'>
-                      <input
-                        type='text'
-                        id='clusterURL'
-                        className={inputField}
-                        name='clusterURL'
-                        autoComplete='off'
-                        placeholder='Cluster URL'
-                        onChange={(e) => setClusterURL(e.target.value)}
-                      />
-                    </div>
-
-                    {/* Kubernetes Port */}
-                    <div className='relative'>
-                      <input
-                        type='text'
-                        id='kubernetesPort'
-                        className={inputField}
-                        name='kubernetesPort'
-                        autoComplete='off'
-                        placeholder='Kubernetes Port'
-                        onChange={(e) => setKubernetesPort(e.target.value)}
-                      />
-                    </div>
-
-                    {/* Thanos Port */}
-                    <div className='relative'>
-                      <input
-                        type='text'
-                        id='pw'
-                        className={inputField}
-                        name='pw'
-                        autoComplete='off'
-                        placeholder='Thanos (sidecar) Port'
-                        onChange={(e) => setThanosPort(e.target.value)}
-                      />
-                    </div>
-
-                    {/* Cluster Name */}
-                    <div className='relative'>
-                      <input
-                        type='text'
-                        id='clusterName'
-                        className={inputField}
-                        name='clusterName'
-                        autoComplete='off'
-                        placeholder='Cluster Name'
-                        onChange={(e) => setClusterName(e.target.value)}
-                      />
-                    </div>
-
-                    {/* Grafana URL */}
-                    <div className='relative'>
-                      <input
-                        type='text'
-                        id='grafanaURL'
-                        className={inputField}
-                        name='grafanaURL'
-                        autoComplete='off'
-                        placeholder='grafanaURL'
-                        onChange={(e) => setGrafanaURL(e.target.value)}
-                      />
-                    </div>
-                    <div className='relative'>
-                      <input
-                        type='submit'
-                        className={button}
-                        onClick={//insert if (auth verified) logic here with functional block bearing .replace
-                          //url needs to be generic 
-                          () => submitFormData
-                          // () => window.location.replace('http://127.0.0.1:4000/dashboard')
-                        }
-                        value='Sign me up!'
-                      />
-                    </div>
+                </div>
+              )}
+              {activeTab === 2 && (
+                <div>
+                  {/* Add Cluster */}
+                  <div className='relative'>
+                    <input
+                      type='text'
+                      id='clusterURL'
+                      className={inputField}
+                      name='clusterURL'
+                      autoComplete='off'
+                      placeholder='Cluster URL'
+                      onChange={(e) => setClusterURL(e.target.value)}
+                    />
                   </div>
-                )}
-              </form>
-            </div>
+
+                  {/* Kubernetes Port */}
+                  <div className='relative'>
+                    <input
+                      type='text'
+                      id='kubernetesPort'
+                      className={inputField}
+                      name='kubernetesPort'
+                      autoComplete='off'
+                      placeholder='Kubernetes Port'
+                      onChange={(e) => setKubernetesPort(e.target.value)}
+                    />
+                  </div>
+
+                  {/* Thanos Port */}
+                  <div className='relative'>
+                    <input
+                      type='text'
+                      id='pw'
+                      className={inputField}
+                      name='pw'
+                      autoComplete='off'
+                      placeholder='Thanos (sidecar) Port'
+                      onChange={(e) => setThanosPort(e.target.value)}
+                    />
+                  </div>
+
+                  {/* Cluster Name */}
+                  <div className='relative'>
+                    <input
+                      type='text'
+                      id='clusterName'
+                      className={inputField}
+                      name='clusterName'
+                      autoComplete='off'
+                      placeholder='Cluster Name'
+                      onChange={(e) => setClusterName(e.target.value)}
+                    />
+                  </div>
+
+                  {/* Grafana URL */}
+                  <div className='relative'>
+                    <input
+                      type='text'
+                      id='grafanaURL'
+                      className={inputField}
+                      name='grafanaURL'
+                      autoComplete='off'
+                      placeholder='grafanaURL'
+                      onChange={(e) => setGrafanaURL(e.target.value)}
+                    />
+                  </div>
+                  <div className='relative'>
+                    <input
+                      type='submit'
+                      className={button}
+                      onClick={
+                        //insert if (auth verified) logic here with functional block bearing .replace
+                        //url needs to be generic
+                        () => submitFormData
+                        // () => window.location.replace('http://127.0.0.1:4000/dashboard')
+                      }
+                      value='Sign me up!'
+                    />
+                  </div>
+                </div>
+              )}
+            </form>
+          </div>
         </div>
       </div>
     </div>

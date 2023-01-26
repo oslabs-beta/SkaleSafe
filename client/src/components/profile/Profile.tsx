@@ -8,7 +8,7 @@ const Profile = (props: Props) => {
       <br/>
       <br/>
       <br/>
-      <p>Profile</p>
+      <p>Scaling metrics here!</p>
     </div>
    
     </>

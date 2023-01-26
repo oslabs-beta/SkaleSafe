@@ -30,7 +30,9 @@ router.post(
 router.post(
   '/signin',
   userController.verifyUser,
+    
 (req: Request, res: Response) => {
+    res.cookie('token', 'testing');
     res.status(200).json({
       message: 'Successful Login!',
     });

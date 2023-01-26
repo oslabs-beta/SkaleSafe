@@ -15,8 +15,8 @@ const team: member[] = [
     },
     {
         name: 'Leonardo Brian Campos',
-        image: '../../../assets/SkaleSafe-nobg.png',
-        linkedin: '',
+        image: '../../../assets/Brian&Kai.jpg',
+        linkedin: 'https://www.linkedin.com/in/leonardo-brian-campos/',
         github: 'https://github.com/MetaBrian',
     },
     {

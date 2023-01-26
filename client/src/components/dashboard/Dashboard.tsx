@@ -5,12 +5,12 @@ import {
 } from 'react-icons/ai';
 import React, { useState } from 'react';
 import {
+  RiBarChartLine,
+  RiBubbleChartLine,
+  RiEqualizerLine,
   RiLogoutBoxLine,
   RiProfileLine,
   RiSettings3Line,
-  RiEqualizerLine,
-  RiBubbleChartLine,
-  RiBarChartLine,
 } from 'react-icons/ri';
 
 // import Sidebar from '../sidebar/Sidebar.jsx'
@@ -18,6 +18,7 @@ import Alerts from '../alerts/Alerts';
 import ClusterInfo from '../clusterInfo/ClusterInfo';
 import { GrCluster } from 'react-icons/gr';
 import Home from '../Home';
+import { Link } from 'react-router-dom';
 import Profile from '../profile/Profile';
 import Sidebar from '../sidebar/Sidebar';
 
@@ -46,7 +47,7 @@ const Dashboard = (props: Props) => {
                 <ul className='pt-2 pb-4 space-y-3 text-sm'>
                   <li className={listElement} onClick={() => setActive(1)}>
                     <a
-                      href='#'
+                      href='#scalingmetrics'
                       className='flex items-center p-2 space-x-3 rounded-md'
                     >
                       <RiBarChartLine size={24} />
@@ -56,7 +57,7 @@ const Dashboard = (props: Props) => {
                   {/* make alerts render on the screen on click: path='/alerts' */}
                   <li className={listElement} onClick={() => setActive(2)}>
                     <a
-                      href='#'
+                      href='#alerts'
                       className='flex items-center p-2 space-x-3 rounded-md'
                     >
                       <AiOutlineWarning size={24} />
@@ -65,7 +66,7 @@ const Dashboard = (props: Props) => {
                   </li>
                   <li className={listElement} onClick={() => setActive(3)}>
                     <a
-                      href='#'
+                      href='#clusterinfo'
                       className='flex items-center p-2 space-x-3 rounded-md'
                     >
                       <AiOutlineCluster size={24} />
@@ -74,7 +75,7 @@ const Dashboard = (props: Props) => {
                   </li>
                   <li className={listElement} onClick={() => setActive(4)}>
                     <a
-                      href='#'
+                      href='#kubeview'
                       className='flex items-center p-2 space-x-3 rounded-md'
                     >
                       <RiBubbleChartLine size={24} />
@@ -95,17 +96,16 @@ const Dashboard = (props: Props) => {
                   </li>
                   <li
                     className={listElement}
-                    onClick={() => console.log('Logout clicked!')}
                   >
-                    <a
-                      href='/users/signin'
+                    <Link
+                      to='/home'
                       className='flex items-center p-2 space-x-3 rounded-md'
                     >
                       <RiLogoutBoxLine size={24} />
                       <div>
                         <span>Logout</span>
                       </div>
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>

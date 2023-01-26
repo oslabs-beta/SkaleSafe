@@ -30,11 +30,11 @@ const Navbar = () => {
     },[hash, location]);
 
     const loggedOut = "fixed w-screen h-20 flex flex-row items-center justify-between bg-honeydew/10 px-14 shadow-md shadow-honeydew/10";
-    const loggedin = "w-screen h-16 flex flex-row items-center justify-between bg-gradient-to-r from-sapphire-blue to-primary-color px-20"
+    const loggedin = "w-screen h-20 flex flex-row items-center justify-between bg-gradient-to-r from-sapphire-blue/30 to-primary-color/30 px-20"
 
 
     return (
-        <nav className={pathname === '/dashboard' ? loggedin : loggedOut}>
+        <nav className={pathname === '/dashboard' || '/dashboard/addCluster' ? loggedin : loggedOut}>
             <Link to='/home'>
                 <div className="flex flex-row justify-evenly items-center bg-prussian-blue w-60 h-12 rounded-full">
                     <img className="w-8 max-h-sm " src='../../../assets/SkaleSafe-nobg.png' alt="A fish inside a shield"/>
@@ -46,7 +46,7 @@ const Navbar = () => {
                 </button> */}
 
             <ul className="flex flex-row gap-x-4">
-                {pathname === '/dashboard' ? (
+                {pathname === '/dashboard' || '/dashboard/addCluster' ? (
                         [['Add Cluster', '/dashboard/addCluster'], ['My Dashboard', '/dashboard']].map(([title, url]) => (
                             <li>
                                 <Link to={url}>
@@ -66,11 +66,10 @@ const Navbar = () => {
                 }
             </ul>
             <ul className="flex flex-row gap-x-4">
-                {pathname === '/dashboard' ? (
-                        <li>
-                            <Link to='/home'>
-                                <button className={outLinks}>Logout</button>
-                            </Link>
+                {pathname === '/dashboard' || '/dashboard/addCluster' ? (
+                        <li className='flex flex-row justify-center items-center'>
+                            <p className='text-xl text-honeydew mr-4'>Welcome John Wick</p>
+                            <img className='w-10 h-10 rounded-full' src='../../../assets/profile.png' alt='profile photo'/>
                         </li>
                     ) : (
                         [['Sign In', '/users/signin'], ['Sign Up', '/users/signup']].map(([title, url]) => (
@@ -82,7 +81,6 @@ const Navbar = () => {
                         ))
                     )
                 }
-                
             </ul>
         </nav>
     )

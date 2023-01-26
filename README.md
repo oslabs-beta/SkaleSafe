@@ -46,9 +46,9 @@ Please feel free to reach out to us if you would like to contribute or if you ha
 
 - **Bethany Mattern** - [Github](https://github.com/bethanycable) & [LinkedIn](https://www.linkedin.com/in/bethany-a-mattern/)
 - **Leonardo Brian Campos** - [Github](https://github.com/MetaBrian) & [LinkedIn](https://www.linkedin.com/in/leonardo-brian-campos/)
-- **Daniel Doody** - [Github](https://github.com/daniel-doody) & [LinkedIn]()
+- **Daniel Doody** - [Github](https://github.com/daniel-doody) & [LinkedIn](https://www.linkedin.com/in/daniel-doody/)
 - **Kelvin Shamy** - [Github](https://github.com/KelvinShamy) & [LinkedIn](https://www.linkedin.com/in/kelvin-shamy-839798a1/)
-- **Sang Rea Han** - [Github](https://github.com/sxhanx) & [LinkedIn]()
+- **Sang Rea Han** - [Github](https://github.com/sxhanx) & [LinkedIn](https://github.com/sxhanx)
 <br/>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

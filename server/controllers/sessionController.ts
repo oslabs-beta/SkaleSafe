@@ -27,11 +27,17 @@ const errorHandler = (errInfo: any)  => {
 
 const sessionController: sessionController = {
     isLoggedIn: (req: Request, res: Response, next: NextFunction) => {
-        console.log('this is req cookies', req.cookies.user);
+        console.log('this is req cookies', req.cookies.session);
 
-        Session.findOne({cookieId: req.cookies.user})
+        Session.findOne({cookieId: req.cookies.session})
             .then((data: any) => {
-                next();
+                if(!data) {
+                    res.redirect('/signup');
+                    next('Error in sessionController.isLoggedIn')
+                } else {
+                   next(); 
+                }
+                
             })
             .catch((err: ErrorRequestHandler) => {
                 res.redirect('/signup');

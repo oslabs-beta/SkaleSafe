@@ -1,36 +1,51 @@
-import express, { Request, Response } from "express";
+import express, { Request, Response } from 'express';
+import cookieParser from 'cookie-parser';
 
-import cookieController from "../../controllers/cookieController";
-import sessionController from "../../controllers/sessionController";
-import userController from "../../controllers/userController";
+import cookieController from '../../controllers/cookieController';
+import sessionController from '../../controllers/sessionController';
+import userController from '../../controllers/userController';
 
 const router = express.Router();
-
+router.use(cookieParser());
 
 router.get('/signin', (req: Request, res: Response) => {
-    res.status(200).send('This is the user route');
+  res.status(200).send('This is the user route');
 });
 
 router.get('/signup', (req: Request, res: Response) => {
-   res.status(200).send('This is the user route');
-})
-
-router.post('/signup', 
-userController.createUser, 
-cookieController.addCookie, 
-sessionController.startSession,
-cookieController.setSessionCookie,
-(req: Request, res: Response) => {
-    res.status(200).json(res.locals.user);
+  res.status(200).send('This is the user route');
 });
 
-router.post('/signin', 
-userController.verifyUser, 
-cookieController.addCookie, 
-// sessionController.isLoggedIn, 
-// cookieController.setSessionCookie, 
-(req: Request, res: Response) => {
-    res.status(200).json(res.locals.user);
+router.post(
+  '/signup',
+  userController.createUser,
+  // cookieController.addCookie,
+  // sessionController.startSession,
+  // cookieController.setSSIDCookie,
+  (req: Request, res: Response) => {
+    res.status(200).send('Signup a success');
+  }
+);
+
+router.post(
+  '/signin',
+  userController.verifyUser,
+  async (req: Request, res: Response) => {
+    // add cookie (userId)
+    // const newCookie = await res.locals.name;
+    // res.cookie('userId', newCookie, { maxAge: 900000, httpOnly: true });
+    // console.log('added cookie:', newCookie);
+    // res.status(200).json({
+    //   message: 'Successful Login!',
+    // });
+    console.log('passed verifyUser middleware');
+  }
+);
+
+router.post('/logout', (req, res) => {
+  // Destroy the user's cookie
+  res.clearCookie('userId');
+  res.json({ message: 'Successfully logged out' });
 });
 
 export default router;

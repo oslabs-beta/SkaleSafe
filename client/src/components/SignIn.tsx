@@ -46,15 +46,12 @@ const SignIn = () => {
           localStorage.setItem('username', formData.username);
           // to retrieve username... use localStorage.getItem(keyname)
           // to delete username (session)... use localStorage.clear()
-
-          // placed cookie here...
-          // setCookie('token', formData.username, 900);
           setIsSignedIn(true);
           navigate('/dashboard');
         }
       })
       .catch((err) => {
-        console.log(err.message);
+        console.log(err);
       });
 
     setFormData({
@@ -75,15 +72,13 @@ const SignIn = () => {
     'text-prussian-blue font-semibold border-b-2 border-prussian-blue pt-1 text-2xl';
 
   return (
-    <div className='w-screen flex flex-row justify-center sm:py-20 lg:py-80'>
+    <div className='w-screen flex flex-row justify-center sm:py-20 lg:py-48'>
       <div className='relative w-1/2 py-3 sm:max-w-xl sm:mx-auto'>
         <div className='absolute inset-0 bg-gradient-to-r from-teal-blue/90 to-light-blue/90 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl'></div>
         <div className='relative px-4 py-10 bg-gradient-to-r from-honeydew/90 to-primary-color/90 shadow-lg sm:rounded-3xl sm:p-20'>
           <div className='max-w-md mx-auto mb-[-50px]'>
             <div className='flex place-content-center gap-x-20 mt-[-30px] mb-10'>
-              <h1 className={active} >
-                Welcome
-              </h1>
+              <h1 className={active}>Welcome</h1>
             </div>
             <div className='divide-y divide-gray-200'>
               <form

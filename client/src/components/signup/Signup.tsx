@@ -23,13 +23,6 @@ const Signup = () => {
 
   const [activeTab, setActiveTab] = useState(1);
 
-  useEffect(() => {
-    if(isSignedUp) {
-      navigate('/dashboard');
-    } else {
-      console.log('There was an error signing up');
-    }
-  }, [isSignedUp, navigate]);
 
   const handleNextButton = () => {
     setActiveTab(activeTab + 1);
@@ -58,7 +51,10 @@ const Signup = () => {
 
     axios.post('http://localhost:3000/users/signup', formData)
     .then((res) => {
-      console.log(res)
+      if(res.status === 200) {
+        setIsSignedUp(true);
+        navigate('/dashboard')
+      }
     })
     .catch((err) => {
       console.log(err)
@@ -91,7 +87,7 @@ const Signup = () => {
 
   return (
     // This moves the boxes down and away from the navbar
-    <div className='w-screen flex flex-col justify-center sm:py-40 '>
+    <div className='w-screen flex flex-col justify-center sm:py-40'>
       {/* This one adjusts the boxes sizes to be small */}
       <div className='relative w-1/2 py-3 sm:max-w-xl sm:mx-auto'>
         {/* This div is specifically for the back box */}

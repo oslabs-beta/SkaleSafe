@@ -7,7 +7,7 @@ const Navbar = () => {
     const pathname = location.pathname;
 
   const outLinks =
-    'border-b border-prussian-blue text-prussian-blue text-md px-2 py-1 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]';
+    'border-b border-honeydew text-honeydew text-md px-2 py-1 hover:scale-110 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]';
 
     const inLinks = 'text-md px-2 py-1'
 
@@ -29,7 +29,7 @@ const Navbar = () => {
         }
     },[hash, location]);
 
-    const loggedOut = "fixed w-screen h-16 flex flex-row items-center justify-between bg-honeydew/20 px-20";
+    const loggedOut = "fixed w-screen h-20 flex flex-row items-center justify-between bg-honeydew/10 px-20 shadow-md shadow-honeydew/10";
     const loggedin = "w-screen h-16 flex flex-row items-center justify-between bg-gradient-to-r from-sapphire-blue to-primary-color px-20"
 
 

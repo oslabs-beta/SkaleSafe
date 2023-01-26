@@ -17,12 +17,10 @@ body {
     display: flex;
     font-family: theme('fontFamily.roboto');
     justify-content: center;
-    background-color: theme('colors.off-white');
+    background: theme('colors.prussian-blue');
     overflow-x: hidden;
     margin: 0;
     padding: 0;
 }
-
-#Dev2{
-    display:inline-block;
-}
+/* theme('colors.prussian-blue') */
+/* linear-gradient(90deg, #003153, #126180); */

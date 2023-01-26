@@ -1,16 +1,15 @@
 import { Route, Routes } from 'react-router-dom';
 
-import AddCluster from './components/addCluster/AddCluster';
-import Alerts from './components/alerts/Alerts';
-import ContactUs from './components/contactUs/ContactUs'
-import Dashboard from './components/dashboard/Dashboard';
-// import Demo from './components/Demo/Demo'
-import { Error } from './components/Error';
-import HomeContainer from './containers/HomeContainer';
-import Navbar from './components/navbar/Navbar';
-import Profile from './components/profile/Profile'
-import SignIn  from './components/SignIn';
-import Signup from './components/signup/Signup';
+import AddCluster from '../components/addCluster/AddCluster';
+import Alerts from '../components/alerts/Alerts';
+import ContactUs from '../components/contactUs/ContactUs'
+import Dashboard from '../components/dashboard/Dashboard';
+import { Error } from '../components/Error';
+import HomeContainer from '../containers/HomeContainer';
+import Navbar from '../components/navbar/Navbar';
+import Profile from '../components/profile/Profile'
+import SignIn  from '../components/SignIn';
+import Signup from '../components/signup/Signup';
 
 // import { SignupModal } from './components/signupModal/SignupModal';
 
@@ -41,7 +40,6 @@ const App = () => {
         <Route path='/alerts' element={<Alerts />} />
         <Route path='/users/signin' element={<SignIn />} />
         <Route path='/users/signup' element={<Signup />} />
-        {/* <Route path='/demo' element={<Demo />}/> */}
         
         <Route path='*' element={<Error />} />
       </Routes>

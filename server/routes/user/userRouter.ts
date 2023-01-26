@@ -30,11 +30,9 @@ router.post(
 router.post(
   '/signin',
   userController.verifyUser,
+    
 (req: Request, res: Response) => {
-    // add cookie (userId)
-    // const newCookie = await res.locals.name;
-    // res.cookie('userId', newCookie, { maxAge: 900000, httpOnly: true });
-    // console.log('added cookie:', newCookie);
+    res.cookie('token', 'testing');
     res.status(200).json({
       message: 'Successful Login!',
     });

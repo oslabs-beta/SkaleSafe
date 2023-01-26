@@ -15,7 +15,7 @@ const Alerts = () => {
   ];
 
   return (
-    <div className='flex flex-col mt-14 w-1/3 ml-[35%] gap-y-3'>
+    <div className='flex flex-col mt-14 w-1/3 ml-[35%] gap-y-3 text-honeydew'>
       <h1 className='mb-14 pl-20 text-2xl text-gray-700 font-semibold'>
         Configure Your Alerts
       </h1>

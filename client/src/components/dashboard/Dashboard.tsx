@@ -1,106 +1,124 @@
-import { AiOutlineCluster, AiOutlineControl, AiOutlineWarning } from 'react-icons/ai'
-import React, { useState } from 'react'
-import { RiLogoutBoxLine, RiProfileLine, RiSettings3Line } from 'react-icons/ri'
+import {
+  AiOutlineCluster,
+  AiOutlineControl,
+  AiOutlineWarning,
+} from 'react-icons/ai';
+import React, { useState } from 'react';
+import {
+  RiLogoutBoxLine,
+  RiProfileLine,
+  RiSettings3Line,
+  RiEqualizerLine,
+  RiBubbleChartLine,
+  RiBarChartLine,
+} from 'react-icons/ri';
 
 // import Sidebar from '../sidebar/Sidebar.jsx'
-import Alerts from '../alerts/Alerts.tsx'
-import ClusterInfo from '../clusterInfo/ClusterInfo'
-import { GrCluster } from 'react-icons/gr'
-import Home from '../Home.tsx'
-import Profile from '../profile/Profile'
-import Sidebar from '../sidebar/Sidebar'
+import Alerts from '../alerts/Alerts';
+import ClusterInfo from '../clusterInfo/ClusterInfo';
+import { GrCluster } from 'react-icons/gr';
+import Home from '../Home';
+import Profile from '../profile/Profile';
+import Sidebar from '../sidebar/Sidebar';
 
 // RiLogoutBoxLine
 
-
-
-type Props = {}
-
+type Props = {};
 
 const Dashboard = (props: Props) => {
+  const [active, setActive] = useState(1);
+  // clicking on the different options on the sidebar changes the 'active' state above
 
-const [active, setActive] = useState(1);
-// clicking on the different options on the sidebar changes the 'active' state above
+  const listElement = 'rounded-sm hover:scale-105';
 
   return (
     <div className='w-screen'>
-    {/* CODE TO BE MOVED TO Sidebar.jsx STARTS HERE */}
+      {/* CODE TO BE MOVED TO Sidebar.jsx STARTS HERE */}
       <div className='flex'>
-          {/* <Sidebar /> WILL REPLACE 'CODE TO BE MOVED' ONCE REDUX IS IMPLEMENTED*/}
-          <div className="flex">
-            <div className="flex flex-col h-screen p-3 bg-white shadow w-60">
-                <div className="space-y-3">
-                    <div className="flex items-center">
-                        <h2 className="text-xl font-bold">Dashboard</h2>
-                    </div>
-                    <div className="flex-1">
-                        <ul className="pt-2 pb-4 space-y-1 text-sm">
-                            <li className="rounded-sm" onClick={() => setActive(1)}>
-                                <a
-                                    href="#"
-                                    className="flex items-center p-2 space-x-3 rounded-md"
-                                >
-                                    <RiProfileLine size={24}/>
-                                    <span>Profile</span>
-                                </a>
-                            </li>
-                            {/* make alerts render on the screen on click: path='/alerts' */}
-                            <li className="rounded-sm" onClick={() => setActive(2)}>
-                                <a
-                                    href="#"
-                                    className="flex items-center p-2 space-x-3 rounded-md"
-                                >
-                                    <AiOutlineWarning size={24}/>
-                                    <span>Alerts</span>
-                                </a>
-                            </li>
-                            <li className="rounded-sm" onClick={() => setActive(3)}>
-                                <a
-                                    href="#"
-                                    className="flex items-center p-2 space-x-3 rounded-md"
-                                >
-                                    <AiOutlineCluster size={24}/>
-                                    <span>Cluster Info</span>
-                                </a>
-                            </li>
-                            <li className="rounded-sm" onClick={() => console.log('Settings clicked!')}>
-                                <a
-                                    href=""
-                                    className="flex items-center p-2 space-x-3 rounded-md"
-                                >
-                                    <RiSettings3Line size={24}/>
-                                    <span>Settings</span>
-                                </a>
-                            </li>
-                            <li className="rounded-sm" onClick={() => console.log('Logout clicked!')}>
-                                <a
-                                    href="/users/signin"
-                                    className="flex items-center p-2 space-x-3 rounded-md"
-                                >
-                                    <RiLogoutBoxLine size={24}/>
-                                    <div>
-                                        <span>Logout</span>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+        {/* <Sidebar /> WILL REPLACE 'CODE TO BE MOVED' ONCE REDUX IS IMPLEMENTED*/}
+        <div className='flex'>
+          <div className='flex flex-col h-screen p-3 bg-white shadow w-60'>
+            <div className='space-y-3'>
+              <div className='flex items-center pt-6'>
+                <h2 className='text-xl pl-4 font-bold'>Dashboard</h2>
+              </div>
+              <div className='flex pt-6'>
+                <ul className='pt-2 pb-4 space-y-3 text-sm'>
+                  <li className={listElement} onClick={() => setActive(1)}>
+                    <a
+                      href='#'
+                      className='flex items-center p-2 space-x-3 rounded-md'
+                    >
+                      <RiBarChartLine size={24} />
+                      <span>Scaling Metrics</span>
+                    </a>
+                  </li>
+                  {/* make alerts render on the screen on click: path='/alerts' */}
+                  <li className={listElement} onClick={() => setActive(2)}>
+                    <a
+                      href='#'
+                      className='flex items-center p-2 space-x-3 rounded-md'
+                    >
+                      <AiOutlineWarning size={24} />
+                      <span>Alerts</span>
+                    </a>
+                  </li>
+                  <li className={listElement} onClick={() => setActive(3)}>
+                    <a
+                      href='#'
+                      className='flex items-center p-2 space-x-3 rounded-md'
+                    >
+                      <AiOutlineCluster size={24} />
+                      <span>Cluster Info</span>
+                    </a>
+                  </li>
+                  <li className={listElement} onClick={() => setActive(4)}>
+                    <a
+                      href='#'
+                      className='flex items-center p-2 space-x-3 rounded-md'
+                    >
+                      <RiBubbleChartLine size={24} />
+                      <span>KubeView</span>
+                    </a>
+                  </li>
+                  <li
+                    className={listElement}
+                    onClick={() => console.log('Settings clicked!')}
+                  >
+                    <a
+                      href=''
+                      className='flex items-center p-2 space-x-3 rounded-md'
+                    >
+                      <RiSettings3Line size={24} />
+                      <span>Settings</span>
+                    </a>
+                  </li>
+                  <li
+                    className={listElement}
+                    onClick={() => console.log('Logout clicked!')}
+                  >
+                    <a
+                      href='/users/signin'
+                      className='flex items-center p-2 space-x-3 rounded-md'
+                    >
+                      <RiLogoutBoxLine size={24} />
+                      <div>
+                        <span>Logout</span>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
+          </div>
         </div>
-          {active === 1 && (
-              <Profile />
-              )}
-          {active === 2 && (
-              <Alerts />
-              )}
-          {active === 3 && (
-              <ClusterInfo />
-          )}
+        {active === 1 && <Profile />}
+        {active === 2 && <Alerts />}
+        {active === 3 && <ClusterInfo />}
+      </div>
+      {/* CODE TO BE MOVED TO Sidebar.jsx ENDS HERE */}
     </div>
-    {/* CODE TO BE MOVED TO Sidebar.jsx ENDS HERE */}
-    </div>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;

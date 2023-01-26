@@ -39,6 +39,7 @@ app.use('/client', express.static(path.resolve(__dirname, '../client')));
 //   console.log("X-Frame-Options");
 //   next();
 // });
+app.set('view engine', 'ejs');
 
 app.use('/users', userRouter);
 app.use('/prom', promRouter);

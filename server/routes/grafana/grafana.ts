@@ -29,7 +29,7 @@ router.get('/', axiosDashboard, (req: Request, res: Response) => {
 
 router.get('/test', grafSearch, (req: Request, res: Response) => {
   console.log('successfully ran graf search middleware');
-  res.send(res.locals.queryData);
+  res.redirect(res.locals.link);
 }
 
 );

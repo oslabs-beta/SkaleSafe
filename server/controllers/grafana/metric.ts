@@ -25,17 +25,18 @@ const grafSearch = async (
     });
     const queryData: any = response.data;
     console.log(queryData);
-    res.send(`http://localhost:8888${queryData[0]["url"]}`);
-    res.locals.queryData = `http://localhost:8888${queryData[0]["url"]}`;
+    res.locals.link = (`${grafanaUrl}${queryData[0]["url"]}?orgId=1`);
+    // res.locals.queryData = queryData;
 
     console.log(queryData[0]["url"]);
+    console.log(res.locals.link);
 
     //store uids in db?
 
     //for mvp just go into one uid and provide the db for it
     // const dashboard = await axios.get(
     //   // `${grafanaUrl}${queryData[0]["url"]}`,
-    //   `http://localhost:8888${queryData[0]["url"]}`,
+    //   `http://localhost:8888${queryData[0]["uid"]}`,
     //   // `${grafanaUrl}/d/85a562078cdf77779eaa1add43ccec1e/kubernetes-compute-resources-namespace-pods`,
     //   );
     // const dashboardData: any = response.data;

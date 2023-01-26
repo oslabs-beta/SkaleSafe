@@ -45,7 +45,6 @@ const SignIn = () => {
       console.log(err.message);
     });
 
-    // setIsSignedIn(true);
     setFormData({
       username: '',
       password: ''
@@ -61,20 +60,18 @@ const SignIn = () => {
   const inputField =
     'border-b-2 rounded-lg mb-4 h-11 px-2 border-sapphire-blue w-full focus:outline-none focus:border-fuzzy-wuzzy focus:border-b-3';
   const active =
-    'text-primary-color font-semibold border-b-2 border-primary-color pt-1 text-2xl';
+    'text-prussian-blue font-semibold border-b-2 border-prussian-blue pt-1 text-2xl';
 
   return (
     <div className='w-screen flex flex-row justify-center sm:py-20 lg:py-80'>
       <div className='relative w-1/2 py-3 sm:max-w-xl sm:mx-auto'>
-        <div className='absolute inset-0 bg-gradient-to-r from-sapphire-blue/90 to-light-blue/90 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl'></div>
-        <div className='relative px-4 py-10 bg-gradient-to-r from-prussian-blue/90 to-teal-blue/90 shadow-lg sm:rounded-3xl sm:p-20'>
+        <div className='absolute inset-0 bg-gradient-to-r from-teal-blue/90 to-light-blue/90 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl'></div>
+        <div className='relative px-4 py-10 bg-gradient-to-r from-honeydew/90 to-primary-color/90 shadow-lg sm:rounded-3xl sm:p-20'>
           <div className='max-w-md mx-auto mb-[-50px]'>
             <div className='flex place-content-center gap-x-20 mt-[-30px] mb-10'>
-              <button
-                className={active}
-              >
+              <h1 className={active} >
                 Welcome
-              </button>
+              </h1>
             </div>
             <div className='divide-y divide-gray-200'>
               <form
@@ -113,7 +110,7 @@ const SignIn = () => {
                   <div className='relative'>
                     <button
                       type='submit'
-                      className='px-8 py-3 mt-6 mr-2 cursor-pointer rounded-md text-lg focus:scale-95 border-off-white border-2 text-off-white hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]'
+                      className='px-8 py-3 mt-6 mr-2 cursor-pointer rounded-md text-lg focus:scale-95 border-sapphire-blue border-2 text-sapphire-blue hover:text-off-white hover:shadow-[inset_13rem_0_0_0] hover:shadow-sapphire-blue hover:border-sapphire-blue duration-[400ms,700ms] transition-[color,box-shadow]'
                     >
                       Sign In
                     </button>

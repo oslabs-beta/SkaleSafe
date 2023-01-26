@@ -4,7 +4,7 @@ import AddCluster from './components/addCluster/AddCluster';
 import Alerts from './components/alerts/Alerts';
 import ContactUs from './components/contactUs/ContactUs'
 import Dashboard from './components/dashboard/Dashboard';
-import Demo from './components/Demo/demo'
+import Demo from './components/Demo/Demo'
 import { Error } from './components/Error';
 import HomeContainer from './containers/HomeContainer';
 import Navbar from './components/navbar/Navbar';

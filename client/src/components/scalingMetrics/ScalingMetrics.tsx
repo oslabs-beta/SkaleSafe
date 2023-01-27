@@ -1,6 +1,6 @@
 type Props = {};
 
-const Profile = (props: Props) => {
+const ScalingMetrics = (props: Props) => {
   return (
 
     <div className="w-screen h-screen flex flex-col justify-start text-honeydew pt-20"> 
@@ -9,4 +9,4 @@ const Profile = (props: Props) => {
   )
 }
 
-export default Profile;
+export default ScalingMetrics;

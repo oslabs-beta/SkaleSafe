@@ -4,6 +4,8 @@ import SignInData from '../interfaces/signin';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+let tryAgain = <div></div>;
+
 const SignIn = () => {
   const navigate = useNavigate();
   const [clusterURL, setClusterURL] = useState('');
@@ -35,6 +37,7 @@ const SignIn = () => {
     //   thanosPort,
     // };
 
+
     axios
       .post('http://localhost:3000/users/signin', formData)
       .then((res) => {
@@ -48,7 +51,11 @@ const SignIn = () => {
           // to delete username (session)... use localStorage.clear()
           setIsSignedIn(true);
           navigate('/dashboard');
-        }
+
+          // THIS CODE IS NOT GETTING HIT UPON INCORRECT LOGIN ATTEMPT
+        } else tryAgain = <div className="text-red-700">Login credentials unrecognized: Please try again.</div>;
+        // else add red text (Login credentials unrecognized, please try again)
+
       })
       .catch((err) => {
         console.log(err);
@@ -114,13 +121,15 @@ const SignIn = () => {
                       onChange={(e) => handleChange(e)}
                     />
                   </div>
-                  <div className='relative'>
+                  <div className='relative flex-flex-row'>
                     <button
                       type='submit'
                       className='px-8 py-3 mt-6 mr-2 cursor-pointer rounded-md text-lg focus:scale-95 border-sapphire-blue border-2 text-sapphire-blue hover:text-off-white hover:shadow-[inset_13rem_0_0_0] hover:shadow-sapphire-blue hover:border-sapphire-blue duration-[400ms,700ms] transition-[color,box-shadow]'
                     >
                       Sign In
                     </button>
+                    {tryAgain}
+                    {/* <div className="text-red-700">Login credentials unrecognized: Please try again.</div> */}
                   </div>
                 </div>
               </form>

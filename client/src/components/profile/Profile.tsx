@@ -1,18 +1,27 @@
-type Props = {};
+import { Link, useLocation } from 'react-router-dom';
 
-const Profile = (props: Props) => {
+// type Props = {
+//     pathname: string,
+//     outLinks: string
+// };
 
-  function toggleLight(){
-    let element = document.body
-    element.classList.toggle('light-mode')
-  }
-  return (
+// const Profile = (props: Props) => {
 
-    <div className="w-screen h-screen flex flex-col justify-start text-honeydew pt-20"> 
-      <h1 className="self-center text-4xl font-bold uppercase tracking-wider">Scaling Metrics</h1>
+const Profile = () => {
 
-    </div>
-  )
+    // FIND THE MOST EFFICIENT WAY TO GET OUR USER'S NAME
+    const name = 'Testy McTesterson';
+
+    return (
+
+        // MAKE THIS A LINK
+        <li className='flex flex-row justify-center items-center'>
+            <p className='text-xl text-honeydew mr-4'>Welcome {name}</p> 
+            <img className='w-10 h-10 rounded-full' src='../../../assets/profile.png' alt='profile photo'/>
+        </li>
+
+    )
+
 }
 
 export default Profile;

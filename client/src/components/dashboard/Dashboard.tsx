@@ -19,7 +19,7 @@ import ClusterInfo from '../clusterInfo/ClusterInfo';
 import { GrCluster } from 'react-icons/gr';
 import Home from '../Home';
 import { Link } from 'react-router-dom';
-import Profile from '../profile/Profile';
+import ScalingMetrics from '../scalingMetrics/ScalingMetrics';
 import Sidebar from '../sidebar/Sidebar';
 import Settings from '../Settings/settings';
 
@@ -113,7 +113,7 @@ const Dashboard = (props: Props) => {
             </div>
           </div>
         </div>
-        {active === 1 && <Profile />}
+        {active === 1 && <ScalingMetrics />}
         {active === 2 && <Alerts />}
         {active === 3 && <ClusterInfo />}
         {/* {active === 4 && <KubeView />} */}

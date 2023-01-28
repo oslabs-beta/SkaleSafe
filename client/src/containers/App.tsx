@@ -7,9 +7,10 @@ import Dashboard from '../components/dashboard/Dashboard';
 import { Error } from '../components/Error';
 import HomeContainer from '../containers/HomeContainer';
 import Navbar from '../components/navbar/Navbar';
-import Profile from '../components/profile/Profile'
+import ScalingMetrics from '../components/scalingMetrics/ScalingMetrics'
 import SignIn  from '../components/SignIn';
 import Signup from '../components/signup/Signup';
+import Profile from '../components/profile/Profile';
 
 // import { SignupModal } from './components/signupModal/SignupModal';
 
@@ -31,16 +32,26 @@ const App = () => {
       <Routes>
       <Route path='/' element={<HomeContainer />} />
         <Route path='/home' element={<HomeContainer />} />
-        <Route path='/dashboard'>
+      
           <Route index element = {<Dashboard />}/>
-          <Route path=':addcluster' element={<AddCluster />} />
+          <Route path='/dashboard' element={<Dashboard/>}>
+          <Route path='profile' element={<Profile/>}/>
+          <Route path='addcluster' element={<AddCluster />} />
+          {/* DELETE ADD CLUSTER ROUTE ONCE MADE INTO A MODAL */}
         </Route>
-        <Route path='/profile' element={<Profile />} />
-        <Route path='/alerts' element={<Alerts />} />
+       
+        {/* DELETE THESE ROUTES ONCE MADE INTO A MODAL */}
         <Route path='/users/signin' element={<SignIn />} />
         <Route path='/users/signup' element={<Signup />} />
+
+        switch paths for scalingmetrics and alerts to dashnoard href made in dashboard file
         
         <Route path='*' element={<Error />} />
+
+deprecated routes - DELETE
+        {/* <Route path='/scalingMetrics' element={<ScalingMetrics />} /> */}
+        {/* <Route path='/alerts' element={<Alerts />} /> */}
+       
       </Routes>
       </div>
     </div>

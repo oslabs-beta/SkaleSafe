@@ -4,6 +4,7 @@ import SignInData from '../interfaces/signin';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+
 const SignIn = () => {
   const navigate = useNavigate();
   const [clusterURL, setClusterURL] = useState('');
@@ -12,6 +13,7 @@ const SignIn = () => {
   const [grafanaURL, setGrafanaURL] = useState('');
   const [thanosPort, setThanosPort] = useState('');
   const [isSignedIn, setIsSignedIn] = useState(false);
+  const [failedLogin, setFailedLogin] = useState(false);
   const [formData, setFormData] = useState<SignInData>({
     username: '',
     password: '',
@@ -35,11 +37,13 @@ const SignIn = () => {
     //   thanosPort,
     // };
 
+
     axios
       .post('http://localhost:3000/users/signin', formData)
       .then((res) => {
+        console.log('res in axios request', res);
         if (res.status === 200) {
-          // console.log(formData.username);
+          console.log('inside axios request'); 
 
           // Using Local Storage to track user/permissions:
           // local storage functions:  https://developer.mozilla.org/en-US/docs/Web/API/Storage/clear
@@ -48,6 +52,11 @@ const SignIn = () => {
           // to delete username (session)... use localStorage.clear()
           setIsSignedIn(true);
           navigate('/dashboard');
+
+        } if (res.status === 204) {
+          // 204 was necessary because sending back a status code in the 400s 
+          // triggers some kinda automatic axios mumbo-jumbo...
+          setFailedLogin(true);
         }
       })
       .catch((err) => {
@@ -71,11 +80,15 @@ const SignIn = () => {
   const active =
     'text-prussian-blue font-semibold border-b-2 border-prussian-blue pt-1 text-2xl';
 
+    const tryAgain = <div className='text-error-red mt-8'>Login credentials unrecognized: Please try again.</div>;
+
+
   return (
     <div className='w-screen flex flex-row justify-center sm:py-20 lg:py-48'>
       <div className='relative w-1/2 py-3 sm:max-w-xl sm:mx-auto'>
         <div className='absolute inset-0 bg-gradient-to-r from-teal-blue/90 to-light-blue/90 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl'></div>
         <div className='relative px-4 py-10 bg-gradient-to-r from-honeydew/90 to-primary-color/90 shadow-lg sm:rounded-3xl sm:p-20'>
+        {/* <div className='relative px-4 py-10 bg-gradient-to-r from-honeydew/90 to-primary-color/90 shadow-lg sm:rounded-3xl sm:p-20'> */}
           <div className='max-w-md mx-auto mb-[-50px]'>
             <div className='flex place-content-center gap-x-20 mt-[-30px] mb-10'>
               <h1 className={active}>Welcome</h1>
@@ -114,13 +127,14 @@ const SignIn = () => {
                       onChange={(e) => handleChange(e)}
                     />
                   </div>
-                  <div className='relative'>
+                  <div className='flex-flex-row'>
                     <button
                       type='submit'
                       className='px-8 py-3 mt-6 mr-2 cursor-pointer rounded-md text-lg focus:scale-95 border-sapphire-blue border-2 text-sapphire-blue hover:text-off-white hover:shadow-[inset_13rem_0_0_0] hover:shadow-sapphire-blue hover:border-sapphire-blue duration-[400ms,700ms] transition-[color,box-shadow]'
                     >
                       Sign In
                     </button>
+                    {failedLogin === (false || true) ? ( tryAgain ) : (<div></div>) }
                   </div>
                 </div>
               </form>

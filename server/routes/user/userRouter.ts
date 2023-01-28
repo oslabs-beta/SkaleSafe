@@ -32,6 +32,15 @@ router.post(
   userController.verifyUser,
     
 (req: Request, res: Response) => {
+    const {name, passMatch} = res.locals
+    if (name === null || !passMatch) {
+      // 204 was necessary because sending back a status code in the 400s 
+      // triggers some kinda automatic axios mumbo-jumbo...
+      return res.status(204).json({
+        message: 'Unsuccessful Login.'
+      });
+    }
+
     res.cookie('token', 'testing');
     res.status(200).json({
       message: 'Successful Login!',

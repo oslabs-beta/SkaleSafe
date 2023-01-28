@@ -1,3 +1,4 @@
+
 type Props = {};
 
 const Settings = (props: Props) => {
@@ -13,6 +14,8 @@ const Settings = (props: Props) => {
    logoBackground.className= "flex flex-row justify-evenly items-center bg-primary-color w-60 h-12 rounded-full"
   //change the className for 
 
+  const homeLogo = document.getElementById('homeLogo')
+  homeLogo.url="../../../assets/SkaleSafe.svg"
 
   }
   return (

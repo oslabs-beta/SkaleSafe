@@ -47,6 +47,7 @@ const userController: userController = {
         );
       });
   },
+
   // getUser: (req: Request, res: Response, next: NextFunction) => {},
   verifyUser: (req: Request, res: Response, next: NextFunction) => {
     const { username, password } = req.body;
@@ -54,27 +55,24 @@ const userController: userController = {
     if (!username || !password) {
       return res
         .status(400)
-        .json({ error: 'Username and/or Password incorrect' });
+        .json({ error: 'Username and/or Password left blank' });
     }
 
     User.findOne({ username })
       .then((user: UserObj) => {
-        console.log(user);
 
         if (!user) {
-          return res.status(401).json({
-            error: 'Invalid credentials. User does not exist',
-          });
+          res.locals.name = null;
+          return next();
         }
-        res.locals.name = user.username;
-        console.log('res.locals.name from middleware:', res.locals.name);
-        console.log('username from middleware', user.username);
+
         const plainPassword = password;
         const hashPassword = user.password;
 
         bcrypt
           .compare(plainPassword, hashPassword)
           .then((result: boolean) => {
+            res.locals.passMatch = result;
             if (result) {
               res.locals.user = user;
             }
@@ -86,7 +84,7 @@ const userController: userController = {
               type: 'Error occured while comparing password hash',
               err,
             });
-          });
+          })
       })
       .catch((err: ErrorRequestHandler) => {
         return next(

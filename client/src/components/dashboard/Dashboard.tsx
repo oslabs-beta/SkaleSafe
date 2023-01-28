@@ -22,6 +22,7 @@ import { Link } from 'react-router-dom';
 import ScalingMetrics from '../scalingMetrics/ScalingMetrics';
 import Sidebar from '../sidebar/Sidebar';
 import Settings from '../Settings/settings';
+import { Outlet } from "react-router-dom";
 
 // RiLogoutBoxLine
 
@@ -112,6 +113,7 @@ const Dashboard = (props: Props) => {
               </div>
             </div>
           </div>
+          <Outlet/>
         </div>
         {active === 1 && <ScalingMetrics />}
         {active === 2 && <Alerts />}
@@ -121,6 +123,7 @@ const Dashboard = (props: Props) => {
       </div>
       {/* CODE TO BE MOVED TO Sidebar.jsx ENDS HERE */}
     </div>
+    
   );
 };
 

@@ -10,6 +10,7 @@ import Navbar from '../components/navbar/Navbar';
 import ScalingMetrics from '../components/scalingMetrics/ScalingMetrics'
 import SignIn  from '../components/SignIn';
 import Signup from '../components/signup/Signup';
+import Profile from '../components/profile/Profile'
 
 // import { SignupModal } from './components/signupModal/SignupModal';
 
@@ -31,10 +32,9 @@ const App = () => {
       <Routes>
       <Route path='/' element={<HomeContainer />} />
         <Route path='/home' element={<HomeContainer />} />
-        <Route path='/dashboard'>
-          <Route index element = {<Dashboard />}/>
-          <Route path=':addcluster' element={<AddCluster />} />
-        </Route>
+        <Route path='/dashboard' element={<Dashboard />}/>
+        <Route path='/dashboard/profile' element={<Profile />}/>
+        <Route path='/dashboard/addcluster' element={<AddCluster />}/>
         <Route path='/scalingMetrics' element={<ScalingMetrics />} />
         <Route path='/alerts' element={<Alerts />} />
         <Route path='/users/signin' element={<SignIn />} />

@@ -1,6 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
-
 import Profile from '../profile/Profile'
 
 const Navbar = () => {
@@ -34,8 +33,7 @@ const Navbar = () => {
     const loggedOut = "fixed w-screen h-20 flex flex-row items-center justify-between bg-honeydew/10 px-14 shadow-md shadow-honeydew/10";
     const loggedIn = "w-screen h-20 flex flex-row items-center justify-between bg-gradient-to-r from-sapphire-blue/30 to-primary-color/30 px-20"
 
-    const name = 'Testy McTesterson';
-
+    const name = 'TestiBoi';
 
     return (
         <nav className={pathname === ('/dashboard' || '/dashboard/addCluster') ? loggedIn : loggedOut}>
@@ -72,21 +70,14 @@ const Navbar = () => {
             <ul className="flex flex-row gap-x-4">
                 {pathname === ('/dashboard' || '/dashboard/addCluster') ? (
                     // PROFILE LINK CURRENTLY LEADS TO ADD CLUSTER INFO
-                    [[`Welcome ${name}`, '/dashboard/profile']].map(([title, url]) => (
-                        <li className='flex gap-x-8 items-center'>
-                            <Link to={url}>
-                                <button className={outLinks}>{title}</button>
-                                <img className='w-10 h-10 rounded-full' src='../../../assets/profile.png' alt='profile photo'/>
+                    [[`Welcome, ${name}`, '/dashboard/profile']].map(([title, url]) => (
+                        <li className='flex gap-x-4 items-center'>
+                            <div className='text-honeydew text-xl font-semi px-2 py-1'>{title}</div>
+                            <Link to={url} className="flex flex-row gap-x-4">
+                                <img className='w-10 h-10 rounded-full hover:scale-110 hover:brightness-110' src='../../../assets/profile.png' alt='profile photo'/>
                             </Link>
                         </li>
                     ))
-
-                    // <Profile />
-                    // <li className='flex flex-row justify-center items-center'>
-                    //     <p className='text-xl text-honeydew mr-4'>Welcome {name}</p> 
-                    //     <img className='w-10 h-10 rounded-full' src='../../../assets/profile.png' alt='profile photo'/>
-                    // </li>
-
                     ) : (
                         [['Sign In', '/users/signin'], ['Sign Up', '/users/signup']].map(([title, url]) => (
                             <li className='flex gap-x-8 items-center'>

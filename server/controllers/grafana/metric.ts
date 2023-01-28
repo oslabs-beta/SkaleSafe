@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { Request, Response, NextFunction } from 'express';
+import { link } from 'fs';
 import { isConstructorDeclaration } from 'typescript';
 
 const grafanaUrl = 'http://localhost:8888';
@@ -16,7 +17,7 @@ const grafSearch = async (
 ) => {
   try {
     const response = await axios.get(
-      `${grafanaUrl}/api/search`,
+      `${grafanaUrl}/api/search?id=10`,
       {
         headers: {
             'Authorization': `Basic ${basicAuth}`,
@@ -25,7 +26,12 @@ const grafSearch = async (
     });
     const queryData: any = response.data;
     console.log(queryData);
-    res.locals.link = (`${grafanaUrl}${queryData[0]["url"]}?orgId=1`);
+
+    const link = "/graf/d-solo".concat((queryData[0]["url"]).slice(7));
+
+    
+    // res.locals.link = (`${grafanaUrl}${queryData[0]["url"]}?orgId=1`);
+    res.locals.link = (`${grafanaUrl}${link}?orgId=1`);
     // res.locals.queryData = queryData;
 
     console.log(queryData[0]["url"]);

@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
+
 import Profile from '../profile/Profile'
 
 const Navbar = () => {
@@ -31,13 +32,13 @@ const Navbar = () => {
     },[hash, location]);
 
     const loggedOut = "fixed w-screen h-20 flex flex-row items-center justify-between bg-honeydew/10 px-14 shadow-md shadow-honeydew/10";
-    const loggedin = "w-screen h-20 flex flex-row items-center justify-between bg-gradient-to-r from-sapphire-blue/30 to-primary-color/30 px-20"
+    const loggedIn = "w-screen h-20 flex flex-row items-center justify-between bg-gradient-to-r from-sapphire-blue/30 to-primary-color/30 px-20"
 
     const name = 'Testy McTesterson';
 
 
     return (
-        <nav className={pathname === '/dashboard' || '/dashboard/addCluster' ? loggedOut : loggedOut}>
+        <nav className={pathname === ('/dashboard' || '/dashboard/addCluster') ? loggedIn : loggedOut}>
             <Link to='/home'>
                 <div className="flex flex-row justify-evenly items-center bg-prussian-blue/40 w-60 h-12 rounded-full">
                     <img className="w-8 max-h-sm " src='../../../assets/SkaleSafe-light.png' alt="A fish inside a shield"/>

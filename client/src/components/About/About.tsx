@@ -1,6 +1,6 @@
 import React from 'react'
 const About = () => {
-    const shield = <img className="w-6 h-6" src='../../../assets/SkaleSafe-nobg.png' alt="A fish inside a shield. SkaleSafe. Scale with confidence."/>;
+    const shield = <img className="w-6 h-6" src='../../../assets/SkaleSafe-light.png' alt="A fish inside a shield. SkaleSafe. Scale with confidence."/>;
 
     return (
         <div id="about" className="h-[48rem] w-screen flex flex-col items-center justify-center gap-16">

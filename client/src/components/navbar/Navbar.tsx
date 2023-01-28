@@ -32,11 +32,12 @@ const Navbar = () => {
     },[hash, location]);
 
     const loggedOut = "fixed w-screen h-20 flex flex-row items-center justify-between bg-honeydew/10 px-14 shadow-md shadow-honeydew/10";
-    const loggedin = "w-screen h-20 flex flex-row items-center justify-between bg-gradient-to-r from-sapphire-blue/30 to-primary-color/30 px-20"
+    const loggedIn = "w-screen h-20 flex flex-row items-center justify-between bg-gradient-to-r from-sapphire-blue/30 to-primary-color/30 px-20"
 
+    const name = 'TestiBoi';
 
     return (
-        <nav className={pathname === '/dashboard' || '/dashboard/addCluster' ? loggedOut : loggedOut}>
+        <nav className={pathname === ('/dashboard' || '/dashboard/addCluster') ? loggedIn : loggedOut}>
             <Link to='/home'>
                 <div id='backgroundoflogo' className="flex flex-row justify-evenly items-center bg-prussian-blue w-60 h-12 rounded-full">
                     <img className="w-8 max-h-sm " src='../../../assets/SkaleSafe-nobg.png' alt="A fish inside a shield"/>
@@ -69,9 +70,15 @@ const Navbar = () => {
             </ul>
             <ul className="flex flex-row gap-x-4">
                 {pathname === ('/dashboard' || '/dashboard/addCluster') ? (
-                    
-                    <Profile />
-
+                    // PROFILE LINK CURRENTLY LEADS TO ADD CLUSTER INFO
+                    [[`Welcome, ${name}`, '/dashboard/profile']].map(([title, url]) => (
+                        <li className='flex gap-x-4 items-center'>
+                            <div className='text-honeydew text-xl font-semi px-2 py-1'>{title}</div>
+                            <Link to={url} className="flex flex-row gap-x-4">
+                                <img className='w-10 h-10 rounded-full hover:scale-110 hover:brightness-110' src='../../../assets/profile.png' alt='profile photo'/>
+                            </Link>
+                        </li>
+                    ))
                     ) : (
                         [['Sign In', '/users/signin'], ['Sign Up', '/users/signup']].map(([title, url]) => (
                             <li className='flex gap-x-8 items-center'>

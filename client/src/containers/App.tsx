@@ -10,7 +10,11 @@ import Navbar from '../components/navbar/Navbar';
 import ScalingMetrics from '../components/scalingMetrics/ScalingMetrics'
 import SignIn  from '../components/SignIn';
 import Signup from '../components/signup/Signup';
+<<<<<<< HEAD
 import Profile from '../components/profile/Profile';
+=======
+import Profile from '../components/profile/Profile'
+>>>>>>> dev
 
 // import { SignupModal } from './components/signupModal/SignupModal';
 

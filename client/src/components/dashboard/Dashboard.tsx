@@ -16,7 +16,7 @@ import {
 // import Sidebar from '../sidebar/Sidebar.jsx'
 import Alerts from '../alerts/Alerts';
 import ClusterInfo from '../clusterInfo/ClusterInfo';
-import { GrCluster } from 'react-icons/gr';
+// import { GrCluster } from 'react-icons/gr';
 import Home from '../Home';
 import { Link } from 'react-router-dom';
 import ScalingMetrics from '../scalingMetrics/ScalingMetrics';

@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
+import Profile from '../profile/Profile'
 
 const Navbar = () => {
   const location = useLocation();
@@ -67,10 +68,9 @@ const Navbar = () => {
             </ul>
             <ul className="flex flex-row gap-x-4">
                 {pathname === ('/dashboard' || '/dashboard/addCluster') ? (
-                        <li className='flex flex-row justify-center items-center'>
-                            <p className='text-xl text-honeydew mr-4'>Welcome John Wick</p>
-                            <img className='w-10 h-10 rounded-full' src='../../../assets/profile.png' alt='profile photo'/>
-                        </li>
+                    
+                    <Profile />
+
                     ) : (
                         [['Sign In', '/users/signin'], ['Sign Up', '/users/signup']].map(([title, url]) => (
                             <li className='flex gap-x-8 items-center'>

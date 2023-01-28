@@ -7,7 +7,7 @@ import Dashboard from '../components/dashboard/Dashboard';
 import { Error } from '../components/Error';
 import HomeContainer from '../containers/HomeContainer';
 import Navbar from '../components/navbar/Navbar';
-import Profile from '../components/profile/Profile'
+import ScalingMetrics from '../components/scalingMetrics/ScalingMetrics'
 import SignIn  from '../components/SignIn';
 import Signup from '../components/signup/Signup';
 
@@ -35,7 +35,7 @@ const App = () => {
           <Route index element = {<Dashboard />}/>
           <Route path=':addcluster' element={<AddCluster />} />
         </Route>
-        <Route path='/profile' element={<Profile />} />
+        <Route path='/scalingMetrics' element={<ScalingMetrics />} />
         <Route path='/alerts' element={<Alerts />} />
         <Route path='/users/signin' element={<SignIn />} />
         <Route path='/users/signup' element={<Signup />} />

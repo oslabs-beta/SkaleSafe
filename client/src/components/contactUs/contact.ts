@@ -3,6 +3,7 @@ interface member {
     name: string;
     image: string;
     alt: string;
+    bio: string;
     linkedin: string;
     github: string;
 }
@@ -12,6 +13,7 @@ const team: member[] = [
         name: 'Leonardo Brian Campos',
         image: '../../../assets/Brian&Kai.jpg',
         alt: 'Leonardo Campos with his dog Kai',
+        bio: 'This is where the bio can go',
         linkedin: 'https://www.linkedin.com/in/leonardo-brian-campos/',
         github: 'https://github.com/MetaBrian',
     },
@@ -19,6 +21,7 @@ const team: member[] = [
         name: 'Daniel Doody',
         image: '../../../assets/daniel.png',
         alt: 'Daniel Doody outside in nature',
+        bio: 'This is where the bio can go',
         linkedin: 'https://www.linkedin.com/in/daniel-doody/',
         github: 'https://github.com/daniel-doody',
     },
@@ -26,6 +29,7 @@ const team: member[] = [
         name: 'Bethany Mattern',
         image: '../../../assets/bethany.jpg',
         alt: 'Bethany Mattern\'s face',
+        bio: 'Bethany is a Computer Science Graduate looking to become a Software Engineer in Web Development.',
         linkedin: 'https://www.linkedin.com/in/bethany-a-mattern/',
         github: 'https://github.com/bethanycable',
     },
@@ -33,6 +37,7 @@ const team: member[] = [
         name: 'Kelvin Shamy',
         image: '../../../assets/kelvin.jpeg',
         alt: 'Kelvin Shamy drinking some coffee',
+        bio: 'This is where the bio can go',
         linkedin: 'https://www.linkedin.com/in/kelvin-shamy-839798a1/',
         github: 'https://github.com/KelvinShamy',
     },
@@ -40,6 +45,7 @@ const team: member[] = [
         name: 'Sang Rea Han',
         image: '../../../assets/sanghan.png',
         alt: 'Sang Rea Han looking professional',
+        bio: 'This is where the bio can go',
         linkedin: 'https://www.linkedin.com/in/sangreahan/',
         github: 'https://github.com/sxhanx',
     }

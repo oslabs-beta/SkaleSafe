@@ -11,6 +11,8 @@ module.exports = {
       'prussian-blue': '#003153',
       'fuzzy-wuzzy': '#CC7178',
       'off-white': '#e5e7eb',
+      'light-color-f': '#003153',
+      'white': '#FFFFFF',
       white: '#FFFFFF',
       black: '#000000',
       grey: '#6b7280',

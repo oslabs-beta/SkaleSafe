@@ -6,7 +6,7 @@ import Team from "./contact";
 const ContactUs = () => {
 
   const developer = 'flex flex-col rounded-xl items-center justify-between h-4/5 w-1/5 py-10 bg-gradient-to-tr from-primary-color/30 to-light-blue/30 border border-teal-blue shadow-lg shadow-current'
-  const links = 'cursor-pointer bg-grey rounded-full p-2 shadow shadow-honeydew hover:scale-110 hover:bg-sapphire-blue hover:shadow-md hover:shadow-honeydew';
+  const links = 'cursor-pointer bg-grey rounded-full p-2 shadow shadow-honeydew hover:scale-110 hover:bg-sapphire-blue hover:shadow-md hover:shadow-prussian-blue';
   const svg = 'fill-honeydew';
 
   return (

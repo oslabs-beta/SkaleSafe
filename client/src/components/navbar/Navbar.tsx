@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
+
 import Profile from '../profile/Profile'
 
 const Navbar = () => {
@@ -11,7 +12,7 @@ const Navbar = () => {
     'text-honeydew text-xl font-semi px-2 py-1 hover:scale-110 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]';
 
     const inLinks = 'text-md px-2 py-1'
-
+    
 
     useEffect(() => {
         if(hash) {
@@ -31,14 +32,14 @@ const Navbar = () => {
     },[hash, location]);
 
     const loggedOut = "fixed w-screen h-20 flex flex-row items-center justify-between bg-honeydew/10 px-14 shadow-md shadow-honeydew/10";
-    const loggedin = "w-screen h-20 flex flex-row items-center justify-between bg-gradient-to-r from-sapphire-blue/30 to-primary-color/30 px-20"
+    const loggedIn = "w-screen h-20 flex flex-row items-center justify-between bg-gradient-to-r from-sapphire-blue/30 to-primary-color/30 px-20"
 
 
     return (
-        <nav className={pathname === '/dashboard' || '/dashboard/addCluster' ? loggedin : loggedOut}>
+        <nav className={pathname === ('/dashboard' || '/dashboard/addCluster') ? loggedIn : loggedOut}>
             <Link to='/home'>
-                <div className="flex flex-row justify-evenly items-center bg-prussian-blue w-60 h-12 rounded-full">
-                    <img className="w-8 max-h-sm " src='../../../assets/SkaleSafe-nobg.png' alt="A fish inside a shield"/>
+                <div className="flex flex-row justify-evenly items-center bg-prussian-blue/40 w-60 h-12 rounded-full">
+                    <img className="w-8 max-h-sm " src='../../../assets/SkaleSafe-light.png' alt="A fish inside a shield"/>
                     <h1 className="text-primary-color text-3xl pl-3">SkaleSafe</h1>
                 </div>
             </Link>

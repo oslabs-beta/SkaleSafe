@@ -42,23 +42,23 @@ const createAPITokens = async (
   next: NextFunction
 ) => {
   try {
-    const createOrg = await axios.post(
-        `${grafanaUrl}/api/orgs`,
-        {
-            'name': 'apiorg'
-        },
-        {
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            auth: {
-                username: username,
-                password: password,
-            }
-        }
-    );
-    const orgId: any = createOrg.data.orgId;
-    res.locals.orgId = orgId;
+    // const createOrg = await axios.post(
+    //     `${grafanaUrl}/api/orgs`,
+    //     {
+    //         'name': 'apiorg'
+    //     },
+    //     {
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         auth: {
+    //             username: username,
+    //             password: password,
+    //         }
+    //     }
+    // );
+    // const orgId: any = createOrg.data.orgId;
+    // res.locals.orgId = orgId;
 
     // const switchOrgs = await axios.post(
     //     `${grafanaUrl}/api/orgs/${orgId}/users`,
@@ -78,16 +78,16 @@ const createAPITokens = async (
     //     }
     // );
     
-    const switchToOrg = await axios.post(
-        `${grafanaUrl}/api/user/using/${orgId}`,
-        // `${grafanaUrl}/api/user/using/2`,
-        {
-            auth: {
-                username: username,
-                password: password,
-            }
-        }
-    );
+    // const switchToOrg = await axios.post(
+    //     `${grafanaUrl}/api/user/using/${orgId}`,
+    //     // `${grafanaUrl}/api/user/using/2`,
+    //     {
+    //         auth: {
+    //             username: username,
+    //             password: password,
+    //         }
+    //     }
+    // );
 
 
     //not working 

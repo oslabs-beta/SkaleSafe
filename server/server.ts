@@ -76,7 +76,7 @@ app.use(
     };
 
     const errorObj = Object.assign({}, defaultError, err);
-    console.log(errorObj.log);
+    console.log('error.Obj.log', errorObj.log);
     return res.status(errorObj.status).json(errorObj.message);
   }
 );

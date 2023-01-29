@@ -20,6 +20,9 @@ import ClusterInfo from '../clusterInfo/ClusterInfo';
 import Home from '../Home';
 import { Link } from 'react-router-dom';
 import ScalingMetrics from '../scalingMetrics/ScalingMetrics';
+import Sidebar from '../sidebar/Sidebar';
+import Settings from '../Settings/settings';
+import { Outlet } from "react-router-dom";
 
 // RiLogoutBoxLine
 
@@ -83,10 +86,10 @@ const Dashboard = (props: Props) => {
                   </li>
                   <li
                     className={listElement}
-                    onClick={() => console.log('Settings clicked!')}
+                    onClick={() => setActive(5)}
                   >
                     <a
-                      href=''
+                      href='#settings'
                       className='flex items-center p-2 space-x-3 rounded-md'
                     >
                       <RiSettings3Line size={24} />
@@ -110,13 +113,17 @@ const Dashboard = (props: Props) => {
               </div>
             </div>
           </div>
+          <Outlet/>
         </div>
         {active === 1 && <ScalingMetrics />}
         {active === 2 && <Alerts />}
         {active === 3 && <ClusterInfo />}
+        {/* {active === 4 && <KubeView />} */}
+        {active === 5 && <Settings />}
       </div>
       {/* CODE TO BE MOVED TO Sidebar.jsx ENDS HERE */}
     </div>
+    
   );
 };
 

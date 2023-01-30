@@ -14,18 +14,22 @@ import {
 } from 'react-icons/ri';
 
 // import Sidebar from '../sidebar/Sidebar.jsx'
-import Alerts from '../alerts/Alerts';
-import ClusterInfo from '../clusterInfo/ClusterInfo';
+import Alerts from '../Alerts/Alerts';
+import ClusterInfo from '../ClusterInfo/ClusterInfo';
 // import { GrCluster } from 'react-icons/gr';
 import Home from '../Home';
-import { Link } from 'react-router-dom';
-import ScalingMetrics from '../scalingMetrics/ScalingMetrics';
-import Sidebar from '../sidebar/Sidebar';
-import Settings from '../Settings/settings';
-import { Outlet } from 'react-router-dom';
 import KubeView from '../kubeview/KubeView';
+import { Link } from 'react-router-dom';
+import { Outlet } from "react-router-dom";
+import ScalingMetrics from '../scalingMetrics/ScalingMetrics';
+import Settings from '../Settings/settings';
+import Sidebar from '../sidebar/Sidebar';
+import { setIsLoggedIn } from '../../../redux/slices/userSlice';
+import { useAppDispatch } from '../../../redux/hooks/hooks';
 
 // RiLogoutBoxLine
+
+
 
 type Props = {};
 
@@ -34,6 +38,12 @@ const Dashboard = (props: Props) => {
   // clicking on the different options on the sidebar changes the 'active' state above
 
   const listElement = 'rounded-sm hover:scale-105';
+  const dispatch = useAppDispatch();
+  const loggedOut = (event: any) => {
+    event.preventDefault();
+    dispatch(setIsLoggedIn(false));
+  }
+
 
   return (
     <div className='w-screen h-screen'>
@@ -94,7 +104,10 @@ const Dashboard = (props: Props) => {
                       <span>Settings</span>
                     </a>
                   </li>
-                  <li className={listElement}>
+                  <li
+                    className={listElement}
+                    onClick={loggedOut}
+                  >
                     <Link
                       to='/home'
                       className='flex items-center p-2 space-x-3 rounded-md'

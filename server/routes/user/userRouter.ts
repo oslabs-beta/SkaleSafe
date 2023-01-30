@@ -44,6 +44,7 @@ router.post(
     res.cookie('token', 'testing');
     res.status(200).json({
       message: 'Successful Login!',
+      user: res.locals.user
     });
   }
 );

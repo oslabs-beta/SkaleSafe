@@ -1,4 +1,5 @@
 import { AiFillGithub, AiFillGoogleCircle } from 'react-icons/ai';
+// import { submitSignupFailure, submitSignupStart, submitSignupSuccess } from '../../../redux/slices/signupSlice';
 import { useEffect, useState } from 'react';
 
 import Modal from 'react-modal';
@@ -7,16 +8,9 @@ import SignUpData from '../../interfaces/signup';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-type Props = {};
-
-export const SignupModal = (props: Props) => {
+export const SignupModal = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-  const [clusterURL, setClusterURL] = useState('');
-  const [kubernetesPort, setKubernetesPort] = useState('');
-  const [clusterName, setClusterName] = useState('');
-  const [grafanaURL, setGrafanaURL] = useState('');
-  const [thanosPort, setThanosPort] = useState('');
   const [isSignedUp, setIsSignedUp] = useState(false);
   const [formData, setFormData] = useState<SignUpData>({
     firstname: '',
@@ -24,7 +18,9 @@ export const SignupModal = (props: Props) => {
     email: '',
     username: '',
     password: '',
+    picture: '../../../assets/profile.png',
   });
+
 
   useEffect(() => {
     if(isSignedUp) {
@@ -35,32 +31,26 @@ export const SignupModal = (props: Props) => {
   }, [isSignedUp, navigate]);
 
   // update form object after each keystroke
-  const handleChange = (event: any) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
 
   // submit form: send post request to server @ /login
-  const submitFormData = (e?: any) => {
+  const submitFormData = (e: any) => {
     e.preventDefault();
 
     axios
       .post('http://localhost:3000/users/signup', formData)
       .then((res) => {
-        console.log(res);
+        if (res.status === 200) {
+          setIsSignedUp(true);
+          navigate('/users/signup');
+        }
       })
       .catch((err) => {
-        console.log(err.message);
+        console.log(err);
       });
-
-    setIsSignedUp(true);
-    setFormData({
-      firstname: '',
-      lastname: '',
-      email: '',
-      username: '',
-      password: '',
-    });
   };
 
   const inputField =
@@ -73,7 +63,7 @@ export const SignupModal = (props: Props) => {
     <div>
       <button
         onClick={() => setIsOpen(true)}
-        className='border-b border-prussian-blue text-prussian-blue text-md px-2 py-1 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]'
+        className='text-honeydew text-xl font-semi px-2 py-1 hover:scale-110 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]'
       >
         Sign Up
       </button>

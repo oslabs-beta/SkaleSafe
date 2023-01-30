@@ -3,14 +3,18 @@ import React from 'react';
 type Props = {};
 
 const KubeView = (props: Props) => {
-  const kubeUrl = 'http://localhost:8080';
+  const kubePort = 8080;
+  // ^get this variable from database
+  const kubeUrl = `http://localhost:${kubePort}/view/default-namespace`;
+  // ^store this in .env file
 
   return (
     <iframe
       title='KubeView'
-      src={`${kubeUrl}/view/default-namespace`}
+      src={kubeUrl}
+      allow='same-origin'
       width='100%'
-      height='500'
+      height='1000'
       frameBorder='0'
     />
   );

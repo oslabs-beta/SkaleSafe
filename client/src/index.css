@@ -11,9 +11,6 @@
 
 body {
     height: 100vh;
-    /* background-image: url('/Users/owner/Codesmith/SkaleSafe/Client/assets/SkaleSafe.png');
-    background-repeat: no-repeat; */
-    /* background-size: 80vw 80vh; */
     display: flex;
     font-family: theme('fontFamily.roboto');
     justify-content: center;
@@ -21,6 +18,12 @@ body {
     overflow-x: hidden;
     margin: 0;
     padding: 0;
+}
+
+.light-mode{
+background: white;
+color: black;
+
 }
 /* theme('colors.prussian-blue') */
 /* linear-gradient(90deg, #003153, #126180); */

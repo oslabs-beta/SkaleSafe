@@ -1,4 +1,5 @@
 import { Error, Schema, model } from 'mongoose';
+
 import { UserObj } from './../interfaces/user';
 import bcrypt from 'bcryptjs';
 
@@ -13,6 +14,7 @@ const userSchema = new Schema<UserObj>({
   email: { type: String, required: true, unique: true },
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true, minlength: 8, hide: true },
+  picture: { type: String},
   grafURL: { type: String, required: false },
   grafUsername: { type: String, required: false },
   grafPassword: { type: String, required: false },

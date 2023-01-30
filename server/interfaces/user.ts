@@ -7,6 +7,7 @@ export interface UserObj extends Document {
   email: string;
   username: string;
   password: string;
+  picture: string;
   grafURL: string;
   grafUsername: string;
   grafPassword: string;

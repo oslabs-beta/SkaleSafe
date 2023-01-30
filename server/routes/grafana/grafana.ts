@@ -2,7 +2,6 @@ import express, { Request, Response } from 'express';
 import axiosDashboard from '../../controllers/grafana/axiosDashboard';
 import grafSearch from '../../controllers/grafana/metric';
 import customDashboard from '../../controllers/grafana/customDashboard';
-import createAPITokens from '../../controllers/grafana/createAPIToken';
 import { createGrafAlert } from '../../controllers/grafana/createGrafAlert';
 
 const router = express.Router();

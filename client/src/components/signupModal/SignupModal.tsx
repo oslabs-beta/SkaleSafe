@@ -47,13 +47,15 @@ export const SignupModal = (props: Props) => {
     axios
       .post('http://localhost:3000/users/signup', formData)
       .then((res) => {
-        console.log(res);
+        if (res.status === 200) {
+          setIsSignedUp(true);
+          navigate('/dashboard');
+        }
       })
       .catch((err) => {
-        console.log(err.message);
+        console.log(err);
       });
 
-    setIsSignedUp(true);
     setFormData({
       firstname: '',
       lastname: '',
@@ -73,7 +75,7 @@ export const SignupModal = (props: Props) => {
     <div>
       <button
         onClick={() => setIsOpen(true)}
-        className='border-b border-prussian-blue text-prussian-blue text-md px-2 py-1 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]'
+        className='text-honeydew text-xl font-semi px-2 py-1 hover:scale-110 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]'
       >
         Sign Up
       </button>

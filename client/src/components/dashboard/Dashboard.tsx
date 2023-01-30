@@ -14,15 +14,15 @@ import {
 } from 'react-icons/ri';
 
 // import Sidebar from '../sidebar/Sidebar.jsx'
-import Alerts from '../alerts/Alerts';
-import ClusterInfo from '../clusterInfo/ClusterInfo';
+import Alerts from '../Alerts/Alerts';
+import ClusterInfo from '../ClusterInfo/ClusterInfo';
 // import { GrCluster } from 'react-icons/gr';
 import Home from '../Home';
 import { Link } from 'react-router-dom';
-import ScalingMetrics from '../scalingMetrics/ScalingMetrics';
-import Sidebar from '../sidebar/Sidebar';
-import Settings from '../Settings/settings';
 import { Outlet } from "react-router-dom";
+import ScalingMetrics from '../scalingMetrics/ScalingMetrics';
+import Settings from '../Settings/settings';
+import Sidebar from '../sidebar/Sidebar';
 
 // RiLogoutBoxLine
 

@@ -6,7 +6,7 @@ const AddCluster = () => {
   const [grafanaPort, setGrafanaPort] = useState('');
   const [grafanaUsername, setGrafanaUsername] = useState('');
   const [grafanaPassword, setGrafanaPassword] = useState('');
-  const [thanosPort, setThanosPort] = useState('');
+  const [kubeviewPort, setKubeviewPort] = useState('');
 
   const username = localStorage.getItem('username');
 
@@ -17,19 +17,20 @@ const AddCluster = () => {
       grafanaPort,
       grafanaUsername,
       grafanaPassword,
-      thanosPort,
+      kubeviewPort,
       username,
     };
     console.log(addCluster);
 
-    axios.post('http://localhost:3002/add-cluster', addCluster);
+    // add to .env
+    axios.post('http://localhost:3000/add-cluster', addCluster);
 
     // reset states
     // setGrafanaPort('');
     // setGrafanaUsername('');
     // setGrafanaPassword('');
     // setGrafanaURL('');
-    // setThanosPort('');
+    // setKubeviewPort('');
   };
   const inputField =
     'border-b-2 pb-2 border-violet-300 w-full focus:outline-none focus:border-violet-600 focus:border-b-3';
@@ -88,12 +89,12 @@ const AddCluster = () => {
                 <div className='relative'>
                   <input
                     type='text'
-                    id='pw'
+                    id='kubeviewPort'
                     className={inputField}
-                    name='pw'
+                    name='kubeviewPort'
                     autoComplete='off'
-                    placeholder='Thanos (sidecar) Port'
-                    onChange={(e) => setThanosPort(e.target.value)}
+                    placeholder='KubeView Port'
+                    onChange={(e) => setKubeviewPort(e.target.value)}
                   />
                 </div>
                 <div className='relative'>

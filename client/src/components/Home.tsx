@@ -4,6 +4,15 @@ const Home =() => {
 
     function toggleTEST(){
 
+      let element = document.body
+      element.classList.toggle('light-mode')
+  
+      const logoText = document.getElementById('colortestlogo');
+     logoText.className = 'text-prussian-blue text-3xl pl-3'
+  
+     const logoBackground = document.getElementById('backgroundoflogo')
+     logoBackground.className= "flex flex-row justify-evenly items-center bg-primary-color w-60 h-12 rounded-full"
+    
       let homeLogo = document.getElementById('homeLogo')
 
       if(homeLogo.src !== "../../../assets/SkaleSafe-color.svg"){

@@ -3,7 +3,9 @@ type Props = {};
 
 const Settings = (props: Props) => {
 
-  function toggleLight(){
+  function toggleLight(){  //currently switching to light-mode and clicking on the logo or logout option preserves the setting
+      //may be because of how logo is coded
+      //not preserved if you go to the url directly i.e. entering '/home' from the dashboard or refresh the page 
     let element = document.body
     element.classList.toggle('light-mode')
 

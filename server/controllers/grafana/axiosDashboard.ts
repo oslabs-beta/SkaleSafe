@@ -1,30 +1,41 @@
-import * as axios from 'axios';
+import axios from 'axios';
 import { Request, Response, NextFunction } from 'express';
 
 const grafanaUrl = 'http://localhost:8888';
-const username = 'sang';
-const password = 'intern';
+const username = 'admin';
+const password = 'prom-operator';
 
-export const axiosDashboard = async (
+let authBuffer = Buffer.from(username+":"+password, "utf8");
+let basicAuth = authBuffer.toString("base64");
+
+// console.log(basicAuth);
+
+
+const axiosDashboard = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    const response = await axios.default.get(
-      `${grafanaUrl}/api/dashboards/uid/your_dashboard_id`,
+    const response = await axios.get(
+      `${grafanaUrl}/api/dashboards/uid/ßPohUG8o4k`,
+      // `${grafanaUrl}/d/85a562078cdf77779eaa1add43ccec1e/kubernetes-compute-resources-namespace-pods`,
+      
       {
-        auth: {
-          username: username,
-          password: password,
-        },
-      }
-    );
+          headers: {
+              'Authorization': `Basic ${basicAuth}`,
+              'Content-Type': 'application/json',
+          }
+      });
     const dashboardData: any = response.data;
+    res.send(dashboardData);
+    res.locals.queryData = dashboardData;
     console.log(dashboardData);
-    next();
   } catch (err) {
     console.log(err);
     res.status(500).send(err);
   }
+  next();
 };
+
+export default axiosDashboard;

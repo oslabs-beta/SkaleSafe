@@ -4,11 +4,25 @@ import { ResponseObj } from "../interfaces/response";
 
 interface cookieController {
     addCookie: ResponseObj;
-    setSSIDCookie: ResponseObj;
+    setSessionCookie: ResponseObj;
+}
+
+const errorHandler = (errInfo: any)  => {
+    const { method, type, err } = errInfo;
+
+    return {
+        log: `userController.${method} ${type}: ERROR: ${
+            typeof err === 'object' ? JSON.stringify(err) : err
+        }`,
+        message: {
+            err: `Error occcured in userController.${method}. Check the server logs for more details.`
+        }
+    }    
 }
 
 const cookieController: cookieController = {
-    addCookie: (req: Request, res: Response, next: NextFunction) => {
+    addCookie: (req: Request, res: Response, next: NextFunction) => { 
+    
         if(res.locals.user) {
             let randNum = Math.random().toString();
             randNum = randNum.substring(2, randNum.length);
@@ -17,15 +31,17 @@ const cookieController: cookieController = {
                 httpOnly: true,
                 secure: true
             })
+            return next();
         }
-        return next();
     },
-    setSSIDCookie: (req: Request, res: Response, next: NextFunction) => {
+    
+    setSessionCookie: (req: Request, res: Response, next: NextFunction) => {
         if(res.locals.user) {
             res.cookie('session', res.locals.user._id, {
                 httpOnly: true,
                 secure: true
             })
+            return next();
         }
     }
 };

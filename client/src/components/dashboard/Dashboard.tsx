@@ -18,6 +18,7 @@ import Alerts from '../Alerts/Alerts';
 import ClusterInfo from '../ClusterInfo/ClusterInfo';
 // import { GrCluster } from 'react-icons/gr';
 import Home from '../Home';
+import KubeView from '../kubeview/KubeView';
 import { Link } from 'react-router-dom';
 import { Outlet } from "react-router-dom";
 import ScalingMetrics from '../scalingMetrics/ScalingMetrics';
@@ -94,10 +95,7 @@ const Dashboard = (props: Props) => {
                       <span>KubeView</span>
                     </a>
                   </li>
-                  <li
-                    className={listElement}
-                    onClick={() => setActive(5)}
-                  >
+                  <li className={listElement} onClick={() => setActive(5)}>
                     <a
                       href='#settings'
                       className='flex items-center p-2 space-x-3 rounded-md'
@@ -124,17 +122,16 @@ const Dashboard = (props: Props) => {
               </div>
             </div>
           </div>
-          <Outlet/>
+          <Outlet />
         </div>
         {active === 1 && <ScalingMetrics />}
         {active === 2 && <Alerts />}
         {active === 3 && <ClusterInfo />}
-        {/* {active === 4 && <KubeView />} */}
+        {active === 4 && <KubeView />}
         {active === 5 && <Settings />}
       </div>
       {/* CODE TO BE MOVED TO Sidebar.jsx ENDS HERE */}
     </div>
-    
   );
 };
 

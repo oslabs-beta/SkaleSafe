@@ -1,4 +1,5 @@
 import { AiFillGithub, AiFillGoogleCircle } from 'react-icons/ai';
+// import { submitSignupFailure, submitSignupStart, submitSignupSuccess } from '../../../redux/slices/signupSlice';
 import { useEffect, useState } from 'react';
 
 import Modal from 'react-modal';
@@ -7,16 +8,9 @@ import SignUpData from '../../interfaces/signup';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-type Props = {};
-
-export const SignupModal = (props: Props) => {
+export const SignupModal = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-  const [clusterURL, setClusterURL] = useState('');
-  const [kubernetesPort, setKubernetesPort] = useState('');
-  const [clusterName, setClusterName] = useState('');
-  const [grafanaURL, setGrafanaURL] = useState('');
-  const [thanosPort, setThanosPort] = useState('');
   const [isSignedUp, setIsSignedUp] = useState(false);
   const [formData, setFormData] = useState<SignUpData>({
     firstname: '',
@@ -24,7 +18,9 @@ export const SignupModal = (props: Props) => {
     email: '',
     username: '',
     password: '',
+    picture: '../../../assets/profile.png',
   });
+
 
   useEffect(() => {
     if(isSignedUp) {
@@ -35,13 +31,13 @@ export const SignupModal = (props: Props) => {
   }, [isSignedUp, navigate]);
 
   // update form object after each keystroke
-  const handleChange = (event: any) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
 
   // submit form: send post request to server @ /login
-  const submitFormData = (e?: any) => {
+  const submitFormData = (e: any) => {
     e.preventDefault();
 
     axios
@@ -49,20 +45,12 @@ export const SignupModal = (props: Props) => {
       .then((res) => {
         if (res.status === 200) {
           setIsSignedUp(true);
-          navigate('/dashboard');
+          navigate('/users/signup');
         }
       })
       .catch((err) => {
         console.log(err);
       });
-
-    setFormData({
-      firstname: '',
-      lastname: '',
-      email: '',
-      username: '',
-      password: '',
-    });
   };
 
   const inputField =

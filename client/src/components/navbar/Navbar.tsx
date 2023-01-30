@@ -1,21 +1,25 @@
 import { Link, useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 
-import Profile from '../profile/Profile'
+// import Profile from '../profile/Profile'
 import { SignupModal } from '../signupModal/SignupModal';
+import { useAppSelector } from '../../../redux/hooks/hooks';
 
 const Navbar = () => {
   const location = useLocation();
     const { hash } = location;
-    const pathname = location.pathname;
+    // const pathname = location.pathname;
+
+
+    const userName = useAppSelector((state) => state.user.userData.firstname);
+    const isLoggedIn = useAppSelector(state => state.user.isLoggedIn);
 
     //ADD ID BELOW
-  const outLinks =
+    const outLinks =
     'text-honeydew text-xl font-semi px-2 py-1 hover:scale-110 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]';
 
     const inLinks = 'text-md px-2 py-1'
     
-
     useEffect(() => {
         if(hash) {
             const id = hash.replace('#', '');
@@ -39,11 +43,11 @@ const Navbar = () => {
     const name = 'TestiBoi';
 
     return (
-        <nav className={pathname === ('/dashboard' || '/dashboard/addCluster') ? loggedIn : loggedOut}>
+        <nav className={isLoggedIn ? loggedIn : loggedOut}>
             <Link to='/home'>
                 <div id='backgroundoflogo' className="flex flex-row justify-evenly items-center bg-prussian-blue w-60 h-12 rounded-full">
                     <img className="w-8 max-h-sm " src='../../../assets/SkaleSafe-light.png' alt="A fish inside a shield"/>
-                    {/* <h1 id='colortestlogo' className="text-primary-color text-3xl pl-3">SkaleSafe</h1> */}
+                    <h1 id='colortestlogo' className="text-primary-color text-3xl pl-3">SkaleSafe</h1>
                 </div>
             </Link>
                 {/* <button className='border-b border-prussian-blue text-prussian-blue text-md px-2 py-1 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]' onClick={() => window.open('https://github.com/oslabs-beta/SkaleSafe', '_blank')}>
@@ -51,7 +55,7 @@ const Navbar = () => {
                 </button> */}
 
             <ul className="flex flex-row gap-x-4">
-                {pathname === ('/dashboard' || '/dashboard/addCluster') ? (
+                {isLoggedIn ? (
                         [['Add Cluster', '/dashboard/addCluster'], ['My Dashboard', '/dashboard']].map(([title, url]) => (
                             <li>
                                 <Link to={url}>
@@ -71,9 +75,9 @@ const Navbar = () => {
                 }
             </ul>
             <ul className="flex flex-row gap-x-4">
-                {pathname === ('/dashboard' || '/dashboard/addCluster') ? (
+                {isLoggedIn ? (
                     // PROFILE LINK CURRENTLY LEADS TO ADD CLUSTER INFO
-                    [[`Welcome, ${name}`, '/dashboard/profile']].map(([title, url]) => (
+                    [[`Welcome, ${userName}`, '/dashboard/profile']].map(([title, url]) => (
                         <li className='flex gap-x-4 items-center'>
                             <div className='text-honeydew text-xl font-semi px-2 py-1'>{title}</div>
                             <Link to={url} className="flex flex-row gap-x-4">
@@ -82,14 +86,14 @@ const Navbar = () => {
                         </li>
                     ))
                     ) : (
-                        // [['Sign In', '/users/signin'], ['Sign Up', '/users/signup']].map(([title, url]) => (
-                        //     <li className='flex gap-x-8 items-center'>
-                        //         <Link to={url}>
-                        //             <button className={outLinks}>{title}</button>
-                        //         </Link>
-                        //     </li>
-                        // ))
-                        <SignupModal />
+                        [['Sign In', '/users/signin'], ['Sign Up', '/users/signup']].map(([title, url]) => (
+                            <li className='flex gap-x-8 items-center'>
+                                <Link to={url}>
+                                    <button className={outLinks}>{title}</button>
+                                </Link>
+                            </li>
+                        ))
+                        // <SignupModal />
                     )
                 }
             </ul>

@@ -23,8 +23,12 @@ import { Outlet } from "react-router-dom";
 import ScalingMetrics from '../scalingMetrics/ScalingMetrics';
 import Settings from '../Settings/settings';
 import Sidebar from '../sidebar/Sidebar';
+import { setIsLoggedIn } from '../../../redux/slices/userSlice';
+import { useAppDispatch } from '../../../redux/hooks/hooks';
 
 // RiLogoutBoxLine
+
+
 
 type Props = {};
 
@@ -33,6 +37,12 @@ const Dashboard = (props: Props) => {
   // clicking on the different options on the sidebar changes the 'active' state above
 
   const listElement = 'rounded-sm hover:scale-105';
+  const dispatch = useAppDispatch();
+  const loggedOut = (event: any) => {
+    event.preventDefault();
+    dispatch(setIsLoggedIn(false));
+  }
+
 
   return (
     <div className='w-screen h-screen'>
@@ -98,6 +108,7 @@ const Dashboard = (props: Props) => {
                   </li>
                   <li
                     className={listElement}
+                    onClick={loggedOut}
                   >
                     <Link
                       to='/home'

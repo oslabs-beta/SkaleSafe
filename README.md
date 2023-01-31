@@ -1,6 +1,6 @@
 # SkaleSafe
 
-![SkaleSafeLogo](./Client/assets/Logo-4.png)
+![SkaleSafeLogo](./client/assets/Logo%204.png)
 
 # Technologies Utilized
 

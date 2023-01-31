@@ -4,9 +4,9 @@
 
 <br/>
 
-# SkaleSafe
+# About
 <br/>
-SkaleSafe is designed to provide users with quick access to their clusters' scaling metrics
+SkaleSafe is designed to provide users with quick access to their clusters' scaling metrics & an easy to configure alert system for said metrics.
 
 # Technologies Utilized
 

@@ -52,10 +52,10 @@ Upon contributing, you agree that your contributions will be licensed under its 
 Please feel free to reach out to us if you would like to contribute or if you have any questions or concerns!
 
 - **Bethany Mattern:** [![Github](https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=181717&logo=GitHub&logoColor=FFFFFF&label=)](https://github.com/bethanycable) & [LinkedIn](https://www.linkedin.com/in/bethany-a-mattern/)
-- **Leonardo Brian Campos:** - [![Github](https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=181717&logo=GitHub&logoColor=FFFFFF&label=)](https://github.com/MetaBrian) & [LinkedIn](https://www.linkedin.com/in/leonardo-brian-campos/)
-- **Daniel Doody:** - [![Github](https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=181717&logo=GitHub&logoColor=FFFFFF&label](https://github.com/daniel-doody) & [LinkedIn](https://www.linkedin.com/in/daniel-doody/)
-- **Kelvin Shamy:** - [![Github](https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=181717&logo=GitHub&logoColor=FFFFFF&label=)](https://github.com/KelvinShamy) & [LinkedIn](https://www.linkedin.com/in/kelvin-shamy-839798a1/)
-- **Sang Rea Han:** - [![Github](https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=181717&logo=GitHub&logoColor=FFFFFF&label=)](https://github.com/sxhanx) & [LinkedIn](https://github.com/sxhanx)
+- **Leonardo Brian Campos:** [![Github](https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=181717&logo=GitHub&logoColor=FFFFFF&label=)](https://github.com/MetaBrian) & [LinkedIn](https://www.linkedin.com/in/leonardo-brian-campos/)
+- **Daniel Doody:** [![Github](https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=181717&logo=GitHub&logoColor=FFFFFF&label](https://github.com/daniel-doody)] & [LinkedIn](https://www.linkedin.com/in/daniel-doody/)
+- **Kelvin Shamy:** [![Github](https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=181717&logo=GitHub&logoColor=FFFFFF&label=)](https://github.com/KelvinShamy) & [LinkedIn](https://www.linkedin.com/in/kelvin-shamy-839798a1/)
+- **Sang Rea Han:** [![Github](https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=181717&logo=GitHub&logoColor=FFFFFF&label=)](https://github.com/sxhanx) & [LinkedIn](https://github.com/sxhanx)
 <br/>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

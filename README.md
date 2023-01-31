@@ -1,8 +1,12 @@
-# SkaleSafe
+
 
 ![SkaleSafeLogo](./client/assets/Logo%204.png)
 
 <br/>
+
+# SkaleSafe
+<br/>
+SkaleSafe is designed to provide users with quick access to their clusters' scaling metrics
 
 # Technologies Utilized
 

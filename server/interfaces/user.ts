@@ -7,8 +7,10 @@ export interface UserObj extends Document {
   email: string;
   username: string;
   password: string;
+  // picture: string;
   grafURL: string;
+  grafPort: string;
   grafUsername: string;
   grafPassword: string;
-  grafUID: string;
+  kubeviewPort: string;
 }

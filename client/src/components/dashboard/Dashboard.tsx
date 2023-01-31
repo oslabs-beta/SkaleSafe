@@ -14,18 +14,23 @@ import {
 } from 'react-icons/ri';
 
 // import Sidebar from '../sidebar/Sidebar.jsx'
-import Alerts from '../alerts/Alerts';
-import ClusterInfo from '../clusterInfo/ClusterInfo';
+import Alerts from '../Alerts/Alerts';
+import ClusterInfo from '../ClusterInfo/ClusterInfo';
 // import { GrCluster } from 'react-icons/gr';
 import Home from '../Home';
+import KubeView from '../kubeview/KubeView';
 import { Link } from 'react-router-dom';
-import ScalingMetrics from '../scalingMetrics/ScalingMetrics';
-import Sidebar from '../sidebar/Sidebar';
-import Settings from '../Settings/settings';
 import { Outlet } from "react-router-dom";
 import LightOrDark from '../modeSwitch/ModeSwitch';
+import ScalingMetrics from '../scalingMetrics/ScalingMetrics';
+import Settings from '../Settings/settings';
+import Sidebar from '../sidebar/Sidebar';
+import { setIsLoggedIn } from '../../../redux/slices/userSlice';
+import { useAppDispatch } from '../../../redux/hooks/hooks';
 
 // RiLogoutBoxLine
+
+
 
 type Props = {};
 
@@ -34,6 +39,12 @@ const Dashboard = (props: Props) => {
   // clicking on the different options on the sidebar changes the 'active' state above
 
   const listElement = 'rounded-sm hover:scale-105';
+  const dispatch = useAppDispatch();
+  const loggedOut = (event: any) => {
+    event.preventDefault();
+    dispatch(setIsLoggedIn(false));
+  }
+
 
   return (
     <div className='w-screen h-screen'>
@@ -85,10 +96,7 @@ const Dashboard = (props: Props) => {
                       <span id='kubeoption' className='text-black'>KubeView</span>
                     </a>
                   </li>
-                  <li
-                    className={listElement}
-                    onClick={() => setActive(5)}
-                  >
+                  <li className={listElement} onClick={() => setActive(5)}>
                     <a
                       href='#settings'
                       className='flex items-center p-2 space-x-3 rounded-md'
@@ -99,6 +107,7 @@ const Dashboard = (props: Props) => {
                   </li>
                   <li
                     className={listElement}
+                    onClick={loggedOut}
                   >
                     <Link
                       to='/home'
@@ -114,17 +123,16 @@ const Dashboard = (props: Props) => {
               </div>
             </div>
           </div>
-          <Outlet/>
+          <Outlet />
         </div>
         {active === 1 && <ScalingMetrics />}
         {active === 2 && <Alerts />}
         {active === 3 && <ClusterInfo />}
-        {/* {active === 4 && <KubeView />} */}
+        {active === 4 && <KubeView />}
         {active === 5 && <Settings />}
       </div>
       {/* CODE TO BE MOVED TO Sidebar.jsx ENDS HERE */}
     </div>
-    
   );
 };
 

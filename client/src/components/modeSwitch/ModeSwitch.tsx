@@ -1,6 +1,6 @@
 
 
-
+//only working on /home route
 const LightOrDark = () => { //ONLY TOGGLES ONCE
     //separate with if logic referencing url to see if dashboard can be manipulated separately
         //needs to be done for db/home button to work and not give errors

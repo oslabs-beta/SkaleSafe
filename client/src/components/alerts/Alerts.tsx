@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import Toggle from './toggle/Toggle';
+import Toggle from './Toggle/Toggle';
 
 const Alerts = () => {
   const alertTypes = [

@@ -1,16 +1,16 @@
 import { Route, Routes } from 'react-router-dom';
 
-import AddCluster from '../components/addCluster/AddCluster';
-import Alerts from '../components/alerts/Alerts';
-import ContactUs from '../components/contactUs/ContactUs'
-import Dashboard from '../components/dashboard/Dashboard';
+import AddCluster from '../components/AddCluster/AddCluster';
+import Alerts from '../components/Alerts/Alerts';
+import ContactUs from '../components/ContactUs/ContactUs'
+import Dashboard from '../components/Dashboard/Dashboard';
 import { Error } from '../components/Error';
 import HomeContainer from '../containers/HomeContainer';
 import Navbar from '../components/navbar/Navbar';
+import Profile from '../components/profile/Profile'
 import ScalingMetrics from '../components/scalingMetrics/ScalingMetrics'
 import SignIn  from '../components/SignIn';
 import Signup from '../components/signup/Signup';
-import Profile from '../components/profile/Profile'
 
 // import { SignupModal } from './components/signupModal/SignupModal';
 

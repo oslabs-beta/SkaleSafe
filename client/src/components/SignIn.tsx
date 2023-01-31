@@ -1,23 +1,23 @@
+import { SignInState, setIsLoggedIn, setUserData } from '../../redux/slices/userSlice';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
 import { useEffect, useState } from 'react';
 
+import { RootState } from '../store';
 import SignInData from '../interfaces/signin';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-
 const SignIn = () => {
   const navigate = useNavigate();
-  const [clusterURL, setClusterURL] = useState('');
-  const [kubernetesPort, setKubernetesPort] = useState('');
-  const [clusterName, setClusterName] = useState('');
-  const [grafanaURL, setGrafanaURL] = useState('');
-  const [thanosPort, setThanosPort] = useState('');
-  const [isSignedIn, setIsSignedIn] = useState(false);
   const [failedLogin, setFailedLogin] = useState(false);
-  const [formData, setFormData] = useState<SignInData>({
+  const [formData, setFormData] = useState({
     username: '',
     password: '',
   });
+
+  const dispatch = useAppDispatch(); 
+
+  // Do we need to use the Reducers imported in from signInSlice ??
 
   const handleChange = (event: any) => {
     const { name, value } = event.target;
@@ -27,30 +27,28 @@ const SignIn = () => {
   const submitFormData = (e: any) => {
     e.preventDefault();
 
-    // const newUser = {
-    //   email,
-    //   password,
-    //   clusterURL,
-    //   kubernetesPort,
-    //   clusterName,
-    //   grafanaURL,
-    //   thanosPort,
-    // };
-
-
     axios
       .post('http://localhost:3000/users/signin', formData)
       .then((res) => {
         console.log('res in axios request', res);
         if (res.status === 200) {
           console.log('inside axios request'); 
+          console.log('res.data: ', res.data);
 
+          const { firstname, lastname, email, username } = res.data.user;
+          dispatch(setIsLoggedIn(true));
+          dispatch(setUserData({
+              firstname,
+              lastname,
+              email,
+              username
+              // password: string
+          })); // PASS THIS AN OBJECT
           // Using Local Storage to track user/permissions:
           // local storage functions:  https://developer.mozilla.org/en-US/docs/Web/API/Storage/clear
           localStorage.setItem('username', formData.username);
           // to retrieve username... use localStorage.getItem(keyname)
           // to delete username (session)... use localStorage.clear()
-          setIsSignedIn(true);
           navigate('/dashboard');
 
         } if (res.status === 204) {
@@ -68,12 +66,6 @@ const SignIn = () => {
       password: '',
     });
 
-    // reset states
-    // setClusterURL('');
-    // setKubernetesPort('');
-    // setClusterName('');
-    // setGrafanaURL('');
-    // setThanosPort('');
   };
   const inputField =
     'border-b-2 rounded-lg mb-4 h-11 px-2 border-sapphire-blue w-full focus:outline-none focus:border-fuzzy-wuzzy focus:border-b-3';
@@ -146,4 +138,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignIn; 

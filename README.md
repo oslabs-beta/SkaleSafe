@@ -1,6 +1,6 @@
 # SkaleSafe
 
-CTRI-13 Team 4
+![SkaleSafeLogo](./Client/assets/Logo%204.png)
 
 # Technologies Utilized
 

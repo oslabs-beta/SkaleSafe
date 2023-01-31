@@ -15,7 +15,7 @@ const Alerts = () => {
   ];
   
   return (
-    <div className="w-screen h-screen flex flex-col mt-24 w-1/3 ml-[30%] text-honeydew">
+    <div id='alertstab' className="w-screen h-screen flex flex-col mt-24 w-1/3 ml-[30%] text-honeydew">
       <h1 className="center-self text-4xl font-bold uppercase tracking-wider">
         Configure Your Alerts
       </h1>

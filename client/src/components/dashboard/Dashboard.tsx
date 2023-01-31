@@ -21,6 +21,7 @@ import Home from '../Home';
 import KubeView from '../kubeview/KubeView';
 import { Link } from 'react-router-dom';
 import { Outlet } from "react-router-dom";
+import LightOrDark from '../modeSwitch/ModeSwitch';
 import ScalingMetrics from '../scalingMetrics/ScalingMetrics';
 import Settings from '../Settings/settings';
 import Sidebar from '../sidebar/Sidebar';
@@ -51,10 +52,10 @@ const Dashboard = (props: Props) => {
       <div className='flex'>
         {/* <Sidebar /> WILL REPLACE 'CODE TO BE MOVED' ONCE REDUX IS IMPLEMENTED*/}
         <div className='flex'>
-          <div className='flex flex-col p-3 bg-white shadow w-60'>
+          <div id ='dashboardbg' className='flex flex-col p-3 bg-white shadow w-60'>
             <div className='space-y-3'>
               <div className='flex items-center pt-6'>
-                <h2 className='text-xl pl-4 font-bold'>Dashboard</h2>
+                <h2 id='dbText' className='text-xl pl-4 font-bold'>Dashboard</h2>
               </div>
               <div className='flex pt-6'>
                 <ul className='pt-2 pb-4 space-y-3 text-sm'>
@@ -64,7 +65,7 @@ const Dashboard = (props: Props) => {
                       className='flex items-center p-2 space-x-3 rounded-md'
                     >
                       <RiBarChartLine size={24} />
-                      <span>Scaling Metrics</span>
+                      <span id='scalingoption' className='text-black'>Scaling Metrics</span>
                     </a>
                   </li>
                   {/* make alerts render on the screen on click: path='/alerts' */}
@@ -74,7 +75,7 @@ const Dashboard = (props: Props) => {
                       className='flex items-center p-2 space-x-3 rounded-md'
                     >
                       <AiOutlineWarning size={24} />
-                      <span>Alerts</span>
+                      <span id='alertsoption' className='text-black'>Alerts</span>
                     </a>
                   </li>
                   <li className={listElement} onClick={() => setActive(3)}>
@@ -83,7 +84,7 @@ const Dashboard = (props: Props) => {
                       className='flex items-center p-2 space-x-3 rounded-md'
                     >
                       <AiOutlineCluster size={24} />
-                      <span>Cluster Info</span>
+                      <span id='clusteroption' className='text-black'>Cluster Info</span>
                     </a>
                   </li>
                   <li className={listElement} onClick={() => setActive(4)}>
@@ -92,7 +93,7 @@ const Dashboard = (props: Props) => {
                       className='flex items-center p-2 space-x-3 rounded-md'
                     >
                       <RiBubbleChartLine size={24} />
-                      <span>KubeView</span>
+                      <span id='kubeoption' className='text-black'>KubeView</span>
                     </a>
                   </li>
                   <li className={listElement} onClick={() => setActive(5)}>
@@ -101,7 +102,7 @@ const Dashboard = (props: Props) => {
                       className='flex items-center p-2 space-x-3 rounded-md'
                     >
                       <RiSettings3Line size={24} />
-                      <span>Settings</span>
+                      <span id='settingsoption' className='text-black'>Settings</span>
                     </a>
                   </li>
                   <li
@@ -114,7 +115,7 @@ const Dashboard = (props: Props) => {
                     >
                       <RiLogoutBoxLine size={24} />
                       <div>
-                        <span>Logout</span>
+                        <span id='logoutoption' className='text-black'>Logout</span>
                       </div>
                     </Link>
                   </li>

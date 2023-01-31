@@ -14,9 +14,8 @@ import {
 } from 'react-icons/ri';
 
 // import Sidebar from '../sidebar/Sidebar.jsx'
-import Alerts from '../Alerts/Alerts';
-import ClusterInfo from '../ClusterInfo/ClusterInfo';
-// import { GrCluster } from 'react-icons/gr';
+import Alerts from '../alerts/Alerts';
+import ClusterInfo from '../clusterInfo/ClusterInfo';
 import Home from '../Home';
 import KubeView from '../kubeview/KubeView';
 import { Link } from 'react-router-dom';
@@ -26,8 +25,6 @@ import Settings from '../Settings/settings';
 import Sidebar from '../sidebar/Sidebar';
 import { setIsLoggedIn } from '../../../redux/slices/userSlice';
 import { useAppDispatch } from '../../../redux/hooks/hooks';
-
-// RiLogoutBoxLine
 
 
 

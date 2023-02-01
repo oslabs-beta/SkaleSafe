@@ -11,7 +11,9 @@ SkaleSafe is designed to provide users with quick access to their clusters' scal
 <br/>
 
 ## Table of Contents
-
+ - [Functionality](#Functionality)
+ - [Installation Guide](#Installation-Guide)
+ - [Electron Guide](#Electron-Guide)
  - [Technologies Utilized](#Technologies-Utilized)
    - [Frontend Development](#Frontend-Development)
    - [Backend Development](#Backend-Development)
@@ -19,11 +21,6 @@ SkaleSafe is designed to provide users with quick access to their clusters' scal
  - [License](#License)
  - [The Core Team](#The-Core-Team)
  
-<br/>
-
-# Technologies Utilized
-PENDING
-
 <br/>
 
 # Functionality
@@ -36,10 +33,15 @@ PENDING
 
 <br/>
 
-# Electron guide
+# Electron Guide
 PENDING
 
 <br/>
+
+# Technologies Utilized
+
+<br/>
+
 
 ### Frontend Development
 

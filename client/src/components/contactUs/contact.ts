@@ -13,7 +13,7 @@ const team: member[] = [
         name: 'Leonardo Brian Campos',
         image: '../../../assets/Brian&Kai.jpg',
         alt: 'Leonardo Campos with his dog Kai',
-        bio: '&emsp; Software engineer\n Codesmith alumnus',
+        bio: `\0 \0 \0 Software engineer\n \0 \0 \0 \0 Codesmith alumnus`,
         linkedin: 'https://www.linkedin.com/in/leonardo-brian-campos/',
         github: 'https://github.com/MetaBrian',
     },

@@ -84,7 +84,7 @@ if (window.location.pathname === '/dashboard'){
 
 
 // INVERTS HOME
-if (window.location.pathname === '/home'){
+if (window.location.pathname === '/home' || window.location.pathname === '/'){
     //inverts aboutsection 
         //inverts bulletpoint images
         //need to make code shorter and dynamic; need to make about page dynamic again as well
@@ -105,9 +105,8 @@ if (window.location.pathname === '/home'){
     bulletText2.className ="text-xl text-prussian-blue px-4";
     bulletText3.className ="text-xl text-prussian-blue px-4";
 
-    //inverts home page 1st section image
+    //inverts home page 1st section image - DONE
     let homeLogo = document.getElementById('homeLogo')
-    console.log(homeLogo.src)
 
     if (homeLogo.getAttribute('src') == '../../../assets/SkaleSafe-color.svg'){
     homeLogo.src = '../../../assets/SkaleSafe.svg'
@@ -126,9 +125,15 @@ if (window.location.pathname === '/home'){
     homeSpan.className ='text-prussian-blue underline underline-offset-4 capitalize'
   
   
-    //invert rest of homepage sections
+    //invert rest of homepage sections 
     const demoText = document.getElementById('demoText')
-    demoText.className = "text-3xl text-prussian-blue font-bold uppercase tracking-wider border-b-4"
+    if (demoText.className === "text-3xl text-prussian-blue font-bold uppercase tracking-wider border-b-4"){ 
+        demoText.className = 'text-3xl text-honeydew font-bold uppercase tracking-wider border-b-4'
+    }
+    else if (demoText.className === 'text-3xl text-honeydew font-bold uppercase tracking-wider border-b-4'){
+        demoText.className = "text-3xl text-prussian-blue font-bold uppercase tracking-wider border-b-4"
+    }
+    // demoText.className = "text-3xl text-prussian-blue font-bold uppercase tracking-wider border-b-4"
   
     const docText = document.getElementById('documentationText')
     docText.className = "text-3xl text-prussian-blue font-bold uppercase tracking-wider border-b-4"

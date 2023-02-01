@@ -13,7 +13,7 @@ SkaleSafe is designed to provide users with quick access to their clusters' scal
 ## Table of Contents
 
  - [Technologies Utilized](#Technologies-Utilized)
-  - [Frontend Development](#Frontend-Development)
+   - [Frontend Development](#Frontend-Development)
   - [Backend Development](#Backend-Development)
   - [Monitoring & Data Visualization](#Monitoring-&-Data-Visualization)
  - [License](#License)

@@ -1,8 +1,9 @@
 import { Link, useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 
+import SignInModal from '../Signin/SigninModal';
 // import Profile from '../profile/Profile'
-import { SignupModal } from '../signupModal/SignupModal';
+import SignupModal from '../signupModal/SignupModal';
 import { useAppSelector } from '../../../redux/hooks/hooks';
 
 const Navbar = () => {
@@ -86,14 +87,11 @@ const Navbar = () => {
                         </li>
                     ))
                     ) : (
-                        [['Sign In', '/users/signin'], ['Sign Up', '/users/signup']].map(([title, url]) => (
+                        [<SignupModal />, <SignInModal />].map((modal) => (
                             <li className='flex gap-x-8 items-center'>
-                                <Link to={url}>
-                                    <button className={outLinks}>{title}</button>
-                                </Link>
+                              {modal}
                             </li>
                         ))
-                        // <SignupModal />
                     )
                 }
             </ul>

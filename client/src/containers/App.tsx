@@ -9,7 +9,7 @@ import HomeContainer from '../containers/HomeContainer';
 import Navbar from '../components/Navbar/Navbar';
 import Profile from '../components/Profile/Profile'
 import ScalingMetrics from '../components/ScalingMetrics/ScalingMetrics'
-import SignIn  from '../components/SignIn';
+import SignIn  from '../components/Signin/SignIn';
 import Signup from '../components/signup/Signup';
 
 // import { SignupModal } from './components/signupModal/SignupModal';
@@ -38,14 +38,10 @@ const App = () => {
           {/* element= {<Dashboard/>} RENDERS THE PROFILE & ADDCLUSTER APPROPRIATELY BUT DOESN NOT DISPLAY DASHBOARD */}
             <Route path='profile' element={<Profile/>}/> 
           {/* WORKS IN DASHBOARD/PROFILE, doesnt display dashboard */}
-           <Route path='addcluster' element={<AddCluster />}/>
+            <Route path='addcluster' element={<AddCluster />}/>
           {/* DELETE ADD CLUSTER ROUTE ONCE MADE INTO A MODAL */}
         </Route>
        
-        {/* DELETE THESE ROUTES ONCE MADE INTO A MODAL */}
-        <Route path='/users/signin' element={<SignIn />} />
-        <Route path='/users/signup' element={<Signup />} />
-
         {/* switch paths for scalingmetrics and alerts to dashnoard href made in dashboard file */}
         
         <Route path='*' element={<Error />} />

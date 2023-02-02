@@ -87,7 +87,6 @@ const Profile = (props: Props) => {
             </div>
         </div>
     </div>
-
   )
 }
 
@@ -101,7 +100,5 @@ const Profile = (props: Props) => {
               Dark/Light icon
           </button>
       </div> */}
-
-
 
 export default Profile;

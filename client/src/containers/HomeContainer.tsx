@@ -1,5 +1,5 @@
 import About from '../components/About/About';
-import ContactUs from '../components/ContactUs/ContactUs';
+import ContactUs from '../components/contactUs/ContactUs';
 import Demo from '../components/Demo/Demo';
 import Documentation from '../components/Documentation/Documentation';
 import Home from '../components/Home';

@@ -39,8 +39,7 @@ const Signup = () => {
       .post('http://localhost:3000/users/signup', formData)
       .then((res) => {
         if (res.status === 200) {
-          // setIsSignedUp(true);
-          navigate('/dashboard');
+          navigate('/users/signin');
         }
       })
       .catch((err) => {

@@ -99,33 +99,3 @@ const userController: userController = {
 };
 
 export default userController;
-
-//  (err: Error, user: UserObj) => {
-//     if(err){
-//         console.log("We are in the Error conditional")
-//         return next({
-//             method: 'createUser',
-//             type: 'Failed to create a new user in the database',
-//             err
-//         });
-//     }
-//     console.log('We did not hit any errors!');
-//     console.log(user);
-//     res.locals.user = user;
-//     return next();
-// }
-
-// , (err: ErrorRequestHandler, result: string) => {
-//     if(err) {
-//         return next(
-//             errorHandler({
-//                 method: 'findOne',
-//                 type: 'Error occured while comparing password hash',
-//                 err
-//             })
-//         )
-//     } else {
-//         res.locals.user = user
-//         return next();
-//     }
-// }

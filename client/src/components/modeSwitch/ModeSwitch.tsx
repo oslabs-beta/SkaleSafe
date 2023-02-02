@@ -8,6 +8,9 @@ const LightOrDark = () => {
 let element = document.body
 element.classList.toggle('light-mode')
 
+
+
+
 //INVERTS NAVBAR
     //invert the Logo image - DONE
     const navLogo = document.getElementById('navbarlogo')
@@ -56,8 +59,11 @@ element.classList.toggle('light-mode')
         }
 
 
+
+
+
 //INVERTS DB PAGE
-if (window.location.pathname === '/dashboard'){
+if (window.location.pathname === '/dashboard' || window.location.pathname === '/dashboard/profile'){
     //invert db section background and DB font
     const dbBg = document.getElementById('dashboardbg')
         if (dbBg.className === 'flex flex-col p-3 bg-honeydew shadow w-60'){
@@ -148,9 +154,32 @@ if (window.location.pathname === '/dashboard'){
         else if (navUser.className === 'text-prussian-blue text-xl font-semi px-2 py-1'){
             navUser.className = 'text-honeydew text-xl font-semi px-2 py-1'
         }
+
+    //inverts profile page text, bg & borders, profile photo border 
+    const profileText = document.getElementById('profileText')
+        if (profileText.className === "w-96 h-screen flex-col justify-start text-teal-blue pt-32"){
+            profileText.className = "w-96 h-screen flex-col justify-start text-honeydew pt-32"
+        }
+        else if (profileText.className === "w-96 h-screen flex-col justify-start text-honeydew pt-32"){
+            profileText.className = "w-96 h-screen flex-col justify-start text-teal-blue pt-32"
+        }
+    
+
+    const profileBG = document.getElementById('profileBG')
+        if (profileBG.className === "bg-off-white relative shadow rounded-lg "){
+            profileBG.className = "bg-prussian-blue relative shadow rounded-lg "
+        }
+        else {profileBG.className = "bg-off-white relative shadow rounded-lg "}
+
+    const profileBorder = document.getElementById('profileBorder')
+        if (profileBorder.className === "rounded-full mx-auto absolute -top-20 w-32 h-32 shadow-md border-4 border-white"){
+            profileBorder.className = "rounded-full mx-auto absolute -top-20 w-32 h-32 shadow-md border-4 border-prussian-blue"
+        }
+        else {profileBorder.className = "rounded-full mx-auto absolute -top-20 w-32 h-32 shadow-md border-4 border-white"
+        }
+
     }
-
-
+    
 
 
 
@@ -196,28 +225,46 @@ if (window.location.pathname === '/home' || window.location.pathname === '/'){
     const aboutPoints1 = document.getElementById('aboutbullets1')
     const aboutPoints2 = document.getElementById('aboutbullets2')
     const aboutPoints3 = document.getElementById('aboutbullets3')
-        aboutPoints1.src = '../../../assets/skaleSafe-dark.png'
-        aboutPoints2.src = '../../../assets/skaleSafe-dark.png'
-        aboutPoints3.src = '../../../assets/skaleSafe-dark.png'
+    console.log(aboutPoints1.getAttribute('src'))
+        if (aboutPoints1.getAttribute('src') === '../../../assets/skaleSafe-light.png'){
+            aboutPoints1.src = '../../../assets/SkaleSafe-dark.png'
+            aboutPoints2.src = '../../../assets/SkaleSafe-dark.png'
+            aboutPoints3.src = '../../../assets/SkaleSafe-dark.png'
+        }
+        else {
+            aboutPoints1.src = '../../../assets/skaleSafe-light.png'
+            aboutPoints2.src = '../../../assets/skaleSafe-light.png'
+            aboutPoints3.src = '../../../assets/skaleSafe-light.png'
+        }
+        
+
+      
   
         //inverts About text
     const aboutText = document.getElementById('aboutText')
-    const bulletText1 = document.getElementById('bullet1')
-    const bulletText2 = document.getElementById('bullet2')
-    const bulletText3 = document.getElementById('bullet3')
         if (aboutText.className === "text-3xl text-honeydew font-bold uppercase tracking-wider border-b-4"){
             aboutText.className = "text-3xl text-prussian-blue font-bold uppercase tracking-wider border-b-4";
         }
         else {
             aboutText.className = "text-3xl text-honeydew font-bold uppercase tracking-wider border-b-4";
         }
-    bulletText1.className ="text-xl text-prussian-blue px-4";
-    bulletText2.className ="text-xl text-prussian-blue px-4";
-    bulletText3.className ="text-xl text-prussian-blue px-4";
-
+    const bulletText1 = document.getElementById('bullet1')
+    const bulletText2 = document.getElementById('bullet2')
+    const bulletText3 = document.getElementById('bullet3')
+       
+    if(bulletText1.className === 'text-xl text-honeydew px-4'){
+        bulletText1.className ="text-xl text-prussian-blue px-4";
+        bulletText2.className ="text-xl text-prussian-blue px-4";
+        bulletText3.className ="text-xl text-prussian-blue px-4";
+    }
+    else{
+        bulletText1.className = "text-xl text-honeydew px-4";
+        bulletText2.className = "text-xl text-honeydew px-4";
+        bulletText3.className = "text-xl text-honeydew px-4"
+    }
   
   
-    //invert rest of homepage sections 
+    //invert demo,doc, team of homepage sections 
     const demoText = document.getElementById('demoText')
         if (demoText.className === "text-3xl text-prussian-blue font-bold uppercase tracking-wider border-b-4"){ 
             demoText.className = 'text-3xl text-honeydew font-bold uppercase tracking-wider border-b-4'

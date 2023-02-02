@@ -19,9 +19,9 @@ const ClusterInfo = (props: Props) => {
   // <iframe src="http://localhost:8888/graf/d-solo/YSh8G8T4z/node-exporter-nodes?orgId=1&refresh=30s&from=1674756729021&to=1674760329021&panelId=2" width="450" height="200" frameborder="0"></iframe>
 
   return (
-    <div className='w-screen h-screen flex flex-col items-center justify-evenly text-honeydew'>
-      <div className='self-center text-4xl font-bold uppercase tracking-wider'>
-        My Cluster Info
+    <div id='clustertab' className='w-screen h-screen flex flex-col items-center justify-evenly text-honeydew'>
+      <div  className='self-center text-4xl font-bold uppercase tracking-wider'>
+          My Cluster Info
       </div>
       <div className='flex flex-row flex-wrap justify-center items-center gap-8'>
         {/* let params = {`&panelID={item.ID}&refresh=30s&viewPanel={item.ID}`};

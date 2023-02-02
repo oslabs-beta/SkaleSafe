@@ -16,7 +16,7 @@ const Toggle = (props: Props) => {
   const toggleBackground = toggle ? 'bg-honeydew' : 'bg-primary-color';
 
   return (
-    <div className='flex flex-row justify-left items-center'>
+    <div className='flex flex-row justify-left items-center '>
       <p className={`mr-3 ${onOffColor}`}>{toggle ? 'Off' : 'On'}</p>
 
       {/* Toggle container */}

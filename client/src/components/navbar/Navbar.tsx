@@ -1,5 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
+import Profile from '../profile/Profile'
+import LightOrDark from '../modeSwitch/ModeSwitch';
 
 import SignInModal from '../Signin/SigninModal';
 // import Profile from '../profile/Profile'
@@ -18,6 +20,7 @@ const Navbar = () => {
     //ADD ID BELOW
     const outLinks =
     'text-honeydew text-xl font-semi px-2 py-1 hover:scale-110 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]';
+    //converted outLinks to variable, allowing LightOrDark to flip colors
 
     const inLinks = 'text-md px-2 py-1'
     
@@ -47,13 +50,18 @@ const Navbar = () => {
         <nav className={isLoggedIn ? loggedIn : loggedOut}>
             <Link to='/home'>
                 <div id='backgroundoflogo' className="flex flex-row justify-evenly items-center bg-prussian-blue w-60 h-12 rounded-full">
-                    <img className="w-8 max-h-sm " src='../../../assets/SkaleSafe-light.png' alt="A fish inside a shield"/>
+                    <img id='navbarlogo' className="w-8 max-h-sm " src='../../../assets/skaleSafe-light.png' alt="A fish inside a shield"/>
                     <h1 id='colortestlogo' className="text-primary-color text-3xl pl-3">SkaleSafe</h1>
                 </div>
             </Link>
-                {/* <button className='border-b border-prussian-blue text-prussian-blue text-md px-2 py-1 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]' onClick={() => window.open('https://github.com/oslabs-beta/SkaleSafe', '_blank')}>
-                    GitHub
+                {/* <button className='border-b border-prussian-blue text-prussian-blue text-md px-2 py-1 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]' 
+                onClick={() => window.open('https://github.com/oslabs-beta/SkaleSafe', '_blank')}>
+                    GitHub - text preferred or a github icon
                 </button> */}
+                <button className='text-honeydew text-md px-2 py-1 hover:text-honeydew hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]'
+                onClick={()=>LightOrDark()}>
+                    <img src='../assets/light&dark-icon.png' className= 'w-10 h-10'/>
+                </button>
 
             <ul className="flex flex-row gap-x-4">
                 {isLoggedIn ? (
@@ -80,7 +88,7 @@ const Navbar = () => {
                     // PROFILE LINK CURRENTLY LEADS TO ADD CLUSTER INFO
                     [[`Welcome, ${userName}`, '/dashboard/profile']].map(([title, url]) => (
                         <li className='flex gap-x-4 items-center'>
-                            <div className='text-honeydew text-xl font-semi px-2 py-1'>{title}</div>
+                            <div id='navUser' className='text-honeydew text-xl font-semi px-2 py-1'>{title}</div>
                             <Link to={url} className="flex flex-row gap-x-4">
                                 <img className='w-10 h-10 rounded-full hover:scale-110 hover:brightness-110' src='../../../assets/profile.png' alt='profile photo'/>
                             </Link>

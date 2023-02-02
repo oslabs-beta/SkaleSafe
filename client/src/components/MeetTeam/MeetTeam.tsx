@@ -11,7 +11,7 @@ const MeetTeam = () => {
 
   return (
     <div id="team" className='h-[48rem] w-screen px-20 bg-gradient-to-b from-teal-blue flex flex-col items-center justify-evenly'>
-      <h1 className="text-4xl text-honeydew font-bold uppercase tracking-wider border-b-4">Meet The Team</h1>
+      <h1 id='teamText' className="text-4xl text-honeydew font-bold uppercase tracking-wider border-b-4">Meet The Team</h1>
       <div className="h-4/5 w-full flex flex-rox gap-20 items-center justify-center">
         {Team.map((member) => (
             <div className={developer}>

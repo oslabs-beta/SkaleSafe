@@ -1,10 +1,47 @@
-# SkaleSafe
 
-CTRI-13 Team 4
+
+![SkaleSafeLogo](./client/assets/Logo%204.png)
+
+<br/>
+
+# About
+<br/>
+SkaleSafe is designed to provide users with quick access to their clusters' scaling metrics & an easy to configure alert system for said metrics.
+
+<br/>
+
+## Table of Contents
+ - [Functionality](#Functionality)
+ - [Installation Guide](#Installation-Guide)
+ - [Electron Guide](#Electron-Guide)
+ - [Technologies Utilized](#Technologies-Utilized)
+   - [Frontend Development](#Frontend-Development)
+   - [Backend Development](#Backend-Development)
+   - [Monitoring & Data Visualization](#Monitoring-&-Data-Visualization)
+ - [License](#License)
+ - [The Core Team](#The-Core-Team)
+ 
+<br/>
+
+# Functionality
+PENDING
+
+<br/>
+
+# Installation Guide
+PENDING
+
+<br/>
+
+# Electron Guide
+PENDING
+
+<br/>
 
 # Technologies Utilized
 
 <br/>
+
 
 ### Frontend Development
 
@@ -12,6 +49,7 @@ CTRI-13 Team 4
 ![Tailwind CSS](https://img.shields.io/static/v1?style=for-the-badge&message=Tailwind+CSS&color=222222&logo=Tailwind+CSS&logoColor=06B6D4&label=)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![Redux](https://img.shields.io/static/v1?style=for-the-badge&message=Redux&color=764ABC&logo=Redux&logoColor=FFFFFF&label=)
 
 <br/>
 
@@ -44,11 +82,11 @@ Upon contributing, you agree that your contributions will be licensed under its 
 ## The Core Team
 Please feel free to reach out to us if you would like to contribute or if you have any questions or concerns!
 
-- **Bethany Mattern** - [Github](https://github.com/bethanycable) & [LinkedIn](https://www.linkedin.com/in/bethany-a-mattern/)
-- **Leonardo Brian Campos** - [Github](https://github.com/MetaBrian) & [LinkedIn](https://www.linkedin.com/in/leonardo-brian-campos/)
-- **Daniel Doody** - [Github](https://github.com/daniel-doody) & [LinkedIn](https://www.linkedin.com/in/daniel-doody/)
-- **Kelvin Shamy** - [Github](https://github.com/KelvinShamy) & [LinkedIn](https://www.linkedin.com/in/kelvin-shamy-839798a1/)
-- **Sang Rea Han** - [Github](https://github.com/sxhanx) & [LinkedIn](https://github.com/sxhanx)
+- **Bethany Mattern:** &emsp; &emsp; &emsp;&emsp;[![Github](https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=181717&logo=GitHub&logoColor=FFFFFF&label=)](https://github.com/bethanycable) [![LinkedIn](https://img.shields.io/static/v1?style=for-the-badge&message=LinkedIn&color=0A66C2&logo=LinkedIn&logoColor=FFFFFF&label=)](https://www.linkedin.com/in/bethany-a-mattern/)
+- **Leonardo Brian Campos:** &emsp;[![Github](https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=181717&logo=GitHub&logoColor=FFFFFF&label=)](https://github.com/MetaBrian)  [![LinkedIn](https://img.shields.io/static/v1?style=for-the-badge&message=LinkedIn&color=0A66C2&logo=LinkedIn&logoColor=FFFFFF&label=)](https://www.linkedin.com/in/leonardo-brian-campos/)
+- **Daniel Doody:** &emsp; &emsp; &emsp; &emsp; &emsp;[![Github](https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=181717&logo=GitHub&logoColor=FFFFFF&label)](https://github.com/daniel-doody) [![LinkedIn](https://img.shields.io/static/v1?style=for-the-badge&message=LinkedIn&color=0A66C2&logo=LinkedIn&logoColor=FFFFFF&label=)](https://www.linkedin.com/in/daniel-doody/)
+- **Kelvin Shamy:** &emsp; &emsp; &emsp; &emsp; &emsp;[![Github](https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=181717&logo=GitHub&logoColor=FFFFFF&label=)](https://github.com/KelvinShamy)  [![LinkedIn](https://img.shields.io/static/v1?style=for-the-badge&message=LinkedIn&color=0A66C2&logo=LinkedIn&logoColor=FFFFFF&label=)](https://www.linkedin.com/in/kelvin-shamy-839798a1/)
+- **Sang Rea Han:** &emsp; &emsp; &emsp; &emsp;&emsp;[![Github](https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=181717&logo=GitHub&logoColor=FFFFFF&label=)](https://github.com/sxhanx) [![LinkedIn](https://img.shields.io/static/v1?style=for-the-badge&message=LinkedIn&color=0A66C2&logo=LinkedIn&logoColor=FFFFFF&label=)](https://github.com/sxhanx)
 <br/>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

@@ -50,10 +50,6 @@ const App = () => {
         
         <Route path='*' element={<Error />} />
 
-{/* deprecated routes - DELETE */}
-        {/* <Route path='/scalingMetrics' element={<ScalingMetrics />} /> */}
-        {/* <Route path='/alerts' element={<Alerts />} /> */}
-       
       </Routes>
       </div>
     </div>

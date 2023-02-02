@@ -53,14 +53,6 @@ const Navbar = () => {
                     <h1 id='colortestlogo' className="text-primary-color text-3xl pl-3">SkaleSafe</h1>
                 </div>
             </Link>
-                {/* <button className='border-b border-prussian-blue text-prussian-blue text-md px-2 py-1 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]' 
-                onClick={() => window.open('https://github.com/oslabs-beta/SkaleSafe', '_blank')}>
-                    GitHub - text preferred or a github icon
-                </button> */}
-                <button className='text-honeydew text-md px-2 py-1 hover:text-honeydew hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]'
-                onClick={()=>LightOrDark()}>
-                    <img src='../assets/light&dark-icon.png' className= 'w-10 h-10'/>
-                </button>
 
             <ul className="flex flex-row gap-x-4">
                 {isLoggedIn ? (
@@ -82,6 +74,15 @@ const Navbar = () => {
                     )
                 }
             </ul>
+            <button 
+                onClick={() => window.open('https://github.com/oslabs-beta/SkaleSafe', '_blank')}>
+                   <img src='../assets/GitHub-logo.png' className= 'w-20 h-15 hover:text-honeydew hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]' alt='GitHub logo without a background'/>
+                </button>
+
+                <button className='text-honeydew text-md px-2 py-1 hover:text-honeydew hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]'
+                onClick={()=>LightOrDark()}>
+                    <img id='modebutton'  src='../../../assets/skaleSafe-light.png' className= 'w-10 h-10'/>
+                </button>
             <ul className="flex flex-row gap-x-4">
                 {isLoggedIn ? (
                     // PROFILE LINK CURRENTLY LEADS TO ADD CLUSTER INFO

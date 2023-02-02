@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import AddCluster from '../components/AddCluster/AddCluster';
 import Alerts from '../components/Alerts/Alerts';
-import ContactUs from '../components/ContactUs/ContactUs'
+import ContactUs from '../components/contactUs/ContactUs'
 import Dashboard from '../components/Dashboard/Dashboard';
 import { Error } from '../components/Error';
 import HomeContainer from '../containers/HomeContainer';
@@ -32,7 +32,7 @@ const App = () => {
         <Route path='/dashboard' element= {<Dashboard/>}>
           {/* <Route index />  */}
           {/* element= {<Dashboard/>} RENDERS THE PROFILE & ADDCLUSTER APPROPRIATELY BUT DOESN NOT DISPLAY DASHBOARD */}
-            <Route path='profile' element={<Profile/>}/> 
+            <Route path='profile' element={<Profile />}/> 
           {/* WORKS IN DASHBOARD/PROFILE, doesnt display dashboard */}
             <Route path='addcluster' element={<AddCluster />}/>
           {/* DELETE ADD CLUSTER ROUTE ONCE MADE INTO A MODAL */}

@@ -9,8 +9,6 @@ type Props = {}
 // const Profile = (props: Props) => {
 
 const Profile = (props: Props) => {
-
-
         //testing profile content
         function toggleLight(){
             let element = document.body

@@ -6,9 +6,9 @@ import ContactUs from '../components/ContactUs/ContactUs'
 import Dashboard from '../components/Dashboard/Dashboard';
 import { Error } from '../components/Error';
 import HomeContainer from '../containers/HomeContainer';
-import Navbar from '../components/navbar/Navbar';
-import Profile from '../components/profile/Profile'
-import ScalingMetrics from '../components/scalingMetrics/ScalingMetrics'
+import Navbar from '../components/Navbar/Navbar';
+import Profile from '../components/Profile/Profile'
+import ScalingMetrics from '../components/ScalingMetrics/ScalingMetrics'
 import SignIn  from '../components/SignIn';
 import Signup from '../components/signup/Signup';
 

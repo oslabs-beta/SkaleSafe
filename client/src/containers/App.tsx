@@ -9,10 +9,6 @@ import HomeContainer from '../containers/HomeContainer';
 import Navbar from '../components/Navbar/Navbar';
 import Profile from '../components/Profile/Profile'
 import ScalingMetrics from '../components/ScalingMetrics/ScalingMetrics'
-import SignIn  from '../components/Signin/SignIn';
-import Signup from '../components/signup/Signup';
-
-// import { SignupModal } from './components/signupModal/SignupModal';
 
 //Links are setup to allow only <routes> to change; the whole app is not re-rendered
 //Nested routes
@@ -41,12 +37,12 @@ const App = () => {
             <Route path='addcluster' element={<AddCluster />}/>
           {/* DELETE ADD CLUSTER ROUTE ONCE MADE INTO A MODAL */}
         </Route>
-       
+        
         {/* switch paths for scalingmetrics and alerts to dashnoard href made in dashboard file */}
         
         <Route path='*' element={<Error />} />
 
-deprecated routes - DELETE
+        deprecated routes - DELETE
         {/* <Route path='/scalingMetrics' element={<ScalingMetrics />} /> */}
         {/* <Route path='/alerts' element={<Alerts />} /> */}
        

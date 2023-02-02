@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 import SignInModal from '../Signin/SigninModal';
 // import Profile from '../profile/Profile'
-import SignupModal from '../signupModal/SignupModal';
+import SignupModal from '../Signup/SignupModal';
 import { useAppSelector } from '../../../redux/hooks/hooks';
 
 const Navbar = () => {
@@ -40,8 +40,6 @@ const Navbar = () => {
 
     const loggedOut = "fixed w-screen h-20 flex flex-row items-center justify-between bg-honeydew/10 px-14 shadow-md shadow-honeydew/10";
     const loggedIn = "w-screen h-20 flex flex-row items-center justify-between bg-gradient-to-r from-sapphire-blue/30 to-primary-color/30 px-20"
-
-    const name = 'TestiBoi';
 
     return (
         <nav className={isLoggedIn ? loggedIn : loggedOut}>

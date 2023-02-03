@@ -14,6 +14,7 @@ import {
 } from 'react-icons/ri';
 
 import Alerts from '../Alerts/Alerts';
+import AlertsMetrics from '../metrics/alertsMetrics/AlertsMetrics';
 import ClusterMetrics from '../metrics/clusterMetrics/ClusterMetrics';
 import Home from '../Home';
 import KubeView from '../Kubeview/KubeView';
@@ -133,7 +134,7 @@ const Dashboard = (props: Props) => {
           <Outlet />
         </div>
         {active === 1 && <ScalingMetrics />}
-        {active === 2 && <Alerts />}
+        {active === 2 && <AlertsMetrics />}
         {active === 3 && <ClusterMetrics />}
         {active === 4 && <KubeView />}
         {active === 5 && <Settings />}

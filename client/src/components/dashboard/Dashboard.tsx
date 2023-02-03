@@ -15,19 +15,17 @@ import {
 
 // import Sidebar from '../sidebar/Sidebar.jsx'
 import Alerts from '../alerts/Alerts';
-import ClusterInfo from '../clusterInfo/ClusterInfo';
+import ClusterInfo from '../ClusterInfo/ClusterInfo';
 import Home from '../Home';
-import KubeView from '../kubeview/KubeView';
+import KubeView from '../Kubeview/KubeView';
+import LightOrDark from '../modeSwitch/ModeSwitch';
 import { Link } from 'react-router-dom';
 import { Outlet } from "react-router-dom";
-import LightOrDark from '../modeSwitch/ModeSwitch';
-import ScalingMetrics from '../scalingMetrics/ScalingMetrics';
+import ScalingMetrics from '../ScalingMetrics/ScalingMetrics';
 import Settings from '../Settings/settings';
 import Sidebar from '../sidebar/Sidebar';
 import { setIsLoggedIn } from '../../../redux/slices/userSlice';
 import { useAppDispatch } from '../../../redux/hooks/hooks';
-
-
 
 type Props = {};
 

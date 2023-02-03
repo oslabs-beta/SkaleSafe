@@ -23,16 +23,19 @@ const router = express.Router();
 
 //after the pod restarts, restart the port forwarding for the new grafana pod
 
+//get default dashboard
 router.get('/', axiosDashboard, (req: Request, res: Response) => {
   console.log('successfully ran grafana middleware');
   res.send(res.locals.queryData);
 });
 
+// used for MVP presentation
 router.get('/test', grafSearch, (req: Request, res: Response) => {
   console.log('successfully ran graf search middleware');
   res.send(res.locals.link);
 });
 
+// to add a custom dashboard
 router.get('/add', customDashboard, (req: Request, res: Response) => {
   console.log('dashboard created');
   res.status(200).send(res.locals.dashboardData);

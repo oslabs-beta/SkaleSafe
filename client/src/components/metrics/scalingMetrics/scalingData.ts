@@ -1,5 +1,5 @@
 export interface grafData {
-  ID: string;
+  ID: number;
   width: number;
   height: number;
 }
@@ -7,7 +7,7 @@ export interface grafData {
 export const scalingData = [
   // specify which graph this is here.
   {
-    ID: '2',
+    ID: 2,
     width: 450,
     height: 200,
   },

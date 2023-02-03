@@ -1,7 +1,7 @@
 export const clusterData = [
   // specify which graph this is here.
   {
-    'ID': '2',
+    ID: 2,
     width: 450,
     height: 200,
   },

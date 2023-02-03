@@ -2,10 +2,13 @@ import { scalingData } from './scalingData';
 
 type Props = {};
 
+// recreate this component called alerts metrics
+// need a component and the data structure 
+
 const ScalingMetrics = (props: Props) => {
   return (
     <div
-      id='clustertab'
+      id='scalingtab'
       className='w-screen h-screen flex flex-col items-center justify-evenly text-honeydew'
     >
       <div className='self-center text-4xl font-bold uppercase border-b-2 border-white pb-2 tracking-wider'>

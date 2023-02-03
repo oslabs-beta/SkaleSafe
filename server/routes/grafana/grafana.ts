@@ -3,6 +3,8 @@ import axiosDashboard from '../../controllers/grafana/axiosDashboard';
 import grafSearch from '../../controllers/grafana/metric';
 import customDashboard from '../../controllers/grafana/customDashboard';
 import { createGrafAlert } from '../../controllers/grafana/createGrafAlert';
+import { getAlerts } from '../../controllers/grafana/getAlerts';
+import { newAlert } from '../../controllers/grafana/postAlert';
 
 const router = express.Router();
 
@@ -32,13 +34,18 @@ router.get('/test', grafSearch, (req: Request, res: Response) => {
   res.send(res.locals.link);
 });
 
-router.get('/add', customDashboard, (req: Request, res: Response) => {
+router.post('/add', customDashboard, (req: Request, res: Response) => {
   console.log('dashboard created');
   res.status(200).send(res.locals.dashboardData);
 });
 
-router.post('/alerts', createGrafAlert, (req, res) => {
-  console.log('passed middleware')
+router.post('/alerts', newAlert, (req, res) => {
+  console.log('passed middleware');
 });
 
+// Get all currently configured alerts.
+router.get('/alerts', getAlerts, (req: Request, res: Response) => {
+  console.log('passed getAlerts middleware');
+  res.status(200)
+});
 export default router;

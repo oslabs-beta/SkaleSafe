@@ -1,25 +1,18 @@
-export const dash = {
+{
     "dashboard": {
-        'id': null,
-        'uid': null,
-        'title': 'testDash',
-        'tags': [ 'templated' ],
-        'timezone': 'browser',
-        // 'rows': [ {} ],
-        'schemaVersion': 7,
-        'version': 0,
+        "id": null,
+        "uid": null,
+        "title": "testDash",
+        "tags": [ "templated" ],
+        "timezone": "browser",
+        "schemaVersion": 7,
+        "version": 0,
         "panels": [
           {
             "collapsed": false,
             "datasource": {
               "type": "prometheus",
               "uid": "prometheus"
-            },
-            "gridPos": {
-              "h": 1,
-              "w": 24,
-              "x": 0,
-              "y": 0
             },
             "id": 10,
             "panels": [],
@@ -45,12 +38,6 @@ export const dash = {
             },
             "fill": 1,
             "fillGradient": 0,
-            "gridPos": {
-              "h": 7,
-              "w": 12,
-              "x": 0,
-              "y": 1
-            },
             "hiddenSeries": false,
             "id": 2,
             "legend": {
@@ -136,12 +123,6 @@ export const dash = {
             },
             "fill": 0,
             "fillGradient": 0,
-            "gridPos": {
-              "h": 7,
-              "w": 12,
-              "x": 12,
-              "y": 1
-            },
             "hiddenSeries": false,
             "id": 3,
             "legend": {
@@ -250,12 +231,6 @@ export const dash = {
             "datasource": {
               "type": "prometheus",
               "uid": "prometheus"
-            },
-            "gridPos": {
-              "h": 1,
-              "w": 24,
-              "x": 0,
-              "y": 8
             },
             "id": 11,
             "panels": [],
@@ -420,12 +395,6 @@ export const dash = {
               },
               "overrides": []
             },
-            "gridPos": {
-              "h": 7,
-              "w": 6,
-              "x": 18,
-              "y": 9
-            },
             "id": 5,
             "options": {
               "orientation": "auto",
@@ -461,12 +430,6 @@ export const dash = {
               "type": "prometheus",
               "uid": "prometheus"
             },
-            "gridPos": {
-              "h": 1,
-              "w": 24,
-              "x": 0,
-              "y": 16
-            },
             "id": 12,
             "panels": [],
             "targets": [
@@ -491,12 +454,6 @@ export const dash = {
             },
             "fill": 0,
             "fillGradient": 0,
-            "gridPos": {
-              "h": 7,
-              "w": 12,
-              "x": 0,
-              "y": 17
-            },
             "hiddenSeries": false,
             "id": 6,
             "legend": {
@@ -703,12 +660,6 @@ export const dash = {
                 }
               ]
             },
-            "gridPos": {
-              "h": 7,
-              "w": 12,
-              "x": 12,
-              "y": 17
-            },
             "id": 7,
             "options": {
               "footer": {
@@ -838,12 +789,6 @@ export const dash = {
               "type": "prometheus",
               "uid": "prometheus"
             },
-            "gridPos": {
-              "h": 1,
-              "w": 24,
-              "x": 0,
-              "y": 24
-            },
             "id": 13,
             "panels": [],
             "targets": [
@@ -869,12 +814,6 @@ export const dash = {
             "description": "Network received (bits/s)",
             "fill": 0,
             "fillGradient": 0,
-            "gridPos": {
-              "h": 7,
-              "w": 12,
-              "x": 0,
-              "y": 25
-            },
             "id": 8,
             "legend": {
               "alignAsTable": false,
@@ -950,12 +889,6 @@ export const dash = {
             "description": "Network transmitted (bits/s)",
             "fill": 0,
             "fillGradient": 0,
-            "gridPos": {
-              "h": 7,
-              "w": 12,
-              "x": 12,
-              "y": 25
-            },
             "id": 9,
             "legend": {
               "alignAsTable": false,
@@ -1019,6 +952,102 @@ export const dash = {
                 "show": true
               }
             ]
+          },
+          {
+            "datasource": {
+              "uid": "$datasource"
+            },
+            "fieldConfig": {
+              "defaults": {
+                "links": [],
+                "mappings": [],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": []
+                },
+                "unit": "none"
+              },
+              "overrides": []
+            },
+            "id": 2,
+            "links": [],
+            "options": {
+              "colorMode": "value",
+              "graphMode": "area",
+              "justifyMode": "auto",
+              "orientation": "auto",
+              "reduceOptions": {
+                "calcs": [
+                  "lastNotNull"
+                ],
+                "fields": "",
+                "values": false
+              },
+              "textMode": "auto"
+            },
+            "pluginVersion": "9.3.1",
+            "targets": [
+              {
+                "datasource": {
+                  "uid": "$datasource"
+                },
+                "expr": "sum(kubelet_node_name{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\"})",
+                "format": "time_series",
+                "intervalFactor": 2,
+                "legendFormat": "",
+                "refId": "A"
+              }
+            ],
+            "title": "Running Kubelets",
+            "type": "stat"
+          },
+          {
+            "datasource": {
+              "uid": "$datasource"
+            },
+            "fieldConfig": {
+              "defaults": {
+                "links": [],
+                "mappings": [],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": []
+                },
+                "unit": "none"
+              },
+              "overrides": []
+            },
+            "id": 3,
+            "links": [],
+            "options": {
+              "colorMode": "value",
+              "graphMode": "area",
+              "justifyMode": "auto",
+              "orientation": "auto",
+              "reduceOptions": {
+                "calcs": [
+                  "lastNotNull"
+                ],
+                "fields": "",
+                "values": false
+              },
+              "textMode": "auto"
+            },
+            "pluginVersion": "9.3.1",
+            "targets": [
+              {
+                "datasource": {
+                  "uid": "$datasource"
+                },
+                "expr": "sum(kubelet_running_pods{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", instance=~\"$instance\"}) OR sum(kubelet_running_pod_count{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", instance=~\"$instance\"})",
+                "format": "time_series",
+                "intervalFactor": 2,
+                "legendFormat": "{{instance}}",
+                "refId": "A"
+              }
+            ],
+            "title": "Running Pods",
+            "type": "stat"
           }
         ],
         "templating": {
@@ -1068,6 +1097,6 @@ export const dash = {
               "useTags": false
             }
           ]
-        },
+        }
     }
 }

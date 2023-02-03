@@ -31,9 +31,9 @@ const ClusterInfo = (props: Props) => {
         {/* console.log({`http://localhost:3000/test&panelId=${item.ID}&viewPanel=${item.ID}`}); */}
         {grafArray.map((item) => (
           <iframe
-          src={`http://localhost:8888/graf/d-solo/YSh8G8T4z/node-exporter-nodes?orgId=1&panelId=${item.ID}`}
+          // src={`http://localhost:8888/graf/d-solo/YSh8G8T4z/node-exporter-nodes?orgId=1&panelId=${item.ID}`}
           // src={`http://localhost:3000/graf/test&panelId=${item.ID}`}
-
+          src={`http://localhost:8888/graf/d-solo/or3xtlo4k/testdash?orgId=1&panelId=${item.ID}`}
           
           width={item.width}
           height={item.height}

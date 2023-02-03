@@ -1,4 +1,6 @@
-export const clusterData = [
+import grafData from "../../../interfaces/grafData";
+
+export const clusterData: grafData[] = [
   // specify which graph this is here.
   {
     ID: 2,

@@ -1,4 +1,6 @@
-export const alertsData = [
+import grafData from "../../../interfaces/grafData";
+
+export const alertsData: grafData[] = [
     // specify which graph this is here.
     {
         ID: 1,

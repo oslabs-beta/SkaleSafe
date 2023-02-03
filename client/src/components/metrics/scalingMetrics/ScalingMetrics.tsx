@@ -4,6 +4,7 @@ type Props = {};
 
 
 const ScalingMetrics = (props: Props) => {
+  
   return (
     <div
       id='scalingtab'
@@ -13,16 +14,9 @@ const ScalingMetrics = (props: Props) => {
         Scaling Metrics
       </div>
       <div className='flex flex-row flex-wrap justify-center items-center gap-8'>
-        {/* let params = {`&panelID={item.ID}&refresh=30s&viewPanel={item.ID}`};
-        let link = "http://localhost:3000/graf/test";
-        let newlink = link + params; */}
-
-        {/* console.log({`http://localhost:3000/test&panelId=${item.ID}&viewPanel=${item.ID}`}); */}
         {scalingData.map((item: any) => (
           <iframe
             src={`http://localhost:8888/graf/d-solo/YSh8G8T4z/node-exporter-nodes?orgId=1&panelId=${item.ID}`}
-            // src={`http://localhost:3000/graf/test&panelId=${item.ID}`}
-
             width={item.width}
             height={item.height}
             frameBorder='0'

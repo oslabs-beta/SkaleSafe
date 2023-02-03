@@ -90,7 +90,7 @@ const Dashboard = (props: Props) => {
                     >
                       <AiOutlineCluster size={24} />
                       <span id='clusteroption' className='text-prussian-blue'>
-                        Cluster Info
+                        Cluster Health
                       </span>
                     </a>
                   </li>

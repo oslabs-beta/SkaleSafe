@@ -1,13 +1,9 @@
-export interface grafData {
-  ID: string;
-  width: number;
-  height: number;
-}
+import grafData from "../../../interfaces/grafData";
 
-export const scalingData = [
+export const scalingData: grafData[] = [
   // specify which graph this is here.
   {
-    ID: '2',
+    ID: 2,
     width: 450,
     height: 200,
   },

@@ -13,6 +13,7 @@
     "app": "concurrently --kill-others \"npm run dev\" \"nodemon --watch './**/*.ts' --exec 'ts-node' ./server/server.ts\""
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.2",
     "axios": "^1.2.3",
     "concurrently": "^7.6.0",
     "cytoscape": "^3.23.0",
@@ -22,6 +23,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
     "react-modal": "^3.16.1",
+    "react-redux": "^8.0.5",
     "react-router-dom": "^6.6.2",
     "supertest": "^6.3.3",
     "ts-node": "^10.9.1"

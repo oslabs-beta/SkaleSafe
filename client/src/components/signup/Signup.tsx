@@ -35,25 +35,11 @@ const Signup = () => {
   const submitFormData = (e?: any) => {
     e.preventDefault();
 
-    // const newUser = {
-    //   firstName: formData.firstname,
-    //   lastName: formData.lastname,
-    //   email: formData.email,
-    //   username: formData.username,
-    //   password: formData.password,
-    //   // clusterURL,
-    //   // kubernetesPort,
-    //   // clusterName,
-    //   // grafanaURL,
-    //   // thanosPort,
-    // };
-
     axios
       .post('http://localhost:3000/users/signup', formData)
       .then((res) => {
         if (res.status === 200) {
-          // setIsSignedUp(true);
-          navigate('/dashboard');
+          navigate('/users/signin');
         }
       })
       .catch((err) => {
@@ -68,12 +54,6 @@ const Signup = () => {
       username: '',
       password: '',
     });
-    // reset states
-    // setClusterURL('');
-    // setKubernetesPort('');
-    // setClusterName('');
-    // setGrafanaURL('');
-    // setThanosPort('');
   };
   const inputField =
     'border-b-2 rounded-lg mb-4 h-11 px-2 border-sapphire-blue w-full focus:outline-none focus:border-fuzzy-wuzzy focus:border-b-3';

@@ -3,7 +3,7 @@ import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 import React from "react";
 import Team from "./contact";
 
-const ContactUs = () => {
+const MeetTeam = () => {
 
   const developer = 'flex flex-col rounded-xl items-center justify-between h-4/5 w-1/5 py-10 bg-gradient-to-tr from-primary-color/30 to-light-blue/30 border border-teal-blue shadow-lg shadow-current'
   const links = 'cursor-pointer bg-grey rounded-full p-2 shadow shadow-honeydew hover:scale-110 hover:bg-sapphire-blue hover:shadow-md hover:shadow-prussian-blue';
@@ -11,7 +11,7 @@ const ContactUs = () => {
 
   return (
     <div id="team" className='h-[48rem] w-screen px-20 bg-gradient-to-b from-teal-blue flex flex-col items-center justify-evenly'>
-      <h1 className="text-4xl text-honeydew font-bold uppercase tracking-wider border-b-4">Meet The Team</h1>
+      <h1 id='teamText' className="text-4xl text-honeydew font-bold uppercase tracking-wider border-b-4">Meet The Team</h1>
       <div className="h-4/5 w-full flex flex-rox gap-20 items-center justify-center">
         {Team.map((member) => (
             <div className={developer}>
@@ -36,4 +36,4 @@ const ContactUs = () => {
   )
 }
 
-export default ContactUs;
+export default MeetTeam;

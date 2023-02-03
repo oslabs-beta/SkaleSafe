@@ -7,16 +7,9 @@ import SignUpData from '../../interfaces/signup';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-type Props = {};
-
-export const SignupModal = (props: Props) => {
+const SignupModal = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-  const [clusterURL, setClusterURL] = useState('');
-  const [kubernetesPort, setKubernetesPort] = useState('');
-  const [clusterName, setClusterName] = useState('');
-  const [grafanaURL, setGrafanaURL] = useState('');
-  const [thanosPort, setThanosPort] = useState('');
   const [isSignedUp, setIsSignedUp] = useState(false);
   const [formData, setFormData] = useState<SignUpData>({
     firstname: '',
@@ -24,7 +17,9 @@ export const SignupModal = (props: Props) => {
     email: '',
     username: '',
     password: '',
+    picture: '../../../assets/profile.png',
   });
+
 
   useEffect(() => {
     if(isSignedUp) {
@@ -35,32 +30,32 @@ export const SignupModal = (props: Props) => {
   }, [isSignedUp, navigate]);
 
   // update form object after each keystroke
-  const handleChange = (event: any) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
 
   // submit form: send post request to server @ /login
-  const submitFormData = (e?: any) => {
+  const submitFormData = (e: any) => {
     e.preventDefault();
+
+    
+
 
     axios
       .post('http://localhost:3000/users/signup', formData)
       .then((res) => {
-        console.log(res);
+        if (res.status === 200) {
+          setIsSignedUp(true);
+          navigate('/');
+        } if(res.status === 204) {
+          //Error handling for non unique email or username
+          console.log(res);
+        }
       })
       .catch((err) => {
-        console.log(err.message);
+        console.log(err);
       });
-
-    setIsSignedUp(true);
-    setFormData({
-      firstname: '',
-      lastname: '',
-      email: '',
-      username: '',
-      password: '',
-    });
   };
 
   const inputField =
@@ -73,7 +68,7 @@ export const SignupModal = (props: Props) => {
     <div>
       <button
         onClick={() => setIsOpen(true)}
-        className='border-b border-prussian-blue text-prussian-blue text-md px-2 py-1 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]'
+        className='text-honeydew text-xl font-semi px-2 py-1 hover:scale-110 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]'
       >
         Sign Up
       </button>
@@ -161,15 +156,14 @@ export const SignupModal = (props: Props) => {
             Sign Up
           </button>
           {/* DIVIDER */}
-          <div className='flex place-content-center pt-8 mb-12 h-10'>
+          {/* <div className='flex place-content-center pt-8 mb-12 h-10'>
             <div className='flex border-b border-dark-grey w-40' />
             <p className='text-sm text-dark-grey mt-[-3px] font-thin px-4'>OR</p>
             <div className='border-b border-dark-grey w-40' />
-          </div>
+          </div> */}
           {/* OAUTH */}
-          <div className='flex place-content-center mt-10 gap-x-12 font-poppins tracking-wider'>
+          {/* <div className='flex place-content-center mt-10 gap-x-12 font-poppins tracking-wider'>
             <div className='mr-2 cursor-pointer rounded-md text-lg focus:scale-95 bg-grey border-2 border-grey'>
-              {/* <img src='insert github image' /> */}
               
               <a className='flex items-center justify-center gap-3 text-white w-44 py-4 font-semibold '>
                 <AiFillGithub size={30}/>
@@ -178,7 +172,6 @@ export const SignupModal = (props: Props) => {
             </div>
 
             <div className='mr-2 cursor-pointer rounded-md text-lg bg-fuzzy-wuzzy focus:scale-95 border-2 border-fuzzy-wuzzy hover:shadow-fuzzy-wuzzy'>
-              {/* <img src=' insert google image' /> */}
               <a
                 href='/auth/google'
                 className='flex items-center justify-center gap-3 w-44 items-center py-4 text-white font-semibold'
@@ -187,9 +180,11 @@ export const SignupModal = (props: Props) => {
                 Google
               </a>
             </div>
-          </div>
+          </div> */}
         </form>
       </Modal>
     </div>
   );
 };
+
+export default SignupModal;

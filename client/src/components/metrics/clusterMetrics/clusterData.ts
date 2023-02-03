@@ -1,4 +1,4 @@
-export const grafArray = [
+export const clusterData = [
   // specify which graph this is here.
   {
     ID: 2,

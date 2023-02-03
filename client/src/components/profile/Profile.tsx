@@ -16,35 +16,17 @@ const Profile = (props: Props) => {
     const username = useAppSelector(state => state.user.userData.username);
     const email = useAppSelector(state => state.user.userData.email);
 
-
-    //testing profile content
-    function toggleLight() {
-        let element = document.body
-        element.classNameList.toggle('light-mode')
-
-        const logoText = document.getElementById('colortestlogo');
-        logoText.classNameName = 'text-prussian-blue text-3xl pl-3'
-
-        const logoBackground = document.getElementById('backgroundoflogo')
-        logoBackground.classNameName= "flex flex-row justify-evenly items-center bg-primary-color w-60 h-12 rounded-full"
-        //change the classNameName for 
-
-        const homeLogo = document.getElementById('homeLogo')
-        homeLogo.url="../../../assets/SkaleSafe.svg"
-
-    }
-
     const outLinks =
     'text-honeydew text-xl font-semi px-2 py-1 hover:scale-110 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]';
 
     return (
 
 
-      <div className="w-96 h-screen flex-col justify-start text-teal-blue pt-32">
+      <div id='profileText' className="w-96 h-screen flex-col justify-start text-teal-blue pt-32">
         <div>
-            <div className="bg-off-white relative shadow rounded-lg ">
+            <div id='profileBG' className="bg-off-white relative shadow rounded-lg ">
                 <div className="flex justify-center">
-                        <img src='../../../assets/profile.png' alt='profile photo' className="rounded-full mx-auto absolute -top-20 w-32 h-32 shadow-md border-4 border-white"/>
+                        <img id='profileBorder' src='../../../assets/profile.png' alt='profile photo' className="rounded-full mx-auto absolute -top-20 w-32 h-32 shadow-md border-4 border-white"/>
                 </div>
                 
                 <div className="mt-16">

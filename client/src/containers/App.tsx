@@ -1,9 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 
-import AddCluster from '../components/AddCluster/AddCluster';
-import Alerts from '../components/Alerts/Alerts';
-import ContactUs from '../components/contactUs/ContactUs'
-import Dashboard from '../components/Dashboard/Dashboard';
+import AddCluster from '../components/addCluster/AddCluster';
+import Dashboard from '../components/dashboard/Dashboard';
 import { Error } from '../components/Error';
 import HomeContainer from '../containers/HomeContainer';
 import Navbar from '../components/Navbar/Navbar';
@@ -21,32 +19,26 @@ import ScalingMetrics from '../components/ScalingMetrics/ScalingMetrics'
 const App = () => {
   return (
     <div>
-    
       <Navbar />
 
       <div>
-      <Routes>
-      <Route path='/' element={<HomeContainer />} />
-        <Route path='/home' element={<HomeContainer />} />
-      
-        <Route path='/dashboard' element= {<Dashboard/>}>
-          {/* <Route index />  */}
-          {/* element= {<Dashboard/>} RENDERS THE PROFILE & ADDCLUSTER APPROPRIATELY BUT DOESN NOT DISPLAY DASHBOARD */}
-            <Route path='profile' element={<Profile />}/> 
-          {/* WORKS IN DASHBOARD/PROFILE, doesnt display dashboard */}
-            <Route path='addcluster' element={<AddCluster />}/>
-          {/* DELETE ADD CLUSTER ROUTE ONCE MADE INTO A MODAL */}
-        </Route>
-        
-        {/* switch paths for scalingmetrics and alerts to dashnoard href made in dashboard file */}
-        
-        <Route path='*' element={<Error />} />
+        <Routes>
+          <Route path='/' element={<HomeContainer />} />
+          <Route path='/home' element={<HomeContainer />} />
 
-        deprecated routes - DELETE
-        {/* <Route path='/scalingMetrics' element={<ScalingMetrics />} /> */}
-        {/* <Route path='/alerts' element={<Alerts />} /> */}
-       
-      </Routes>
+          <Route path='/dashboard' element={<Dashboard />}>
+            {/* <Route index />  */}
+            {/* element= {<Dashboard/>} RENDERS THE PROFILE & ADDCLUSTER APPROPRIATELY BUT DOESN NOT DISPLAY DASHBOARD */}
+            <Route path='profile' element={<Profile />} />
+            {/* WORKS IN DASHBOARD/PROFILE, doesnt display dashboard */}
+            <Route path='addcluster' element={<AddCluster />} />
+            {/* DELETE ADD CLUSTER ROUTE ONCE MADE INTO A MODAL */}
+          </Route>
+
+          {/* switch paths for scalingmetrics and alerts to dashnoard href made in dashboard file */}
+
+          <Route path='*' element={<Error />} />
+        </Routes>
       </div>
     </div>
   );

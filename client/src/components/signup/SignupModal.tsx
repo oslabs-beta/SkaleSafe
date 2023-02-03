@@ -39,14 +39,12 @@ const SignupModal = () => {
   const submitFormData = (e: any) => {
     e.preventDefault();
 
-    
-
-
     axios
       .post('http://localhost:3000/users/signup', formData)
       .then((res) => {
         if (res.status === 200) {
           setIsSignedUp(true);
+          setIsOpen(false);
           navigate('/');
         } if(res.status === 204) {
           //Error handling for non unique email or username
@@ -56,6 +54,16 @@ const SignupModal = () => {
       .catch((err) => {
         console.log(err);
       });
+
+
+      setFormData({
+        firstname: '',
+        lastname: '',
+        email: '',
+        username: '',
+        password: '',
+        picture: '../../../assets/profile.png',
+      })
   };
 
   const inputField =

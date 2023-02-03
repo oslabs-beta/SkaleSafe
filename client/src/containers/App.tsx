@@ -7,7 +7,7 @@ import Dashboard from '../components/Dashboard/Dashboard';
 import { Error } from '../components/Error';
 import HomeContainer from '../containers/HomeContainer';
 import Navbar from '../components/Navbar/Navbar';
-import Profile from '../components/Profile/Profile'
+import { Profile } from '../components/Profile/Profile.tsx'
 import ScalingMetrics from '../components/ScalingMetrics/ScalingMetrics'
 
 //Links are setup to allow only <routes> to change; the whole app is not re-rendered

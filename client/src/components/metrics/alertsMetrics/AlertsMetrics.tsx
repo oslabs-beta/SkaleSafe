@@ -1,18 +1,18 @@
-import { alertsData } from './scalingData';
+import { alertsData } from './alertsData';
 
 type Props = {};
 
 // recreate this component called alerts metrics
 // need a component and the data structure 
 
-const alertMetrics = (props: Props) => {
+const AlertsMetrics = (props: Props) => {
   return (
     <div
       id='alertstab'
       className='w-screen h-screen flex flex-col items-center justify-evenly text-honeydew'
     >
       <div className='self-center text-4xl font-bold uppercase border-b-2 border-white pb-2 tracking-wider'>
-        Scaling Metrics
+        Alerts
       </div>
       <div className='flex flex-row flex-wrap justify-center items-center gap-8'>
         {/* let params = {`&panelID={item.ID}&refresh=30s&viewPanel={item.ID}`};
@@ -35,4 +35,4 @@ const alertMetrics = (props: Props) => {
   );
 };
 
-export default alertsMetrics;
+export default AlertsMetrics;

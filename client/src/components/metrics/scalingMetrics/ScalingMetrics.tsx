@@ -2,8 +2,6 @@ import { scalingData } from './scalingData';
 
 type Props = {};
 
-// recreate this component called alerts metrics
-// need a component and the data structure 
 
 const ScalingMetrics = (props: Props) => {
   return (

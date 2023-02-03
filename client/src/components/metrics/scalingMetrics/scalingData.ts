@@ -1,9 +1,3 @@
-export interface grafData {
-  ID: number;
-  width: number;
-  height: number;
-}
-
 export const scalingData = [
   // specify which graph this is here.
   {

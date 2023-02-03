@@ -20,6 +20,7 @@ import LightOrDark from '../modeSwitch/ModeSwitch';
 import { Link } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import ScalingMetrics from '../metrics/scalingMetrics/ScalingMetrics';
+import AlertsMetrics from '../metrics/alertsMetrics/AlertsMetrics';
 import Settings from '../Settings/settings';
 import Sidebar from '../sidebar/Sidebar';
 import { setIsLoggedIn } from '../../../redux/slices/userSlice';
@@ -136,7 +137,7 @@ const Dashboard = (props: Props) => {
           <Outlet />
         </div>
         {active === 1 && <ScalingMetrics />}
-        {active === 2 && <Alerts />}
+        {active === 2 && <AlertsMetrics />}
         {active === 3 && <ClusterMetrics />}
         {active === 4 && <KubeView />}
         {active === 5 && <Settings />}

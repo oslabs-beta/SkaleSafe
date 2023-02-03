@@ -17,7 +17,7 @@ const MeetTeam = () => {
             <div className={developer}>
               {/* image does not need to be static; can reference our profile pics in linked in for example */}
               <h2 className="text-lg md:text-2xl font-bold text-honeydew tracking-wide text-center break-words m-0">{member.name}</h2>
-              <img className="lg:w-36 lg:h-36 md:w-32 md:h-32 rounded-full border-4 border-honeydew shadow-sm shadow-honeydew" src={member.image} alt={member.alt}/> 
+              <img className="lg:w-36 lg:h-36 md:w-32 md:h-32 sm:h-24 sm:w-24 rounded-full border-4 border-honeydew shadow-sm shadow-honeydew" src={member.image} alt={member.alt}/> 
               <p className="text-honeydew ">{member.bio}</p>
               <div className="flex flex-row gap-8">
                 <a className={links} href={member.linkedin} target='_blank' rel='noreferrer'>

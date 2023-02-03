@@ -13,18 +13,17 @@ import {
   RiSettings3Line,
 } from 'react-icons/ri';
 
-import Alerts from '../alerts/Alerts';
+import Alerts from '../Alerts/Alerts';
+import ClusterMetrics from '../metrics/clusterMetrics/ClusterMetrics';
 import Home from '../Home';
-import KubeView from '../kubeview/KubeView';
+import KubeView from '../Kubeview/KubeView';
 import LightOrDark from '../modeSwitch/ModeSwitch';
 import { Link } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import ScalingMetrics from '../metrics/scalingMetrics/ScalingMetrics';
 import Settings from '../Settings/settings';
-import Sidebar from '../sidebar/Sidebar';
 import { setIsLoggedIn } from '../../../redux/slices/userSlice';
 import { useAppDispatch } from '../../../redux/hooks/hooks';
-import ClusterMetrics from '../metrics/clusterMetrics/ClusterMetrics';
 
 type Props = {};
 
@@ -41,9 +40,7 @@ const Dashboard = (props: Props) => {
 
   return (
     <div className='w-screen h-screen'>
-      {/* CODE TO BE MOVED TO Sidebar.jsx STARTS HERE */}
       <div className='flex'>
-        {/* <Sidebar /> WILL REPLACE 'CODE TO BE MOVED' ONCE REDUX IS IMPLEMENTED*/}
         <div className='flex'>
           <div
             id='dashboardbg'
@@ -141,7 +138,6 @@ const Dashboard = (props: Props) => {
         {active === 4 && <KubeView />}
         {active === 5 && <Settings />}
       </div>
-      {/* CODE TO BE MOVED TO Sidebar.jsx ENDS HERE */}
     </div>
   );
 };

@@ -1,5 +1,5 @@
-import { SignInState, setIsLoggedIn, setUserData } from '../../redux/slices/userSlice';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
+import { SignInState, setIsLoggedIn, setUserData } from '../../../redux/slices/userSlice';
+import { useAppDispatch, useAppSelector } from '../../../redux/hooks/hooks';
 import { useEffect, useState } from 'react';
 
 import { RootState } from '../store';

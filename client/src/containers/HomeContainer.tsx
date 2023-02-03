@@ -1,8 +1,9 @@
 import About from '../components/About/About';
-import ContactUs from '../components/contactUs/ContactUs';
 import Demo from '../components/Demo/Demo';
 import Documentation from '../components/Documentation/Documentation';
+import Footer from '../components/Footer/Footer';
 import Home from '../components/Home';
+import MeetTeam from '../components/MeetTeam/MeetTeam';
 
 const HomeContainer = () => {
   return (
@@ -11,7 +12,8 @@ const HomeContainer = () => {
       <About />
       <Demo />
       <Documentation />
-      <ContactUs />
+      <MeetTeam />
+      <Footer />
     </div>
   );
 };

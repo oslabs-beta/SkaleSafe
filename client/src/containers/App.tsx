@@ -1,18 +1,14 @@
 import { Route, Routes } from 'react-router-dom';
 
-import AddCluster from '../components/addCluster/AddCluster';
-import Alerts from '../components/alerts/Alerts';
+import AddCluster from '../components/AddCluster/AddCluster';
+import Alerts from '../components/Alerts/Alerts';
 import ContactUs from '../components/contactUs/ContactUs'
-import Dashboard from '../components/dashboard/Dashboard';
+import Dashboard from '../components/Dashboard/Dashboard';
 import { Error } from '../components/Error';
 import HomeContainer from '../containers/HomeContainer';
-import Navbar from '../components/navbar/Navbar';
-import Profile from '../components/profile/Profile'
-import ScalingMetrics from '../components/scalingMetrics/ScalingMetrics'
-import SignIn  from '../components/SignIn';
-import Signup from '../components/signup/Signup';
-
-// import { SignupModal } from './components/signupModal/SignupModal';
+import Navbar from '../components/Navbar/Navbar';
+import Profile from '../components/Profile/Profile'
+import ScalingMetrics from '../components/ScalingMetrics/ScalingMetrics'
 
 //Links are setup to allow only <routes> to change; the whole app is not re-rendered
 //Nested routes
@@ -36,24 +32,16 @@ const App = () => {
         <Route path='/dashboard' element= {<Dashboard/>}>
           {/* <Route index />  */}
           {/* element= {<Dashboard/>} RENDERS THE PROFILE & ADDCLUSTER APPROPRIATELY BUT DOESN NOT DISPLAY DASHBOARD */}
-            <Route path='profile' element={<Profile/>}/> 
+            <Route path='profile' element={<Profile />}/> 
           {/* WORKS IN DASHBOARD/PROFILE, doesnt display dashboard */}
-           <Route path='addcluster' element={<AddCluster />}/>
+            <Route path='addcluster' element={<AddCluster />}/>
           {/* DELETE ADD CLUSTER ROUTE ONCE MADE INTO A MODAL */}
         </Route>
-       
-        {/* DELETE THESE ROUTES ONCE MADE INTO A MODAL */}
-        <Route path='/users/signin' element={<SignIn />} />
-        <Route path='/users/signup' element={<Signup />} />
-
+        
         {/* switch paths for scalingmetrics and alerts to dashnoard href made in dashboard file */}
         
         <Route path='*' element={<Error />} />
 
-{/* deprecated routes - DELETE */}
-        {/* <Route path='/scalingMetrics' element={<ScalingMetrics />} /> */}
-        {/* <Route path='/alerts' element={<Alerts />} /> */}
-       
       </Routes>
       </div>
     </div>

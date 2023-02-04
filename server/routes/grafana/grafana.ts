@@ -6,6 +6,7 @@ import { createGrafAlert } from '../../controllers/grafana/createGrafAlert';
 import { getAlerts } from '../../controllers/grafana/getAlerts';
 import getAlertsDashboard from '../../controllers/grafana/getAlertsDashboard';
 import { createAlertsDashboard } from '../../controllers/grafana/createAlertsDashboard';
+import { sendToDatabase } from '../../controllers/database/sendToDatabase';
 
 const router = express.Router();
 
@@ -24,6 +25,9 @@ const router = express.Router();
 // serve_from_sub_path to true.
 
 //after the pod restarts, restart the port forwarding for the new grafana pod
+// router.use('/', () => {
+//   console.log('grafana route reached');
+// });
 
 //get default dashboard
 router.get('/', axiosDashboard, (req: Request, res: Response) => {
@@ -38,13 +42,14 @@ router.get('/test', grafSearch, (req: Request, res: Response) => {
 });
 
 // to add a custom dashboard
-router.get('/add', customDashboard, (req: Request, res: Response) => {
+// sendToDatabase,
+router.post('/add', customDashboard, (req: Request, res: Response) => {
   console.log('dashboard created');
   res.status(200).send(res.locals.dashboardData);
 });
 
 // to add a alerts dashboard
-router.post('/addAlerts', createAlertsDashboard, (req: Request, res: Response) => {
+router.post('/addAlerts', createAlertsDashboard, /* SendToDatabase */ (req: Request, res: Response) => {
   console.log('alerts dashboard created');
   res.status(200).send(res.locals.dashboardData);
 });

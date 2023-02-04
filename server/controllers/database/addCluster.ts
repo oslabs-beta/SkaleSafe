@@ -17,6 +17,7 @@ export const addClusterToDB = (
 ) => {
   // grab userID from cookies, to assign Grafana info to their DB document.
   const username = req.body.username;
+  const grafURL = req.body.clusterIP
   const grafPort = req.body.grafanaPort;
   const grafUsername = req.body.grafanaUsername;
   const grafPassword = req.body.grafanaPassword;
@@ -29,6 +30,7 @@ export const addClusterToDB = (
     username,
     {
       $set: {
+        grafURL: grafURL,
         grafPort: grafPort,
         grafUsername: grafUsername,
         grafPassword: grafPassword,

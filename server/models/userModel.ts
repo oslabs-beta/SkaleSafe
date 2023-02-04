@@ -29,6 +29,8 @@ const userSchema = new Schema<UserObj>({
   grafUsername: { type: String, required: false },
   grafPassword: { type: String, required: false },
   kubeviewPort: { type: String, required: false },
+  customUID: { type: String, required: false },
+  alertsUID: { type: String, required: false },
 });
 
 userSchema.pre('save', function (next) {

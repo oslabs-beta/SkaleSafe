@@ -3,6 +3,7 @@ import { useState } from 'react';
 import axios from 'axios';
 
 const AddCluster = () => {
+  const [clusterIP, setClusterIP] = useState('');
   const [grafanaPort, setGrafanaPort] = useState('');
   const [grafanaUsername, setGrafanaUsername] = useState('');
   const [grafanaPassword, setGrafanaPassword] = useState('');
@@ -14,6 +15,7 @@ const AddCluster = () => {
     e.preventDefault();
 
     const addCluster = {
+      clusterIP,
       grafanaPort,
       grafanaUsername,
       grafanaPassword,
@@ -62,6 +64,17 @@ const AddCluster = () => {
                     autoComplete='off'
                     placeholder='Grafana Port'
                     onChange={(e) => setGrafanaPort(e.target.value)}
+                  />
+                </div>
+                <div className='relative'>
+                  <input
+                    type='text'
+                    id='clusterIP'
+                    className={inputField}
+                    name='clusterIP'
+                    autoComplete='off'
+                    placeholder='Cluster IP Address'
+                    onChange={(e) => setClusterIP(e.target.value)}
                   />
                 </div>
                 <div className='relative'>

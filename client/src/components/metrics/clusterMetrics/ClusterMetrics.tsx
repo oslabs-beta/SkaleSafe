@@ -2,6 +2,9 @@ import { clusterData } from './clusterData';
 
 type Props = {};
 
+// dashboard ID -> or3xtlo4k -> this part of URL will change... grab UID from db
+// cluster URL -> http://localhost -> this part of URL will change... grab Cluster IP address from db
+// grafana Port -> 8888 -> this part of URL will change... grab grafana port from db
 
 const ClusterMetrics = (props: Props) => {
   

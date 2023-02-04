@@ -2,10 +2,11 @@ import { Link, useLocation } from 'react-router-dom';
 import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md';
 import React, { useEffect, useState } from 'react';
 
-import LightOrDark from '../modeSwitch/ModeSwitch';
-import Profile from '../profile/Profile';
+import AddCluster from '../AddCluster/AddCluster';
+import LightOrDark from '../ModeSwitch/ModeSwitch';
+import Profile from '../Profile/Profile';
 import SignInModal from '../Signin/SigninModal';
-import SignupModal from '../signup/SignupModal';
+import SignupModal from '../Signup/SignupModal';
 import { useAppSelector } from '../../../redux/hooks/hooks';
 
 const Navbar = () => {
@@ -64,16 +65,11 @@ const Navbar = () => {
 
       <ul className='flex flex-row gap-x-4'>
         {isLoggedIn
-          ? [
-              ['Add Cluster', '/dashboard/addCluster'],
-              ['My Dashboard', '/dashboard'],
-            ].map(([title, url]) => (
+          ? (   
               <li>
-                <Link to={url}>
-                  <button className={outLinks}>{title}</button>
-                </Link>
+                <AddCluster />
               </li>
-            ))
+            )
           : [
               ['Home', '/home'],
               ['About', '#about'],
@@ -100,7 +96,7 @@ const Navbar = () => {
         />
       </button> */}
 
-      <button
+      {/* <button
         className='text-honeydew text-md px-2 py-1 hover:text-honeydew hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]'
         onClick={() => LightOrDark()}
       >
@@ -109,28 +105,26 @@ const Navbar = () => {
           src='../../../assets/skaleSafe-light.png'
           className='w-10 h-10'
         />
-      </button>
+      </button> */}
       <ul className='flex flex-row gap-x-4'>
         {isLoggedIn
           ? // PROFILE LINK CURRENTLY LEADS TO ADD CLUSTER INFO
-            [[`Welcome, ${userName}`, '/dashboard/profile']].map(
-              ([title, url]) => (
-                <li className='flex gap-x-4 items-center'>
-                  <div
-                    id='navUser'
-                    className='text-honeydew text-xl font-semi px-2 py-1'
-                  >
-                    {title}
-                  </div>
-                  <Link to={url} className='flex flex-row gap-x-4'>
-                    <img
-                      className='w-10 h-10 rounded-full hover:scale-110 hover:brightness-110'
-                      src='../../../assets/profile.png'
-                      alt='profile photo'
-                    />
-                  </Link>
-                </li>
-              )
+            (  
+              <li className='flex gap-x-4 items-center'>
+                <div
+                  id='navUser'
+                  className='text-honeydew text-xl font-semi px-2 py-1'
+                >
+                  {`Welcome ${userName}`}
+                </div>
+                <Link to='dashboard/profile' className='flex flex-row gap-x-4'>
+                  <img
+                    className='w-10 h-10 rounded-full hover:scale-110 hover:brightness-110'
+                    src='../../../assets/profile.png'
+                    alt='profile photo'
+                  />
+                </Link>
+              </li>
             )
           : [<SignupModal />, <SignInModal />].map((modal) => (
               <li className='flex gap-x-8 items-center'>{modal}</li>

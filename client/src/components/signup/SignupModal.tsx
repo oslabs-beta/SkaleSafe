@@ -64,7 +64,6 @@ const SignupModal = () => {
         console.log(err);
       });
 
-
       setFormData({
         firstname: '',
         lastname: '',

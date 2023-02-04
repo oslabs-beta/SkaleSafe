@@ -1,34 +1,30 @@
 import {
   AiOutlineCluster,
   AiOutlineControl,
+  AiOutlinePlus,
   AiOutlineWarning,
 } from 'react-icons/ai';
-import React, { useState } from 'react';
+import { Link, Outlet } from 'react-router-dom';
 import {
   RiBarChartLine,
   RiBubbleChartLine,
-  RiEqualizerLine,
   RiLogoutBoxLine,
-  RiProfileLine,
   RiSettings3Line,
 } from 'react-icons/ri';
+import { useAppDispatch, useAppSelector } from '../../../redux/hooks/hooks';
 
-import Alerts from '../Alerts/Alerts';
-import AlertsMetrics from '../metrics/alertsMetrics/AlertsMetrics';
-import ClusterMetrics from '../metrics/clusterMetrics/ClusterMetrics';
-import Home from '../Home';
-import KubeView from '../kubeview/KubeView';
-import LightOrDark from '../modeSwitch/ModeSwitch';
-import { Link } from 'react-router-dom';
-import { Outlet } from 'react-router-dom';
-import Profile from '../profile/Profile';
-import ScalingMetrics from '../metrics/scalingMetrics/ScalingMetrics';
-import { setIsLoggedIn } from '../../../redux/slices/userSlice';
-import { useAppDispatch } from '../../../redux/hooks/hooks';
-import { useAppSelector } from '../../../redux/hooks/hooks';
-import SignInModal from '../Signin/SigninModal';
+import AlertsMetrics from '../metrics/AlertsMetrics/AlertsMetrics';
+import ClusterMetrics from '../metrics/ClusterMetrics/ClusterMetrics';
 import Footer from '../Footer/Footer';
+import Home from '../Home';
 import HomeContainer from '../../containers/HomeContainer';
+import KubeView from '../Kubeview/KubeView';
+import LightOrDark from '../ModeSwitch/ModeSwitch';
+import Profile from '../Profile/Profile';
+import ScalingMetrics from '../metrics/scalingMetrics/ScalingMetrics';
+import SignInModal from '../Signin/SigninModal';
+import { setIsLoggedIn } from '../../../redux/slices/userSlice';
+import { useState } from 'react';
 
 type Props = {};
 
@@ -127,14 +123,14 @@ const Dashboard = (props: Props) => {
                           id='settingsoption'
                           className='text-prussian-blue'
                         >
-                          My Profile
+                          <Profile />
                         </span>
                       </a>
                     </li>
                     <li className={listElement} onClick={loggedOut}>
                       <Link
                         to='/home'
-                        className='flex items-center p-2 space-x-3 rounded-md'
+                        className='flex items-center p-2 space-x-3 rounded-md mb-24'
                       >
                         <RiLogoutBoxLine size={24} />
                         <div>
@@ -147,6 +143,10 @@ const Dashboard = (props: Props) => {
                         </div>
                       </Link>
                     </li>
+                    <div className='flex py-4 pl-6 pr-6 rounded-full justify-start bg-primary-color shadow-md hover:shadow-lg cursor-pointer hover:scale-105 text-white'>
+                      <AiOutlinePlus className='justify-start mr-2 text-lg font-semibold hover:scale-105' />
+                      <p className=''>Create a Cluster</p>
+                    </div>
                   </ul>
                 </div>
               </div>

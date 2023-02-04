@@ -1,16 +1,14 @@
 import { Route, Routes } from 'react-router-dom';
 
-import AddCluster from '../components/addCluster/AddCluster';
-import Dashboard from '../components/dashboard/Dashboard';
+import Alerts from '../components/Alerts/Alerts';
+import ContactUs from '../components/contactUs/ContactUs';
+import Dashboard from '../components/Dashboard/Dashboard';
 import { Error } from '../components/Error';
 import HomeContainer from '../containers/HomeContainer';
-
-import Navbar from '../components/navbar/Navbar';
-import Profile from '../components/profile/Profile';
-import SignIn from '../components/Signin/SignIn';
-import Alerts from '../components/alerts/Alerts';
-import ContactUs from '../components/contactUs/ContactUs';
 import MeetTeam from '../components/MeetTeam/MeetTeam';
+import Navbar from '../components/Navbar/Navbar';
+import Profile from '../components/Profile/Profile';
+import SignIn from '../components/Signin/SignIn';
 
 //Links are setup to allow only <routes> to change; the whole app is not re-rendered
 //Nested routes
@@ -31,12 +29,7 @@ const App = () => {
           <Route path='/home' element={<HomeContainer />} />
 
           <Route path='/dashboard' element={<Dashboard />}>
-            {/* <Route index />  */}
-            {/* element= {<Dashboard/>} RENDERS THE PROFILE & ADDCLUSTER APPROPRIATELY BUT DOESN NOT DISPLAY DASHBOARD */}
             <Route path='profile' element={<Profile />} />
-            {/* WORKS IN DASHBOARD/PROFILE, doesnt display dashboard */}
-            <Route path='addcluster' element={<AddCluster />} />
-            {/* DELETE ADD CLUSTER ROUTE ONCE MADE INTO A MODAL */}
           </Route>
 
           {/* switch paths for scalingmetrics and alerts to dashnoard href made in dashboard file */}

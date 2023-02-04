@@ -1,13 +1,10 @@
-import About from '../components/About/About';
-import Demo from '../components/Demo/Demo';
-import Documentation from '../components/Documentation/Documentation';
+import About from '../components/Home/About/About';
+import Demo from '../components/Home/Demo/Demo';
+import Documentation from '../components/Home/Documentation/Documentation';
 import Footer from '../components/Footer/Footer';
-import Home from '../components/Home';
-import MeetTeam from '../components/MeetTeam/MeetTeam';
-import React, { useState } from 'react';
-import { Error } from '../components/Error';
+import Home from '../components/Home/Home';
+import MeetTeam from '../components/Home/MeetTeam/MeetTeam';
 
-// const [isOpen, setIsOpen] = useState(false);
 const HomeContainer = () => {
 
   return (

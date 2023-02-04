@@ -11,20 +11,21 @@ import {
   RiLogoutBoxLine,
   RiSettings3Line,
 } from 'react-icons/ri';
-import { useAppDispatch, useAppSelector } from '../../../redux/hooks/hooks';
+import { useAppDispatch, useAppSelector } from '../../../redux/Hooks/Hooks';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import AlertsMetrics from '../metrics/AlertsMetrics/AlertsMetrics';
-import ClusterMetrics from '../metrics/ClusterMetrics/ClusterMetrics';
+import AlertsMetrics from '../Metrics/AlertsMetrics/AlertsMetrics';
+import ClusterMetrics from '../Metrics/ClusterMetrics/ClusterMetrics';
 import Footer from '../Footer/Footer';
 import Home from '../Home';
 import HomeContainer from '../../containers/HomeContainer';
 import KubeView from '../Kubeview/KubeView';
 import LightOrDark from '../ModeSwitch/ModeSwitch';
 import Profile from '../Profile/Profile';
-import ScalingMetrics from '../metrics/scalingMetrics/ScalingMetrics';
-import SignInModal from '../Signin/SigninModal';
-import { setIsLoggedIn } from '../../../redux/slices/userSlice';
-import { useState } from 'react';
+import ScalingMetrics from '../Metrics/ScalingMetrics/ScalingMetrics';
+// import SignInModal from '../Signin/SigninModal';
+import { setIsLoggedIn } from '../../../redux/Slices/UserSlice';
 
 type Props = {};
 
@@ -34,21 +35,18 @@ const Dashboard = (props: Props) => {
   // clicking on the different options on the sidebar changes the 'active' state above
   const [isOpen, setIsOpen] = useState(false);
   const listElement = 'rounded-sm hover:scale-105';
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const loggedOut = (event: any) => {
     event.preventDefault();
     dispatch(setIsLoggedIn(false));
   };
 
-  if (!isLoggedIn) {
-    // setIsOpen(true);
-    window.location.href = '/signin';
-    // return (
-    // <HomeContainer/>
+  useEffect(() => {
+    if (isLoggedIn) navigate('/dashboard');
+    else navigate('/');
+  },[navigate, isLoggedIn])
 
-    // //add open module signin via dom manipulation?
-    // )
-  } else if (isLoggedIn) {
     return (
       <div className='w-screen h-screen'>
         <div className='flex'>
@@ -165,7 +163,6 @@ const Dashboard = (props: Props) => {
         {/* CODE FORMERLY KNOWN AS Sidebar.jsx ENDS HERE */}
       </div>
     );
-  }
 };
 
 export default Dashboard;

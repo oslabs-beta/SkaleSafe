@@ -1,4 +1,4 @@
-import { scalingData } from './scalingData';
+import { scalingData } from './ScalingData';
 
 type Props = {};
 

@@ -10,18 +10,14 @@ import { Request, Response, NextFunction } from 'express';
 //   username: 'johnwick'
 //   }
 
-export const addClusterToDB = (
+export const createAlertsUID = (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   // grab userID from cookies, to assign Grafana info to their DB document.
   const username = req.body.username;
-  const grafURL = req.body.clusterIP;
-  const grafPort = req.body.grafanaPort;
-  const grafUsername = req.body.grafanaUsername;
-  const grafPassword = req.body.grafanaPassword;
-  const kubeviewPort = req.body.kubeviewPort;
+  const alertsUID = res.locals.uid;
   console.log('from addcluster middleware', req.body);
 
   const User = mongoose.model<mongoose.Document>('User');
@@ -30,20 +26,17 @@ export const addClusterToDB = (
     username,
     {
       $set: {
-        grafURL: grafURL,
-        grafPort: grafPort,
-        grafUsername: grafUsername,
-        grafPassword: grafPassword,
-        kubeviewPort: kubeviewPort,
+        alertsUID: alertsUID,
       },
     },
     (err: any, user: any) => {
       if (err) {
-        console.log('ERROR ADDING CLUSTER');
+        console.log('ERROR SETTING ALERTS UID');
         return res.status(404).json({ message: 'Unable to update user.' });
       }
-      console.log('cluster added successfully');
+      console.log('alerts UID added to database.');
       next();
     }
   );
 };
+export default createAlertsUID;

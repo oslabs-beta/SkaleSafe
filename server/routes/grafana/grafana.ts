@@ -1,10 +1,11 @@
+import { createAlertsUID } from './../../controllers/database/createAlertsUID';
 import express, { Request, Response } from 'express';
 import axiosDashboard from '../../controllers/grafana/axiosDashboard';
 import grafSearch from '../../controllers/grafana/metric';
 import { customDashboard } from '../../controllers/grafana/customDashboard';
 import { createGrafAlert } from '../../controllers/grafana/createGrafAlert';
 import { getAlerts } from '../../controllers/grafana/getAlerts';
-import getAlertsDashboard from '../../controllers/grafana/getAlertsDashboard';
+import getAlertsUID from '../../controllers/database/getAlertsUID';
 import { createAlertsDashboard } from '../../controllers/grafana/createAlertsDashboard';
 import { sendToDatabase } from '../../controllers/database/sendToDatabase';
 
@@ -43,30 +44,43 @@ router.get('/test', grafSearch, (req: Request, res: Response) => {
 
 // to add a custom dashboard
 // sendToDatabase,
-router.post('/add', customDashboard, (req: Request, res: Response) => {
-  console.log('dashboard created');
-  res.status(200).send(res.locals.dashboardData);
-});
+router.post(
+  '/add-dashboard',
+  customDashboard,
+  sendToDatabase,
 
-// to add a alerts dashboard
-router.post('/addAlerts', createAlertsDashboard, /* SendToDatabase */ (req: Request, res: Response) => {
-  console.log('alerts dashboard created');
-  res.status(200).send(res.locals.dashboardData);
-});
+  (req: Request, res: Response) => {
+    console.log('dashboard created');
+    res.status(200).send(res.locals.dashboardData);
+  }
+);
 
-// Get Alerts Dashboard...
-router.get('/alerts', getAlertsDashboard, (req: Request, res: Response) => {
-  console.log('alerts middleware passed');
-  res.status(200).send(res.locals.alertsData);
-});
+// ALERTS
+// Post    1) create grafana dashboard, 2) send alerts dashboard UID to database
+router.post(
+  '/add-alerts',
+  createAlertsDashboard,
+  createAlertsUID,
+  (req: Request, res: Response) => {
+    console.log('alerts dashboard created');
+    res.status(200).send(res.locals.dashboardData);
+  }
+);
+// Get    1) get alerts dashboard UID from database
+router.get('/alerts', getAlertsUID, (req: Request, res: Response) => {
+  console.log('get alerts middleware passed');
 
-// router.post('/alerts', createGrafAlert, (req, res) => {
-//   console.log('passed middleware');
-// });
+  const { alertsUID, clusterIP, port } = res.locals;
+
+  res.status(200).send({ alertsUID, clusterIP, port });
+});
+// res.locals.alertsUID = data.alertsUID
+// res.locals.clusterIP = data.grafURL
+// res.locals.port = data.grafPort
 
 // Get all currently configured alerts.
 router.get('/alerts', getAlerts, (req: Request, res: Response) => {
   console.log('passed getAlerts middleware');
-  res.status(200)
+  res.status(200);
 });
 export default router;

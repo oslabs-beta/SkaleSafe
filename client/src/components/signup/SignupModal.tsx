@@ -11,6 +11,7 @@ const SignupModal = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const [isSignedUp, setIsSignedUp] = useState(false);
+  const [error, setError] = useState('');
   const [formData, setFormData] = useState<SignUpData>({
     firstname: '',
     lastname: '',
@@ -31,12 +32,20 @@ const SignupModal = () => {
   // update form object after each keystroke
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
+
     setFormData({ ...formData, [name]: value });
   };
 
-  // submit form: send post request to server @ /login
+  // submit form: send post request to server @ /signup
   const submitFormData = (e: any) => {
     e.preventDefault();
+
+    if(formData.password.length < 8) {
+      setError('Password must be at least 8 characters');
+      return;
+    }
+
+
 
     axios
       .post('http://localhost:3000/users/signup', formData)
@@ -54,7 +63,6 @@ const SignupModal = () => {
       .catch((err) => {
         console.log(err);
       });
-
 
       setFormData({
         firstname: '',
@@ -162,6 +170,7 @@ const SignupModal = () => {
               onChange={(e) => handleChange(e)}
             />
           </div>
+          {error && <div className='text-red-500 text-1xl my-2'>{error}</div>}
           <button className={button} type='submit' value='signup'>
             Sign Up
           </button>

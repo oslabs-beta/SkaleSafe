@@ -1,12 +1,13 @@
-import { createAlertsUID } from './../../controllers/database/createAlertsUID';
 import express, { Request, Response } from 'express';
+
 import axiosDashboard from '../../controllers/grafana/axiosDashboard';
-import grafSearch from '../../controllers/grafana/metric';
-import { customDashboard } from '../../controllers/grafana/customDashboard';
+import createAlertsDashboard from '../../controllers/grafana/createAlertsDashboard';
+import { createAlertsUID } from './../../controllers/database/createAlertsUID';
 import { createGrafAlert } from '../../controllers/grafana/createGrafAlert';
+import { customDashboard } from '../../controllers/grafana/customDashboard';
 import { getAlerts } from '../../controllers/grafana/getAlerts';
 import getAlertsUID from '../../controllers/database/getAlertsUID';
-import { createAlertsDashboard } from '../../controllers/grafana/createAlertsDashboard';
+import grafSearch from '../../controllers/grafana/metric';
 import { sendToDatabase } from '../../controllers/database/sendToDatabase';
 
 const router = express.Router();

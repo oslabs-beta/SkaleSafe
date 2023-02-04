@@ -25,6 +25,7 @@ import Settings from '../Settings/settings';
 import { setIsLoggedIn } from '../../../redux/slices/userSlice';
 import { useAppDispatch } from '../../../redux/hooks/hooks';
 import ClusterMetrics from '../metrics/clusterMetrics/ClusterMetrics';
+import Profile from '../profile/Profile';
 
 type Props = {};
 
@@ -106,12 +107,12 @@ const Dashboard = (props: Props) => {
                   </li>
                   <li className={listElement} onClick={() => setActive(5)}>
                     <a
-                      href='#settings'
+                      href='#profile'
                       className='flex items-center p-2 space-x-3 rounded-md'
                     >
                       <RiSettings3Line size={24} />
                       <span id='settingsoption' className='text-prussian-blue'>
-                        Settings
+                        My Profile
                       </span>
                     </a>
                   </li>
@@ -138,7 +139,7 @@ const Dashboard = (props: Props) => {
         {active === 2 && <AlertsMetrics />}
         {active === 3 && <ClusterMetrics />}
         {active === 4 && <KubeView />}
-        {active === 5 && <Settings />}
+        {active === 5 && <Profile />}
       </div>
       {/* CODE FORMERLY KNOWN AS Sidebar.jsx ENDS HERE */}
     </div>

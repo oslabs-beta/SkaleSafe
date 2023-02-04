@@ -1,12 +1,13 @@
 import axios from 'axios';
 import { Request, Response, NextFunction } from 'express';
+import {UID} from './createAlertsDashboard';
 
 const grafanaUrl = 'http://localhost:8888';
 const username = 'admin';
 const password = 'prom-operator';
 
 // plugin the dashboard ID here...
-const UID = '?';
+const alertID = UID;
 
 let authBuffer = Buffer.from(username + ':' + password, 'utf8');
 let basicAuth = authBuffer.toString('base64');
@@ -20,7 +21,7 @@ const getAlertsDashboard = async (
 ) => {
   try {
     const response = await axios.get(
-      `${grafanaUrl}/api/dashboards/uid/${UID}`,
+      `${grafanaUrl}/api/dashboards/uid/${alertID}`,
       {
         headers: {
           Authorization: `Basic ${basicAuth}`,

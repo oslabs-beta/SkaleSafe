@@ -1,5 +1,5 @@
-import { alertsData } from './alertsData';
-import { UID } from '../../../../../server/controllers/grafana/createAlertsDashboard'
+import { alertsData } from './AlertsData';
+// import { UID } from '../../../../../server/controllers/grafana/createAlertsDashboard';
 
 type Props = {};
 

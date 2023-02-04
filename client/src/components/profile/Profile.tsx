@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import React, {useState} from 'react';
 
 import Modal from 'react-modal';
-import { useAppSelector } from '../../../redux/hooks/hooks';
+import { useAppSelector } from '../../../redux/Hooks/Hooks';
 
 type Props = {}
 // type Props = {

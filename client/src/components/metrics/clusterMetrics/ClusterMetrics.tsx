@@ -1,4 +1,4 @@
-import { clusterData } from './clusterData';
+import { clusterData } from './ClusterData';
 
 type Props = {};
 

@@ -7,7 +7,7 @@ import LightOrDark from '../ModeSwitch/ModeSwitch';
 import Profile from '../Profile/Profile';
 import SignInModal from '../Signin/SigninModal';
 import SignupModal from '../Signup/SignupModal';
-import { useAppSelector } from '../../../redux/hooks/hooks';
+import { useAppSelector } from '../../../redux/Hooks/Hooks';
 
 const Navbar = () => {
   const location = useLocation();

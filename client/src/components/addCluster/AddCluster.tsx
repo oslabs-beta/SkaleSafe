@@ -26,6 +26,10 @@ const AddCluster = () => {
 
     // add to .env
     axios.post('http://localhost:3000/add-cluster', addCluster);
+    // create dashboard
+    axios.post('http://localhost:3000/add-dashboard', addCluster);
+    // create alerts dashboard
+    axios.post('http://localhost:3000/add-alerts', addCluster);
 
     // reset states
     // setGrafanaPort('');

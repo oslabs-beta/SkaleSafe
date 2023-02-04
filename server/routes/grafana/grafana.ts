@@ -43,16 +43,26 @@ router.get('/test', grafSearch, (req: Request, res: Response) => {
 
 // to add a custom dashboard
 // sendToDatabase,
-router.post('/add', customDashboard, (req: Request, res: Response) => {
-  console.log('dashboard created');
-  res.status(200).send(res.locals.dashboardData);
-});
+router.post(
+  '/add-dashboard',
+  customDashboard,
+  sendToDatabase,
+
+  (req: Request, res: Response) => {
+    console.log('dashboard created');
+    res.status(200).send(res.locals.dashboardData);
+  }
+);
 
 // to add a alerts dashboard
-router.post('/addAlerts', createAlertsDashboard, /* SendToDatabase */ (req: Request, res: Response) => {
-  console.log('alerts dashboard created');
-  res.status(200).send(res.locals.dashboardData);
-});
+router.post(
+  '/add-alerts',
+  createAlertsDashboard,
+  /* SendToDatabase */ (req: Request, res: Response) => {
+    console.log('alerts dashboard created');
+    res.status(200).send(res.locals.dashboardData);
+  }
+);
 
 // Get Alerts Dashboard...
 router.get('/alerts', getAlertsDashboard, (req: Request, res: Response) => {
@@ -67,6 +77,6 @@ router.get('/alerts', getAlertsDashboard, (req: Request, res: Response) => {
 // Get all currently configured alerts.
 router.get('/alerts', getAlerts, (req: Request, res: Response) => {
   console.log('passed getAlerts middleware');
-  res.status(200)
+  res.status(200);
 });
 export default router;

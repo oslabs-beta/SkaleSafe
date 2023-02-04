@@ -26,20 +26,37 @@ import ScalingMetrics from '../metrics/scalingMetrics/ScalingMetrics';
 import Settings from '../Settings/Settings';
 import { setIsLoggedIn } from '../../../redux/slices/userSlice';
 import { useAppDispatch } from '../../../redux/hooks/hooks';
+import { useAppSelector } from '../../../redux/hooks/hooks';
+import SignInModal from '../Signin/SigninModal';
+import Footer from '../Footer/Footer';
+import HomeContainer from '../../containers/HomeContainer';
 
 type Props = {};
 
 const Dashboard = (props: Props) => {
+  const isLoggedIn = useAppSelector(state => state.user.isLoggedIn)
   const [active, setActive] = useState(1);
   // clicking on the different options on the sidebar changes the 'active' state above
-
+  const [isOpen, setIsOpen] = useState(false);
   const listElement = 'rounded-sm hover:scale-105';
   const dispatch = useAppDispatch();
   const loggedOut = (event: any) => {
     event.preventDefault();
     dispatch(setIsLoggedIn(false));
-  };
+  }
 
+  if(!isLoggedIn) {
+    // setIsOpen(true);
+    window.location.href = '/signin'
+    // return (
+    // <HomeContainer/>
+    
+    // //add open module signin via dom manipulation?
+    // )
+  }
+
+
+else if (isLoggedIn){
   return (
     <div className='w-screen h-screen'>
       <div className='flex'>
@@ -139,9 +156,19 @@ const Dashboard = (props: Props) => {
         {active === 3 && <ClusterMetrics />}
         {active === 4 && <KubeView />}
         {active === 5 && <Profile />}
+        
       </div>
+      <div><Footer/></div>
+      {/* CODE FORMERLY KNOWN AS Sidebar.jsx ENDS HERE */}
     </div>
+    
+
+      
   );
+  }
+
+
+
 };
 
 export default Dashboard;

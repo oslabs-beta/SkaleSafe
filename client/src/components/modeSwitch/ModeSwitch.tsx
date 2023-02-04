@@ -58,8 +58,19 @@ element.classList.toggle('light-mode')
             modeButton.src = '../../../assets/skaleSafe-light.png'
         }
 
-
-
+// INVERTS FOOTER
+const footerText = document.getElementById('footertext')
+const footerGH = document.getElementById('gitHubButton')
+const footerBorder = document.getElementById('footerborder')
+if (footerText.className === 'text-honeydew'){
+ footerText.className = 'text-prussian-blue'
+ footerBorder.className = 'border-t border-prussian-blue h-20 w-screen flex flex-row justify-between items-center px-20'
+}
+else {
+    footerText.className = 'text-honeydew'
+    footerBorder.className = 'border-t border-honeydew h-20 w-screen flex flex-row justify-between items-center px-20'
+}
+//restore inversion
 
 
 //INVERTS DB PAGE
@@ -225,7 +236,6 @@ if (window.location.pathname === '/home' || window.location.pathname === '/'){
     const aboutPoints1 = document.getElementById('aboutbullets1')
     const aboutPoints2 = document.getElementById('aboutbullets2')
     const aboutPoints3 = document.getElementById('aboutbullets3')
-    console.log(aboutPoints1.getAttribute('src'))
         if (aboutPoints1.getAttribute('src') === '../../../assets/skaleSafe-light.png'){
             aboutPoints1.src = '../../../assets/SkaleSafe-dark.png'
             aboutPoints2.src = '../../../assets/SkaleSafe-dark.png'

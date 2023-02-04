@@ -4,13 +4,13 @@ import React from "react";
 
 const Footer = () => {
     return (
-        <div id="footer" className="h-20 w-screen bg-honeydew/10 flex flex-row justify-between items-center px-10 text-honeydew">
-            <ul className='text-sm'>
+        <div id="footerborder" className="border-t border-honeydew h-20 w-screen flex flex-row justify-between items-center px-20">
+            <ul id='footertext' className='text-honeydew'>
                 <li>@2023 SkaleSafe Inc.</li>
                 <li>All rights reserved</li>
             </ul>
-            <ul className="w-24 flex flex-row justify-between">
-                {[[<AiFillGithub size={40} className='fill-honeydew'/>, "https://github.com/oslabs-beta/SkaleSafe#readme", "Github"], [<AiFillLinkedin size={40} className="fill-honeydew"/>, "https://www.linkedin.com/company/skalesafe", "LinkedIn"]].map( ([mediaTag, link, title]) => (
+            <ul className="w-10 flex flex-row justify-between">
+                {[[<AiFillGithub size={40} id ='gitHubButton' className='fill-honeydew' />, "https://github.com/oslabs-beta/SkaleSafe#readme"], [<AiFillLinkedin id='linkedInButton' size={40} className="fill-honeydew"/>, "https://www.linkedin.com/company/skalesafe"]].map( ([mediaTag, link]) => (
                     <li>
                         <a href={link} target="_blank">
                             {mediaTag}

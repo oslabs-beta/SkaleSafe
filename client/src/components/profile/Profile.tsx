@@ -65,15 +65,5 @@ const Profile = (props: Props) => {
   );
 }
 
-{/* // PREVIOUS RETURN STATEMENT CODE (DARK/LIGHT MODE BUTTON) */}
-
-{/* <div className="w-screen h-screen flex-col justify-start text-honeydew pt-20"> 
-          <h1 className="self-center text-4xl font-bold uppercase tracking-wider">content holder || future settings</h1>
-          <button className='border-b border-prussian-blue text-white text-md px-2 py-1 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]' 
-              onClick={toggleLight}>
-              <img src="../assets/light&dark-icon.png" className="w-50 h-50"/>
-              Dark/Light icon
-          </button>
-      </div> */}
 
 export default Profile;

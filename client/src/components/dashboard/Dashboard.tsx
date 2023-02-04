@@ -156,16 +156,16 @@ else if (isLoggedIn){
         {active === 3 && <ClusterMetrics />}
         {active === 4 && <KubeView />}
         {active === 5 && <Profile />}
+        
       </div>
-      <div><Footer/><div/>
+      <div><Footer/></div>
       {/* CODE FORMERLY KNOWN AS Sidebar.jsx ENDS HERE */}
     </div>
     
 
       
   );
-
-}
+  }
 
 
 

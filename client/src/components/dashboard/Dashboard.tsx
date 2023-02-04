@@ -20,8 +20,8 @@ import LightOrDark from '../modeSwitch/ModeSwitch';
 import { Link } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import ScalingMetrics from '../metrics/scalingMetrics/ScalingMetrics';
+import AlertsMetrics from '../metrics/alertsMetrics/AlertsMetrics';
 import Settings from '../Settings/settings';
-import Sidebar from '../sidebar/Sidebar';
 import { setIsLoggedIn } from '../../../redux/slices/userSlice';
 import { useAppDispatch } from '../../../redux/hooks/hooks';
 import ClusterMetrics from '../metrics/clusterMetrics/ClusterMetrics';
@@ -41,9 +41,8 @@ const Dashboard = (props: Props) => {
 
   return (
     <div className='w-screen h-screen'>
-      {/* CODE TO BE MOVED TO Sidebar.jsx STARTS HERE */}
+      {/* CODE FORMERLY KNOWN AS Sidebar.jsx STARTS HERE */}
       <div className='flex'>
-        {/* <Sidebar /> WILL REPLACE 'CODE TO BE MOVED' ONCE REDUX IS IMPLEMENTED*/}
         <div className='flex'>
           <div
             id='dashboardbg'
@@ -136,12 +135,12 @@ const Dashboard = (props: Props) => {
           <Outlet />
         </div>
         {active === 1 && <ScalingMetrics />}
-        {active === 2 && <Alerts />}
+        {active === 2 && <AlertsMetrics />}
         {active === 3 && <ClusterMetrics />}
         {active === 4 && <KubeView />}
         {active === 5 && <Settings />}
       </div>
-      {/* CODE TO BE MOVED TO Sidebar.jsx ENDS HERE */}
+      {/* CODE FORMERLY KNOWN AS Sidebar.jsx ENDS HERE */}
     </div>
   );
 };

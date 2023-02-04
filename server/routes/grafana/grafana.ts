@@ -4,7 +4,7 @@ import grafSearch from '../../controllers/grafana/metric';
 import customDashboard from '../../controllers/grafana/customDashboard';
 import { createGrafAlert } from '../../controllers/grafana/createGrafAlert';
 import { getAlerts } from '../../controllers/grafana/getAlerts';
-import { newAlert } from '../../controllers/grafana/postAlert';
+import getAlertsDashboard from '../../controllers/grafana/getAlertsDashboard';
 
 const router = express.Router();
 
@@ -24,24 +24,33 @@ const router = express.Router();
 
 //after the pod restarts, restart the port forwarding for the new grafana pod
 
+//get default dashboard
 router.get('/', axiosDashboard, (req: Request, res: Response) => {
   console.log('successfully ran grafana middleware');
   res.send(res.locals.queryData);
 });
 
+// used for MVP presentation
 router.get('/test', grafSearch, (req: Request, res: Response) => {
   console.log('successfully ran graf search middleware');
   res.send(res.locals.link);
 });
 
-router.post('/add', customDashboard, (req: Request, res: Response) => {
+// to add a custom dashboard
+router.get('/add', customDashboard, (req: Request, res: Response) => {
   console.log('dashboard created');
   res.status(200).send(res.locals.dashboardData);
 });
 
-router.post('/alerts', newAlert, (req, res) => {
-  console.log('passed middleware');
+// Get Alerts Dashboard...
+router.get('/alerts', getAlertsDashboard, (req: Request, res: Response) => {
+  console.log('alerts middleware passed');
+  res.status(200).send(res.locals.alertsData);
 });
+
+// router.post('/alerts', createGrafAlert, (req, res) => {
+//   console.log('passed middleware');
+// });
 
 // Get all currently configured alerts.
 router.get('/alerts', getAlerts, (req: Request, res: Response) => {

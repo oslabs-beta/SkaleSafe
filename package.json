@@ -15,6 +15,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.2",
     "axios": "^1.2.3",
+    "buffer": "^6.0.3",
     "concurrently": "^7.6.0",
     "cytoscape": "^3.23.0",
     "jest": "^29.3.1",

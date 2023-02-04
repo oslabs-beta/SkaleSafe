@@ -16,23 +16,14 @@ const ClusterMetrics = (props: Props) => {
       <div className='flex flex-row flex-wrap justify-center items-center gap-8'>
         {clusterData.map((item: any) => (
           <iframe
-<<<<<<< HEAD
-          // src={`http://localhost:8888/graf/d-solo/YSh8G8T4z/node-exporter-nodes?orgId=1&panelId=${item.ID}`}
-          // src={`http://localhost:3000/graf/test&panelId=${item.ID}`}
-          src={`http://localhost:8888/graf/d-solo/or3xtlo4k/testdash?orgId=1&panelId=${item.ID}`}
+          //the or3xtlo4k should be coming from DB
+          src={`http://localhost:8888/graf/d-solo/or3xtlo4k/skale-safe?orgId=1&panelId=${item.ID}`}
           
           width={item.width}
           height={item.height}
           frameBorder='0'
         ></iframe>
       
-=======
-            src={`http://localhost:8888/graf/d-solo/YSh8G8T4z/node-exporter-nodes?orgId=1&panelId=${item.ID}`}
-            width={item.width}
-            height={item.height}
-            frameBorder='0'
-          ></iframe>
->>>>>>> dev
         ))}
       </div>
     </div>

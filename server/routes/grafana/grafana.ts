@@ -1,10 +1,11 @@
 import express, { Request, Response } from 'express';
 import axiosDashboard from '../../controllers/grafana/axiosDashboard';
 import grafSearch from '../../controllers/grafana/metric';
-import customDashboard from '../../controllers/grafana/customDashboard';
+import { customDashboard } from '../../controllers/grafana/customDashboard';
 import { createGrafAlert } from '../../controllers/grafana/createGrafAlert';
 import { getAlerts } from '../../controllers/grafana/getAlerts';
 import getAlertsDashboard from '../../controllers/grafana/getAlertsDashboard';
+import { createAlertsDashboard } from '../../controllers/grafana/createAlertsDashboard';
 
 const router = express.Router();
 
@@ -39,6 +40,12 @@ router.get('/test', grafSearch, (req: Request, res: Response) => {
 // to add a custom dashboard
 router.get('/add', customDashboard, (req: Request, res: Response) => {
   console.log('dashboard created');
+  res.status(200).send(res.locals.dashboardData);
+});
+
+// to add a alerts dashboard
+router.post('/addAlerts', createAlertsDashboard, (req: Request, res: Response) => {
+  console.log('alerts dashboard created');
   res.status(200).send(res.locals.dashboardData);
 });
 

@@ -1,5 +1,7 @@
   import axios from 'axios';
   import { Request, Response, NextFunction } from 'express';
+  import { Buffer } from "buffer";
+
   
   const grafanaUrl = 'http://localhost:8888';
   const username = 'admin';
@@ -7,7 +9,9 @@
   
   let authBuffer = Buffer.from(username+":"+password, "utf8");
   let basicAuth = authBuffer.toString("base64");
-  
+
+  let dbID = '';
+
   const customDashboard = async (
       req: Request,
       res: Response,
@@ -3514,7 +3518,8 @@
         const dashboardData: any = response.data;
         res.send(dashboardData);
         res.locals.queryData = dashboardData;
-        console.log(dashboardData);
+        console.log(dashboardData.uid);
+        dbID = dashboardData.uid;
 
         //console log returns 
         // {
@@ -3533,5 +3538,5 @@
       next();
     };
     
-    export default customDashboard;
+    export { customDashboard, dbID };
 

@@ -1,11 +1,11 @@
 import { Link, useLocation } from 'react-router-dom';
-import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md'
+import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md';
 import React, { useEffect, useState } from 'react';
 
-import LightOrDark from '../ModeSwitch/ModeSwitch';
-import Profile from '../Profile/Profile';
+import LightOrDark from '../modeSwitch/ModeSwitch';
+import Profile from '../profile/Profile';
 import SignInModal from '../Signin/SigninModal';
-import SignupModal from '../Signup/SignupModal';
+import SignupModal from '../signup/SignupModal';
 import { useAppSelector } from '../../../redux/hooks/hooks';
 
 const Navbar = () => {
@@ -132,21 +132,12 @@ const Navbar = () => {
                 </li>
               )
             )
-          : ( [<SignupModal />, <SignInModal />].map((modal) => (
+          : [<SignupModal />, <SignInModal />].map((modal) => (
               <li className='flex gap-x-8 items-center'>{modal}</li>
-            ))
-          )
-        }
+            ))}
       </ul>
     </nav>
   );
 };
 
 export default Navbar;
-
-
-
-
-
-
-                

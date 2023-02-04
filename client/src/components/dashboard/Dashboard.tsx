@@ -15,26 +15,31 @@ import {
 
 // import Sidebar from '../sidebar/Sidebar.jsx'
 import Alerts from '../alerts/Alerts';
-import ClusterInfo from '../clusterInfo/ClusterInfo';
+import ClusterInfo from '../ClusterInfo/ClusterInfo';
 import Home from '../Home';
-import KubeView from '../kubeview/KubeView';
+import KubeView from '../Kubeview/KubeView';
+import LightOrDark from '../modeSwitch/ModeSwitch';
 import { Link } from 'react-router-dom';
 import { Outlet } from "react-router-dom";
-import LightOrDark from '../modeSwitch/ModeSwitch';
-import ScalingMetrics from '../scalingMetrics/ScalingMetrics';
+import ScalingMetrics from '../ScalingMetrics/ScalingMetrics';
 import Settings from '../Settings/settings';
 import Sidebar from '../sidebar/Sidebar';
 import { setIsLoggedIn } from '../../../redux/slices/userSlice';
 import { useAppDispatch } from '../../../redux/hooks/hooks';
-
+import { useAppSelector } from '../../../redux/hooks/hooks';
+import SignInModal from '../Signin/SigninModal';
+import Footer from '../Footer/Footer';
+import Profile from '../profile/Profile';
+import HomeContainer from '../../containers/HomeContainer';
 
 
 type Props = {};
 
 const Dashboard = (props: Props) => {
+  const isLoggedIn = useAppSelector(state => state.user.isLoggedIn)
   const [active, setActive] = useState(1);
   // clicking on the different options on the sidebar changes the 'active' state above
-
+  const [isOpen, setIsOpen] = useState(false);
   const listElement = 'rounded-sm hover:scale-105';
   const dispatch = useAppDispatch();
   const loggedOut = (event: any) => {
@@ -42,7 +47,18 @@ const Dashboard = (props: Props) => {
     dispatch(setIsLoggedIn(false));
   }
 
+  if(!isLoggedIn) {
+    // setIsOpen(true);
+    window.location.href = '/signin'
+    // return (
+    // <HomeContainer/>
+    
+    // //add open module signin via dom manipulation?
+    // )
+  }
 
+
+else if (isLoggedIn){
   return (
     <div className='w-screen h-screen'>
       {/* CODE TO BE MOVED TO Sidebar.jsx STARTS HERE */}
@@ -127,10 +143,20 @@ const Dashboard = (props: Props) => {
         {active === 3 && <ClusterInfo />}
         {active === 4 && <KubeView />}
         {active === 5 && <Settings />}
+        {active === 6 && <Profile/>}
       </div>
       {/* CODE TO BE MOVED TO Sidebar.jsx ENDS HERE */}
+      <div><Footer/></div>
     </div>
+    
+
+      
   );
+
+}
+
+
+
 };
 
 export default Dashboard;

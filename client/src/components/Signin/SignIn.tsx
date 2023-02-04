@@ -1,5 +1,5 @@
-import { SignInState, setIsLoggedIn, setUserData } from '../../redux/slices/userSlice';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
+import { SignInState, setIsLoggedIn, setUserData } from '../../../redux/slices/userSlice';
+import { useAppDispatch, useAppSelector } from '../../../redux/hooks/hooks';
 import { useEffect, useState } from 'react';
 
 import { RootState } from '../store';
@@ -84,6 +84,12 @@ const SignIn = () => {
           <div className='max-w-md mx-auto mb-[-50px]'>
             <div className='flex place-content-center gap-x-20 mt-[-30px] mb-10'>
               <h1 className={active}>Welcome</h1>
+              
+            
+            </div>
+              <br/>
+            <div>
+              <h2 className='flex place-content-center text-error-red'>Please sign in to proceed</h2>
             </div>
             <div className='divide-y divide-gray-200'>
               <form

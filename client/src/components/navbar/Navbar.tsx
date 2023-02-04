@@ -3,8 +3,9 @@ import React, { useEffect, useState } from 'react';
 import Profile from '../profile/Profile'
 import LightOrDark from '../modeSwitch/ModeSwitch';
 
+import SignInModal from '../Signin/SigninModal';
 // import Profile from '../profile/Profile'
-import { SignupModal } from '../signupModal/SignupModal';
+import SignupModal from '../signup/SignupModal';
 import { useAppSelector } from '../../../redux/hooks/hooks';
 
 const Navbar = () => {
@@ -43,8 +44,6 @@ const Navbar = () => {
     const loggedOut = "fixed w-screen h-20 flex flex-row items-center justify-between bg-honeydew/10 px-14 shadow-md shadow-honeydew/10";
     const loggedIn = "w-screen h-20 flex flex-row items-center justify-between bg-gradient-to-r from-sapphire-blue/30 to-primary-color/30 px-20"
 
-    const name = 'TestiBoi';
-
     return (
         <nav className={isLoggedIn ? loggedIn : loggedOut}>
             <Link to='/home'>
@@ -74,10 +73,10 @@ const Navbar = () => {
                     )
                 }
             </ul>
-            <button 
-                onClick={() => window.open('https://github.com/oslabs-beta/SkaleSafe', '_blank')}>
+            {/* <button 
+                onClick={() => window.open('https://github.com/oslabs-beta/SkaleSafe#about', '_blank')}>
                    <img src='../assets/GitHub-logo.png' className= 'w-20 h-15 hover:text-honeydew hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]' alt='GitHub logo without a background'/>
-                </button>
+                </button> */}
 
                 <button className='text-honeydew text-md px-2 py-1 hover:text-honeydew hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]'
                 onClick={()=>LightOrDark()}>
@@ -95,14 +94,11 @@ const Navbar = () => {
                         </li>
                     ))
                     ) : (
-                        [['Sign In', '/users/signin'], ['Sign Up', '/users/signup']].map(([title, url]) => (
+                        [<SignupModal />, <SignInModal />].map((modal) => (
                             <li className='flex gap-x-8 items-center'>
-                                <Link to={url}>
-                                    <button className={outLinks}>{title}</button>
-                                </Link>
+                              {modal}
                             </li>
                         ))
-                        // <SignupModal />
                     )
                 }
             </ul>

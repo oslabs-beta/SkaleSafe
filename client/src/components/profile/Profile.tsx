@@ -69,7 +69,6 @@ const Profile = (props: Props) => {
             </div>
         </div>
     </div>
-
   )
 }
 

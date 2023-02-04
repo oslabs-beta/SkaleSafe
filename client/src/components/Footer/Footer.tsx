@@ -4,15 +4,15 @@ import React from "react";
 
 const Footer = () => {
     return (
-        <div id="footer" className="h-20 w-screen bg-sapphire-blue/30 flex flex-row justify-between items-center px-20">
-            <ul className='text-honeydew'>
+        <div id="footer" className="h-20 w-screen bg-honeydew/10 flex flex-row justify-between items-center px-10 text-honeydew">
+            <ul className='text-sm'>
                 <li>@2023 SkaleSafe Inc.</li>
                 <li>All rights reserved</li>
             </ul>
-            <ul className="w-10 flex flex-row justify-between">
-                {[[<AiFillGithub size={30} className='fill-honeydew' />, "https://github.com/oslabs-beta/SkaleSafe#readme"], [<AiFillLinkedin size={30} className="fill-honeydew"/>, "https://www.linkedin.com/company/skalesafe"]].map( ([mediaTag, link]) => (
+            <ul className="w-24 flex flex-row justify-between">
+                {[[<AiFillGithub size={40} className='fill-honeydew'/>, "https://github.com/oslabs-beta/SkaleSafe#readme", "Github"], [<AiFillLinkedin size={40} className="fill-honeydew"/>, "https://www.linkedin.com/company/skalesafe", "LinkedIn"]].map( ([mediaTag, link, title]) => (
                     <li>
-                        <a href={link}>
+                        <a href={link} target="_blank">
                             {mediaTag}
                         </a>
                     </li>

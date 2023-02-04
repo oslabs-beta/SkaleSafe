@@ -24,19 +24,27 @@ const AddCluster = () => {
     };
     console.log(addCluster);
 
-    // add to .env
-    axios.post('http://localhost:3000/add-cluster', addCluster);
-    // create dashboard
-    axios.post('http://localhost:3000/add-dashboard', addCluster);
-    // create alerts dashboard
-    axios.post('http://localhost:3000/add-alerts', addCluster);
+    // axios.post('http://localhost:3000/add-cluster', addCluster);
+    // axios.post('http://localhost:3000/add-dashboard', addCluster);
+    // axios.post('http://localhost:3000/add-alerts', addCluster);
 
-    // reset states
-    // setGrafanaPort('');
-    // setGrafanaUsername('');
-    // setGrafanaPassword('');
-    // setGrafanaURL('');
-    // setKubeviewPort('');
+    axios
+      .all([
+        axios.post('http://localhost:3000/add-cluster', addCluster),
+        axios.post('http://localhost:3000/graf/add-dashboard', addCluster),
+        axios.post('http://localhost:3000/graf/add-alerts', addCluster),
+      ])
+      .then(
+        axios.spread((clusterResolved, dashboardResolved, alertsResolved) => {
+          // All requests are now complete
+          console.log(clusterResolved.data);
+          console.log(dashboardResolved.data);
+          console.log(alertsResolved.data);
+        })
+      )
+      .catch((error) => {
+        console.error(error);
+      });
   };
   const inputField =
     'border-b-2 pb-2 border-violet-300 w-full focus:outline-none focus:border-violet-600 focus:border-b-3';

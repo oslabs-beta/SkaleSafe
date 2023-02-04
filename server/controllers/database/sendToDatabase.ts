@@ -9,16 +9,17 @@ export const sendToDatabase = async (
   try {
     const User = mongoose.model<mongoose.Document>('User');
 
-    const { uid, user } = res.locals;
-    console.log('user: ', user);
+    const { uid } = res.locals;
+    const { username } = res.locals.user;
+    console.log('username: ', username);
     console.log('uid: ', uid);
 
-    const saveUid = await User.findOneAndUpdate();
+    const saveUid = await User.findOneAndUpdate(username, { customUID: uid });
 
     // console.log('res.locals.queryData: ', res.locals.queryData);
     next();
   } catch (error) {
-    console.log('error in sendToDatabase');
+    console.log('error in sendToDatabase: ', error);
     next(error);
   }
 };

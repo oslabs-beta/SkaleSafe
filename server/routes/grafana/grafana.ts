@@ -1,10 +1,11 @@
+import { createAlertsUID } from './../../controllers/database/createAlertsUID';
 import express, { Request, Response } from 'express';
 import axiosDashboard from '../../controllers/grafana/axiosDashboard';
 import grafSearch from '../../controllers/grafana/metric';
 import { customDashboard } from '../../controllers/grafana/customDashboard';
 import { createGrafAlert } from '../../controllers/grafana/createGrafAlert';
 import { getAlerts } from '../../controllers/grafana/getAlerts';
-import getAlertsDashboard from '../../controllers/grafana/getAlertsDashboard';
+import getAlertsUID from '../../controllers/database/getAlertsUID';
 import { createAlertsDashboard } from '../../controllers/grafana/createAlertsDashboard';
 import { sendToDatabase } from '../../controllers/database/sendToDatabase';
 
@@ -54,25 +55,28 @@ router.post(
   }
 );
 
-// to add a alerts dashboard
+// ALERTS
+// Post    1) create grafana dashboard, 2) send alerts dashboard UID to database
 router.post(
   '/add-alerts',
   createAlertsDashboard,
-  /* SendToDatabase */ (req: Request, res: Response) => {
+  createAlertsUID,
+  (req: Request, res: Response) => {
     console.log('alerts dashboard created');
     res.status(200).send(res.locals.dashboardData);
   }
 );
+// Get    1) get alerts dashboard UID from database
+router.get('/alerts', getAlertsUID, (req: Request, res: Response) => {
+  console.log('get alerts middleware passed');
 
-// Get Alerts Dashboard...
-router.get('/alerts', getAlertsDashboard, (req: Request, res: Response) => {
-  console.log('alerts middleware passed');
-  res.status(200).send(res.locals.alertsData);
+  const { alertsUID, clusterIP, port } = res.locals;
+
+  res.status(200).send({ alertsUID, clusterIP, port });
 });
-
-// router.post('/alerts', createGrafAlert, (req, res) => {
-//   console.log('passed middleware');
-// });
+// res.locals.alertsUID = data.alertsUID
+// res.locals.clusterIP = data.grafURL
+// res.locals.port = data.grafPort
 
 // Get all currently configured alerts.
 router.get('/alerts', getAlerts, (req: Request, res: Response) => {

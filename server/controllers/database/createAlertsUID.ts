@@ -10,7 +10,7 @@ import { Request, Response, NextFunction } from 'express';
 //   username: 'johnwick'
 //   }
 
-export const addClusterToDB = (
+export const createAlertsUID = (
   req: Request,
   res: Response,
   next: NextFunction
@@ -39,3 +39,4 @@ export const addClusterToDB = (
     }
   );
 };
+export default createAlertsUID;

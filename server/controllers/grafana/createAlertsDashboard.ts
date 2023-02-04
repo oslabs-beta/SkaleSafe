@@ -49,11 +49,12 @@ const createAlertsDashboard = async (
     res.send(alertsData);
     res.locals.queryData = alertsData;
     res.locals.uid = alertsData.uid;
-  } catch (err) {
-    console.log(err);
-    res.status(500).send(err);
+  } catch (e) {
+    console.log(e);
+    res.status(500);
+    next(e);
   }
   next();
 };
 
-export { createAlertsDashboard, UID };
+export default createAlertsDashboard;

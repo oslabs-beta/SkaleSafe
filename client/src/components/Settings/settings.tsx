@@ -1,4 +1,4 @@
-import LightOrDark from "../modeSwitch/ModeSwitch";
+import LightOrDark from "../ModeSwitch/ModeSwitch";
 
 type Props = {};
 

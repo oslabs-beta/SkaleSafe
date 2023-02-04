@@ -13,35 +13,52 @@ import {
   RiSettings3Line,
 } from 'react-icons/ri';
 
-import Alerts from '../alerts/Alerts';
+import Alerts from '../Alerts/Alerts';
+import AlertsMetrics from '../metrics/AlertsMetrics/AlertsMetrics';
+import ClusterMetrics from '../metrics/ClusterMetrics/ClusterMetrics';
 import Home from '../Home';
-import KubeView from '../kubeview/KubeView';
-import LightOrDark from '../modeSwitch/ModeSwitch';
+import KubeView from '../Kubeview/KubeView';
+import LightOrDark from '../ModeSwitch/ModeSwitch';
 import { Link } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
+import Profile from '../Profile/Profile';
 import ScalingMetrics from '../metrics/scalingMetrics/ScalingMetrics';
-import AlertsMetrics from '../metrics/alertsMetrics/AlertsMetrics';
-import Settings from '../Settings/settings';
+import Settings from '../Settings/Settings';
 import { setIsLoggedIn } from '../../../redux/slices/userSlice';
 import { useAppDispatch } from '../../../redux/hooks/hooks';
-import ClusterMetrics from '../metrics/clusterMetrics/ClusterMetrics';
+import { useAppSelector } from '../../../redux/hooks/hooks';
+import SignInModal from '../Signin/SigninModal';
+import Footer from '../Footer/Footer';
+import HomeContainer from '../../containers/HomeContainer';
 
 type Props = {};
 
 const Dashboard = (props: Props) => {
+  const isLoggedIn = useAppSelector(state => state.user.isLoggedIn)
   const [active, setActive] = useState(1);
   // clicking on the different options on the sidebar changes the 'active' state above
-
+  const [isOpen, setIsOpen] = useState(false);
   const listElement = 'rounded-sm hover:scale-105';
   const dispatch = useAppDispatch();
   const loggedOut = (event: any) => {
     event.preventDefault();
     dispatch(setIsLoggedIn(false));
-  };
+  }
 
+  if(!isLoggedIn) {
+    // setIsOpen(true);
+    window.location.href = '/signin'
+    // return (
+    // <HomeContainer/>
+    
+    // //add open module signin via dom manipulation?
+    // )
+  }
+
+
+else if (isLoggedIn){
   return (
     <div className='w-screen h-screen'>
-      {/* CODE FORMERLY KNOWN AS Sidebar.jsx STARTS HERE */}
       <div className='flex'>
         <div className='flex'>
           <div
@@ -106,12 +123,12 @@ const Dashboard = (props: Props) => {
                   </li>
                   <li className={listElement} onClick={() => setActive(5)}>
                     <a
-                      href='#settings'
+                      href='#profile'
                       className='flex items-center p-2 space-x-3 rounded-md'
                     >
                       <RiSettings3Line size={24} />
                       <span id='settingsoption' className='text-prussian-blue'>
-                        Settings
+                        My Profile
                       </span>
                     </a>
                   </li>
@@ -138,11 +155,20 @@ const Dashboard = (props: Props) => {
         {active === 2 && <AlertsMetrics />}
         {active === 3 && <ClusterMetrics />}
         {active === 4 && <KubeView />}
-        {active === 5 && <Settings />}
+        {active === 5 && <Profile />}
+        
       </div>
+      <div><Footer/></div>
       {/* CODE FORMERLY KNOWN AS Sidebar.jsx ENDS HERE */}
     </div>
+    
+
+      
   );
+  }
+
+
+
 };
 
 export default Dashboard;

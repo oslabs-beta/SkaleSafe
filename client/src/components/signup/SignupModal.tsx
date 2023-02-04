@@ -20,9 +20,8 @@ const SignupModal = () => {
     picture: '../../../assets/profile.png',
   });
 
-
   useEffect(() => {
-    if(isSignedUp) {
+    if (isSignedUp) {
       navigate('/dashboard');
     } else {
       console.log('There was an error signing up');
@@ -39,16 +38,15 @@ const SignupModal = () => {
   const submitFormData = (e: any) => {
     e.preventDefault();
 
-    
-
-
     axios
       .post('http://localhost:3000/users/signup', formData)
       .then((res) => {
         if (res.status === 200) {
           setIsSignedUp(true);
+          setIsOpen(false);
           navigate('/');
-        } if(res.status === 204) {
+        }
+        if (res.status === 204) {
           //Error handling for non unique email or username
           console.log(res);
         }
@@ -56,6 +54,16 @@ const SignupModal = () => {
       .catch((err) => {
         console.log(err);
       });
+
+
+      setFormData({
+        firstname: '',
+        lastname: '',
+        email: '',
+        username: '',
+        password: '',
+        picture: '../../../assets/profile.png',
+      })
   };
 
   const inputField =
@@ -79,10 +87,12 @@ const SignupModal = () => {
         className='w-1/2 m-auto mt-40 px-6 rounded-lg shadow-xl bg-white border-b-8 border-primary-color'
       >
         <form className='p-12 relative' onSubmit={submitFormData}>
-          <h1 className='text-2xl mt-4 font-bold mb-8 text-prussian-blue'>Create An Account:</h1>
+          <h1 className='text-2xl mt-4 font-bold mb-8 text-prussian-blue'>
+            Create An Account:
+          </h1>
           <button
             onClick={() => setIsOpen(false)}
-            className='absolute text-xl top-8 right-4 text-purple border-2 rounded-full px-4 py-2 font-extrabold hover:scale-110 hover:text-sapphire-blue'
+            className='absolute text-xl top-8 right-4 text-purple border-2 border-off-white rounded-full px-4 py-2 font-extrabold hover:scale-110 hover:text-sapphire-blue'
           >
             X
           </button>

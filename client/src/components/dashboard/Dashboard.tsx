@@ -13,17 +13,15 @@ import {
   RiSettings3Line,
 } from 'react-icons/ri';
 
-// import Sidebar from '../sidebar/Sidebar.jsx'
 import Alerts from '../alerts/Alerts';
-import ClusterInfo from '../ClusterInfo/ClusterInfo';
 import Home from '../Home';
-import KubeView from '../Kubeview/KubeView';
+import KubeView from '../kubeview/KubeView';
 import LightOrDark from '../modeSwitch/ModeSwitch';
 import { Link } from 'react-router-dom';
-import { Outlet } from "react-router-dom";
-import ScalingMetrics from '../ScalingMetrics/ScalingMetrics';
+import { Outlet } from 'react-router-dom';
+import ScalingMetrics from '../metrics/scalingMetrics/ScalingMetrics';
+import AlertsMetrics from '../metrics/alertsMetrics/AlertsMetrics';
 import Settings from '../Settings/settings';
-import Sidebar from '../sidebar/Sidebar';
 import { setIsLoggedIn } from '../../../redux/slices/userSlice';
 import { useAppDispatch } from '../../../redux/hooks/hooks';
 import { useAppSelector } from '../../../redux/hooks/hooks';
@@ -31,7 +29,7 @@ import SignInModal from '../Signin/SigninModal';
 import Footer from '../Footer/Footer';
 import Profile from '../profile/Profile';
 import HomeContainer from '../../containers/HomeContainer';
-
+import ClusterMetrics from '../metrics/clusterMetrics/ClusterMetrics';
 
 type Props = {};
 
@@ -61,14 +59,21 @@ const Dashboard = (props: Props) => {
 else if (isLoggedIn){
   return (
     <div className='w-screen h-screen'>
-      {/* CODE TO BE MOVED TO Sidebar.jsx STARTS HERE */}
+      {/* CODE FORMERLY KNOWN AS Sidebar.jsx STARTS HERE */}
       <div className='flex'>
-        {/* <Sidebar /> WILL REPLACE 'CODE TO BE MOVED' ONCE REDUX IS IMPLEMENTED*/}
         <div className='flex'>
-          <div id ='dashboardbg' className='flex flex-col p-3 bg-honeydew shadow w-60'>
+          <div
+            id='dashboardbg'
+            className='flex flex-col p-3 bg-honeydew shadow w-60'
+          >
             <div className='space-y-3'>
               <div className='flex items-center pt-6'>
-                <h2 id='dbText' className='text-xl text-prussian-blue pl-4 font-bold'>Dashboard</h2>
+                <h2
+                  id='dbText'
+                  className='text-xl text-prussian-blue pl-4 font-bold'
+                >
+                  Dashboard
+                </h2>
               </div>
               <div className='flex pt-6'>
                 <ul className='pt-2 pb-4 space-y-3 text-sm'>
@@ -78,7 +83,9 @@ else if (isLoggedIn){
                       className='flex items-center p-2 space-x-3 rounded-md'
                     >
                       <RiBarChartLine size={24} />
-                      <span id='scalingoption' className='text-prussian-blue'>Scaling Metrics</span>
+                      <span id='scalingoption' className='text-prussian-blue'>
+                        Scaling Metrics
+                      </span>
                     </a>
                   </li>
                   {/* make alerts render on the screen on click: path='/alerts' */}
@@ -88,7 +95,9 @@ else if (isLoggedIn){
                       className='flex items-center p-2 space-x-3 rounded-md'
                     >
                       <AiOutlineWarning size={24} />
-                      <span id='alertsoption' className='text-prussian-blue'>Alerts</span>
+                      <span id='alertsoption' className='text-prussian-blue'>
+                        Alerts
+                      </span>
                     </a>
                   </li>
                   <li className={listElement} onClick={() => setActive(3)}>
@@ -97,7 +106,9 @@ else if (isLoggedIn){
                       className='flex items-center p-2 space-x-3 rounded-md'
                     >
                       <AiOutlineCluster size={24} />
-                      <span id='clusteroption' className='text-prussian-blue'>Cluster Info</span>
+                      <span id='clusteroption' className='text-prussian-blue'>
+                        Cluster Health
+                      </span>
                     </a>
                   </li>
                   <li className={listElement} onClick={() => setActive(4)}>
@@ -106,29 +117,32 @@ else if (isLoggedIn){
                       className='flex items-center p-2 space-x-3 rounded-md'
                     >
                       <RiBubbleChartLine size={24} />
-                      <span id='kubeoption' className='text-prussian-blue'>KubeView</span>
+                      <span id='kubeoption' className='text-prussian-blue'>
+                        KubeView
+                      </span>
                     </a>
                   </li>
                   <li className={listElement} onClick={() => setActive(5)}>
                     <a
-                      href='#settings'
+                      href='#profile'
                       className='flex items-center p-2 space-x-3 rounded-md'
                     >
                       <RiSettings3Line size={24} />
-                      <span id='settingsoption' className='text-prussian-blue'>Settings</span>
+                      <span id='settingsoption' className='text-prussian-blue'>
+                        My Profile
+                      </span>
                     </a>
                   </li>
-                  <li
-                    className={listElement}
-                    onClick={loggedOut}
-                  >
+                  <li className={listElement} onClick={loggedOut}>
                     <Link
                       to='/home'
                       className='flex items-center p-2 space-x-3 rounded-md'
                     >
                       <RiLogoutBoxLine size={24} />
                       <div>
-                        <span id='logoutoption' className='text-prussian-blue'>Logout</span>
+                        <span id='logoutoption' className='text-prussian-blue'>
+                          Logout
+                        </span>
                       </div>
                     </Link>
                   </li>
@@ -139,14 +153,13 @@ else if (isLoggedIn){
           <Outlet />
         </div>
         {active === 1 && <ScalingMetrics />}
-        {active === 2 && <Alerts />}
-        {active === 3 && <ClusterInfo />}
+        {active === 2 && <AlertsMetrics />}
+        {active === 3 && <ClusterMetrics />}
         {active === 4 && <KubeView />}
-        {active === 5 && <Settings />}
-        {active === 6 && <Profile/>}
+        {active === 5 && <Profile />}
       </div>
-      {/* CODE TO BE MOVED TO Sidebar.jsx ENDS HERE */}
       <div><Footer/></div>
+      {/* CODE FORMERLY KNOWN AS Sidebar.jsx ENDS HERE */}
     </div>
     
 

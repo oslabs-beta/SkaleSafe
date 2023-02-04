@@ -29,7 +29,7 @@ const team: member[] = [
         name: 'Bethany Mattern',
         image: '../../../assets/bethany.jpg',
         alt: 'Bethany Mattern\'s face',
-        bio: 'Bio demo',
+        bio: 'Software Engineer Codesmith Alumnus Full time Book NERD',
         linkedin: 'https://www.linkedin.com/in/bethany-a-mattern/',
         github: 'https://github.com/bethanycable',
     },

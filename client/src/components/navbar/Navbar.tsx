@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md'
 import React, { useEffect, useState } from 'react';
 
-import LightOrDark from '../modeSwitch/ModeSwitch';
+import LightOrDark from '../ModeSwitch/ModeSwitch';
 import Profile from '../Profile/Profile';
 import SignInModal from '../Signin/SigninModal';
 import SignupModal from '../Signup/SignupModal';

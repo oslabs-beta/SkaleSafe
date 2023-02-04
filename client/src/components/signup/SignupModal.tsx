@@ -43,6 +43,7 @@ const SignupModal = () => {
       .then((res) => {
         if (res.status === 200) {
           setIsSignedUp(true);
+          setIsOpen(false);
           navigate('/');
         }
         if (res.status === 204) {
@@ -53,6 +54,16 @@ const SignupModal = () => {
       .catch((err) => {
         console.log(err);
       });
+
+
+      setFormData({
+        firstname: '',
+        lastname: '',
+        email: '',
+        username: '',
+        password: '',
+        picture: '../../../assets/profile.png',
+      })
   };
 
   const inputField =

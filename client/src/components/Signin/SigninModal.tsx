@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import React from 'react';
 import { RootState } from '../store';
-import SignInData from '../interfaces/signin';
+import SignInData from '../../interfaces/signin';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -18,7 +18,7 @@ const SignInModal = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [failedLogin, setFailedLogin] = useState(false);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<SignInData>({
     username: '',
     password: '',
   });

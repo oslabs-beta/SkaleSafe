@@ -8,7 +8,6 @@ type Props = {}
 //     outLinks: string
 // };
 
-// const Profile = (props: Props) => {
 
 const Profile = (props: Props) => {
 
@@ -63,7 +62,7 @@ const Profile = (props: Props) => {
             </div>
         </div>
     </div>
-  )
+  );
 }
 
 

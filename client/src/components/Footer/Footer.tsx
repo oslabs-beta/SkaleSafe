@@ -10,9 +10,9 @@ const Footer = () => {
                 <li>All rights reserved</li>
             </ul>
             <ul className="w-10 flex flex-row justify-between">
-                {[[<AiFillGithub size={30} id ='gitHubButton' className='fill-honeydew' />, "https://github.com/oslabs-beta/SkaleSafe#readme"], [<AiFillLinkedin id='linkedInButton' size={30} className="fill-honeydew"/>, "https://www.linkedin.com/company/skalesafe"]].map( ([mediaTag, link]) => (
+                {[[<AiFillGithub size={40} id ='gitHubButton' className='fill-honeydew' />, "https://github.com/oslabs-beta/SkaleSafe#readme"], [<AiFillLinkedin id='linkedInButton' size={40} className="fill-honeydew"/>, "https://www.linkedin.com/company/skalesafe"]].map( ([mediaTag, link]) => (
                     <li>
-                        <a href={link}>
+                        <a href={link} target="_blank">
                             {mediaTag}
                         </a>
                     </li>

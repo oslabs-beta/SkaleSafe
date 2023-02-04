@@ -1,15 +1,17 @@
 import { Route, Routes } from 'react-router-dom';
 
-import AddCluster from '../components/addCluster/AddCluster';
-import Dashboard from '../components/dashboard/Dashboard';
+import AddCluster from '../components/AddCluster/AddCluster';
+import Dashboard from '../components/Dashboard/Dashboard';
 import { Error } from '../components/Error';
 import HomeContainer from '../containers/HomeContainer';
+
 import Navbar from '../components/navbar/Navbar';
 import Profile from '../components/profile/Profile'
 import ScalingMetrics from '../components/ScalingMetrics/ScalingMetrics'
 import SignIn from '../components/Signin/SignIn';
 import Alerts from '../components/alerts/Alerts';
 import ContactUs from '../components/contactUs/ContactUs'
+import MeetTeam from '../components/MeetTeam/MeetTeam'
 
 //Links are setup to allow only <routes> to change; the whole app is not re-rendered
 //Nested routes

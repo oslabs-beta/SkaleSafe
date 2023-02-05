@@ -15,6 +15,8 @@ import { useAppDispatch, useAppSelector } from '../../../redux/Hooks/Hooks';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import MeetTeam from '../Home/MeetTeam/MeetTeam.tsx';
+
 import AlertsMetrics from '../Metrics/alertsMetrics/AlertsMetrics';
 import ClusterMetrics from '../Metrics/clusterMetrics/ClusterMetrics';
 import Footer from '../Footer/Footer';
@@ -158,7 +160,11 @@ const Dashboard = (props: Props) => {
           {active === 5 && <Profile />}
         </div>
         <div>
-          <Footer />
+        <MeetTeam/>
+          
+        </div>
+        <div>
+        <Footer />
         </div>
         {/* CODE FORMERLY KNOWN AS Sidebar.jsx ENDS HERE */}
       </div>

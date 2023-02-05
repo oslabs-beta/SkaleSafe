@@ -1,4 +1,4 @@
-const panelData = [
+const customPanelData = [
     {
       "collapsed": false,
       "datasource": {
@@ -3286,4 +3286,4 @@ const panelData = [
     }
   ];
 
-  export default panelData
+  export default customPanelData

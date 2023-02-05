@@ -11,6 +11,10 @@ const getAlertsUID = (req: Request, res: Response, next: NextFunction) => {
       res.locals.alertsUID = data.alertsUID;
       res.locals.clusterIP = data.grafURL;
       res.locals.port = data.grafPort;
+      console.log('in getAlertsUID middleware');
+      console.log('data.alertsUID: ', data.alertsUID);
+      console.log('data.grafURL: ', data.grafURL);
+      console.log('data.grafPort: ', data.grafPort);
       next();
     })
     .catch((e) => next(e));

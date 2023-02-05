@@ -1,4 +1,4 @@
-const alertPanelData = [
+const alertsPanelData = [
     {
       "collapsed": false,
       "datasource": {
@@ -3392,4 +3392,4 @@ const alertPanelData = [
     }
   ]
 
-export default alertPanelData;
+export default alertsPanelData;

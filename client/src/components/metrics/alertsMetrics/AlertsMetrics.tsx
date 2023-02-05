@@ -1,8 +1,10 @@
-import { alertsData } from './AlertsData';
+import { alertsData } from './AlertsData.ts';
 // import { UID } from '../../../../../server/controllers/grafana/createAlertsDashboard';
 
 type Props = {};
 
+// alertsUID
+// grafPort
 
 const AlertsMetrics = (props: Props) => {
   
@@ -17,7 +19,7 @@ const AlertsMetrics = (props: Props) => {
       <div className='flex flex-row flex-wrap justify-center items-center gap-8'>
         {alertsData.map((item: any) => (
           <iframe
-            src={`http://localhost:8888/graf/d-solo/l_UKUoA4k/alerts?orgId=1&panelId=${item.ID}`}
+            src={`http://localhost:8888/graf/d-solo/l_UKUoA4k/Alerts-Dashboard?orgId=1&panelId=${item.ID}`}
             width={item.width}
             height={item.height}
             frameBorder='0'

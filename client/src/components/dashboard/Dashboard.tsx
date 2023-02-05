@@ -12,8 +12,7 @@ import {
   RiSettings3Line,
 } from 'react-icons/ri';
 import { useAppDispatch, useAppSelector } from '../../../redux/Hooks/Hooks';
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 import AlertsMetrics from '../Metrics/AlertsMetrics/AlertsMetrics';
 import ClusterMetrics from '../Metrics/ClusterMetrics/ClusterMetrics';
@@ -26,6 +25,7 @@ import Profile from '../Profile/Profile';
 import ScalingMetrics from '../Metrics/ScalingMetrics/ScalingMetrics';
 // import SignInModal from '../Signin/SigninModal';
 import { setIsLoggedIn } from '../../../redux/Slices/UserSlice';
+import { useNavigate } from 'react-router-dom';
 
 type Props = {};
 

@@ -42,22 +42,32 @@ const AddCluster = () => {
     };
     console.log(addCluster);
 
-    // axios.post('http://localhost:3000/add-cluster', addCluster);
-    // axios.post('http://localhost:3000/add-dashboard', addCluster);
-    // axios.post('http://localhost:3000/add-alerts', addCluster);
+    // Send the SkaleSafe username from localStorage to the server?
+    const ssUsername = localStorage.getItem("username");
+    // console.log('ssUsername in addCluster frontend: ', ssUsername);
 
     axios
       .all([
-        axios.post('http://localhost:3000/add-cluster', addCluster),
-        axios.post('http://localhost:3000/graf/add-dashboard', addCluster),
-        axios.post('http://localhost:3000/graf/add-alerts', addCluster),
+        axios.post('http://localhost:3000/add-cluster', 
+        addCluster),
+
+        axios.post('http://localhost:3000/graf/add-dashboard', 
+        {
+          addCluster,
+          ssUsername
+        }),
+        axios.post('http://localhost:3000/graf/add-alerts', 
+        {
+          addCluster,
+          ssUsername
+        }),
       ])
       .then(
         axios.spread((clusterResolved, dashboardResolved, alertsResolved) => {
           // All requests are now complete
-          console.log(clusterResolved.data);
-          console.log(dashboardResolved.data);
-          console.log(alertsResolved.data);
+          console.log('clusterResolved.data: ', clusterResolved.data);
+          console.log('dashboardResolved.data: ', dashboardResolved.data);
+          console.log('alertsResolved.data: ', alertsResolved.data);
         })
       )
       .catch((error) => {

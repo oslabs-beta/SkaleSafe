@@ -1,4 +1,4 @@
-import { scalingData } from './ScalingData';
+import { scalingData } from './ScalingData.ts';
 
 type Props = {};
 

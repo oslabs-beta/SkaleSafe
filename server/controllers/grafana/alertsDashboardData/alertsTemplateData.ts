@@ -1,4 +1,4 @@
-const alertTemplateData = {
+const alertsTemplateData = {
     "list": [
       {
         "current": {
@@ -50,4 +50,4 @@ const alertTemplateData = {
     ]
   }
 
-export default alertTemplateData;
+export default alertsTemplateData;

@@ -1,20 +1,16 @@
 import axios from 'axios';
 import { Request, Response, NextFunction } from 'express';
 import { Buffer } from 'buffer';
-import alertPanelData from './alertsDashboardData/panelData';
-import alertTemplateData from './alertsDashboardData/templateData';
+import alertsPanelData from './alertsDashboardData/alertsPanelData';
+import alertsTemplateData from './alertsDashboardData/alertsTemplateData';
 
+// Dynamically grab this data from post request
 const grafanaUrl = 'http://localhost:8888';
 const username = 'admin';
 const password = 'prom-operator';
 
-// plugin the dashboard ID here...
-//need to save this to the DB once the table is created.
-
 let authBuffer = Buffer.from(username + ':' + password, 'utf8');
 let basicAuth = authBuffer.toString('base64');
-
-// console.log(basicAuth);
 
 const createAlertsDashboard = async (
   req: Request,
@@ -28,13 +24,13 @@ const createAlertsDashboard = async (
         dashboard: {
           id: null,
           uid: null,
-          title: 'Alerts',
+          title: 'Alerts Dashboard',
           tags: ['templated'],
           timezone: 'browser',
           schemaVersion: 7,
           version: 0,
-          panels: alertPanelData,
-          templating: alertTemplateData,
+          panels: alertsPanelData,
+          templating: alertsTemplateData,
         },
         overwrite: true,
       },
@@ -46,15 +42,13 @@ const createAlertsDashboard = async (
       }
     );
     const alertsData: any = response.data;
-    res.send(alertsData);
     res.locals.queryData = alertsData;
     res.locals.uid = alertsData.uid;
-  } catch (e) {
-    console.log(e);
-    res.status(500);
-    next(e);
+    return next();
+  } catch (err) {
+    console.log('error in creatAlertsDashboard');
+    return next(err);
   }
-  next();
 };
 
 export default createAlertsDashboard;

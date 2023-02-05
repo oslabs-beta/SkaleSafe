@@ -1,4 +1,4 @@
-const templateData = {
+const customTemplateData = {
     "list": [
       {
         "current": {
@@ -187,4 +187,4 @@ const templateData = {
     ]
   }
 
-export default templateData;
+export default customTemplateData;

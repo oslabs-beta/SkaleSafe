@@ -1,4 +1,4 @@
-import { clusterData } from './ClusterData';
+import { clusterData } from './ClusterData.ts';
 
 type Props = {};
 
@@ -20,7 +20,7 @@ const ClusterMetrics = (props: Props) => {
         {clusterData.map((item: any) => (
           <iframe
           //the or3xtlo4k should be coming from DB
-          src={`http://localhost:8888/graf/d-solo/or3xtlo4k/skale-safe?orgId=1&panelId=${item.ID}`}
+          src={`http://localhost:8888/graf/d-solo/or3xtlo4k/Custom-Dashboard?orgId=1&panelId=${item.ID}`}
           
           width={item.width}
           height={item.height}

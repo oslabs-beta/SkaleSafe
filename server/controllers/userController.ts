@@ -51,14 +51,21 @@ const userController: userController = {
   // getUser: (req: Request, res: Response, next: NextFunction) => {},
   verifyUser: (req: Request, res: Response, next: NextFunction) => {
     const { username, password } = req.body;
-
     if (!username || !password) {
       return res
         .status(400)
         .json({ error: 'Username and/or Password left blank' });
     }
 
-    User.findOne({ username })
+    //Checking to see if the username passed in is an email or not
+    let query;
+    if(username.indexOf('@') == -1) {
+      query = User.where({ username: username })
+    } else {
+      query = User.where({ email: username })
+    }
+
+    query.findOne()
       .then((user: UserObj) => {
 
         if (!user) {

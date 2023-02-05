@@ -1,5 +1,5 @@
-import * as mongoose from 'mongoose';
 import { Request, Response, NextFunction } from 'express';
+const User = require('../../models/userModel');
 
 // add cluster...
 // req.body:  {
@@ -16,7 +16,6 @@ export const createAlertsUID = async (
   next: NextFunction
 ) => {
   try {
-    const User = mongoose.model<mongoose.Document>('User');
 
     const { ssUsername } = req.body;
     const { uid } = res.locals;

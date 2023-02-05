@@ -19,7 +19,7 @@ const SignInModal = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [failedLogin, setFailedLogin] = useState(false);
   const [formData, setFormData] = useState<SignInData>({
-    username: '',
+    useroremail: '',
     password: '',
   });
 
@@ -54,7 +54,7 @@ const SignInModal = () => {
           ); // PASS THIS AN OBJECT
           // Using Local Storage to track user/permissions:
           // local storage functions:  https://developer.mozilla.org/en-US/docs/Web/API/Storage/clear
-          localStorage.setItem('username', formData.username);
+          localStorage.setItem('username', username);
           // to retrieve username... use localStorage.getItem(keyname)
           // to delete username (session)... use localStorage.clear()
           navigate('/dashboard');
@@ -70,7 +70,7 @@ const SignInModal = () => {
       });
 
     setFormData({
-      username: '',
+      useroremail: '',
       password: '',
     });
   };
@@ -118,13 +118,12 @@ const SignInModal = () => {
           {/* Email */}
           <div className='relative'>
             <input
-              type='username'
-              id='username'
+              type='text'
               className={inputField}
-              name='username'
+              name='session[username_or_email]'
               autoComplete='off'
-              value={formData.username}
-              placeholder='Username'
+              value={formData.useroremail}
+              placeholder='Email or Username'
               required
               onChange={(e) => handleChange(e)}
             />

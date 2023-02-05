@@ -1,6 +1,6 @@
 
 interface SignInData {
-    username: string;
+    useroremail: string;
     password: string;
 }
 

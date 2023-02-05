@@ -19,7 +19,7 @@ const SignInModal = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [failedLogin, setFailedLogin] = useState(false);
   const [formData, setFormData] = useState<SignInData>({
-    useroremail: '',
+    username: '',
     password: '',
   });
 
@@ -70,7 +70,7 @@ const SignInModal = () => {
       });
 
     setFormData({
-      useroremail: '',
+      username: '',
       password: '',
     });
   };
@@ -120,9 +120,9 @@ const SignInModal = () => {
             <input
               type='text'
               className={inputField}
-              name='session[username_or_email]'
+              name='username'
               autoComplete='off'
-              value={formData.useroremail}
+              value={formData.username}
               placeholder='Email or Username'
               required
               onChange={(e) => handleChange(e)}

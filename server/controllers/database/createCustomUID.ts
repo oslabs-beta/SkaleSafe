@@ -10,23 +10,22 @@ const User = require('../../models/userModel');
 //   username: 'johnwick'
 //   }
 
-export const createAlertsUID = async (
+export const createCustomUID = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
-
     const { ssUsername } = req.body;
     const { uid } = res.locals;
-  
-    await User.findOneAndUpdate(
-      { username: ssUsername },
-      { alertsUID: uid });
 
-      return next();
+    await User.findOneAndUpdate( 
+      { username: ssUsername }, 
+      { customUID: uid });
+
+    return next();
   } catch (err) {
-    console.log('error in createAlertsUID: ', err);
+    console.log('error in createCustomUID: ', err);
     return next(err);
   }
 };

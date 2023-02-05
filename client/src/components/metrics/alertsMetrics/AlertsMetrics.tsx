@@ -1,10 +1,21 @@
-import { alertsData } from './AlertsData';
+import { alertsData } from './AlertsData.ts';
 // import { UID } from '../../../../../server/controllers/grafana/createAlertsDashboard';
 
 type Props = {};
 
 
-const AlertsMetrics = (props: Props) => {
+const AlertsMetrics = async (props: Props) => {
+  
+  // use username from local storage to
+  const username = localStorage.getItem('username');
+  // fetch alertsUID and grafPort from DB
+  const userData = await fetch('/graf/alerts', {
+    body: JSON.stringify({ username: username }),
+  })
+
+  console.log('userData: ', userData);
+  
+
   
   return (
     <div
@@ -17,7 +28,8 @@ const AlertsMetrics = (props: Props) => {
       <div className='flex flex-row flex-wrap justify-center items-center gap-8'>
         {alertsData.map((item: any) => (
           <iframe
-            src={`http://localhost:8888/graf/d-solo/l_UKUoA4k/alerts?orgId=1&panelId=${item.ID}`}
+            // src={`${userData.grafPort}/graf/d-solo/${alertsUID}/Alerts-Dashboard?orgId=1&panelId=${item.ID}`}
+            src={`http://localhost:8888/graf/d-solo/l_UKUoA4k/Alerts-Dashboard?orgId=1&panelId=${item.ID}`}
             width={item.width}
             height={item.height}
             frameBorder='0'

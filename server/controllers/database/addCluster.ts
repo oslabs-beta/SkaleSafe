@@ -1,5 +1,5 @@
-import * as mongoose from 'mongoose';
 import { Request, Response, NextFunction } from 'express';
+const User = require('../../models/userModel');
 
 // add cluster...
 // req.body:  {
@@ -24,10 +24,8 @@ export const addClusterToDB = (
   const kubeviewPort = req.body.kubeviewPort;
   console.log('from addcluster middleware', req.body);
 
-  const User = mongoose.model<mongoose.Document>('User');
-
   User.findOneAndUpdate(
-    username,
+    { username },
     {
       $set: {
         grafURL: grafURL,

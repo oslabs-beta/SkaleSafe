@@ -1,6 +1,6 @@
 import { Types } from 'mongoose';
 
-export interface UserObj extends Document {
+export interface UserObj {
   _id: Types.ObjectId;
   firstname: string;
   lastname: string;

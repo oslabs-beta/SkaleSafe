@@ -7,7 +7,7 @@ import createAlertsDashboard from '../../controllers/grafana/createAlertsDashboa
 import { createAlertsUID } from './../../controllers/database/createAlertsUID';
 import { createGrafAlert } from '../../controllers/grafana/createGrafAlert';
 import { getAlerts } from '../../controllers/grafana/getAlerts';
-import getAlertsUID from '../../controllers/database/getAlertsUID';
+import getUIDs from '../../controllers/database/getUIDs';
 import grafSearch from '../../controllers/grafana/metric';
 
 const router = express.Router();
@@ -37,12 +37,6 @@ router.get('/', axiosDashboard, (req: Request, res: Response) => {
   res.send(res.locals.queryData);
 });
 
-// used for MVP presentation
-router.get('/test', grafSearch, (req: Request, res: Response) => {
-  console.log('successfully ran graf search middleware');
-  res.send(res.locals.link);
-});
-
 // to add a custom dashboard
 // sendToDatabase,
 router.post(
@@ -68,7 +62,7 @@ router.post(
   }
 );
 // Get    1) get alerts dashboard UID from database
-router.get('/alerts', getAlertsUID, (req: Request, res: Response) => {
+router.get('/alerts', getUIDs, (req: Request, res: Response) => {
   console.log('get alerts middleware passed');
 
   const { alertsUID, clusterIP, port } = res.locals;
@@ -79,9 +73,9 @@ router.get('/alerts', getAlertsUID, (req: Request, res: Response) => {
 // res.locals.clusterIP = data.grafURL
 // res.locals.port = data.grafPort
 
-// Get all currently configured alerts.
-router.get('/alerts', getAlerts, (req: Request, res: Response) => {
-  console.log('passed getAlerts middleware');
-  res.status(200);
-});
+// // Get all currently configured alerts.
+// router.get('/alerts', getAlerts, (req: Request, res: Response) => {
+//   console.log('passed getAlerts middleware');
+//   res.status(200);
+// });
 export default router;

@@ -18,6 +18,7 @@ const SignInModal = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [failedLogin, setFailedLogin] = useState(false);
+  const [error, setError] = useState('');
   const [formData, setFormData] = useState<SignInData>({
     username: '',
     password: '',
@@ -32,6 +33,8 @@ const SignInModal = () => {
 
   const submitFormData = (e: any) => {
     e.preventDefault();
+
+   
 
     axios
       .post('http://localhost:3000/users/signin', formData)
@@ -64,6 +67,12 @@ const SignInModal = () => {
           // triggers some kinda automatic axios mumbo-jumbo...
           setFailedLogin(true);
         }
+
+        if(formData.password !== res.data.password || formData.username !== res.data.username) {
+          setError('Login credentials unrecognized: Please try again.');
+          return;
+        }
+
       })
       .catch((err) => {
         console.log(err);
@@ -142,6 +151,7 @@ const SignInModal = () => {
               onChange={(e) => handleChange(e)}
             />
           </div>
+          {error && <div className='text-red-500 text-1xl my-2'>{error}</div>}
           <button className={button} type='submit' value='signup'>
             Sign In
           </button>

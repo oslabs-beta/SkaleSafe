@@ -28,7 +28,7 @@ const ClusterMetrics = (props: Props) => {
       );
       const data = await userResponse.json();
       setUserData(data);
-      console.log(data);
+      console.log('from clusterMetrics:', data);
       if (data.valueOf.length !== 0) setDataAvailable(true);
     } catch (err) {
       console.error('User alerts metrics could not be retrieved');

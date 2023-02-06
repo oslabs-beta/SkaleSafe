@@ -4,20 +4,20 @@ import { Buffer } from 'buffer';
 import alertsPanelData from './alertsDashboardData/alertsPanelData';
 import alertsTemplateData from './alertsDashboardData/alertsTemplateData';
 
-// Dynamically grab this data from post request
-const grafanaUrl = 'http://localhost:8888';
-const username = 'admin';
-const password = 'prom-operator';
-
-let authBuffer = Buffer.from(username + ':' + password, 'utf8');
-let basicAuth = authBuffer.toString('base64');
-
 const createAlertsDashboard = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
+    const grafanaUrl = req.query.grafanaPort;
+    const username = req.query.grafanaUsername;
+    const password = req.query.grafanaPassword;
+    console.log(grafanaUrl, username, password);
+
+    let authBuffer = Buffer.from(username + ':' + password, 'utf8');
+    let basicAuth = authBuffer.toString('base64');
+
     const response = await axios.post(
       `${grafanaUrl}/api/dashboards/db`,
       {

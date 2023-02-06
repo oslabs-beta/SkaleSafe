@@ -7,7 +7,7 @@ import createAlertsDashboard from '../../controllers/grafana/createAlertsDashboa
 import { createAlertsUID } from './../../controllers/database/createAlertsUID';
 import { createGrafAlert } from '../../controllers/grafana/createGrafAlert';
 import { getAlerts } from '../../controllers/grafana/getAlerts';
-import getUIDs from '../../controllers/database/getUIDs';
+import getCredentials from '../../controllers/database/getCredentials';
 import grafSearch from '../../controllers/grafana/metric';
 
 const router = express.Router();
@@ -51,9 +51,9 @@ router.post('/add-alerts',
     res.status(200).send(res.locals.queryData);
   }
 );
-// Get    1) get alerts dashboard UID from database
+// Get    1) fetch grafana credentials from db, 2) create grafana dashboard, 3) send alerts dashboard UID to database
 router.get('/alerts', 
-  getUIDs, 
+  getCredentials, 
   (req: Request, res: Response) => {
   console.log('get alerts middleware passed');
   const { userData } = res.locals;
@@ -62,7 +62,7 @@ router.get('/alerts',
 );
 
 router.get('/clustermetrics',
-  getUIDs,
+  getCredentials,
   (req: Request, res: Response) => {
   console.log('get cluster metrics middleware passed');
   const { userData } = res.locals;
@@ -71,7 +71,7 @@ router.get('/clustermetrics',
 );
 
 router.get('/scalingmetrics', 
-  getUIDs, 
+  getCredentials, 
   (req: Request, res: Response) => {
   console.log('get scaling metrics middleware passed');
   const { userData } = res.locals;

@@ -23,7 +23,7 @@ const SignupModal = () => {
 
   useEffect(() => {
     if (isSignedUp) {
-      navigate('/dashboard');
+      navigate('/');
     } else {
       console.log('There was an error signing up');
     }

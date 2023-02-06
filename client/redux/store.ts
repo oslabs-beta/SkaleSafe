@@ -1,6 +1,6 @@
-import alertReducer from './slices/alertSlice';
+import alertReducer from './Slices/AlertSlice';
 import { configureStore } from "@reduxjs/toolkit";
-import userReducer from './slices/userSlice';
+import userReducer from './Slices/UserSlice';
 
 export const store = configureStore({
     reducer: {

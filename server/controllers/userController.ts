@@ -51,14 +51,21 @@ const userController: userController = {
   // getUser: (req: Request, res: Response, next: NextFunction) => {},
   verifyUser: (req: Request, res: Response, next: NextFunction) => {
     const { username, password } = req.body;
-
     if (!username || !password) {
       return res
         .status(400)
         .json({ error: 'Username and/or Password left blank' });
     }
 
-    User.findOne({ username })
+    //Checking to see if the username passed in is an email or not
+    let query;
+    if(username.indexOf('@') == -1) {
+      query = User.where({ username: username })
+    } else {
+      query = User.where({ email: username })
+    }
+
+    query.findOne()
       .then((user: UserObj) => {
 
         if (!user) {
@@ -99,33 +106,3 @@ const userController: userController = {
 };
 
 export default userController;
-
-//  (err: Error, user: UserObj) => {
-//     if(err){
-//         console.log("We are in the Error conditional")
-//         return next({
-//             method: 'createUser',
-//             type: 'Failed to create a new user in the database',
-//             err
-//         });
-//     }
-//     console.log('We did not hit any errors!');
-//     console.log(user);
-//     res.locals.user = user;
-//     return next();
-// }
-
-// , (err: ErrorRequestHandler, result: string) => {
-//     if(err) {
-//         return next(
-//             errorHandler({
-//                 method: 'findOne',
-//                 type: 'Error occured while comparing password hash',
-//                 err
-//             })
-//         )
-//     } else {
-//         res.locals.user = user
-//         return next();
-//     }
-// }

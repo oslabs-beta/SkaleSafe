@@ -8,10 +8,10 @@ interface member {
     github: string;
 }
 
-const team: member[] = [
+const Team: member[] = [
     {
         name: 'Leonardo Brian Campos',
-        image: '../../../assets/Brian&Kai.jpg',
+        image: '../../../../assets/Brian&Kai.jpg',
         alt: 'Leonardo Campos with his dog Kai',
         bio: ` Software engineer \n Codesmith alumnus`,
         linkedin: 'https://www.linkedin.com/in/leonardo-brian-campos/',
@@ -19,7 +19,7 @@ const team: member[] = [
     },
     {
         name: 'Daniel Doody',
-        image: '../../../assets/daniel.png',
+        image: '../../../../assets/daniel.png',
         alt: 'Daniel Doody outside in nature',
         bio: 'This is where the bio can go',
         linkedin: 'https://www.linkedin.com/in/daniel-doody/',
@@ -27,15 +27,15 @@ const team: member[] = [
     },
     {
         name: 'Bethany Mattern',
-        image: '../../../assets/bethany.jpg',
+        image: '../../../../assets/bethany.jpg',
         alt: 'Bethany Mattern\'s face',
-        bio: 'Bio demo',
+        bio: 'Software Engineer Codesmith Alumnus Full time Book NERD',
         linkedin: 'https://www.linkedin.com/in/bethany-a-mattern/',
         github: 'https://github.com/bethanycable',
     },
     {
         name: 'Kelvin Shamy',
-        image: '../../../assets/kelvin.jpeg',
+        image: '../../../../assets/kelvin.jpeg',
         alt: 'Kelvin Shamy drinking some coffee',
         bio: '',
         linkedin: 'https://www.linkedin.com/in/kelvin-shamy-839798a1/',
@@ -43,7 +43,7 @@ const team: member[] = [
     },
     {
         name: 'Sang Rea Han',
-        image: '../../../assets/sanghan.png',
+        image: '../../../../assets/sanghan.png',
         alt: 'Sang Rea Han looking professional',
         bio: 'This is where the bio can go',
         linkedin: 'https://www.linkedin.com/in/sangreahan/',
@@ -51,4 +51,4 @@ const team: member[] = [
     }
 ]
 
-export default team;
+export default Team;

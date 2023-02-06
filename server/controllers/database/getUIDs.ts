@@ -15,16 +15,19 @@ const getUIDs = async (
   
     const userData: UserObj = await User.findOne({ username });
 
-    res.locals.alertsUID = userData.alertsUID;
-    res.locals.customUID = userData.customUID;
-    res.locals.grafPort = userData.grafPort;
-    console.log('in getAlertsUID middleware');
-    console.log('data.alertsUID: ', userData.alertsUID);
-    console.log('data.customUID: ', userData.customUID);
-    console.log('data.grafPort: ', userData.grafPort);
+    const data = {
+      alertsUID: userData.alertsUID,
+      customUID: userData.customUID,
+      grafPort: userData.grafPort,
+    }
 
+    // console.log('in getAlertsUID middleware');
+    // console.log('data.alertsUID: ', userData.alertsUID);
+    // console.log('data.customUID: ', userData.customUID);
+    // console.log('data.grafPort: ', userData.grafPort);
+
+    res.locals.userData = data;
     next();
-
   } catch (err) {
     return next(err);
   }

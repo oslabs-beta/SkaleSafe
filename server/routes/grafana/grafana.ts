@@ -31,19 +31,10 @@ const router = express.Router();
 //   console.log('grafana route reached');
 // });
 
-//get default dashboard
-router.get('/', axiosDashboard, (req: Request, res: Response) => {
-  console.log('successfully ran grafana middleware');
-  res.send(res.locals.queryData);
-});
-
 // to add a custom dashboard
-// sendToDatabase,
-router.post(
-  '/add-dashboard',
+router.post('/add-dashboard',
   createCustomDashboard,
   createCustomUID,
-
   (req: Request, res: Response) => {
     console.log('dashboard created');
     res.status(200).send(res.locals.queryData);
@@ -52,8 +43,7 @@ router.post(
 
 // ALERTS
 // Post    1) create grafana dashboard, 2) send alerts dashboard UID to database
-router.post(
-  '/add-alerts',
+router.post('/add-alerts',
   createAlertsDashboard,
   createAlertsUID,
   (req: Request, res: Response) => {
@@ -62,16 +52,32 @@ router.post(
   }
 );
 // Get    1) get alerts dashboard UID from database
-router.get('/alerts', getUIDs, (req: Request, res: Response) => {
+router.get('/alerts', 
+  getUIDs, 
+  (req: Request, res: Response) => {
   console.log('get alerts middleware passed');
+  const { userData } = res.locals;
+  res.status(200).send(userData);
+  }
+);
 
-  const { alertsUID, clusterIP, port } = res.locals;
+router.get('/clustermetrics',
+  getUIDs,
+  (req: Request, res: Response) => {
+  console.log('get cluster metrics middleware passed');
+  const { userData } = res.locals;
+  res.status(200).send(userData);
+  }
+);
 
-  res.status(200).send({ alertsUID, clusterIP, port });
-});
-// res.locals.alertsUID = data.alertsUID
-// res.locals.clusterIP = data.grafURL
-// res.locals.port = data.grafPort
+router.get('/scalingmetrics', 
+  getUIDs, 
+  (req: Request, res: Response) => {
+  console.log('get scaling metrics middleware passed');
+  const { userData } = res.locals;
+  res.status(200).send(userData);
+  }
+);
 
 // // Get all currently configured alerts.
 // router.get('/alerts', getAlerts, (req: Request, res: Response) => {

@@ -12,22 +12,22 @@ import {
   RiSettings3Line,
 } from 'react-icons/ri';
 import { useAppDispatch, useAppSelector } from '../../../redux/Hooks/Hooks';
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 import MeetTeam from '../Home/MeetTeam/MeetTeam.tsx';
 
-import AlertsMetrics from '../Metrics/alertsMetrics/AlertsMetrics';
-import ClusterMetrics from '../Metrics/clusterMetrics/ClusterMetrics';
+import AlertsMetrics from '../Metrics/AlertsMetrics/AlertsMetrics.tsx';
+import ClusterMetrics from '../Metrics/ClusterMetrics/ClusterMetrics';
 import Footer from '../Footer/Footer';
 import Home from '../Home';
 import HomeContainer from '../../containers/HomeContainer';
-import KubeView from '../kubeview/KubeView';
-import LightOrDark from '../modeSwitch/ModeSwitch';
-import Profile from '../profile/Profile';
+import KubeView from '../Kubeview/KubeView';
+import LightOrDark from '../ModeSwitch/ModeSwitch.tsx';
+import Profile from '../Profile/Profile';
 import ScalingMetrics from '../Metrics/ScalingMetrics/ScalingMetrics';
 // import SignInModal from '../Signin/SigninModal';
 import { setIsLoggedIn } from '../../../redux/Slices/UserSlice';
+import { useNavigate } from 'react-router-dom';
 
 type Props = {};
 
@@ -127,7 +127,7 @@ const Dashboard = (props: Props) => {
                         </span>
                       </a>
                     </li>
-                    <li className={listElement} onClick={loggedOut}>
+                    {/* <li className={listElement} onClick={loggedOut}>
                       <Link
                         to='/home'
                         className='flex items-center p-2 space-x-3 rounded-md mb-24'
@@ -142,7 +142,7 @@ const Dashboard = (props: Props) => {
                           </span>
                         </div>
                       </Link>
-                    </li>
+                    </li> */}
                     <div className='flex py-4 pl-6 pr-6 rounded-full justify-start bg-primary-color shadow-md hover:shadow-lg cursor-pointer hover:scale-105 text-white'>
                       <AiOutlinePlus className='justify-start mr-2 text-lg font-semibold hover:scale-105' />
                       <p className=''>Create a Cluster</p>
@@ -158,10 +158,6 @@ const Dashboard = (props: Props) => {
           {active === 3 && <ClusterMetrics />}
           {active === 4 && <KubeView />}
           {active === 5 && <Profile />}
-        </div>
-        <div>
-        <MeetTeam/>
-          
         </div>
         <div>
         <Footer />

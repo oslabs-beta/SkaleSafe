@@ -18,6 +18,7 @@ const SignInModal = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [failedLogin, setFailedLogin] = useState(false);
+  const [error, setError] = useState('');
   const [formData, setFormData] = useState<SignInData>({
     username: '',
     password: '',
@@ -32,6 +33,8 @@ const SignInModal = () => {
 
   const submitFormData = (e: any) => {
     e.preventDefault();
+
+   
 
     axios
       .post('http://localhost:3000/users/signin', formData)
@@ -54,7 +57,7 @@ const SignInModal = () => {
           ); // PASS THIS AN OBJECT
           // Using Local Storage to track user/permissions:
           // local storage functions:  https://developer.mozilla.org/en-US/docs/Web/API/Storage/clear
-          localStorage.setItem('username', formData.username);
+          localStorage.setItem('username', username);
           // to retrieve username... use localStorage.getItem(keyname)
           // to delete username (session)... use localStorage.clear()
           navigate('/dashboard');
@@ -64,6 +67,12 @@ const SignInModal = () => {
           // triggers some kinda automatic axios mumbo-jumbo...
           setFailedLogin(true);
         }
+
+        if(formData.password !== res.data.password || formData.username !== res.data.username) {
+          setError('Login credentials unrecognized: Please try again.');
+          return;
+        }
+
       })
       .catch((err) => {
         console.log(err);
@@ -118,13 +127,12 @@ const SignInModal = () => {
           {/* Email */}
           <div className='relative'>
             <input
-              type='username'
-              id='username'
+              type='text'
               className={inputField}
               name='username'
               autoComplete='off'
               value={formData.username}
-              placeholder='Username'
+              placeholder='Email or Username'
               required
               onChange={(e) => handleChange(e)}
             />
@@ -143,6 +151,7 @@ const SignInModal = () => {
               onChange={(e) => handleChange(e)}
             />
           </div>
+          {error && <div className='text-red-500 text-1xl my-2'>{error}</div>}
           <button className={button} type='submit' value='signup'>
             Sign In
           </button>

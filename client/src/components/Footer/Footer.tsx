@@ -4,8 +4,8 @@ import React from "react";
 
 const Footer = () => {
     return (
-        <div id="footerborder" className="border-t border-honeydew h-20 w-screen flex flex-row justify-between items-center px-20">
-            <ul id='footertext' className='text-honeydew'>
+        <div id="footerborder" className="absloute inset-x-0 bottom-0 border-t border-honeydew h-20 w-screen flex flex-row justify-between items-center px-20">
+            <ul id='footertext' className='text-honeydew text-sm'>
                 <li>@2023 SkaleSafe Inc.</li>
                 <li>All rights reserved</li>
             </ul>

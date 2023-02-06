@@ -122,7 +122,7 @@ const logUserOut = (event: any) => {
               <li className='flex gap-x-4 items-center'>
                 <div
                   id='navUser'
-                  className='text-honeydew text-xl font-semi px-2 py-1'
+                  className='text-honeydew text-xl font-semi py-1'
                 >
                   {`Welcome ${userName}`}
                 </div>

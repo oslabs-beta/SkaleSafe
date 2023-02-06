@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import Dashboard from '../components/Dashboard/Dashboard';
-import { Error } from '../components/Error/Error.tsx';
+import { Error } from '../components/Error';
 import HomeContainer from '../containers/HomeContainer';
 import Navbar from '../components/Navbar/Navbar';
 
@@ -8,7 +8,7 @@ import Navbar from '../components/Navbar/Navbar';
 
 const App = () => {
   return (
-    <div>
+    <div className='overflow-hidden'>
       <Navbar />
 
       <div>
@@ -19,6 +19,7 @@ const App = () => {
           <Route path='*' element={<Error />} />
         </Routes>
       </div>
+      {/* <Footer /> */}
     </div>
   );
 };

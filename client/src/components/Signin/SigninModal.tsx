@@ -39,10 +39,7 @@ const SignInModal = () => {
     axios
       .post('http://localhost:3000/users/signin', formData)
       .then((res) => {
-        console.log('res in axios request', res);
         if (res.status === 200) {
-          console.log('inside axios request');
-          console.log('res.data: ', res.data);
 
           const { firstname, lastname, email, username } = res.data.user;
           dispatch(setIsLoggedIn(true));

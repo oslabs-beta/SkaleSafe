@@ -1,4 +1,3 @@
-
 import { Request, Response, NextFunction } from 'express';
 import { UserObj } from '../../interfaces/user';
 const User = require('../../models/userModel');

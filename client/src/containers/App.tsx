@@ -1,11 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
 
-import Alerts from '../components/Alerts/Alerts';
-import ContactUs from '../components/contactUs/ContactUs';
 import Dashboard from '../components/Dashboard/Dashboard';
 import { Error } from '../components/Error';
+import Footer from '../components/Footer/Footer';
 import HomeContainer from '../containers/HomeContainer';
-import MeetTeam from '../components/MeetTeam/MeetTeam';
 import Navbar from '../components/Navbar/Navbar';
 import Profile from '../components/Profile/Profile';
 import SignIn from '../components/Signin/SignIn';
@@ -20,7 +18,7 @@ import SignIn from '../components/Signin/SignIn';
 
 const App = () => {
   return (
-    <div>
+    <div className='overflow-hidden'>
       <Navbar />
 
       <div>
@@ -28,9 +26,8 @@ const App = () => {
           <Route path='/' element={<HomeContainer />} />
           <Route path='/home' element={<HomeContainer />} />
 
-          <Route path='/dashboard' element={<Dashboard />}>
-            <Route path='profile' element={<Profile />} />
-          </Route>
+          <Route path='/dashboard' element={<Dashboard />} />
+
 
           {/* switch paths for scalingmetrics and alerts to dashnoard href made in dashboard file */}
           <Route path='/signin' element={<SignIn />} />
@@ -38,6 +35,7 @@ const App = () => {
           <Route path='*' element={<Error />} />
         </Routes>
       </div>
+      {/* <Footer /> */}
     </div>
   );
 };

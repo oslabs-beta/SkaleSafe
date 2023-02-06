@@ -36,12 +36,12 @@ const ClusterMetrics = (props: Props) => {
   return (
     <div
       id='clustertab'
-      className='w-screen h-screen flex flex-col items-center justify-evenly border-b-2 border-white pb-2 text-honeydew'
+      className='w-screen overflow-auto flex flex-col items-center justify-evenly text-honeydew'
     >
-      <div className='self-center text-4xl font-bold uppercase tracking-wider'>
+      <div className='text-4xl font-bold uppercase tracking-wider pt-10 pb-5'>
         Cluster Health
       </div>
-      <div className='flex flex-row flex-wrap justify-center items-center gap-8'>
+      <div className='flex flex-row flex-wrap justify-center items-center gap-8 py-5'>
         {clusterData.map((item: any) => (
           <iframe
           //the or3xtlo4k should be coming from DB

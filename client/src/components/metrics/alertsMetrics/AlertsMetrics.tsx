@@ -1,5 +1,6 @@
-import { alertsData } from './AlertsData.ts';
 import { useEffect, useState } from "react";
+
+import { alertsData } from './AlertsData.ts';
 import dashboardState from "../../../interfaces/dashboardState";
 
 // import { UID } from '../../../../../server/controllers/grafana/createAlertsDashboard';
@@ -43,9 +44,9 @@ const AlertsMetrics = (props: Props) => {
   return (
     <div
       id='alertstab'
-      className='w-screen h-screen flex flex-col items-center justify-evenly text-honeydew'
+      className='w-screen h-screen flex flex-col items-center mt-10 text-honeydew'
     >
-      <div className='self-center text-4xl font-bold uppercase border-b-2 border-white pb-2 tracking-wider'>
+      <div className='self-center text-4xl font-bold uppercase my-10 tracking-wider'>
         Alerts
       </div>
       <div className='flex flex-row flex-wrap justify-center items-center gap-8'>

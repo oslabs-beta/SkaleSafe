@@ -14,6 +14,7 @@ import {
 import { useAppDispatch, useAppSelector } from '../../../redux/Hooks/Hooks';
 import { useEffect, useState } from 'react';
 
+
 import AlertsMetrics from '../Metrics/AlertsMetrics/AlertsMetrics';
 import ClusterMetrics from '../Metrics/ClusterMetrics/ClusterMetrics';
 import KubeView from '../Kubeview/KubeView';
@@ -120,6 +121,7 @@ const Dashboard = (props: Props) => {
                         </span>
                       </a>
                     </li>
+
                     <li className={listElement} onClick={loggedOut}>
                       <Link
                         to='/home'

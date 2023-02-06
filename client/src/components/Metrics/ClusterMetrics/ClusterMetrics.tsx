@@ -1,4 +1,4 @@
-import { clusterData } from './ClusterData.ts';
+import { clusterData } from './ClusterData';
 import { useEffect, useState } from 'react';
 import dashboardState from '../../../interfaces/dashboardState';
 import { GiShipWheel } from 'react-icons/gi';

@@ -14,10 +14,12 @@ import {
 import { useAppDispatch, useAppSelector } from '../../../redux/Hooks/Hooks';
 import { useEffect, useState } from 'react';
 
-import AlertsMetrics from '../Metrics/AlertsMetrics/AlertsMetrics';
+import MeetTeam from '../Home/MeetTeam/MeetTeam.tsx';
+
+import AlertsMetrics from '../Metrics/AlertsMetrics/AlertsMetrics.tsx';
 import ClusterMetrics from '../Metrics/ClusterMetrics/ClusterMetrics';
 import KubeView from '../Kubeview/KubeView';
-import LightOrDark from '../ModeSwitch/ModeSwitch';
+import LightOrDark from '../ModeSwitch/ModeSwitch.tsx';
 import Profile from '../Profile/Profile';
 import ScalingMetrics from '../Metrics/ScalingMetrics/ScalingMetrics';
 import { setIsLoggedIn } from '../../../redux/Slices/UserSlice';
@@ -120,7 +122,7 @@ const Dashboard = (props: Props) => {
                         </span>
                       </a>
                     </li>
-                    <li className={listElement} onClick={loggedOut}>
+                    {/* <li className={listElement} onClick={loggedOut}>
                       <Link
                         to='/home'
                         className='flex items-center p-2 space-x-3 rounded-md mb-24'
@@ -135,8 +137,8 @@ const Dashboard = (props: Props) => {
                           </span>
                         </div>
                       </Link>
-                    </li>
-                    <div className='flex py-4 px-6 rounded-full justify-start bg-primary-color shadow-md hover:shadow-lg cursor-pointer hover:scale-105 text-white'>
+                    </li> */}
+                    <div className='flex py-4 pl-6 pr-6 rounded-full justify-start bg-primary-color shadow-md hover:shadow-lg cursor-pointer hover:scale-105 text-white'>
                       <AiOutlinePlus className='justify-start mr-2 text-lg font-semibold hover:scale-105' />
                       <p className=''>Create a Cluster</p>
                     </div>

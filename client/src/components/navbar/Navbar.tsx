@@ -113,17 +113,15 @@ const Navbar = () => {
               <li className='flex gap-x-4 items-center'>
                 <div
                   id='navUser'
-                  className='text-honeydew text-xl font-semi px-2 py-1'
+                  className='text-honeydew text-xl font-semi py-1'
                 >
                   {`Welcome ${userName}`}
                 </div>
-                <Link to='dashboard/profile' className='flex flex-row gap-x-4'>
                   <img
                     className='w-10 h-10 rounded-full hover:scale-110 hover:brightness-110'
                     src='../../../assets/profile.png'
                     alt='profile photo'
                   />
-                </Link>
               </li>
             )
           : [<SignupModal />, <SignInModal />].map((modal) => (

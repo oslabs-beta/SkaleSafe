@@ -16,14 +16,10 @@ import { useEffect, useState } from 'react';
 
 import AlertsMetrics from '../Metrics/AlertsMetrics/AlertsMetrics';
 import ClusterMetrics from '../Metrics/ClusterMetrics/ClusterMetrics';
-import Footer from '../Footer/Footer';
-import Home from '../Home';
-import HomeContainer from '../../containers/HomeContainer';
 import KubeView from '../Kubeview/KubeView';
 import LightOrDark from '../ModeSwitch/ModeSwitch';
 import Profile from '../Profile/Profile';
 import ScalingMetrics from '../Metrics/ScalingMetrics/ScalingMetrics';
-// import SignInModal from '../Signin/SigninModal';
 import { setIsLoggedIn } from '../../../redux/Slices/UserSlice';
 import { useNavigate } from 'react-router-dom';
 
@@ -33,7 +29,6 @@ const Dashboard = (props: Props) => {
   const isLoggedIn = useAppSelector((state) => state.user.isLoggedIn);
   const [active, setActive] = useState(1);
   // clicking on the different options on the sidebar changes the 'active' state above
-  const [isOpen, setIsOpen] = useState(false);
   const listElement = 'rounded-sm hover:scale-105';
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
@@ -53,7 +48,7 @@ const Dashboard = (props: Props) => {
           <div className='flex'>
             <div
               id='dashboardbg'
-              className='flex flex-col p-3 bg-honeydew shadow w-60'
+              className='flex flex-col p-3 bg-honeydew shadow w-60 h-full'
             >
               <div className='space-y-3'>
                 <div className='flex items-center pt-6'>
@@ -64,7 +59,7 @@ const Dashboard = (props: Props) => {
                     Dashboard
                   </h2>
                 </div>
-                <div className='flex pt-6'>
+                <div className='flex'>
                   <ul className='pt-2 pb-4 space-y-3 text-sm'>
                     <li className={listElement} onClick={() => setActive(1)}>
                       <a
@@ -141,7 +136,7 @@ const Dashboard = (props: Props) => {
                         </div>
                       </Link>
                     </li>
-                    <div className='flex py-4 pl-6 pr-6 rounded-full justify-start bg-primary-color shadow-md hover:shadow-lg cursor-pointer hover:scale-105 text-white'>
+                    <div className='flex py-4 px-6 rounded-full justify-start bg-primary-color shadow-md hover:shadow-lg cursor-pointer hover:scale-105 text-white'>
                       <AiOutlinePlus className='justify-start mr-2 text-lg font-semibold hover:scale-105' />
                       <p className=''>Create a Cluster</p>
                     </div>
@@ -156,9 +151,6 @@ const Dashboard = (props: Props) => {
           {active === 3 && <ClusterMetrics />}
           {active === 4 && <KubeView />}
           {active === 5 && <Profile />}
-        </div>
-        <div>
-          <Footer />
         </div>
         {/* CODE FORMERLY KNOWN AS Sidebar.jsx ENDS HERE */}
       </div>

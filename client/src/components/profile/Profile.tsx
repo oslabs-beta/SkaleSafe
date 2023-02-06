@@ -5,10 +5,6 @@ import Modal from 'react-modal';
 import { useAppSelector } from '../../../redux/Hooks/Hooks';
 
 type Props = {}
-// type Props = {
-//     pathname: string,
-//     outLinks: string
-// };
 
 
 const Profile = (props: Props) => {

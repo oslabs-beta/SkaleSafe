@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-import { alertsData } from './AlertsData.ts';
-import dashboardState from "../../../interfaces/dashboardState";
+import { alertsData } from './AlertsData';
+import dashboardState from '../../../interfaces/dashboardState';
 
 // import { UID } from '../../../../../server/controllers/grafana/createAlertsDashboard';
 
@@ -9,38 +9,39 @@ type Props = {};
 
 const AlertsMetrics = (props: Props) => {
   // use username from local storage to
-  const username = localStorage.getItem('username')
+  const username = localStorage.getItem('username');
   const [userData, setUserData] = useState<dashboardState>({
     grafPort: '',
-    customUID: '', 
+    customUID: '',
     alertsUID: '',
   });
-  
+
   // fetch alertsUID and grafPort from DBs
   const handleFetchData = async () => {
     try {
-      const userResponse = await fetch(`http://localhost:3000/graf/alerts?username=${username}`)
+      const userResponse = await fetch(
+        `http://localhost:3000/graf/alerts?username=${username}`
+      );
       const data = await userResponse.json();
       setUserData(data);
     } catch (err) {
       console.error('User alerts metrics could not be retrieved');
       return err;
     }
-  }
+  };
 
   useEffect(() => {
     handleFetchData();
-  },[])
+  }, []);
 
-  // while the first comment is true, the larger problem is that you're trying to return JSX from an async method which won't work. 
+  // while the first comment is true, the larger problem is that you're trying to return JSX from an async method which won't work.
   // you need to fetch your async data in componentDidMount() and call this.setState when your api returns instead of returning JSX directly
-
 
   // if (!userData) return null;
 
   //  http://localhost:8888/graf/d-solo/o33xe-0Vk/Alerts-Dashboard?orgId=1&panelId=2
-  //  
-  
+  //
+
   return (
     <div
       id='alertstab'
@@ -61,7 +62,7 @@ const AlertsMetrics = (props: Props) => {
         ))}
       </div>
     </div>
-  )
+  );
 };
 
 export default AlertsMetrics;

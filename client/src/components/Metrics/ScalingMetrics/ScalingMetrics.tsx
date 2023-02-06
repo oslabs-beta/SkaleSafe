@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import dashboardState from "../../../interfaces/dashboardState";
-import { scalingData } from './ScalingData';
+import { scalingData } from './ScalingData.ts';
 
 const ScalingMetrics = () => {
     // use username from local storage to

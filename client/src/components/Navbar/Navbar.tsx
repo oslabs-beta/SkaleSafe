@@ -1,15 +1,13 @@
 import { Link, useLocation } from 'react-router-dom';
 import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md';
 import React, { useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../../redux/Hooks/Hooks';
+
 import AddCluster from '../AddCluster/AddCluster';
 import LightOrDark from '../ModeSwitch/ModeSwitch';
 import Profile from '../Profile/Profile';
 import SignInModal from '../Signin/SigninModal';
 import SignupModal from '../Signup/SignupModal';
-import { setIsLoggedIn } from '../../../redux/Slices/UserSlice';
-
-
+import { useAppSelector } from '../../../redux/Hooks/Hooks';
 
 const Navbar = () => {
   const location = useLocation();
@@ -25,12 +23,6 @@ const Navbar = () => {
   //converted outLinks to variable, allowing LightOrDark to flip colors
 
   const inLinks = 'text-md px-2 py-1';
-
-  const dispatch = useAppDispatch();
-const logUserOut = (event: any) => {
-  event.preventDefault();
-  dispatch(setIsLoggedIn(false));
-};
 
   useEffect(() => {
     if (hash) {
@@ -74,22 +66,10 @@ const logUserOut = (event: any) => {
       <ul className='flex flex-row gap-x-4'>
         {isLoggedIn
           ? (   
-              <>
-            <li>
-            <AddCluster />
-           </li>
-
-           <Link to='/dashboard' className='text-honeydew text-xl font-semi px-2 py-1 hover:scale-110 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]'> 
-           My Dashboard
-           </Link>
-        
-           <Link to='/home' className='text-honeydew text-xl font-semi px-2 py-1 hover:scale-110 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]' onClick={logUserOut}>
-              Logout
-            </Link>
-              
-           </>
+              <li>
+                <AddCluster />
+              </li>
             )
-            
           : [
               ['Home', '/home'],
               ['About', '#about'],
@@ -104,7 +84,19 @@ const logUserOut = (event: any) => {
               </li>
             ))}
       </ul>
-      <button
+      {/* <button
+        onClick={() =>
+          window.open('https://github.com/oslabs-beta/SkaleSafe', '_blank')
+        }
+      >
+        <img
+          src='../assets/GitHub-logo.png'
+          className='w-20 h-15 hover:text-honeydew hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]'
+          alt='GitHub logo without a background'
+        />
+      </button> */}
+
+      {/* <button
         className='text-honeydew text-md px-2 py-1 hover:text-honeydew hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]'
         onClick={() => LightOrDark()}
       >
@@ -113,12 +105,11 @@ const logUserOut = (event: any) => {
           src='../../../assets/skaleSafe-light.png'
           className='w-10 h-10'
         />
-      </button>
-      
+      </button> */}
       <ul className='flex flex-row gap-x-4'>
         {isLoggedIn
-          ? 
-            (  <>
+          ? // PROFILE LINK CURRENTLY LEADS TO ADD CLUSTER INFO
+            (  
               <li className='flex gap-x-4 items-center'>
                 <div
                   id='navUser'
@@ -131,19 +122,12 @@ const logUserOut = (event: any) => {
                     src='../../../assets/profile.png'
                     alt='profile photo'
                   />
-                    
               </li>
-
-        
-              
-             
-              </>
             )
           : [<SignupModal />, <SignInModal />].map((modal) => (
               <li className='flex gap-x-8 items-center'>{modal}</li>
             ))}
       </ul>
-      
     </nav>
   );
 };

@@ -11,6 +11,7 @@ import {
   RiLogoutBoxLine,
   RiSettings3Line,
 } from 'react-icons/ri';
+import { setIsLoggedIn, setUserData } from '../../../redux/Slices/UserSlice';
 import { useAppDispatch, useAppSelector } from '../../../redux/Hooks/Hooks';
 import { useEffect, useState } from 'react';
 
@@ -21,29 +22,33 @@ import KubeView from '../Kubeview/KubeView';
 import LightOrDark from '../ModeSwitch/ModeSwitch';
 import { MdAddCircleOutline } from 'react-icons/md'
 import Profile from '../Profile/Profile';
+import { RootState } from '../../../redux/store';
 import ScalingMetrics from '../Metrics/ScalingMetrics/ScalingMetrics';
-import { setIsLoggedIn } from '../../../redux/Slices/UserSlice';
 import { useNavigate } from 'react-router-dom';
 
-type Props = {};
-
-const Dashboard = (props: Props) => {
+const Dashboard = () => {
   const isLoggedIn = useAppSelector((state) => state.user.isLoggedIn);
   const [active, setActive] = useState(1);
   // clicking on the different options on the sidebar changes the 'active' state above
   const listElement = 'text-prussian-blue text-base hover:scale-105 hover:bg-teal-blue/20 ';
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+
   const loggedOut = (event: any) => {
     event.preventDefault();
     dispatch(setIsLoggedIn(false));
+    dispatch(setUserData({
+      firstname: '',
+      lastname: '',
+      username: '',
+      email: '',
+    }))
   };
 
-  useEffect(() => {
-    if (isLoggedIn) navigate('/dashboard');
-    else navigate('/');
-    console.log('Is this rendering many times??')
-  },[navigate, isLoggedIn])
+  // useEffect(() => {
+  //   if (isLoggedIn) navigate('/dashboard');
+  //   else navigate('/');
+  // },[navigate, isLoggedIn])
 
     return (
       <div className='w-screen h-screen'>
@@ -109,9 +114,8 @@ const Dashboard = (props: Props) => {
                         </span>
                       </a>
                     </li>
-                    <li className={listElement} onClick={() => setActive(5)}>
+                    <li className={listElement}>
                       <a
-                        href='#add-cluster'
                         className='flex items-center p-2 space-x-3 rounded-md'
                       >
                         <MdAddCircleOutline size={24} className="fill-prussian-blue"/>
@@ -121,9 +125,8 @@ const Dashboard = (props: Props) => {
                         </span>
                       </a>
                     </li>
-                    <li className={listElement} onClick={() => setActive(5)}>
+                    <li className={listElement}>
                       <a
-                        href='#profile'
                         className='flex items-center p-2 space-x-3 rounded-md'
                       >
                         <RiSettings3Line size={24} className="fill-prussian-blue"/>

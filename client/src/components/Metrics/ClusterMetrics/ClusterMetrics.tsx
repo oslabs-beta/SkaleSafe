@@ -1,7 +1,8 @@
-import { clusterData } from './ClusterData';
 import { useEffect, useState } from 'react';
-import dashboardState from '../../../interfaces/dashboardState';
+
 import { GiShipWheel } from 'react-icons/gi';
+import { clusterData } from './clusterData';
+import dashboardState from '../../../interfaces/dashboardState';
 
 type Props = {};
 

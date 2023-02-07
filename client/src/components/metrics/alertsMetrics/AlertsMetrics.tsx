@@ -25,7 +25,7 @@ const AlertsMetrics = (props: Props) => {
     } catch (err) {
       console.error('User alerts metrics could not be retrieved');
       return err;
-
+    }
   }
 
   useEffect(() => {
@@ -53,7 +53,6 @@ const AlertsMetrics = (props: Props) => {
         {alertsData.map((item: any) => (
           <iframe
             src={`${userData.grafPort}/graf/d-solo/${userData.alertsUID}/Alerts-Dashboard?orgId=1&panelId=${item.ID}`}
-            // src={`http://localhost:8888/graf/d-solo/o33xe-0Vk/Alerts-Dashboard?orgId=1&panelId=${item.ID}`}
             width={item.width}
             height={item.height}
             frameBorder='0'

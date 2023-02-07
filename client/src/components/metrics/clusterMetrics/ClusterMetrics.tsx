@@ -40,6 +40,21 @@ const ClusterMetrics = (props: Props) => {
     }
   };
 
+  // const handleFetchData = async () => {
+  //   try {
+  //     const userResponse = await fetch(
+  //       `http://localhost:3000/graf/clustermetrics?username=${username}`
+  //     );
+  //     const data = await userResponse.json();
+  //     setUserData(data);
+  //     console.log('from clusterMetrics:', data);
+  //     if (data.valueOf.length !== 0) setDataAvailable(true);
+  //   } catch (err) {
+  //     console.error('User alerts metrics could not be retrieved');
+  //     return err;
+  //   }
+  // };
+
   useEffect(() => {
     handleFetchData();
   }, []);

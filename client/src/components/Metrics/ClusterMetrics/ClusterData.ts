@@ -1,91 +1,95 @@
 import grafData from "../../../interfaces/grafData";
 
 export const clusterData: grafData[] = [
-  // specify which graph this is here.
+  // CPU Usage
   {
     ID: 2,
-    width: 450,
+    width: 964,
     height: 200,
   },
-  // specify which graph this is here.
+  // CPU Util
   {
-    ID: 3,
-    width: 450,
-    height: 200,
+    ID: 28,
+    width: 300,
+    height: 150,
   },
-  {
-    ID: 4,
-    width: 450,
-    height: 200,
-  },
-  {
-    ID: 5,
-    width: 450,
-    height: 200,
-  },
-  {
-    ID: 6,
-    width: 450,
-    height: 200,
-  },
-  {
-    ID: 7,
-    width: 450,
-    height: 200,
-  },
-  {
-    ID: 8,
-    width: 450,
-    height: 200,
-  },
-  {
-    ID: 9,
-    width: 450,
-    height: 200,
-  },
-  {
-    ID: 15,
-    width: 450,
-    height: 200,
-  },
-  {
-    ID: 17,
-    width: 450,
-    height: 200,
-  },
-  {
-    ID: 19,
-    width: 450,
-    height: 200,
-  },
-  {
-    ID: 21,
-    width: 450,
-    height: 200,
-  },
-  {
-    ID: 23,
-    width: 450,
-    height: 200,
-  },
-  {
-    ID: 25,
-    width: 450,
-    height: 200,
-  },
-  {
-    ID: 27,
-    width: 450,
-    height: 200,
-  },
+  //CPU Requests Commitment
   {
     ID: 29,
-    width: 450,
+    width: 300,
+    height: 150,
+  },
+  //CPU Limits Commitment
+  {
+    ID: 30,
+    width: 300,
+    height: 150,
+  },
+  //Mem Usage Amt
+  {
+    ID: 4,
+    width: 964,
     height: 200,
   },
+  //Mem Util
   {
     ID: 31,
-    width: 450,
+    width: 300,
+    height: 150,
+  },
+  //Mem requests Commitment
+  {
+    ID: 32,
+    width: 300,
+    height: 150,
+  },
+  //Mem limits Commitment
+  {
+    ID: 33,
+    width: 300,
+    height: 150,
+  },
+  //Mem Usage
+  {
+    ID: 5,
+    width: 467,
     height: 200,
-  }
+  },
+  //All processes memory usage
+  {
+    ID: 24,
+    width: 467,
+    height: 200,
+  },
+  //Disk I/O
+  {
+    ID: 6,
+    width: 964,
+    height: 200,
+  },
+  //Disk Space Usage
+  {
+    ID: 7,
+    width: 964,
+    height: 200,
+  },
+  //Network received
+  {
+    ID: 8,
+    width: 467,
+    height: 200,
+  },
+  //Network transmitted
+  {
+    ID: 9,
+    width: 467,
+    height: 200,
+  },
+
+  //Availability
+  {
+    ID: 25,
+    width: 964,
+    height: 100,
+  },
 ];

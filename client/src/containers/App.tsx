@@ -18,7 +18,7 @@ import SignIn from '../components/Signin/SignIn';
 
 const App = () => {
   return (
-    <div className='overflow-hidden'>
+    <div>
       <Navbar />
 
       <div>

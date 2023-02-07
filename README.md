@@ -4,20 +4,20 @@
 <br/>
 
 ## Table of Contents
- - [Cluster Monitoring with SkaleSafe](#cluster-monitoring-with-skalesafe)
- - [Installation](#installation-/-setup-instructions)
-   - [Prometheus Installation](#prometheus-installation)
-   - [Grafana Installation](#grafana-installation)
-   - [KubeView Installation](#kubeview-installation)
- - [Electron Guide](#electron-guide)
+ - [Our Mission](#our mission)
+ - [Installation](#-)
+   - [Prometheus](#prometheus-installation)
+   - [Grafana](#grafana-installation)
+   - [KubeView](#kubeview-installation)
+ - [For Local Clusters](#for-local-clusters)
  - [Technology Stack](#technology-stack)
  - [License](#license)
  - [The Team](#the-team)
  
 <br/>
 
-## Cluster Monitoring with SkaleSafe
-PENDING
+## Our Mission
+SkaleSafe empowers organizations to confidently navigate the complexity of their Kubernetes clusters by providing a powerful webapp that offers insightful and customized metric visualization. Our focus on crucial scaling metrics, comprehensive cluster health metrics, and actionable alerts metrics sets us apart, enabling our clients to make informed decisions and drive their businesses forward. We strive to simplify the monitoring and management of Kubernetes clusters, making it accessible and effortless for all.
 
 <br/>
 
@@ -27,20 +27,25 @@ PENDING
 <br/>
 
 ## Prometheus Installation:
-First, we need to create a cluster namespace for all our monitoring components (first Prometheus, then alter Grafana + KubeView). We create a dedicated namespace, because we don't want all of our monitoring pods floating around in the default namespace.
 
-The Prometheus Stack is a collection of pods intended to monitor the Kubernetes cluster. Here is the relevant documentation: &nbsp;[Prometheus Docs](https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/README.md).
+<br/>
 
-1. Execute the following command to create a new namespace: monitoring.
+Prometheus is a collection of pods intended to monitor your Kubernetes cluster. Please see their documentation for extensive details: &nbsp;[Prometheus Docs](https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/README.md).
 
-   ```
-   kubectl create namespace monitoring
-   ```
+<br/>
 
 2. All of the Prometheus configuration files mentioned in this section are created for you and hosted on GitHub. Clone this repo using the following command:
 
    ```
    git clone https://github.com/daniel-doody/setup-prometheus-kubernetes.git
+   ```
+  
+   Now we need to create a cluster namespace for all of our monitoring components. We create a dedicated namespace, because we don't want all of our monitoring pods floating around in the default namespace.
+
+1. Execute the following command to create a new namespace: monitoring.
+
+   ```
+   kubectl create namespace monitoring
    ```
   
 3. Navigate to our cloned folder with the Prometheus files, apply the 'cluster-role.yaml' file to create a Cluster Role with the following RBAC policies: (get, watch, read). 
@@ -96,6 +101,7 @@ The Prometheus Stack is a collection of pods intended to monitor the Kubernetes 
 
 
 ## Grafana Installation:
+<br/>
 In our previous step, we set up Prometheus to monitor our cluster. Next, we will add Grafana for real-time cluster metric visualization.
 
 For the complete list of setup instructions and customizations, please see: &nbsp;[Grafana Docs](https://grafana.com/docs/grafana/latest/setup-grafana/installation/kubernetes/).
@@ -170,9 +176,11 @@ PENDING
 
 <br/>
 
-## Electron Guide
+## For Local Clusters
 
 <br />
+
+### Using Electron
 
 If you are running a local cluster using MiniKube, please use the Electron version of our application instead of our web application. The web application (SkaleSafe.com) only works with cloud-hosted clusters, or local clusters with an SSL-certificate installed. For security reasons, ChromeOS will only show cluster metrics with an active SSL certificate configured in the cluster.
 
@@ -181,6 +189,10 @@ If you are running a local cluster using MiniKube, please use the Electron versi
 To run SkaleSafe on your local machine using Electron, follow this guide: [ELECTRON.md](ELECTRON.md)
 
 <br/>
+
+### Creating a Cluster
+
+If you are new to Kubernetes, we welcome you to use our app as a learning tool. Follow this [quick-start guide](src/CLUSTER.md) to install MiniKube on your machine, and spin up your first cluster in no-time! After you have successfully set up the cluster, please continue with installing [Prometheus](#prometheus-installation), [Grafana](#grafana-installation), and [KubeView](#kubeview-installation)
 
 <br/>
 

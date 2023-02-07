@@ -1,15 +1,14 @@
 import { AiFillGithub, AiFillGoogleCircle } from 'react-icons/ai';
 import React, { useState } from 'react';
 import {
-  SignInState,
   setIsLoggedIn,
   setUserData,
 } from '../../../redux/Slices/UserSlice';
-import { useAppDispatch, useAppSelector } from '../../../redux/Hooks/Hooks';
 
 import Modal from 'react-modal';
 import SignInData from '../../interfaces/signin';
 import axios from 'axios';
+import { useAppDispatch } from '../../../redux/Hooks/Hooks';
 import { useNavigate } from 'react-router-dom';
 
 const SignInModal = () => {
@@ -94,7 +93,7 @@ const SignInModal = () => {
         Sign In
       </button>
       <Modal
-       id ='signInModal'
+        id ='signInModal'
         isOpen={isOpen}
         onRequestClose={() => setIsOpen(false)}
         shouldCloseOnOverlayClick={true}

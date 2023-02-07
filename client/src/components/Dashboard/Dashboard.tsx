@@ -14,11 +14,12 @@ import {
 import { useAppDispatch, useAppSelector } from '../../../redux/Hooks/Hooks';
 import { useEffect, useState } from 'react';
 
-
+import AddCluster from '../AddCluster/AddCluster';
 import AlertsMetrics from '../Metrics/AlertsMetrics/AlertsMetrics';
 import ClusterMetrics from '../Metrics/ClusterMetrics/ClusterMetrics';
 import KubeView from '../Kubeview/KubeView';
 import LightOrDark from '../ModeSwitch/ModeSwitch';
+import { MdAddCircleOutline } from 'react-icons/md'
 import Profile from '../Profile/Profile';
 import ScalingMetrics from '../Metrics/ScalingMetrics/ScalingMetrics';
 import { setIsLoggedIn } from '../../../redux/Slices/UserSlice';
@@ -30,7 +31,7 @@ const Dashboard = (props: Props) => {
   const isLoggedIn = useAppSelector((state) => state.user.isLoggedIn);
   const [active, setActive] = useState(1);
   // clicking on the different options on the sidebar changes the 'active' state above
-  const listElement = 'rounded-sm hover:scale-105';
+  const listElement = 'text-prussian-blue text-base hover:scale-105 hover:bg-teal-blue/20 ';
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const loggedOut = (event: any) => {
@@ -41,6 +42,7 @@ const Dashboard = (props: Props) => {
   useEffect(() => {
     if (isLoggedIn) navigate('/dashboard');
     else navigate('/');
+    console.log('Is this rendering many times??')
   },[navigate, isLoggedIn])
 
     return (
@@ -55,7 +57,7 @@ const Dashboard = (props: Props) => {
                 <div className='flex items-center pt-6'>
                   <h2
                     id='dbText'
-                    className='text-xl text-prussian-blue pl-4 font-bold'
+                    className='text-2xl text-prussian-blue pl-4 font-bold'
                   >
                     Dashboard
                   </h2>
@@ -67,8 +69,8 @@ const Dashboard = (props: Props) => {
                         href='#scalingmetrics'
                         className='flex items-center p-2 space-x-3 rounded-md'
                       >
-                        <RiBarChartLine size={24} />
-                        <span id='scalingoption' className='text-prussian-blue'>
+                        <RiBarChartLine size={24} className="fill-prussian-blue"/>
+                        <span id='scalingoption'>
                           Scaling Metrics
                         </span>
                       </a>
@@ -79,8 +81,8 @@ const Dashboard = (props: Props) => {
                         href='#alerts'
                         className='flex items-center p-2 space-x-3 rounded-md'
                       >
-                        <AiOutlineWarning size={24} />
-                        <span id='alertsoption' className='text-prussian-blue'>
+                        <AiOutlineWarning size={24} className="fill-prussian-blue"/>
+                        <span id='alertsoption'>
                           Alerts
                         </span>
                       </a>
@@ -90,8 +92,8 @@ const Dashboard = (props: Props) => {
                         href='#clusterinfo'
                         className='flex items-center p-2 space-x-3 rounded-md'
                       >
-                        <AiOutlineCluster size={24} />
-                        <span id='clusteroption' className='text-prussian-blue'>
+                        <AiOutlineCluster size={24} className="fill-prussian-blue"/>
+                        <span id='clusteroption'>
                           Cluster Health
                         </span>
                       </a>
@@ -101,9 +103,21 @@ const Dashboard = (props: Props) => {
                         href='#kubeview'
                         className='flex items-center p-2 space-x-3 rounded-md'
                       >
-                        <RiBubbleChartLine size={24} />
-                        <span id='kubeoption' className='text-prussian-blue'>
+                        <RiBubbleChartLine size={24} className="fill-prussian-blue"/>
+                        <span id='kubeoption'>
                           KubeView
+                        </span>
+                      </a>
+                    </li>
+                    <li className={listElement} onClick={() => setActive(5)}>
+                      <a
+                        href='#add-cluster'
+                        className='flex items-center p-2 space-x-3 rounded-md'
+                      >
+                        <MdAddCircleOutline size={24} className="fill-prussian-blue"/>
+                        <span
+                          id='add-cluster'>
+                          <AddCluster />
                         </span>
                       </a>
                     </li>
@@ -112,27 +126,22 @@ const Dashboard = (props: Props) => {
                         href='#profile'
                         className='flex items-center p-2 space-x-3 rounded-md'
                       >
-                        <RiSettings3Line size={24} />
+                        <RiSettings3Line size={24} className="fill-prussian-blue"/>
                         <span
-                          id='settingsoption'
-                          className='text-prussian-blue'
-                        >
+                          id='settingsoption'>
                           <Profile />
                         </span>
                       </a>
                     </li>
-
                     <li className={listElement} onClick={loggedOut}>
                       <Link
                         to='/home'
                         className='flex items-center p-2 space-x-3 rounded-md mb-24'
                       >
-                        <RiLogoutBoxLine size={24} />
+                        <RiLogoutBoxLine size={24} className="fill-prussian-blue"/>
                         <div>
                           <span
-                            id='logoutoption'
-                            className='text-prussian-blue'
-                          >
+                            id='logout-option'>
                             Logout
                           </span>
                         </div>

@@ -1,6 +1,7 @@
 import Modal from 'react-modal';
+import React from 'react';
 import { useAppSelector } from '../../../redux/Hooks/Hooks';
-import {useState} from 'react';
+import { useState } from 'react';
 
 type Props = {}
 

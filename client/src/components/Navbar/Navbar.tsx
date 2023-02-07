@@ -1,22 +1,21 @@
 import { Link, useLocation } from 'react-router-dom';
 import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md';
 import React, { useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../../redux/Hooks/Hooks';
 
 import AddCluster from '../AddCluster/AddCluster';
 import LightOrDark from '../ModeSwitch/ModeSwitch';
 import Profile from '../Profile/Profile';
 import SignInModal from '../Signin/SigninModal';
 import SignupModal from '../Signup/SignupModal';
-import { setIsLoggedIn } from '../../../redux/Slices/UserSlice';
+import { useAppSelector } from '../../../redux/Hooks/Hooks';
 
 const Navbar = () => {
   const location = useLocation();
   const { hash } = location;
   // const pathname = location.pathname;
 
-  const userName = useAppSelector((state: any) => state.user.userData.firstname);
-  const isLoggedIn = useAppSelector((state: any) => state.user.isLoggedIn);
+  const userName = useAppSelector((state) => state.user.userData.firstname);
+  const isLoggedIn = useAppSelector((state) => state.user.isLoggedIn);
 
   //ADD ID BELOW
   const outLinks =
@@ -65,25 +64,25 @@ const Navbar = () => {
       </Link>
 
       <ul className='flex flex-row gap-x-4'>
-        {isLoggedIn
-          ? (   
-              <li>
-                <AddCluster />
-              </li>
-            )
-          : [
-              ['Home', '/home'],
-              ['About', '#about'],
-              ['Demo', '#demo'],
-              ['Documentation', '#documentation'],
-              ['The Team', '#team'],
-            ].map(([title, url]) => (
-              <li>
-                <Link to={url}>
-                  <button className={outLinks}>{title}</button>
-                </Link>
-              </li>
-            ))}
+        {isLoggedIn ? (
+          <li>
+            <AddCluster />
+          </li>
+        ) : (
+          [
+            ['Home', '/home'],
+            ['About', '#about'],
+            ['Demo', '#demo'],
+            ['Documentation', '#documentation'],
+            ['The Team', '#team'],
+          ].map(([title, url]) => (
+            <li key={url}>
+              <Link to={url}>
+                <button className={outLinks}>{title}</button>
+              </Link>
+            </li>
+          ))
+        )}
       </ul>
       {/* <button
         onClick={() =>
@@ -108,26 +107,23 @@ const Navbar = () => {
         />
       </button> */}
       <ul className='flex flex-row gap-x-4'>
-        {isLoggedIn
-          ? // PROFILE LINK CURRENTLY LEADS TO ADD CLUSTER INFO
-            (  
-              <li className='flex gap-x-4 items-center'>
-                <div
-                  id='navUser'
-                  className='text-honeydew text-xl font-semi py-1'
-                >
-                  {`Welcome ${userName}`}
-                </div>
-                  <img
-                    className='w-10 h-10 rounded-full hover:scale-110 hover:brightness-110'
-                    src='../../../assets/profile.png'
-                    alt='profile photo'
-                  />
-              </li>
-            )
-          : [<SignupModal />, <SignInModal />].map((modal) => (
-              <li className='flex gap-x-8 items-center'>{modal}</li>
-            ))}
+        {isLoggedIn ? (
+          // PROFILE LINK CURRENTLY LEADS TO ADD CLUSTER INFO
+          <li className='flex gap-x-4 items-center'>
+            <div id='navUser' className='text-honeydew text-xl font-semi py-1'>
+              {`Welcome ${userName}`}
+            </div>
+            <img
+              className='w-10 h-10 rounded-full hover:scale-110 hover:brightness-110'
+              src='../../../assets/profile.png'
+              alt='profile photo'
+            />
+          </li>
+        ) : (
+          [<SignupModal />, <SignInModal />].map((modal) => (
+            <li className='flex gap-x-8 items-center'>{modal}</li>
+          ))
+        )}
       </ul>
     </nav>
   );

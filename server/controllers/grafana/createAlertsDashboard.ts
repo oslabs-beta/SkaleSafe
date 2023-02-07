@@ -10,9 +10,9 @@ const createAlertsDashboard = async (
   next: NextFunction
 ) => {
   try {
-    const grafanaUrl = req.query.grafanaPort;
-    const username = req.query.grafanaUsername;
-    const password = req.query.grafanaPassword;
+    const grafanaUrl = req.body.addCluster.grafanaPort;
+    const username = req.body.addCluster.grafanaUsername;
+    const password = req.body.addCluster.grafanaPassword;
     console.log(grafanaUrl, username, password);
 
     let authBuffer = Buffer.from(username + ':' + password, 'utf8');

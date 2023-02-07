@@ -1,89 +1,84 @@
 import { AiFillGithub, AiFillGoogleCircle } from 'react-icons/ai';
-import React, { useState } from 'react';
-import {
-  SignInState,
-  setIsLoggedIn,
-  setUserData,
-} from '../../../redux/Slices/UserSlice';
-import { useAppDispatch, useAppSelector } from '../../../redux/Hooks/Hooks';
+import { useEffect, useState } from 'react';
 
 import Modal from 'react-modal';
-import SignInData from '../../interfaces/signin';
+import React from 'react';
+import SignUpData from '../../interfaces/signup';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const SignInModal = () => {
-  const navigate = useNavigate();
+const SignupModal = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const [isSignedUp, setIsSignedUp] = useState(false);
   const [error, setError] = useState('');
-  const [formData, setFormData] = useState<SignInData>({
+  const [formData, setFormData] = useState<SignUpData>({
+    firstname: '',
+    lastname: '',
+    email: '',
     username: '',
     password: '',
+    picture: '../../../assets/profile.png',
   });
 
-  const dispatch = useAppDispatch();
+  useEffect(() => {
+    if (isSignedUp) {
+      navigate('/');
+    } else {
+      console.log('There was an error signing up');
+    }
+  }, [isSignedUp, navigate]);
 
-  const handleChange = (event: any) => {
+  // update form object after each keystroke
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
+
     setFormData({ ...formData, [name]: value });
   };
 
+  // submit form: send post request to server @ /signup
   const submitFormData = (e: any) => {
     e.preventDefault();
 
+    if(formData.password.length < 8) {
+      setError('Password must be at least 8 characters');
+      return;
+    }
+
+
+
     axios
-      .post('http://localhost:3000/users/signin', formData)
+      .post('http://localhost:3000/users/signup', formData)
       .then((res) => {
         if (res.status === 200) {
-
-          const { firstname, lastname, email, username } = res.data.user;
-          dispatch(setIsLoggedIn(true));
-          dispatch(
-            setUserData({
-              firstname,
-              lastname,
-              email,
-              username,
-              // password: string
-            })
-          ); // PASS THIS AN OBJECT
-          // Using Local Storage to track user/permissions:
-          // local storage functions:  https://developer.mozilla.org/en-US/docs/Web/API/Storage/clear
-          localStorage.setItem('username', username);
-          // to retrieve username... use localStorage.getItem(keyname)
-          // to delete username (session)... use localStorage.clear()
-          navigate('/dashboard');
+          setIsSignedUp(true);
+          setIsOpen(false);
+          navigate('/');
         }
         if (res.status === 204) {
-          // 204 was necessary because sending back a status code in the 400s
-          // triggers some kinda automatic axios mumbo-jumbo...
-          setError('Incorrect Username and/or Password');
+          //Error handling for non unique email or username
+          console.log(res);
         }
       })
       .catch((err) => {
-        setError('Could not make axios request');
         console.log(err);
       });
 
-    setFormData({
-      username: '',
-      password: '',
-    });
+      setFormData({
+        firstname: '',
+        lastname: '',
+        email: '',
+        username: '',
+        password: '',
+        picture: '../../../assets/profile.png',
+      })
   };
 
   const inputField =
-    'border-b-2 rounded-lg mb-4 h-11 px-2 border-sapphire-blue w-full focus:outline-none focus:border-fuzzy-wuzzy focus:border-b-3';
-  const active =
-    'text-prussian-blue font-semibold border-b-2 border-prussian-blue pt-1 text-2xl';
+    'rounded-lg mb-2 py-6 h-11 px-2 w-full focus:outline-none border-2 border-off-white focus:border-fuzzy-wuzzy';
 
   const button =
     'px-8 py-3 mt-2 mr-2 mb-4 cursor-pointer rounded-md text-lg focus:scale-95 border-purple border-2 text-purple hover:text-off-white hover:shadow-[inset_13rem_0_0_0] hover:shadow-purple hover:border-purple duration-[400ms,700ms] transition-[color,box-shadow]';
-
-  const tryAgain = (
-    <div className='text-error-red mt-8'>
-      Login credentials unrecognized: Please try again.
-    </div>
-  );
 
   return (
     <div>
@@ -91,41 +86,78 @@ const SignInModal = () => {
         onClick={() => setIsOpen(true)}
         className='text-honeydew text-xl font-semi px-2 py-1 hover:scale-110 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]'
       >
-        Sign In
+        Sign Up
       </button>
       <Modal
-       id ='signInModal'
         isOpen={isOpen}
         onRequestClose={() => setIsOpen(false)}
         shouldCloseOnOverlayClick={true}
-        className='w-2/5 m-auto mt-40 px-6 rounded-lg shadow-xl bg-white border-b-8 border-primary-color'
+        className='w-1/2 m-auto mt-40 px-6 rounded-lg shadow-xl bg-white border-b-8 border-primary-color'
       >
         <form className='p-12 relative' onSubmit={submitFormData}>
           <h1 className='text-2xl mt-4 font-bold mb-8 text-prussian-blue'>
-            Sign In:
+            Create An Account:
           </h1>
           <button
-          type ='submit'
             onClick={() => setIsOpen(false)}
-            className='absolute text-xl top-8 right-4 text-purple border-2 border-off-white shadow-sm rounded-full px-4 py-2 font-extrabold hover:scale-110 hover:text-sapphire-blue'
+            className='absolute text-xl top-8 right-4 text-purple border-2 border-off-white rounded-full px-4 py-2 font-extrabold hover:scale-110 hover:text-sapphire-blue'
           >
             X
           </button>
-          {/* Email */}
-          <div className='relative'>
+          <div className=''>
             <input
-              type='text'
+              type='firstname'
+              id='first-name'
               className={inputField}
-              name='username'
+              name='firstname'
               autoComplete='off'
-              value={formData.username}
-              placeholder='Email or Username'
+              value={formData.firstname}
+              placeholder='First Name'
               required
               onChange={(e) => handleChange(e)}
             />
           </div>
-          {/* Password */}
-          <div className='relative'>
+          <div className=''>
+            <input
+              type='lastname'
+              id='last-name'
+              className={inputField}
+              name='lastname'
+              autoComplete='off'
+              placeholder='Last Name'
+              required
+              onChange={(e) => {
+                handleChange(e);
+              }}
+            />
+          </div>
+          <div className=''>
+            <input
+              type='email'
+              id='email'
+              className={inputField}
+              name='email'
+              autoComplete='off'
+              value={formData.email}
+              placeholder='Email'
+              required
+              onChange={(e) => handleChange(e)}
+            />
+          </div>
+          <div className=''>
+            <input
+              type='username'
+              id='username'
+              className={inputField}
+              name='username'
+              autoComplete='off'
+              value={formData.username}
+              placeholder='Username'
+              required
+              onChange={(e) => handleChange(e)}
+            />
+          </div>
+          <div className='mb-2'>
             <input
               type='password'
               id='password'
@@ -133,14 +165,14 @@ const SignInModal = () => {
               name='password'
               autoComplete='off'
               value={formData.password}
-              placeholder='Your Password'
+              placeholder='Password'
               required
               onChange={(e) => handleChange(e)}
             />
           </div>
           {error && <div className='text-red-500 text-1xl my-2'>{error}</div>}
           <button className={button} type='submit' value='signup'>
-            Sign In
+            Sign Up
           </button>
           {/* DIVIDER */}
           {/* <div className='flex place-content-center pt-8 mb-12 h-10'>
@@ -174,4 +206,4 @@ const SignInModal = () => {
   );
 };
 
-export default SignInModal;
+export default SignupModal;

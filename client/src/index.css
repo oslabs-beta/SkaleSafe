@@ -20,10 +20,10 @@ body {
     padding: 0;
 }
 
-
-/* 
-Delete after implementing an alternative method in modeswitch
 .light-mode{
 background: theme('colors.honeydew');
 
-} */
+}
+
+/* theme('colors.prussian-blue') */
+/* linear-gradient(90deg, #003153, #126180); */

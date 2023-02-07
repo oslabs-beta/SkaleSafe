@@ -53,7 +53,7 @@ userSchema.pre('save', function (next) {
 
 const User = model('User', userSchema);
 
-export default User;
+module.exports = User;
 
 // function (err: Error, hash: string) {
 //   if(err) {

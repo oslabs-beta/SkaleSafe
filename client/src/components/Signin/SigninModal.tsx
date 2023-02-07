@@ -22,7 +22,7 @@ const SignInModal = () => {
     username: '',
     password: '',
   });
-
+  console.log('sign-in modal loaded');
   const dispatch = useAppDispatch();
 
   const handleChange = (event: any) => {
@@ -37,7 +37,6 @@ const SignInModal = () => {
       .post('http://localhost:3000/users/signin', formData)
       .then((res) => {
         if (res.status === 200) {
-
           const { firstname, lastname, email, username } = res.data.user;
           dispatch(setIsLoggedIn(true));
           dispatch(
@@ -95,7 +94,7 @@ const SignInModal = () => {
         Sign In
       </button>
       <Modal
-       id ='signInModal'
+        id='signInModal'
         isOpen={isOpen}
         onRequestClose={() => setIsOpen(false)}
         shouldCloseOnOverlayClick={true}
@@ -106,7 +105,7 @@ const SignInModal = () => {
             Sign In:
           </h1>
           <button
-          type ='submit'
+            type='submit'
             onClick={() => setIsOpen(false)}
             className='absolute text-xl top-8 right-4 text-purple border-2 border-off-white shadow-sm rounded-full px-4 py-2 font-extrabold hover:scale-110 hover:text-sapphire-blue'
           >

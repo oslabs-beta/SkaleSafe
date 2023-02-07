@@ -64,25 +64,25 @@ const Navbar = () => {
       </Link>
 
       <ul className='flex flex-row gap-x-4'>
-        {isLoggedIn
-          ? (   
-              <li>
-                <AddCluster />
-              </li>
-            )
-          : [
-              ['Home', '/home'],
-              ['About', '#about'],
-              ['Demo', '#demo'],
-              ['Documentation', '#documentation'],
-              ['The Team', '#team'],
-            ].map(([title, url]) => (
-              <li>
-                <Link to={url}>
-                  <button className={outLinks}>{title}</button>
-                </Link>
-              </li>
-            ))}
+        {isLoggedIn ? (
+          <li>
+            <AddCluster />
+          </li>
+        ) : (
+          [
+            ['Home', '/home'],
+            ['About', '#about'],
+            ['Demo', '#demo'],
+            ['Documentation', '#documentation'],
+            ['The Team', '#team'],
+          ].map(([title, url]) => (
+            <li key={url}>
+              <Link to={url}>
+                <button className={outLinks}>{title}</button>
+              </Link>
+            </li>
+          ))
+        )}
       </ul>
       {/* <button
         onClick={() =>
@@ -107,26 +107,23 @@ const Navbar = () => {
         />
       </button> */}
       <ul className='flex flex-row gap-x-4'>
-        {isLoggedIn
-          ? // PROFILE LINK CURRENTLY LEADS TO ADD CLUSTER INFO
-            (  
-              <li className='flex gap-x-4 items-center'>
-                <div
-                  id='navUser'
-                  className='text-honeydew text-xl font-semi py-1'
-                >
-                  {`Welcome ${userName}`}
-                </div>
-                  <img
-                    className='w-10 h-10 rounded-full hover:scale-110 hover:brightness-110'
-                    src='../../../assets/profile.png'
-                    alt='profile photo'
-                  />
-              </li>
-            )
-          : [<SignupModal />, <SignInModal />].map((modal) => (
-              <li className='flex gap-x-8 items-center'>{modal}</li>
-            ))}
+        {isLoggedIn ? (
+          // PROFILE LINK CURRENTLY LEADS TO ADD CLUSTER INFO
+          <li className='flex gap-x-4 items-center'>
+            <div id='navUser' className='text-honeydew text-xl font-semi py-1'>
+              {`Welcome ${userName}`}
+            </div>
+            <img
+              className='w-10 h-10 rounded-full hover:scale-110 hover:brightness-110'
+              src='../../../assets/profile.png'
+              alt='profile photo'
+            />
+          </li>
+        ) : (
+          [<SignupModal />, <SignInModal />].map((modal) => (
+            <li className='flex gap-x-8 items-center'>{modal}</li>
+          ))
+        )}
       </ul>
     </nav>
   );

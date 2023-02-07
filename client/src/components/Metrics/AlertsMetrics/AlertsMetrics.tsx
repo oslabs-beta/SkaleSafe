@@ -61,7 +61,9 @@ const AlertsMetrics = (props: Props) => {
         ))}
       </div>
     </div>
+
   )
+
 };
 
 export default AlertsMetrics;

@@ -1,15 +1,13 @@
 import { AiFillGithub, AiFillGoogleCircle } from 'react-icons/ai';
+import React, { useState } from 'react';
 import {
   SignInState,
   setIsLoggedIn,
   setUserData,
 } from '../../../redux/Slices/UserSlice';
 import { useAppDispatch, useAppSelector } from '../../../redux/Hooks/Hooks';
-import { useEffect, useState } from 'react';
 
 import Modal from 'react-modal';
-import React from 'react';
-import { RootState } from '../store';
 import SignInData from '../../interfaces/signin';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -17,7 +15,6 @@ import { useNavigate } from 'react-router-dom';
 const SignInModal = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
-  const [failedLogin, setFailedLogin] = useState(false);
   const [error, setError] = useState('');
   const [formData, setFormData] = useState<SignInData>({
     username: '',
@@ -33,8 +30,6 @@ const SignInModal = () => {
 
   const submitFormData = (e: any) => {
     e.preventDefault();
-
-   
 
     axios
       .post('http://localhost:3000/users/signin', formData)
@@ -62,16 +57,11 @@ const SignInModal = () => {
         if (res.status === 204) {
           // 204 was necessary because sending back a status code in the 400s
           // triggers some kinda automatic axios mumbo-jumbo...
-          setFailedLogin(true);
+          setError('Incorrect Username and/or Password');
         }
-
-        if(formData.password !== res.data.password || formData.username !== res.data.username) {
-          setError('Login credentials unrecognized: Please try again.');
-          return;
-        }
-
       })
       .catch((err) => {
+        setError('Could not make axios request');
         console.log(err);
       });
 

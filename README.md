@@ -5,7 +5,7 @@
 
 ## Table of Contents
  - [Our Mission](#our-mission)
- - [Installation](#i)
+ - [Installation](#gfgfggf)
    - [Prometheus](#prometheus-installation)
    - [Grafana](#grafana-installation)
    - [KubeView](#kubeview-installation)
@@ -34,7 +34,7 @@ Prometheus is a collection of pods intended to monitor your Kubernetes cluster. 
 
 <br/>
 
-2. All of the Prometheus configuration files mentioned in this section are created for you and hosted on GitHub. Clone this repo using the following command:
+1. All of the Prometheus configuration files mentioned in this section are created for you and hosted on GitHub. Clone this repo using the following command:
 
    ```
    git clone https://github.com/daniel-doody/setup-prometheus-kubernetes.git
@@ -42,7 +42,7 @@ Prometheus is a collection of pods intended to monitor your Kubernetes cluster. 
   
    Now we need to create a cluster namespace for all of our monitoring components. We create a dedicated namespace, because we don't want all of our monitoring pods floating around in the default namespace.
 
-1. Execute the following command to create a new namespace: monitoring.
+2. Execute the following command to create a new namespace: monitoring.
 
    ```
    kubectl create namespace monitoring

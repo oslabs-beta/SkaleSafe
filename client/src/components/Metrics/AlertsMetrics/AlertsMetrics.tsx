@@ -25,7 +25,7 @@ const AlertsMetrics = (props: Props) => {
     } catch (err) {
       console.error('User alerts metrics could not be retrieved');
       return err;
-
+    }
   }
 
   useEffect(() => {
@@ -35,7 +35,7 @@ const AlertsMetrics = (props: Props) => {
   // while the first comment is true, the larger problem is that you're trying to return JSX from an async method which won't work. 
   // you need to fetch your async data in componentDidMount() and call this.setState when your api returns instead of returning JSX directly
 
-
+  //this needs to be removed, but is here to hopefully clean my commits
   // if (!userData) return null;
 
   //  http://localhost:8888/graf/d-solo/o33xe-0Vk/Alerts-Dashboard?orgId=1&panelId=2
@@ -53,7 +53,6 @@ const AlertsMetrics = (props: Props) => {
         {alertsData.map((item: any) => (
           <iframe
             src={`${userData.grafPort}/graf/d-solo/${userData.alertsUID}/Alerts-Dashboard?orgId=1&panelId=${item.ID}`}
-            // src={`http://localhost:8888/graf/d-solo/o33xe-0Vk/Alerts-Dashboard?orgId=1&panelId=${item.ID}`}
             width={item.width}
             height={item.height}
             frameBorder='0'

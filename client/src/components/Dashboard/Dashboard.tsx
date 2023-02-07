@@ -14,11 +14,10 @@ import {
 import { useAppDispatch, useAppSelector } from '../../../redux/Hooks/Hooks';
 import { useEffect, useState } from 'react';
 
-
-import AlertsMetrics from '../Metrics/AlertsMetrics/AlertsMetrics';
+import AlertsMetrics from '../Metrics/AlertsMetrics/AlertsMetrics.tsx';
 import ClusterMetrics from '../Metrics/ClusterMetrics/ClusterMetrics';
 import KubeView from '../Kubeview/KubeView';
-import LightOrDark from '../ModeSwitch/ModeSwitch';
+import LightOrDark from '../ModeSwitch/ModeSwitch.tsx';
 import Profile from '../Profile/Profile';
 import ScalingMetrics from '../Metrics/ScalingMetrics/ScalingMetrics';
 import { setIsLoggedIn } from '../../../redux/Slices/UserSlice';
@@ -27,7 +26,7 @@ import { useNavigate } from 'react-router-dom';
 type Props = {};
 
 const Dashboard = (props: Props) => {
-  const isLoggedIn = useAppSelector((state) => state.user.isLoggedIn);
+  const isLoggedIn = useAppSelector((state: any) => state.user.isLoggedIn);
   const [active, setActive] = useState(1);
   // clicking on the different options on the sidebar changes the 'active' state above
   const listElement = 'rounded-sm hover:scale-105';

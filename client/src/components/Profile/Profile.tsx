@@ -8,10 +8,10 @@ type Props = {}
 const Profile = (props: Props) => {
     const [isOpen, setIsOpen] = useState(false);
 
-    const firstname = useAppSelector(state => state.user.userData.firstname);
-    const lastname = useAppSelector(state => state.user.userData.lastname);
-    const username = useAppSelector(state => state.user.userData.username);
-    const email = useAppSelector(state => state.user.userData.email);
+    const firstname = useAppSelector((state: any) => state.user.userData.firstname);
+    const lastname = useAppSelector((state: any )=> state.user.userData.lastname);
+    const username = useAppSelector((state: any) => state.user.userData.username);
+    const email = useAppSelector((state: any) => state.user.userData.email);
 
     const outLinks =
     'text-honeydew text-xl font-semi px-2 py-1 hover:scale-110 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]';

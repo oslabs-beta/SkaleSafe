@@ -8,8 +8,8 @@ import SignupModal from '../Signup/SignupModal';
 import { setIsLoggedIn } from '../../../redux/Slices/UserSlice';
 
 const Navbar = () => {
-  const userName = useAppSelector((state) => state.user.userData.firstname);
-  const isLoggedIn = useAppSelector((state) => state.user.isLoggedIn);
+  const userName = useAppSelector((state: any) => state.user.userData.firstname);
+  const isLoggedIn = useAppSelector((state: any) => state.user.isLoggedIn);
   const dispatch = useAppDispatch();
   //ADD ID BELOW
   const outLinks =
@@ -62,26 +62,23 @@ const Navbar = () => {
       }
 
       <ul className='flex flex-row gap-x-4'>
-        {isLoggedIn
-          ? // PROFILE LINK CURRENTLY LEADS TO ADD CLUSTER INFO
-            (  
-              <li className='flex gap-x-4 items-center'>
-                <div
-                  id='navUser'
-                  className='text-honeydew text-xl font-semi py-1'
-                >
-                  {`Welcome ${userName}`}
-                </div>
-                  <img
-                    className='w-10 h-10 rounded-full hover:scale-110 hover:brightness-110'
-                    src='../../../assets/profile.png'
-                    alt='profile photo'
-                  />
-              </li>
-            )
-          : [<SignupModal />, <SignInModal />].map((modal) => (
-              <li className='flex gap-x-8 items-center'>{modal}</li>
-            ))}
+        {isLoggedIn ? (
+          // PROFILE LINK CURRENTLY LEADS TO ADD CLUSTER INFO
+          <li className='flex gap-x-4 items-center'>
+            <div id='navUser' className='text-honeydew text-xl font-semi py-1'>
+              {`Welcome ${userName}`}
+            </div>
+            <img
+              className='w-10 h-10 rounded-full hover:scale-110 hover:brightness-110'
+              src='../../../assets/profile.png'
+              alt='profile photo'
+            />
+          </li>
+        ) : (
+          [<SignupModal />, <SignInModal />].map((modal) => (
+            <li className='flex gap-x-8 items-center'>{modal}</li>
+          ))
+        )}
       </ul>
     </nav>
   );

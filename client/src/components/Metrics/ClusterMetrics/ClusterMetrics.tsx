@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 
 import { GiShipWheel } from 'react-icons/gi';
-import { clusterData } from './clusterData';
+import axios from 'axios';
+import { clusterData } from './ClusterData';
 import dashboardState from '../../../interfaces/dashboardState';
 
 type Props = {};
@@ -24,18 +25,36 @@ const ClusterMetrics = (props: Props) => {
   // fetch alertsUID and grafPort from DBs
   const handleFetchData = async () => {
     try {
-      const userResponse = await fetch(
+      const { data } = await axios.get(
         `http://localhost:3000/graf/clustermetrics?username=${username}`
       );
-      const data = await userResponse.json();
       setUserData(data);
-      console.log(data);
-      if (data.valueOf.length !== 0) setDataAvailable(true);
+      console.log('from clusterMetrics:', data);
+      if (data.grafPort) {
+        setTimeout(() => {
+          setDataAvailable(true);
+        }, 5000);
+      }
     } catch (err) {
       console.error('User alerts metrics could not be retrieved');
       return err;
     }
   };
+
+  // const handleFetchData = async () => {
+  //   try {
+  //     const userResponse = await fetch(
+  //       `http://localhost:3000/graf/clustermetrics?username=${username}`
+  //     );
+  //     const data = await userResponse.json();
+  //     setUserData(data);
+  //     console.log('from clusterMetrics:', data);
+  //     if (data.valueOf.length !== 0) setDataAvailable(true);
+  //   } catch (err) {
+  //     console.error('User alerts metrics could not be retrieved');
+  //     return err;
+  //   }
+  // };
 
   useEffect(() => {
     handleFetchData();

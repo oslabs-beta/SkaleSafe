@@ -75,7 +75,7 @@ const AddCluster = () => {
       });
   };
   const inputField =
-    'border-b-2 pb-2 border-violet-300 w-full focus:outline-none focus:border-violet-600 focus:border-b-3';
+    'border-b-2 rounded-lg mb-4 h-11 px-2 border-sapphire-blue w-full focus:outline-none focus:border-fuzzy-wuzzy focus:border-b-3';
 
   const button =
     'px-8 py-3 mt-2 mr-2 mb-4 cursor-pointer rounded-md text-lg focus:scale-95 border-purple border-2 text-purple hover:text-off-white hover:shadow-[inset_13rem_0_0_0] hover:shadow-purple hover:border-purple duration-[400ms,700ms] transition-[color,box-shadow]';
@@ -85,7 +85,7 @@ const AddCluster = () => {
     <div>
       <button
         onClick={() => setIsOpen(true)}
-        className='text-honeydew text-xl font-semi px-2 py-1 hover:scale-110 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]'
+        className='text-prussian-blue'
       >
         Add Cluster
       </button>
@@ -93,7 +93,7 @@ const AddCluster = () => {
         isOpen={isOpen}
         onRequestClose={() => setIsOpen(false)}
         shouldCloseOnOverlayClick={true}
-        className='w-1/2 m-auto mt-40 px-6 rounded-lg shadow-xl bg-white border-b-8 border-primary-color'
+        className='w-2/5 m-auto mt-40 px-6 rounded-lg shadow-xl bg-white border-b-8 border-primary-color'
       >
         <form className='p-12 relative' onSubmit={submitClusterData}>
           <h1 className='text-2xl mt-4 font-bold mb-8 text-prussian-blue'>

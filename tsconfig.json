@@ -9,14 +9,14 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
+    "module": "CommonJS",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
     "rootDir": "."
   },
-  "include": [ "Client/src"],
+  "include": [ "Client/src", "client/src/interfaces"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

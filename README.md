@@ -1,18 +1,14 @@
+# SkaleSafe &middot; ![Github](https://img.shields.io/github/repo-size/oslabs-beta/SkaleSafe) ![GitHub](https://img.shields.io/github/license/oslabs-beta/SkaleSafe) ![GitHub](https://img.shields.io/github/last-commit/oslabs-beta/SkaleSafe)
 
-
-![SkaleSafeLogo](./client/assets/Logo-4.png)
-
-<br/>
-
-# About
-<br/>
-SkaleSafe is designed to provide users with quick access to their clusters' scaling metrics & an easy to configure alert system for said metrics.
 
 <br/>
 
 ## Table of Contents
- - [Functionality](#Functionality)
- - [Installation Guide](#Installation-Guide)
+ - [How to use SkaleSafe](#how-to-use-skalesafe)
+ - [Installation](#installation)
+   - [Prometheus Installation](#prometheus-installation)
+   - [Grafana Installation](#grafana-installation)
+   - [KubeView Installation](#kubeview-installation)
  - [Electron Guide](#Electron-Guide)
  - [Technologies Utilized](#Technologies-Utilized)
    - [Frontend Development](#Frontend-Development)
@@ -23,22 +19,99 @@ SkaleSafe is designed to provide users with quick access to their clusters' scal
  
 <br/>
 
-# Functionality
+## How to use Skalesafe
 PENDING
 
 <br/>
 
-# Installation Guide
+### Installation / Setup Instructions:
 PENDING
 
 <br/>
 
-# Electron Guide
+## Prometheus Installation:
+First, we need to create a cluster namespace for all our monitoring components (first Prometheus, then alter Grafana + KubeView). We create a dedicated namespace, because we don't want all of our monitoring pods floating around in the default namespace.
+
+The Kube-Prometheus Stack is a collection of applications that are intended for monitoring of Kubernetes clusters. Here is the relevant documentation: &nbsp;[link](https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/README.md).
+
+1. Execute the following command to create a new namespace: monitoring.
+
+   ```
+   kubectl create namespace monitoring
+   ```
+
+2. All of the Prometheus configuration files mentioned in this section are created for you and hosted on GitHub. Clone this repo using the following command:
+
+   ```
+   git clone https://github.com/daniel-doody/setup-prometheus-kubernetes.git
+   ```
+  
+3. Inside of our cloned folder, apply the 'cluster-role.yaml' file to create a Cluster Role with the following RBAC policies (get, watch, read). 
+
+   ```
+   kubectl apply -f cluster-role.yaml
+   ```
+   
+4. Next, create a Config Map by applying 'config-map.yaml' to externalize the Prometheus configurations
+
+   ```
+   kubectl apply -f config-map.yaml
+   ```
+
+5. Create a Prometheus Deployment by applying 'prom-deploy.yaml'
+
+   ```
+   kubectl apply -f prom-deploy.yaml
+   ```
+  
+6. Expose Prometheus using Ingress by applying the 'ingress-controller.yaml' file
+
+   ```
+   kubectl apply -f cluster-role.yaml
+   ```
+   
+   This exposes the ingress object on port 8080:
+   
+   ```
+   apiVersion: extensions/v1beta1
+   kind: Ingress
+   metadata:
+     name: prometheus-ui
+     namespace: monitoring
+     annotations:
+       kubernetes.io/ingress.class: nginx
+   spec:
+     rules:
+     # Use the host you used in your kubernetes Ingress Configurations
+     - host: prometheus.example.com
+       http:
+         paths:
+         - backend:
+             serviceName: prometheus-service
+             servicePort: 8080
+    ```
+    
+   
+<br/>
+
+
+## Grafana Installation:
 PENDING
 
 <br/>
 
-# Technologies Utilized
+
+## KubeView Installation:
+PENDING
+
+<br/>
+
+## Electron Guide
+PENDING
+
+<br/>
+
+## Technologies Utilized
 
 <br/>
 
@@ -79,7 +152,7 @@ Upon contributing, you agree that your contributions will be licensed under its 
 
 <br/>
 
-## The Core Team
+## The Team
 Please feel free to reach out to us if you would like to contribute or if you have any questions or concerns!
 
 - **Bethany Mattern:** &emsp; &emsp; &emsp;&emsp;[![Github](https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=181717&logo=GitHub&logoColor=FFFFFF&label=)](https://github.com/bethanycable) [![LinkedIn](https://img.shields.io/static/v1?style=for-the-badge&message=LinkedIn&color=0A66C2&logo=LinkedIn&logoColor=FFFFFF&label=)](https://www.linkedin.com/in/bethany-a-mattern/)
@@ -90,4 +163,8 @@ Please feel free to reach out to us if you would like to contribute or if you ha
 <br/>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+<br/>
 
+## Show Your Support
+
+If you like this project, please give it a ⭐️!

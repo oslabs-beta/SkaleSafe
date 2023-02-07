@@ -36,8 +36,8 @@ const Team: member[] = [
     {
         name: 'Kelvin Shamy',
         image: '../../../../assets/kelvin.jpeg',
-        alt: 'Kelvin Shamy drinking some coffee',
-        bio: '',
+        alt: 'Kelvin Shamy sipping on some café',
+        bio: 'Software Engineer Codesmith Alumnus Plantain Enthusiast',
         linkedin: 'https://www.linkedin.com/in/kelvin-shamy-839798a1/',
         github: 'https://github.com/KelvinShamy',
     },

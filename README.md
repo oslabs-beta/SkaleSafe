@@ -168,9 +168,25 @@ For the complete list of setup instructions and customizations, please see: &nbs
 
 
 ## KubeView Installation:
-PENDING
-
 <br/>
+Now that Prometheus and Grafana is all set-up, we will add Kubeview for real-time cluster visualization. Kubeview will provide an overview of your cluster objects in icons.
+
+For the complete list of setup instructions and customizations, please see: &nbsp;[Kubeview Docs](https://kubeview.benco.io/).
+
+1. All Kubeview config files in this section are created for you and hosted on GitHub. Clone this repo using the following command:
+  ```
+  git clone https://github.com/sxhanx/setup-kubeview.git  
+  ```
+  
+2. Inside of your cloned Kubeview folder, apply the ‘service.yaml'
+  ```
+  kubectl apply -f service.yaml
+  ```
+
+3. Apply the Kubeview deployment file  
+  ```
+  kubectl apply -f deployment.yaml
+  ```
 
 <br/>
 

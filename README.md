@@ -32,7 +32,7 @@ PENDING
 ## Prometheus Installation:
 First, we need to create a cluster namespace for all our monitoring components (first Prometheus, then alter Grafana + KubeView). We create a dedicated namespace, because we don't want all of our monitoring pods floating around in the default namespace.
 
-The Kube-Prometheus Stack is a collection of applications that are intended for monitoring of Kubernetes clusters. Here is the relevant documentation: &nbsp;[link](https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/README.md).
+The Prometheus Stack is a collection of pods intended to monitor the Kubernetes cluster. Here is the relevant documentation: &nbsp;[Prometheus Docs](https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/README.md).
 
 1. Execute the following command to create a new namespace: monitoring.
 
@@ -46,7 +46,7 @@ The Kube-Prometheus Stack is a collection of applications that are intended for 
    git clone https://github.com/daniel-doody/setup-prometheus-kubernetes.git
    ```
   
-3. Inside of our cloned folder, apply the 'cluster-role.yaml' file to create a Cluster Role with the following RBAC policies (get, watch, read). 
+3. Navigate to our cloned folder with the Prometheus files, apply the 'cluster-role.yaml' file to create a Cluster Role with the following RBAC policies: (get, watch, read). 
 
    ```
    kubectl apply -f cluster-role.yaml
@@ -58,19 +58,19 @@ The Kube-Prometheus Stack is a collection of applications that are intended for 
    kubectl apply -f config-map.yaml
    ```
 
-5. Create a Prometheus Deployment by applying 'prom-deploy.yaml'
+5. Create the Prometheus Deployment by applying 'prom-deploy.yaml'
 
    ```
    kubectl apply -f prom-deploy.yaml
    ```
   
-6. Expose Prometheus using Ingress by applying the 'ingress-controller.yaml' file
+6. Expose Prometheus using Ingress by applying the 'ingress-controller.yaml' file.
 
    ```
    kubectl apply -f cluster-role.yaml
    ```
    
-   This exposes the ingress object on port 8080:
+   This exposes the ingress object on port 8080. To change the port, just edit the ingress file!
    
    ```
    apiVersion: extensions/v1beta1
@@ -96,9 +96,66 @@ The Kube-Prometheus Stack is a collection of applications that are intended for 
 
 
 ## Grafana Installation:
-PENDING
+In our previous step, we set up Prometheus to monitor our cluster. Next, we will add Grafana for real-time cluster metric visualization.
 
+For the complete list of setup instructions and customizations, please see: &nbsp;[Grafana Docs](https://grafana.com/docs/grafana/latest/setup-grafana/installation/kubernetes/).
+
+1. All Grafana config files in this section are created for you and hosted on GitHub. Clone this repo using the following command:
+
+   ```
+   git clone https://github.com/daniel-doody/grafana-setup-kubernetes.git
+   ```
+
+2. Create the Grafana / Prometheus data source ConfigMap:
+
+   Note: This is configured for Prometheus. If you have other data sources such as DataDog, you can add them with different YAMLs under the data section.
+   Inside of your cloned Grafana folder, apply the 'graf-config.yaml'
+
+   ```
+   kubectl apply -f graf-config.yaml
+   ```
+  
+3. Apply the Grafana service file to expose the Grafana port.
+   ```
+   kubectl apply -f graf-service.yaml
+   ```
+   
+   This will expose Grafana on NodePort 32000:
+   
+   
+   ```
+   apiVersion: v1
+   kind: Service
+   metadata:
+     name: grafana
+     namespace: monitoring
+     annotations:
+         prometheus.io/scrape: 'true'
+         prometheus.io/port:   '3000'
+   spec:
+     selector: 
+       app: grafana
+     type: NodePort  
+     ports:
+       - port: 3000
+         targetPort: 3000
+         nodePort: 32000
+    ```
+    
+   <br/>
+   
+   Now you should be able to access the Grafana dashboard using any node IP on port 32000. Make sure the port is allowed in the firewall to be accessed from your workstation.   
+   
+   Use the following default username and password to log in:
+   
+   ```
+   User: admin
+   Pass: admin
+   ```
+   Once you log in with default credentials, it will prompt you to change the default password.
+   
 <br/>
+
 
 
 ## KubeView Installation:

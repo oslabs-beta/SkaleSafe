@@ -4,8 +4,8 @@
 <br/>
 
 ## Table of Contents
- - [Our Mission](#our mission)
- - [Installation](#-)
+ - [Our Mission](#our-mission)
+ - [Installation](#i)
    - [Prometheus](#prometheus-installation)
    - [Grafana](#grafana-installation)
    - [KubeView](#kubeview-installation)

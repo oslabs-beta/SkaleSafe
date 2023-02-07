@@ -79,6 +79,15 @@ router.get('/scalingmetrics',
   }
 );
 
+router.get('/kubeview',
+  getCredentials,
+  (req: Request, res: Response) => {
+  console.log('get scaling metrics middleware passed');
+  const { userData } = res.locals;
+  res.status(200).send(userData);
+  }
+);
+
 // // Get all currently configured alerts.
 // router.get('/alerts', getAlerts, (req: Request, res: Response) => {
 //   console.log('passed getAlerts middleware');

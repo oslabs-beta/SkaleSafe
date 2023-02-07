@@ -51,7 +51,12 @@ const Profile = (props: Props) => {
                         <div className="my-8 px-8">
                             <a href="#" className="block rounded-lg text-center text-2xl leading-6 px-6 py-3 hover:text-light-blue hover:scale-110">Edit Profile Info</a>
                         </div>
-
+                        <button
+                            onClick={() => setIsOpen(false)}
+                            className='absolute text-xl top-8 right-4 text-purple border-2 border-off-white rounded-full px-4 py-2 font-extrabold hover:scale-110 hover:text-sapphire-blue'
+                        >
+                            X
+                        </button>
                         <div className="w-full">
                             <div className="mt-8 w-full flex flex-col items-center text-l">
                                 <a className="w-full border-t py-4 pl-6 pr-3">
@@ -73,7 +78,6 @@ const Profile = (props: Props) => {
                                     Email: 
                                     <span className="font-bold">  {email}</span>
                                 </a>
-                                
                             </div>
                         </div>
                     </div>

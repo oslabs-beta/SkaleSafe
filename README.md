@@ -4,28 +4,25 @@
 <br/>
 
 ## Table of Contents
- - [How to use SkaleSafe](#how-to-use-skalesafe)
- - [Installation](#installation)
+ - [Cluster Monitoring with SkaleSafe](#cluster-monitoring-with-skalesafe)
+ - [Installation](#installation-/-setup-instructions)
    - [Prometheus Installation](#prometheus-installation)
    - [Grafana Installation](#grafana-installation)
    - [KubeView Installation](#kubeview-installation)
- - [Electron Guide](#Electron-Guide)
- - [Technologies Utilized](#Technologies-Utilized)
-   - [Frontend Development](#Frontend-Development)
-   - [Backend Development](#Backend-Development)
-   - [Monitoring & Data Visualization](#Monitoring-&-Data-Visualization)
- - [License](#License)
- - [The Core Team](#The-Core-Team)
+ - [Electron Guide](#electron-guide)
+ - [Technology Stack](#technology-stack)
+ - [License](#license)
+ - [The Team](#the-team)
  
 <br/>
 
-## How to use Skalesafe
+## Cluster Monitoring with SkaleSafe
 PENDING
 
 <br/>
 
-### Installation / Setup Instructions:
-PENDING
+
+<br/>
 
 <br/>
 
@@ -90,7 +87,10 @@ The Prometheus Stack is a collection of pods intended to monitor the Kubernetes 
              serviceName: prometheus-service
              servicePort: 8080
     ```
-    
+<br/>
+
+
+<br/>
    
 <br/>
 
@@ -144,7 +144,7 @@ For the complete list of setup instructions and customizations, please see: &nbs
     
    <br/>
    
-   Now you should be able to access the Grafana dashboard using any node IP on port 32000. Make sure the port is allowed in the firewall to be accessed from your workstation.   
+   Now you should be able to access the Grafana dashboard using any node IP on your cluster at port 32000. Make sure the port is allowed in the firewall to be accessed from your local machine.   
    
    Use the following default username and password to log in:
    
@@ -156,6 +156,9 @@ For the complete list of setup instructions and customizations, please see: &nbs
    
 <br/>
 
+<br/>
+
+<br/>
 
 
 ## KubeView Installation:
@@ -163,27 +166,30 @@ PENDING
 
 <br/>
 
+<br/>
+
+<br/>
+
 ## Electron Guide
-PENDING
+
+<br />
+
+If you are running a local cluster using MiniKube, please use the Electron version of our application instead of our web application. The web application (SkaleSafe.com) only works with cloud-hosted clusters, or local clusters with an SSL-certificate installed. For security reasons, ChromeOS will only show cluster metrics with an active SSL certificate configured in the cluster.
+
+<br />
+
+To run SkaleSafe on your local machine using Electron, follow this guide: [ELECTRON.md](ELECTRON.md)
 
 <br/>
 
-## Technologies Utilized
+<br/>
 
 <br/>
 
-
-### Frontend Development
-
-![Vite](https://img.shields.io/static/v1?style=for-the-badge&message=Vite&color=646CFF&logo=Vite&logoColor=FFFFFF&label=)
-![Tailwind CSS](https://img.shields.io/static/v1?style=for-the-badge&message=Tailwind+CSS&color=222222&logo=Tailwind+CSS&logoColor=06B6D4&label=)
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
-![Redux](https://img.shields.io/static/v1?style=for-the-badge&message=Redux&color=764ABC&logo=Redux&logoColor=FFFFFF&label=)
+## Technology Stack
 
 <br/>
 
-### Backend Development
 
 ![TypeScript](https://img.shields.io/static/v1?style=for-the-badge&message=TypeScript&color=3178C6&logo=TypeScript&logoColor=FFFFFF&label=)
 ![Jest](https://img.shields.io/static/v1?style=for-the-badge&message=Jest&color=C21325&logo=Jest&logoColor=FFFFFF&label=)
@@ -192,15 +198,19 @@ PENDING
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
-
-<br/>
-
-### Monitoring & Data Visualization
-
 ![Kubernetes](https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=for-the-badge&logo=kubernetes&logoColor=white)
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 ![Grafana](https://img.shields.io/badge/grafana-%23F46800.svg?style=for-the-badge&logo=grafana&logoColor=white)
 ![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=Prometheus&logoColor=white)
+![Vite](https://img.shields.io/static/v1?style=for-the-badge&message=Vite&color=646CFF&logo=Vite&logoColor=FFFFFF&label=)
+![Tailwind CSS](https://img.shields.io/static/v1?style=for-the-badge&message=Tailwind+CSS&color=222222&logo=Tailwind+CSS&logoColor=06B6D4&label=)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![Redux](https://img.shields.io/static/v1?style=for-the-badge&message=Redux&color=764ABC&logo=Redux&logoColor=FFFFFF&label=)
+
+<br/>
+
+<br/>
 
 <br/>
 

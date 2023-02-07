@@ -25,7 +25,7 @@ const AlertsMetrics = (props: Props) => {
     } catch (err) {
       console.error('User alerts metrics could not be retrieved');
       return err;
-
+    }
   }
 
   useEffect(() => {

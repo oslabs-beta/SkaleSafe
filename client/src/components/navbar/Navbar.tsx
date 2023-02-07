@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md';
 import React, { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../redux/Hooks/Hooks';
+
 import AddCluster from '../AddCluster/AddCluster';
 import LightOrDark from '../ModeSwitch/ModeSwitch';
 import Profile from '../Profile/Profile';
@@ -9,15 +10,13 @@ import SignInModal from '../Signin/SigninModal';
 import SignupModal from '../Signup/SignupModal';
 import { setIsLoggedIn } from '../../../redux/Slices/UserSlice';
 
-
-
 const Navbar = () => {
   const location = useLocation();
   const { hash } = location;
   // const pathname = location.pathname;
 
-  const userName = useAppSelector((state) => state.user.userData.firstname);
-  const isLoggedIn = useAppSelector((state) => state.user.isLoggedIn);
+  const userName = useAppSelector((state: any) => state.user.userData.firstname);
+  const isLoggedIn = useAppSelector((state: any) => state.user.isLoggedIn);
 
   //ADD ID BELOW
   const outLinks =

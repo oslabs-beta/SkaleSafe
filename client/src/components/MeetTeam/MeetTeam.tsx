@@ -3,7 +3,7 @@
 import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
 
 import React from 'react';
-import Team from './Contact.ts';
+import Team from './Contact';
 
 function MeetTeam() {
   const developer =

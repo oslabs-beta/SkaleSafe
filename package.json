@@ -7,7 +7,7 @@
   "scripts": {
     "both": "npm run dev & npm run preview",
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build && tsc",
     "preview": "vite preview",
     "test": "npx jest",
     "electron": "electron .",

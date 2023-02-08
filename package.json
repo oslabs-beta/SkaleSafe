@@ -13,6 +13,7 @@
     "electron": "electron .",
     "server": "nodemon --watch './**/*.ts' --exec 'ts-node' ./server/server.ts",
     "app": "concurrently --kill-others \"npm run dev\" \"nodemon --watch './**/*.ts' --exec 'ts-node' ./server/server.ts\"",
+    "elec": "concurrently --kill-others \"npm run dev\" \"nodemon --watch './**/*.ts' --exec 'ts-node' ./server/server.ts\" \"npm run electron .\"",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx, client"
   },
   "dependencies": {

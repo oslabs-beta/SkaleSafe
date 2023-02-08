@@ -1,3 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable consistent-return */
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
+/* eslint-disable max-len */
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable jsx-a11y/iframe-has-title */
@@ -7,7 +12,6 @@ import { alertsData } from './AlertsData.ts';
 import dashboardState from '../../../interfaces/dashboardState';
 
 // import { UID } from '../../../../../server/controllers/grafana/createAlertsDashboard';
-
 
 function AlertsMetrics() {
   // use username from local storage to

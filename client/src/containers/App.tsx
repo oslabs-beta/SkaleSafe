@@ -1,3 +1,5 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
 /* eslint-disable react/react-in-jsx-scope */
 import { Route, Routes } from 'react-router-dom';
 
@@ -6,7 +8,6 @@ import { Error } from '../components/Error';
 import Footer from '../components/Footer/Footer';
 import HomeContainer from '../containers/HomeContainer';
 import Navbar from '../components/Navbar/Navbar';
-import Profile from '../components/Profile/Profile';
 
 // Links are setup to allow only <routes> to change; the whole app is not re-rendered
 // Nested routes
@@ -20,11 +21,9 @@ function App() {
   return (
     <div>
       <Navbar />
-
       <div>
         <Routes>
           <Route path="/" element={<HomeContainer />} />
-          <Route path="/home" element={<HomeContainer />} />
 
           <Route path="/dashboard" element={<Dashboard />} />
 

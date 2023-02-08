@@ -31,7 +31,11 @@
     "@typescript-eslint/no-use-before-define": ["error"],
     "@typescript-eslint/no-var-requires": 0,
     "prettier/prettier": "error",
-    "react/jsx-filename-extension": "off",
+    "react/jsx-filename-extension": [1, {
+      "extensions": [
+        ".tsx"
+      ]
+    }],
     "max-len": [
       "warn",
       {

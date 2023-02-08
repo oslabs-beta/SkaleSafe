@@ -18,6 +18,7 @@
 
 
 <p>PENDING: Create own mongoDB & configure that in your own .env file???
+   - add to another section of the readme?
 have users create their own .env file???
 <br/>
    Add windows/other OS instructions?

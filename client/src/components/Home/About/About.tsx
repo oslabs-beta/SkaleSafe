@@ -9,7 +9,7 @@ function About() {
     >
       <h1
         id="aboutText"
-        className="text-3xl text-honeydew font-bold uppercase tracking-wider border-b-4"
+        className="text-xl lg:text-4xl text-honeydew font-bold uppercase tracking-wider border-b-4"
       >
         About
       </h1>

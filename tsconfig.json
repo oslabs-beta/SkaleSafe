@@ -15,8 +15,9 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "rootDir": "."
+    "rootDir": ".",
+    "outDir": "./dist/"
   },
-  "include": [ "Client/src", "client/src/interfaces"],
+  "include": ["Client/src", "client/src/interfaces"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

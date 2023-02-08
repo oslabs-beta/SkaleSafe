@@ -47,21 +47,14 @@ function SignInModal() {
               username,
               // password: string
             })
-          ); // PASS THIS AN OBJECT
+          );
           dispatch(setIsLoggedIn(true));
           // Using Local Storage to track user/permissions:
-          // local storage functions:  https://developer.mozilla.org/en-US/docs/Web/API/Storage/clear
           localStorage.setItem('username', username);
-          // localStorage.setItem('loggedIn', 'true');
-          // to retrieve username... use localStorage.getItem(keyname)
-          // to delete username (session)... use localStorage.clear()
           setIsOpen(false);
-          // setTimeout(() => navigate('/dashboard'), 200);
           navigate('/dashboard');
         }
         if (res.status === 204) {
-          // 204 was necessary because sending back a status code in the 400s
-          // triggers some kinda automatic axios mumbo-jumbo...
           setError('Incorrect Username and/or Password');
         }
       })

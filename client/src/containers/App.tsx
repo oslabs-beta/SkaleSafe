@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import Dashboard from '../components/Dashboard/Dashboard';
-import { Error } from '../components/Error';
+import { Error } from '../components/Error/Error';
 import HomeContainer from '../containers/HomeContainer';
 import Navbar from '../components/Navbar/Navbar';
 

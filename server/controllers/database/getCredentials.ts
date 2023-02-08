@@ -19,6 +19,7 @@ const getCredentials = async (
       alertsUID: userData.alertsUID,
       customUID: userData.customUID,
       grafPort: userData.grafPort,
+      kubeUrl: userData.kubeviewPort
     }
 
     // console.log('in getAlertsUID middleware');

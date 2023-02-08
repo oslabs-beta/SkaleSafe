@@ -24,36 +24,22 @@ const ClusterMetrics = (props: Props) => {
   // fetch alertsUID and grafPort from DBs
   const handleFetchData = async () => {
     try {
+
       const { data } = await axios.get(
         `http://localhost:3000/graf/clustermetrics?username=${username}`
       );
       setUserData(data);
-      console.log('from clusterMetrics:', data);
       if (data.grafPort) {
         setTimeout(() => {
           setDataAvailable(true);
-        }, 5000);
+        }, 3000);
       }
     } catch (err) {
-      console.error('User alerts metrics could not be retrieved');
+      console.error('cluster metrics metrics could not be retrieved');
       return err;
     }
   };
 
-  // const handleFetchData = async () => {
-  //   try {
-  //     const userResponse = await fetch(
-  //       `http://localhost:3000/graf/clustermetrics?username=${username}`
-  //     );
-  //     const data = await userResponse.json();
-  //     setUserData(data);
-  //     console.log('from clusterMetrics:', data);
-  //     if (data.valueOf.length !== 0) setDataAvailable(true);
-  //   } catch (err) {
-  //     console.error('User alerts metrics could not be retrieved');
-  //     return err;
-  //   }
-  // };
 
   useEffect(() => {
     handleFetchData();
@@ -85,9 +71,9 @@ const ClusterMetrics = (props: Props) => {
       ) : (
         <div className='flex flex-col place-items-center pt-28 gap-y-16 justify-center'>
           <p className='italic'>
-            Hang on one moment while we fetch your cluster data...
+            Hang on while we fetch your cluster data...
           </p>
-          <GiShipWheel className='text-7xl animate-spin' />
+          <GiShipWheel className='text-7xl animate-pulse' />
         </div>
       )}
     </div>

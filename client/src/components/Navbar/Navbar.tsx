@@ -37,7 +37,7 @@ const Navbar = () => {
         behavior: 'smooth',
       });
     }
-  }, [hash, location]);
+  }, [location]);
 
   const loggedOut =
     'fixed w-screen h-20 flex flex-row items-center justify-between bg-honeydew/10 px-14 shadow-md shadow-honeydew/10';

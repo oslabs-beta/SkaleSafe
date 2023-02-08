@@ -39,8 +39,10 @@ const Dashboard = (props: Props) => {
 
   useEffect(() => {
     if (isLoggedIn) navigate('/dashboard');
+  //   else navigate('/');
+  // },[navigate, isLoggedIn])
     else navigate('/');
-  },[navigate, isLoggedIn])
+  },[isLoggedIn])
 
     return (
       <div className='w-screen h-screen'>

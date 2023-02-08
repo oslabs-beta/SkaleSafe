@@ -12,7 +12,8 @@
     "test": "npx jest",
     "electron": "electron .",
     "server": "nodemon --watch './**/*.ts' --exec 'ts-node' ./server/server.ts",
-    "app": "concurrently --kill-others \"npm run dev\" \"nodemon --watch './**/*.ts' --exec 'ts-node' ./server/server.ts\""
+    "app": "concurrently --kill-others \"npm run dev\" \"nodemon --watch './**/*.ts' --exec 'ts-node' ./server/server.ts\"",
+    "elec": "concurrently --kill-others \"npm run dev\" \"nodemon --watch './**/*.ts' --exec 'ts-node' ./server/server.ts\" \"npm run electron .\""
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.2",

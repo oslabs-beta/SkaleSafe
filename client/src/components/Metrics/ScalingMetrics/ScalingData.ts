@@ -1,8 +1,8 @@
 import grafData from '../../../interfaces/grafData';
 
 export const scalingData: grafData[] = [
-    // Load Avg
-    {
+  // Load Avg
+  {
       ID: 3,
       width: 964,
       height: 200,

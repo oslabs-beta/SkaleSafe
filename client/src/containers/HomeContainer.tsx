@@ -5,8 +5,7 @@ import Footer from '../components/Footer/Footer';
 import Home from '../components/Home/Home';
 import MeetTeam from '../components/Home/MeetTeam/MeetTeam';
 
-const HomeContainer = () => {
-
+function HomeContainer() {
   return (
     <div>
       <Home />
@@ -17,6 +16,6 @@ const HomeContainer = () => {
       <Footer />
     </div>
   );
-};
+}
 
 export default HomeContainer;

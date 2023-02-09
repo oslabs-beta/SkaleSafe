@@ -11,8 +11,9 @@ function createWindow(){
     //   worldSafeExecuteJavascript: true,
       contextIsolation: true,
     },
+    show: false,
   });
   win.loadURL('http://localhost:4000');
+  win.once('ready-to-show', win.show)
 }
-
 app.whenReady().then(createWindow);

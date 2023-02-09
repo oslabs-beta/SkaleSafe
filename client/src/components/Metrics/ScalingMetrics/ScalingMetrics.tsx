@@ -2,9 +2,8 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useEffect, useState } from 'react';
 import { GiShipWheel } from 'react-icons/gi';
-import axios from 'axios';
 import dashboardState from '../../../interfaces/dashboardState';
-import { scalingData } from './ScalingData.ts';
+import { scalingData } from './ScalingData';
 
 function ScalingMetrics() {
   const [dataAvailable, setDataAvailable] = useState(false);
@@ -17,23 +16,28 @@ function ScalingMetrics() {
     alertsUID: '',
   });
 
-  // fetch alertsUID and grafPort from DBs
+
+
   const handleFetchData = async () => {
     try {
-      const { data } = await axios.get(
-        `http://localhost:3000/graf/ScalingMetrics?username=${username}`
-      );
-      setUserData(data);
-      if (data.grafPort) {
-        setTimeout(() => {
-          setDataAvailable(true);
-        }, 3000);
-      }
+      const socket = new WebSocket(`ws://localhost:3000/graf/ScalingMetrics?username=${username}`);
+      socket.onmessage = (event) => {
+        const data = JSON.parse(event.data);
+        setUserData(data);
+        if (data.grafPort) {
+          setTimeout(() => {
+            setDataAvailable(true);
+          }, 3000);
+        }
+      };
+      socket.onerror = (error) => {
+        console.error('cluster metrics could not be retrieved', error);
+      };
     } catch (err) {
-      console.error('Scaling metrics metrics could not be retrieved');
-      return err;
+      console.error('cluster metrics could not be retrieved', err);
     }
   };
+
 
   useEffect(() => {
     handleFetchData();

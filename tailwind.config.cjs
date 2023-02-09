@@ -25,9 +25,6 @@ module.exports = {
         purple: '#540E99',
         honeydew: '#F0FFF0',
       },
-      backgroundImage: {
-        kubernetes: "url('./client/assets/kubernetes.jpg')",
-      },
       height: {
         128: '32rem',
       },

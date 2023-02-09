@@ -4,13 +4,9 @@ import { resolve } from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  root: 'client',
+  root: '',
   base: '/',
   plugins: [react()],
-  server: {
-    port: 4000,
-    open: '/',
-  },
   build: {
     minify: true,
     outDir: '../dist',

@@ -5,7 +5,7 @@
 
 ## Table of Contents
  - [Our Mission](#our-mission)
- - [Installation](#gfgfggf)
+ - [Installation](#installation)
    - [Prometheus](#prometheus-installation)
    - [Grafana](#grafana-installation)
    - [KubeView](#kubeview-installation)
@@ -23,6 +23,39 @@ SkaleSafe empowers organizations to confidently navigate the complexity of their
 
 <br/>
 
+## Installation
+
+1. Fork SkaleSafe's repository & then clone your forked repository using your GitHub handle
+   ```sh
+   git clone https://github.com/your-github-handle/SkaleSafe.git
+   ```
+   
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+ 
+3. Create an `.env` file at the root of your cloned directory
+
+
+4. Connect your Mongo database in the .env file
+   ```js
+   PORT = 3000;
+   MONGO_URI = 'YOUR MONGO URI STRING';
+   SALT_WORK_FACTOR= 10;
+   ```
+  
+5. If your cluster is running you may start the app via the command
+
+   ```sh
+   npm run app
+   ```
+ 
+6. Or if you'd like to utilize Electron's embedded Chromium/Node.JS combination, you may start the app via the command
+
+   ```sh
+   npm run elec
+   ```
 
 <br/>
 

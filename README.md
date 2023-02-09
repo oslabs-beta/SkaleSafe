@@ -210,7 +210,7 @@ To run SkaleSafe on your local machine using Electron, follow this guide: [ELECT
 
 ### Creating a Cluster
 
-If you are new to Kubernetes, we welcome you to use our app as a learning tool. Follow this [quick-start guide](src/CLUSTER.md) to install MiniKube on your machine, and spin up your first cluster in no-time! After you have successfully set up the cluster, please continue with installing [Prometheus](#prometheus-installation), [Grafana](#grafana-installation), and [KubeView](#kubeview-installation)
+If you are new to Kubernetes, we welcome you to use our app as a learning tool. Follow this [quick-start guide](CLUSTER.md) to install MiniKube on your machine, and spin up your first cluster in no-time! After you have successfully set up the cluster, please continue with installing [Prometheus](#prometheus-installation), [Grafana](#grafana-installation), and [KubeView](#kubeview-installation)
 
 <br/>
 

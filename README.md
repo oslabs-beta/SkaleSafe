@@ -28,6 +28,20 @@ SkaleSafe empowers organizations to confidently navigate the complexity of their
 
 <br/>
 
+# Getting Started
+
+Prior to beginning, please ensure that you have Kubectl - Kubernetes CLI installed locally.
+
+Start by cloning our repository down to your local machine using the following command:
+
+```
+git clone https://github.com/oslabs-beta/SkaleSafe.git
+```
+
+We will begin by installing Prometheus, Grafana and KubeView.  The requisite files for installing these three programs have been created for you and are included in the SkaleSafe repo you have just cloned within the folder labeled 'cluster-setup' in the root folder of the directory.
+
+<br/>
+
 ## Prometheus Installation:
 
 <br/>
@@ -36,45 +50,39 @@ Prometheus is a collection of pods intended to monitor your Kubernetes cluster. 
 
 <br/>
 
-1. All of the Prometheus configuration files mentioned in this section are created for you and hosted on GitHub. Clone this repo using the following command:
+   Firstly we will create a cluster namespace for all of our monitoring components. We create a dedicated namespace so as not to have all of our monitoring pods floating around within the default namespace.
 
-   ```
-   git clone https://github.com/daniel-doody/setup-prometheus-kubernetes.git
-   ```
-  
-   Now we need to create a cluster namespace for all of our monitoring components. We create a dedicated namespace, because we don't want all of our monitoring pods floating around in the default namespace.
-
-2. Execute the following command to create a new namespace: monitoring.
+1. Execute the following command to create a new namespace: monitoring.
 
    ```
    kubectl create namespace monitoring
    ```
   
-3. Navigate to our cloned folder with the Prometheus files, apply the 'cluster-role.yaml' file to create a Cluster Role with the following RBAC policies: (get, watch, read). 
+2. From within the newly cloned SkaleSafe repo, navigate to 'cluster-setup' with the Prometheus files, apply the 'cluster-role.yaml' file to create a Cluster Role with the following RBAC policies: (get, watch, read). 
 
    ```
    kubectl apply -f cluster-role.yaml
    ```
    
-4. Next, create a Config Map by applying 'config-map.yaml' to externalize the Prometheus configurations
+3. Next, create a Config Map by applying 'config-map.yaml' to externalize the Prometheus configurations
 
    ```
    kubectl apply -f config-map.yaml
    ```
 
-5. Create the Prometheus Deployment by applying 'prom-deploy.yaml'
+4. Create the Prometheus Deployment by applying 'prom-deploy.yaml'
 
    ```
    kubectl apply -f prom-deploy.yaml
    ```
   
-6. Expose Prometheus using Ingress by applying the 'ingress-controller.yaml' file.
+5. Expose Prometheus using Ingress by applying the 'ingress-controller.yaml' file.
 
    ```
    kubectl apply -f cluster-role.yaml
    ```
    
-   This exposes the ingress object on port 8080. To change the port, just edit the ingress file!
+   This exposes the ingress object on port 8080. To change the port, just edit the servicePort field in the ingress file!
    
    ```
    apiVersion: extensions/v1beta1

@@ -48,7 +48,7 @@ function ScalingMetrics() {
         Scaling Metrics
       </div>
       {dataAvailable ? (
-        <div className="flex flex-row flex-wrap justify-center items-center gap-8 py-5">
+        <div className="flex flex-row flex-wrap justify-center items-center gap-8 py-5 max-w-fit">
           {scalingData.map((item: any, idx: number) => (
             <iframe
               // the or3xtlo4k should be coming from DB

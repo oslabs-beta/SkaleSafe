@@ -14,8 +14,8 @@ function HomeContainer() {
     <div>
       <Home />
       <About />
-      <Demo />
       <Documentation />
+      <Demo />
       <MeetTeam />
       <Footer />
     </div>

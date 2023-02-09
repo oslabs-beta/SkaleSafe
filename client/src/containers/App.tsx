@@ -2,7 +2,7 @@
 /* eslint-disable import/extensions */
 /* eslint-disable react/react-in-jsx-scope */
 import { Route, Routes } from 'react-router-dom';
-
+import React from 'react'
 import Dashboard from '../components/Dashboard/Dashboard';
 import { Error } from '../components/Error';
 import Footer from '../components/Footer/Footer';

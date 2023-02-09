@@ -5,7 +5,7 @@
 
 ## Table of Contents
  - [Our Mission](#our-mission)
- - [Installation](#installation)
+ - [General Installation](#general-installation)
    - [Prometheus](#prometheus-installation)
    - [Grafana](#grafana-installation)
    - [KubeView](#kubeview-installation)
@@ -23,7 +23,7 @@ SkaleSafe empowers organizations to confidently navigate the complexity of their
 
 <br/>
 
-## Installation
+## General Installation
 
 1. Fork SkaleSafe's repository & then clone your forked repository using your GitHub handle
    ```sh

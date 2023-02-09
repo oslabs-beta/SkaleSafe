@@ -24,7 +24,7 @@ const Home = () => {
       <img
         id="homeLogo"
         className="w-2/5 max-w-lg"
-        src="../../../assets/SkaleSafe-color.svg"
+        src="/SkaleSafecolor.svg"
         alt="A fish inside a shield. SkaleSafe"
       />
     </div>

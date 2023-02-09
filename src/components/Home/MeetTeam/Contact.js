@@ -1,7 +1,7 @@
 const Team = [
   {
     name: 'Leonardo Brian Campos',
-    image: '../../../../assets/Brian&Kai.jpg',
+    image: '/Brian&Kai.jpg',
     alt: 'Leonardo Campos with his dog Kai',
     bio: ` Software engineer \n Codesmith alumnus`,
     linkedin: 'https://www.linkedin.com/in/leonardo-brian-campos/',
@@ -9,7 +9,7 @@ const Team = [
   },
   {
     name: 'Daniel Doody',
-    image: '../../../../assets/daniel.png',
+    image: './daniel.png',
     alt: 'Daniel Doody outside in nature',
     bio: 'Software Engineer \n Kubernetes enthusiast \n diehard tennis player',
     linkedin: 'https://www.linkedin.com/in/daniel-doody/',
@@ -17,7 +17,7 @@ const Team = [
   },
   {
     name: 'Bethany Mattern',
-    image: '../../../../assets/bethany.jpg',
+    image: '/bethany.jpg',
     alt: "Bethany Mattern's face",
     bio: 'Software Engineer Codesmith Alumnus Full time Book NERD',
     linkedin: 'https://www.linkedin.com/in/bethany-a-mattern/',
@@ -25,7 +25,7 @@ const Team = [
   },
   {
     name: 'Kelvin Shamy',
-    image: '../../../../assets/kelvin.jpeg',
+    image: '/kelvin.jpeg',
     alt: 'Kelvin Shamy drinking some coffee',
     bio: 'Software Engineer Codesmith Alumnus Plantain Enthusiast',
     linkedin: 'https://www.linkedin.com/in/kelvin-shamy-839798a1/',
@@ -33,7 +33,7 @@ const Team = [
   },
   {
     name: 'Sang Rea Han',
-    image: '../../../../assets/sanghan.png',
+    image: '/sanghan.png',
     alt: 'Sang Rea Han looking professional',
     bio: 'Software engineer \n Codesmith alumnus',
     linkedin: 'https://www.linkedin.com/in/sangreahan/',

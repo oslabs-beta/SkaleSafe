@@ -11,8 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
-.dockerignore
-Dockerfile
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -24,7 +23,5 @@ Dockerfile
 *.sln
 *.sw?
 
-# env file
-.env
-
-package-lock.json
+# Local Netlify folder
+.netlify

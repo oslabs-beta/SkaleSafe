@@ -18,7 +18,7 @@ const Features = () => {
           <video autoPlay loop muted className="w-2/3 max-w-lg">
             <track default kind="captions" srcLang="en" />
             <source
-              src="../../../../assets/login-and-scale-metrics.mp4"
+              src="/login-and-scale-metrics.mp4"
               type="video/mp4"
             />
           </video>
@@ -37,7 +37,7 @@ const Features = () => {
           <video autoPlay loop muted className="w-2/3 max-w-lg">
             <track default kind="captions" srcLang="en" />
             <source
-              src="../../../../assets/cluster-health-metrics.mp4"
+              src="/cluster-health-metrics.mp4"
               type="video/mp4"
             />
           </video>
@@ -45,7 +45,7 @@ const Features = () => {
         <div className="flex flex-row items-center self-start">
           <video autoPlay loop muted className="w-2/3 max-w-lg">
             <track default kind="captions" srcLang="en" />
-            <source src="../../../../assets/kubeview.mp4" type="video/mp4" />
+            <source src="/kubeview.mp4" type="video/mp4" />
           </video>
           <p className="ml-52">
             The KubeView tab provides the user with an interactive visual 
@@ -61,7 +61,7 @@ const Features = () => {
           <video autoPlay loop muted className="w-2/3 max-w-lg">
             <track default kind="captions" srcLang="en" />
             <source
-              src="../../../../assets/alert-metrics.mp4"
+              src='/alertmetrics.mp4'
               type="video/mp4"
             />
           </video>

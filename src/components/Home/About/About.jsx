@@ -17,7 +17,7 @@ const About = () => {
         <img
           id="aboutbullets1"
           className="w-6 h-6"
-          src="../../../assets/skaleSafe-light.png"
+          src="/skaleSafelight.png"
           alt="A fish inside a shield. SkaleSafe. Scale with confidence."
         />
         <span id="bullet1" className="text-xl text-honeydew px-4">
@@ -29,7 +29,7 @@ const About = () => {
         <img
           id="aboutbullets2"
           className="w-6 h-6"
-          src="../../../assets/skaleSafe-light.png"
+          src="/skaleSafelight.png"
           alt="A fish inside a shield. SkaleSafe. Scale with confidence."
         />
         <span id="bullet2" className="text-xl text-honeydew px-4">
@@ -41,7 +41,7 @@ const About = () => {
         <img
           id="aboutbullets2"
           className="w-6 h-6"
-          src="../../../assets/skaleSafe-light.png"
+          src="skaleSafelight.png"
           alt="A fish inside a shield. SkaleSafe. Scale with confidence."
         />
         <span id="bullet2" className="text-xl text-honeydew px-4">
@@ -53,7 +53,7 @@ const About = () => {
         <img
           id="aboutbullets3"
           className="w-6 h-6"
-          src="../../../assets/skaleSafe-light.png"
+          src="/skaleSafelight.png"
           alt="A fish inside a shield. SkaleSafe. Scale with confidence."
         />
         <span id="bullet3" className="text-xl text-honeydew px-4">

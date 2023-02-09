@@ -15,7 +15,7 @@ function Documentation() {
       </h1>
       <div className="flex flex-col items-center gap-4 gap-y-20 text-honeydew text-md lg:text-xl mx-20">
         <div className="flex flex-row items-center self-start">
-          <video autoPlay loop className="w-2/3 max-w-lg">
+          <video autoPlay loop muted className="w-2/3 max-w-lg">
             <track default kind="captions" srcLang="en" />
             <source
               src="../../../../assets/login-and-scale-metrics.mp4"
@@ -34,7 +34,7 @@ function Documentation() {
             The Cluster Health tab visualizes an assortment of broader 
             metrics which together paint a picture of the cluster’s overall performance.
           </p>
-          <video autoPlay loop className="w-2/3 max-w-lg">
+          <video autoPlay loop muted className="w-2/3 max-w-lg">
             <track default kind="captions" srcLang="en" />
             <source
               src="../../../../assets/cluster-health-metrics.mp4"
@@ -43,7 +43,7 @@ function Documentation() {
           </video>
         </div>
         <div className="flex flex-row items-center self-start">
-          <video autoPlay loop className="w-2/3 max-w-lg">
+          <video autoPlay loop muted className="w-2/3 max-w-lg">
             <track default kind="captions" srcLang="en" />
             <source src="../../../../assets/kubeview.mp4" type="video/mp4" />
           </video>
@@ -58,7 +58,7 @@ function Documentation() {
             The Alerts tab tracks activity regarding Prometheus alerts 
             that have been configured for this cluster.
           </p>
-          <video autoPlay loop className="w-2/3 max-w-lg">
+          <video autoPlay loop muted className="w-2/3 max-w-lg">
             <track default kind="captions" srcLang="en" />
             <source
               src="../../../../assets/alert-metrics.mp4"

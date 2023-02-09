@@ -1,9 +1,13 @@
+/* eslint-disable import/no-import-module-exports */
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/no-extraneous-dependencies */
 import { Error, Schema, model } from 'mongoose';
 
-import { UserObj } from './../interfaces/user';
+import { UserObj } from '../interfaces/user';
 import bcrypt from 'bcryptjs';
 
 const mongoose = require('mongoose');
+
 mongoose.set('strictQuery', true);
 
 const SALT_WORK_FACTOR = 10;

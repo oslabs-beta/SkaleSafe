@@ -16,3 +16,19 @@ function createWindow(){
 }
 
 app.whenReady().then(createWindow);
+
+
+//Best practice across all platforms
+//  app.on('activate', () => {
+//   if (BrowserWindow.getAllWindows().length === 0) {
+//     createWindow();
+//   }
+// });
+// });
+
+//For exiting the app on Macs
+// app.on('window-all-closed', () => {
+// if (process.platform !== 'darwin') {
+//   app.quit();
+// }
+// });

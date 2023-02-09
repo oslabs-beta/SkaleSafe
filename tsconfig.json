@@ -18,6 +18,6 @@
     "rootDir": ".",
     "outDir": "./dist/"
   },
-  "include": ["Client/src", "client/src/interfaces"],
+  "include": ["client", "server"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

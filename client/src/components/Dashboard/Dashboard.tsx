@@ -58,7 +58,6 @@ function Dashboard() {
         email: '',
       })
     );
-    persistor.purge();
   };
 
   useEffect(() => {

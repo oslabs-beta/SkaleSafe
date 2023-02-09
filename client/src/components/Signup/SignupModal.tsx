@@ -24,8 +24,6 @@ const SignupModal = () => {
   useEffect(() => {
     if (isSignedUp) {
       navigate('/');
-    } else {
-      console.log('There was an error signing up');
     }
   }, [isSignedUp, navigate]);
 
@@ -57,11 +55,11 @@ const SignupModal = () => {
         }
         if (res.status === 204) {
           //Error handling for non unique email or username
-          console.log(res);
+          setError(`${res.status}: ${res.statusText}`);
         }
       })
       .catch((err) => {
-        console.log(err);
+        setError('Could not make axios request');
       });
 
       setFormData({
@@ -100,6 +98,7 @@ const SignupModal = () => {
           </h1>
           <button
             onClick={() => setIsOpen(false)}
+            type='button'
             className='absolute text-xl top-8 right-4 text-purple border-2 border-off-white rounded-full px-4 py-2 font-extrabold hover:scale-110 hover:text-sapphire-blue'
           >
             X

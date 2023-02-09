@@ -54,12 +54,3 @@ userSchema.pre('save', function (next) {
 const User = model('User', userSchema);
 
 module.exports = User;
-
-// function (err: Error, hash: string) {
-//   if(err) {
-//     return next(err);
-//   } else {
-//     user.password = hash;
-//     next();
-//   }
-// }

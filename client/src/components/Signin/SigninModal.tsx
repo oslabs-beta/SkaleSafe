@@ -1,29 +1,29 @@
-import { AiFillGithub, AiFillGoogleCircle } from 'react-icons/ai';
-import {
-  SignInState,
-  setIsLoggedIn,
-  setUserData,
-} from '../../../redux/Slices/UserSlice';
-import { useAppDispatch, useAppSelector } from '../../../redux/Hooks/Hooks';
-import { useEffect, useState } from 'react';
+/* eslint-disable import/no-unresolved */
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
+/* eslint-disable import/extensions */
+/* eslint-disable react/button-has-type */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable max-len */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable import/order */
+// import { AiFillGithub, AiFillGoogleCircle } from 'react-icons/ai';
+import React, { useState } from 'react';
+import { setIsLoggedIn, setUserData } from '../../../redux/Slices/UserSlice.ts';
 
 import Modal from 'react-modal';
-import React from 'react';
-import { RootState } from '../store';
 import SignInData from '../../interfaces/signin';
 import axios from 'axios';
+import { useAppDispatch } from '../../../redux/Hooks/Hooks.ts';
 import { useNavigate } from 'react-router-dom';
 
-const SignInModal = () => {
+function SignInModal() {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
-  const [failedLogin, setFailedLogin] = useState(false);
   const [error, setError] = useState('');
   const [formData, setFormData] = useState<SignInData>({
     username: '',
     password: '',
   });
-
   const dispatch = useAppDispatch();
 
   const handleChange = (event: any) => {
@@ -34,15 +34,11 @@ const SignInModal = () => {
   const submitFormData = (e: any) => {
     e.preventDefault();
 
-   
-
     axios
       .post('http://localhost:3000/users/signin', formData)
       .then((res) => {
         if (res.status === 200) {
-
           const { firstname, lastname, email, username } = res.data.user;
-          dispatch(setIsLoggedIn(true));
           dispatch(
             setUserData({
               firstname,
@@ -51,27 +47,19 @@ const SignInModal = () => {
               username,
               // password: string
             })
-          ); // PASS THIS AN OBJECT
+          );
+          dispatch(setIsLoggedIn(true));
           // Using Local Storage to track user/permissions:
-          // local storage functions:  https://developer.mozilla.org/en-US/docs/Web/API/Storage/clear
           localStorage.setItem('username', username);
-          // to retrieve username... use localStorage.getItem(keyname)
-          // to delete username (session)... use localStorage.clear()
+          setIsOpen(false);
           navigate('/dashboard');
         }
         if (res.status === 204) {
-          // 204 was necessary because sending back a status code in the 400s
-          // triggers some kinda automatic axios mumbo-jumbo...
-          setFailedLogin(true);
+          setError('Incorrect Username and/or Password');
         }
-
-        if(formData.password !== res.data.password || formData.username !== res.data.username) {
-          setError('Login credentials unrecognized: Please try again.');
-          return;
-        }
-
       })
       .catch((err) => {
+        setError('Could not make axios request');
         console.log(err);
       });
 
@@ -90,7 +78,7 @@ const SignInModal = () => {
     'px-8 py-3 mt-2 mr-2 mb-4 cursor-pointer rounded-md text-lg focus:scale-95 border-purple border-2 text-purple hover:text-off-white hover:shadow-[inset_13rem_0_0_0] hover:shadow-purple hover:border-purple duration-[400ms,700ms] transition-[color,box-shadow]';
 
   const tryAgain = (
-    <div className='text-error-red mt-8'>
+    <div className="text-error-red mt-8">
       Login credentials unrecognized: Please try again.
     </div>
   );
@@ -99,57 +87,57 @@ const SignInModal = () => {
     <div>
       <button
         onClick={() => setIsOpen(true)}
-        className='text-honeydew text-xl font-semi px-2 py-1 hover:scale-110 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]'
+        className="text-honeydew text-xl font-semi px-2 py-1 hover:scale-110 hover:text-primary-color hover:shadow-[inset_13rem_0_0_0] hover:shadow-off-white/20 hover:border-primary-color duration-[400ms,700ms] transition-[color,box-shadow]"
       >
         Sign In
       </button>
       <Modal
-       id ='signInModal'
+        id="signInModal"
         isOpen={isOpen}
         onRequestClose={() => setIsOpen(false)}
-        shouldCloseOnOverlayClick={true}
-        className='w-2/5 m-auto mt-40 px-6 rounded-lg shadow-xl bg-white border-b-8 border-primary-color'
+        shouldCloseOnOverlayClick
+        className="w-2/5 m-auto mt-40 px-6 rounded-lg shadow-xl bg-white border-b-8 border-primary-color"
       >
-        <form className='p-12 relative' onSubmit={submitFormData}>
-          <h1 className='text-2xl mt-4 font-bold mb-8 text-prussian-blue'>
+        <form className="p-12 relative" onSubmit={submitFormData}>
+          <h1 className="text-2xl mt-4 font-bold mb-8 text-prussian-blue">
             Sign In:
           </h1>
           <button
-          type ='submit'
+            type="button"
             onClick={() => setIsOpen(false)}
-            className='absolute text-xl top-8 right-4 text-purple border-2 border-off-white shadow-sm rounded-full px-4 py-2 font-extrabold hover:scale-110 hover:text-sapphire-blue'
+            className="absolute text-xl top-8 right-4 text-purple border-2 border-off-white shadow-sm rounded-full px-4 py-2 font-extrabold hover:scale-110 hover:text-sapphire-blue"
           >
             X
           </button>
           {/* Email */}
-          <div className='relative'>
+          <div className="relative">
             <input
-              type='text'
+              type="text"
               className={inputField}
-              name='username'
-              autoComplete='off'
+              name="username"
+              autoComplete="off"
               value={formData.username}
-              placeholder='Email or Username'
+              placeholder="Email or Username"
               required
               onChange={(e) => handleChange(e)}
             />
           </div>
           {/* Password */}
-          <div className='relative'>
+          <div className="relative">
             <input
-              type='password'
-              id='password'
+              type="password"
+              id="password"
               className={inputField}
-              name='password'
-              autoComplete='off'
+              name="password"
+              autoComplete="off"
               value={formData.password}
-              placeholder='Your Password'
+              placeholder="Your Password"
               required
               onChange={(e) => handleChange(e)}
             />
           </div>
-          {error && <div className='text-red-500 text-1xl my-2'>{error}</div>}
-          <button className={button} type='submit' value='signup'>
+          {error && <div className="text-red-500 text-1xl my-2">{error}</div>}
+          <button className={button} type="submit" value="signup">
             Sign In
           </button>
           {/* DIVIDER */}
@@ -182,6 +170,6 @@ const SignInModal = () => {
       </Modal>
     </div>
   );
-};
+}
 
 export default SignInModal;

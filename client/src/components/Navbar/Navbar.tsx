@@ -54,7 +54,7 @@ function Navbar() {
       <Link to="/">
         <div
           id="backgroundoflogo"
-          className="flex flex-row justify-evenly items-center bg-prussian-blue w-60 h-12 rounded-full"
+          className="flex flex-row justify-evenly items-center w-60 h-12 rounded-full"
           onClick={() => dispatch(setIsLoggedIn(false))}
         >
           <img
@@ -63,7 +63,7 @@ function Navbar() {
             src="../../../assets/skaleSafe-light.png"
             alt="A fish inside a shield"
           />
-          <h1 id="colortestlogo" className="text-primary-color text-3xl pl-3">
+          <h1 id="colortestlogo" className="text-primary-color text-3xl">
             SkaleSafe
           </h1>
         </div>

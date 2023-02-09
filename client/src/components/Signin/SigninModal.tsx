@@ -8,12 +8,12 @@
 /* eslint-disable import/order */
 // import { AiFillGithub, AiFillGoogleCircle } from 'react-icons/ai';
 import React, { useState } from 'react';
-import { setIsLoggedIn, setUserData } from '../../../redux/Slices/UserSlice.ts';
+import { setIsLoggedIn, setUserData } from '../../../redux/Slices/UserSlice';
 
 import Modal from 'react-modal';
 import SignInData from '../../interfaces/signin';
 import axios from 'axios';
-import { useAppDispatch } from '../../../redux/Hooks/Hooks.ts';
+import { useAppDispatch } from '../../../redux/Hooks/Hooks';
 import { useNavigate } from 'react-router-dom';
 
 function SignInModal() {

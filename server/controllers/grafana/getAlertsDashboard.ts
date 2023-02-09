@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Request, Response, NextFunction } from 'express';
-import {UID} from './createAlertsDashboard';
+import UID from './createAlertsDashboard';
 
 const grafanaUrl = 'http://localhost:8888';
 const username = 'admin';

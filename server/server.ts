@@ -27,7 +27,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({extended: true})as RequestHandler);
 app.use(cors());
-app.use('/client', express.static(path.resolve(__dirname, '../client')));
+// app.use('/client', express.static(path.resolve(__dirname, '../client')));
 // app.use(cors({
 //   origin: 'http://localhost:8888',
 //   optionsSuccessStatus: 200
@@ -46,9 +46,9 @@ app.use('/prom', promRouter);
 app.use('/add-cluster', addClusterRouter);
 app.use('/graf', grafRouter);
 
-app.get('/', (req: Request, res: Response) => {
-  res.sendFile(path.resolve(__dirname, '../client/index.html'));
-});
+// app.get('/', (req: Request, res: Response) => {
+//   res.sendFile(path.resolve(__dirname, '../client/index.html'));
+// });
 
 app.use(
   '*',

@@ -21,9 +21,9 @@ body {
 }
 
 .light-mode{
-background: white;
-color: black;
+background: theme('colors.honeydew');
 
 }
+
 /* theme('colors.prussian-blue') */
 /* linear-gradient(90deg, #003153, #126180); */

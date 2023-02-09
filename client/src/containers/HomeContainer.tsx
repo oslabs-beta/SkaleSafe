@@ -1,19 +1,25 @@
-import About from '../components/About/About';
-import ContactUs from '../components/contactUs/ContactUs';
-import Demo from '../components/Demo/Demo';
-import Documentation from '../components/Documentation/Documentation';
-import Home from '../components/Home';
+/* eslint-disable import/order */
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
+import About from '../components/Home/About/About';
+import Demo from '../components/Home/Demo/Demo';
+import Documentation from '../components/Home/Documentation/Documentation';
+import Footer from '../components/Footer/Footer';
+import Home from '../components/Home/Home';
+import MeetTeam from '../components/Home/MeetTeam/MeetTeam';
+import React from 'react';
 
-const HomeContainer = () => {
+function HomeContainer() {
   return (
     <div>
       <Home />
       <About />
-      <Demo />
       <Documentation />
-      <ContactUs />
+      <Demo />
+      <MeetTeam />
+      <Footer />
     </div>
   );
-};
+}
 
 export default HomeContainer;

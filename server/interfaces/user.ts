@@ -1,6 +1,6 @@
 import { Types } from 'mongoose';
 
-export interface UserObj extends Document {
+export interface UserObj {
   _id: Types.ObjectId;
   firstname: string;
   lastname: string;
@@ -8,7 +8,10 @@ export interface UserObj extends Document {
   username: string;
   password: string;
   grafURL: string;
+  grafPort: string;
   grafUsername: string;
   grafPassword: string;
-  grafUID: string;
+  kubeviewPort: string;
+  customUID: string;
+  alertsUID: string;
 }

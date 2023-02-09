@@ -11,7 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
-
+.dockerignore
+Dockerfile
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -22,6 +23,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+Dockerfile
+.dockerignore
 
 # env file
 .env

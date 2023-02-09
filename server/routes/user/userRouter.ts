@@ -19,9 +19,6 @@ router.get('/signup', (req: Request, res: Response) => {
 router.post(
   '/signup',
   userController.createUser,
-  // cookieController.addCookie,
-  // sessionController.startSession,
-  // cookieController.setSSIDCookie,
   (req: Request, res: Response) => {
     res.status(200).send('Signup a success');
   }
@@ -30,8 +27,7 @@ router.post(
 router.post(
   '/signin',
   userController.verifyUser,
-    
-(req: Request, res: Response) => {
+  (req: Request, res: Response) => {
     const {name, passMatch} = res.locals
     if (name === null || !passMatch) {
       // 204 was necessary because sending back a status code in the 400s 
@@ -44,6 +40,7 @@ router.post(
     res.cookie('token', 'testing');
     res.status(200).json({
       message: 'Successful Login!',
+      user: res.locals.user
     });
   }
 );

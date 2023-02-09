@@ -17,6 +17,8 @@
 <br/>
 
 ## Our Mission
+
+<br/>
 SkaleSafe empowers organizations to confidently navigate the complexity of their Kubernetes clusters by providing a powerful webapp that offers insightful and customized metric visualization. Our focus on crucial scaling metrics, comprehensive cluster health metrics, and actionable alerts metrics sets us apart, enabling our clients to make informed decisions and drive their businesses forward. We strive to simplify the monitoring and management of Kubernetes clusters, making it accessible and effortless for all.
 
 <br/>

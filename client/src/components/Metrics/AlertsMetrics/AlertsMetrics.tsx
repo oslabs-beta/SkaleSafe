@@ -1,15 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable consistent-return */
-/* eslint-disable import/no-unresolved */
-/* eslint-disable import/extensions */
-/* eslint-disable max-len */
-/* eslint-disable react/jsx-key */
-/* eslint-disable react/react-in-jsx-scope */
-/* eslint-disable jsx-a11y/iframe-has-title */
 import React, { useEffect, useState } from 'react';
 import { GiShipWheel } from 'react-icons/gi';
 import { alertsData } from './AlertsData';
 import dashboardState from '../../../interfaces/dashboardState';
+import { server } from '../../../data/server';
+import axios from 'axios';
 
 // import { UID } from '../../../../../server/controllers/grafana/createAlertsDashboard';
 
@@ -28,23 +22,18 @@ function AlertsMetrics(props: Props) {
 
   const handleFetchData = async () => {
     try {
-      const socket = new WebSocket(
-        `ws://localhost:3000/graf/alerts?username=${username}`
+      const { data } = await axios.get(
+        `${server}/graf/alerts?username=${username}`
       );
-      socket.onmessage = (event) => {
-        const data = JSON.parse(event.data);
-        setUserData(data);
-        if (data.grafPort) {
-          setTimeout(() => {
-            setDataAvailable(true);
-          }, 3000);
-        }
-      };
-      socket.onerror = (error) => {
-        console.error('cluster metrics could not be retrieved', error);
-      };
+      setUserData(data);
+      if (data.grafPort) {
+        setTimeout(() => {
+          setDataAvailable(true);
+        }, 3000);
+      }
     } catch (err) {
-      console.error('cluster metrics could not be retrieved', err);
+      console.error('User alerts metrics could not be retrieved');
+      return err;
     }
   };
 

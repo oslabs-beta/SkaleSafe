@@ -2,7 +2,6 @@
   "name": "skalesafe",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "main": "./electron/ElectronMain.tsx",
   "scripts": {
     "both": "npm run dev & npm run preview",

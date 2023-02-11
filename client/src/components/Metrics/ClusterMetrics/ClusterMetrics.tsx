@@ -2,6 +2,8 @@ import { clusterData } from './ClusterData';
 import React, { useEffect, useState } from 'react';
 import dashboardState from '../../../interfaces/dashboardState';
 import { GiShipWheel } from 'react-icons/gi';
+import axios from 'axios';
+import { server } from '../../../data/server';
 
 type Props = {};
 
@@ -23,23 +25,18 @@ const ClusterMetrics = (props: Props) => {
   // fetch alertsUID and grafPort from DBs
   const handleFetchData = async () => {
     try {
-      const socket = new WebSocket(
-        `ws://localhost:3000/graf/clustermetrics?username=${username}`
+      const { data } = await axios.get(
+        `${server}/graf/clustermetrics?username=${username}`
       );
-      socket.onmessage = (event) => {
-        const data = JSON.parse(event.data);
-        setUserData(data);
-        if (data.grafPort) {
-          setTimeout(() => {
-            setDataAvailable(true);
-          }, 3000);
-        }
-      };
-      socket.onerror = (error) => {
-        console.error('cluster metrics could not be retrieved', error);
-      };
+      setUserData(data);
+      if (data.grafPort) {
+        setTimeout(() => {
+          setDataAvailable(true);
+        }, 3000);
+      }
     } catch (err) {
-      console.error('cluster metrics could not be retrieved', err);
+      console.error('cluster metrics metrics could not be retrieved');
+      return err;
     }
   };
 

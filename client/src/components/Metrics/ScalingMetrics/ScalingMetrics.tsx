@@ -2,8 +2,10 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useEffect, useState } from 'react';
 import { GiShipWheel } from 'react-icons/gi';
+import { server } from '../../../data/server';
 import dashboardState from '../../../interfaces/dashboardState';
 import { scalingData } from './ScalingData';
+import axios from 'axios';
 
 function ScalingMetrics() {
   const [dataAvailable, setDataAvailable] = useState(false);
@@ -18,23 +20,18 @@ function ScalingMetrics() {
 
   const handleFetchData = async () => {
     try {
-      const socket = new WebSocket(
-        `ws://localhost:3000/graf/ScalingMetrics?username=${username}`
+      const { data } = await axios.get(
+        `${server}/graf/ScalingMetrics?username=${username}`
       );
-      socket.onmessage = (event) => {
-        const data = JSON.parse(event.data);
-        setUserData(data);
-        if (data.grafPort) {
-          setTimeout(() => {
-            setDataAvailable(true);
-          }, 3000);
-        }
-      };
-      socket.onerror = (error) => {
-        console.error('cluster metrics could not be retrieved', error);
-      };
+      setUserData(data);
+      if (data.grafPort) {
+        setTimeout(() => {
+          setDataAvailable(true);
+        }, 3000);
+      }
     } catch (err) {
-      console.error('cluster metrics could not be retrieved', err);
+      console.error('Scaling metrics metrics could not be retrieved');
+      return err;
     }
   };
 

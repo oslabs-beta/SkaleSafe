@@ -8,7 +8,7 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
 import React, { useEffect, useState } from 'react';
 import { GiShipWheel } from 'react-icons/gi';
-import { alertsData } from './AlertsData.ts';
+import { alertsData } from './AlertsData';
 import dashboardState from '../../../interfaces/dashboardState';
 
 // import { UID } from '../../../../../server/controllers/grafana/createAlertsDashboard';
@@ -26,10 +26,11 @@ function AlertsMetrics(props: Props) {
     alertsUID: '',
   });
 
-
   const handleFetchData = async () => {
     try {
-      const socket = new WebSocket(`ws://localhost:3000/graf/alerts?username=${username}`);
+      const socket = new WebSocket(
+        `ws://localhost:3000/graf/alerts?username=${username}`
+      );
       socket.onmessage = (event) => {
         const data = JSON.parse(event.data);
         setUserData(data);
@@ -47,7 +48,6 @@ function AlertsMetrics(props: Props) {
     }
   };
 
-
   useEffect(() => {
     handleFetchData();
   }, []);
@@ -58,7 +58,6 @@ function AlertsMetrics(props: Props) {
   // this needs to be removed, but is here to hopefully clean my commits
   // if (!userData) return null;
 
-  //  http://localhost:8888/graf/d-solo/o33xe-0Vk/Alerts-Dashboard?orgId=1&panelId=2
   //
 
   return (
@@ -76,8 +75,6 @@ function AlertsMetrics(props: Props) {
               // the or3xtlo4k should be coming from DB
               key={idx}
               src={`${userData.grafPort}/graf/d-solo/${userData.alertsUID}/Alerts-Dashboard?orgId=1&panelId=${item.ID}`}
-              // src={`http://localhost:8888/graf/d-solo/or3xtlo4k/Custom-Dashboard?orgId=1&panelId=${item.ID}`}
-
               width={item.width}
               height={item.height}
               frameBorder="0"

@@ -1,15 +1,15 @@
 import axios from 'axios';
 import { Request, Response, NextFunction } from 'express';
+import { server } from '../../../client/src/data/server';
 
-const grafanaUrl = 'http://localhost:8888';
+const grafanaUrl = server;
 const username = 'admin';
 const password = 'prom-operator';
 
-let authBuffer = Buffer.from(username+":"+password, "utf8");
-let basicAuth = authBuffer.toString("base64");
+let authBuffer = Buffer.from(username + ':' + password, 'utf8');
+let basicAuth = authBuffer.toString('base64');
 
 // console.log(basicAuth);
-
 
 const axiosDashboard = async (
   req: Request,
@@ -20,13 +20,14 @@ const axiosDashboard = async (
     const response = await axios.get(
       `${grafanaUrl}/api/dashboards/uid/ßPohUG8o4k`,
       // `${grafanaUrl}/d/85a562078cdf77779eaa1add43ccec1e/kubernetes-compute-resources-namespace-pods`,
-      
+
       {
-          headers: {
-              'Authorization': `Basic ${basicAuth}`,
-              'Content-Type': 'application/json',
-          }
-      });
+        headers: {
+          Authorization: `Basic ${basicAuth}`,
+          'Content-Type': 'application/json',
+        },
+      }
+    );
     const dashboardData: any = response.data;
     res.send(dashboardData);
     res.locals.queryData = dashboardData;

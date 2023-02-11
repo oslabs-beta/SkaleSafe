@@ -16,11 +16,11 @@ function ScalingMetrics() {
     alertsUID: '',
   });
 
-
-
   const handleFetchData = async () => {
     try {
-      const socket = new WebSocket(`ws://localhost:3000/graf/ScalingMetrics?username=${username}`);
+      const socket = new WebSocket(
+        `ws://localhost:3000/graf/ScalingMetrics?username=${username}`
+      );
       socket.onmessage = (event) => {
         const data = JSON.parse(event.data);
         setUserData(data);
@@ -37,7 +37,6 @@ function ScalingMetrics() {
       console.error('cluster metrics could not be retrieved', err);
     }
   };
-
 
   useEffect(() => {
     handleFetchData();
@@ -58,8 +57,6 @@ function ScalingMetrics() {
               // the or3xtlo4k should be coming from DB
               key={idx}
               src={`${userData.grafPort}/graf/d-solo/${userData.customUID}/Custom-Dashboard?orgId=1&panelId=${item.ID}`}
-              // src={`http://localhost:8888/graf/d-solo/or3xtlo4k/Custom-Dashboard?orgId=1&panelId=${item.ID}`}
-
               width={item.width}
               height={item.height}
               frameBorder="0"

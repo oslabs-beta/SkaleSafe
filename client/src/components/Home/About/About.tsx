@@ -5,11 +5,11 @@ function About() {
   return (
     <div
       id="about"
-      className="h-[48rem] w-screen flex flex-col items-center justify-center gap-16 px-10"
+      className="h-[38rem] w-screen flex flex-col items-center justify-center gap-16 px-10"
     >
       <h1
         id="aboutText"
-        className="text-3xl text-honeydew font-bold uppercase tracking-wider border-b-4"
+        className="text-xl lg:text-4xl text-honeydew font-bold uppercase tracking-wider border-b-4"
       >
         About
       </h1>

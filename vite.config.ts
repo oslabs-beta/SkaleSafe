@@ -13,13 +13,14 @@ export default defineConfig({
   },
   build: {
     minify: true,
+    outDir: '../dist',
     rollupOptions: {
-      input:{
-        main: resolve(__dirname, './client/index.html')
-      }
+      input: {
+        main: resolve(__dirname, './client/index.html'),
+      },
     },
     commonjsOptions: {
-      transformMixedEsModules: true
-    }
-  }
+      transformMixedEsModules: true,
+    },
+  },
 });

@@ -58,7 +58,6 @@ function Dashboard() {
         email: '',
       })
     );
-    persistor.purge();
   };
 
   useEffect(() => {
@@ -74,7 +73,7 @@ function Dashboard() {
             id="dashboardbg"
             className="flex flex-col p-3 bg-honeydew shadow w-60 h-full"
           >
-            <div className="space-y-3">
+            <div className="space-y-3 fixed">
               <div className="flex items-center pt-6">
                 <h2
                   id="dbText"

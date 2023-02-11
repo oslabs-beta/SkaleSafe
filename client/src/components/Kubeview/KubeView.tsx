@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 /* eslint-disable consistent-return */
 import React, { useEffect, useState } from 'react';
 import { server } from '../../data/server';
@@ -34,7 +35,7 @@ function KubeView() {
         title="KubeView"
         src={`${kubeUrl}`}
         allow="same-origin"
-        acceptCharset="UTF-8"
+        // acceptCharset="UTF-8"
         accept-encoding="chunked"
         width="100%"
         // height='1000'

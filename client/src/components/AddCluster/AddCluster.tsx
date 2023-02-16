@@ -3,6 +3,7 @@ import React from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { server } from '../../data/server';
 
 const AddCluster = () => {
   const [clusterIP, setClusterIP] = useState('');
@@ -47,13 +48,13 @@ const AddCluster = () => {
     setIsOpen(false);
     axios
       .all([
-        axios.post('http://localhost:3000/add-cluster', addCluster),
+        axios.post(`${server}/add-cluster`, addCluster),
 
-        axios.post('http://localhost:3000/graf/add-dashboard', {
+        axios.post(`${server}/graf/add-dashboard`, {
           addCluster,
           ssUsername,
         }),
-        axios.post('http://localhost:3000/graf/add-alerts', {
+        axios.post(`${server}/graf/add-alerts`, {
           addCluster,
           ssUsername,
         }),
@@ -78,86 +79,83 @@ const AddCluster = () => {
 
   return (
     <div>
-      <button
-        onClick={() => setIsOpen(true)}
-        className='text-prussian-blue'
-      >
+      <button onClick={() => setIsOpen(true)} className="text-prussian-blue">
         Add Cluster
       </button>
       <Modal
         isOpen={isOpen}
         onRequestClose={() => setIsOpen(false)}
         shouldCloseOnOverlayClick={true}
-        className='w-2/5 m-auto mt-40 px-6 rounded-lg shadow-xl bg-white border-b-8 border-primary-color'
+        className="w-2/5 m-auto mt-40 px-6 rounded-lg shadow-xl bg-white border-b-8 border-primary-color"
       >
-        <form className='p-12 relative' onSubmit={submitClusterData}>
-          <h1 className='text-2xl mt-4 font-bold mb-8 text-prussian-blue'>
+        <form className="p-12 relative" onSubmit={submitClusterData}>
+          <h1 className="text-2xl mt-4 font-bold mb-8 text-prussian-blue">
             Add Your Cluster
           </h1>
           <button
             onClick={() => setIsOpen(false)}
-            type='button'
-            className='absolute text-xl top-8 right-4 text-purple border-2 border-off-white rounded-full px-4 py-2 font-extrabold hover:scale-110 hover:text-sapphire-blue'
+            type="button"
+            className="absolute text-xl top-8 right-4 text-purple border-2 border-off-white rounded-full px-4 py-2 font-extrabold hover:scale-110 hover:text-sapphire-blue"
           >
             X
           </button>
-          <div className='divide-y divide-gray-200'>
-            <div className='relative'>
+          <div className="divide-y divide-gray-200">
+            <div className="relative">
               <input
-                type='text'
-                id='grafanaPort'
+                type="text"
+                id="grafanaPort"
                 className={inputField}
-                name='grafanaPort'
-                autoComplete='off'
-                placeholder='Grafana Port'
+                name="grafanaPort"
+                autoComplete="off"
+                placeholder="Grafana Port"
                 onChange={(e) => setGrafanaPort(e.target.value)}
               />
             </div>
-            <div className='relative'>
+            <div className="relative">
               <input
-                type='text'
-                id='clusterIP'
+                type="text"
+                id="clusterIP"
                 className={inputField}
-                name='clusterIP'
-                autoComplete='off'
-                placeholder='Cluster IP Address'
+                name="clusterIP"
+                autoComplete="off"
+                placeholder="Cluster IP Address"
                 onChange={(e) => setClusterIP(e.target.value)}
               />
             </div>
-            <div className='relative'>
+            <div className="relative">
               <input
-                type='text'
-                id='grafanaUsername'
+                type="text"
+                id="grafanaUsername"
                 className={inputField}
-                name='grafanaUsername'
-                autoComplete='off'
-                placeholder='Grafana Username'
+                name="grafanaUsername"
+                autoComplete="off"
+                placeholder="Grafana Username"
                 onChange={(e) => setGrafanaUsername(e.target.value)}
               />
             </div>
-            <div className='relative'>
+            <div className="relative">
               <input
-                type='text'
-                id='grafanaPassword'
+                type="text"
+                id="grafanaPassword"
                 className={inputField}
-                name='grafanaPassword'
-                autoComplete='off'
-                placeholder='Grafana Password'
+                name="grafanaPassword"
+                autoComplete="off"
+                placeholder="Grafana Password"
                 onChange={(e) => setGrafanaPassword(e.target.value)}
               />
             </div>
-            <div className='relative'>
+            <div className="relative">
               <input
-                type='text'
-                id='kubeviewPort'
+                type="text"
+                id="kubeviewPort"
                 className={inputField}
-                name='kubeviewPort'
-                autoComplete='off'
-                placeholder='KubeView Port'
+                name="kubeviewPort"
+                autoComplete="off"
+                placeholder="KubeView Port"
                 onChange={(e) => setKubeviewPort(e.target.value)}
               />
             </div>
-            <button className={button} type='submit' value='add cluster'>
+            <button className={button} type="submit" value="add cluster">
               Add Cluster
             </button>
           </div>

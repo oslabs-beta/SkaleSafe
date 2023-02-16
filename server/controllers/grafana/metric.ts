@@ -2,39 +2,33 @@ import axios from 'axios';
 import { Request, Response, NextFunction } from 'express';
 import { link } from 'fs';
 import { isConstructorDeclaration } from 'typescript';
+import { server } from '../../../client/src/data/server';
 
-const grafanaUrl = 'http://localhost:8888';
+const grafanaUrl = server;
 const username = 'admin';
 const password = 'prom-operator';
 
-let authBuffer = Buffer.from(username+":"+password, "utf8");
-let basicAuth = authBuffer.toString("base64");
+let authBuffer = Buffer.from(username + ':' + password, 'utf8');
+let basicAuth = authBuffer.toString('base64');
 
-const grafSearch = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
+const grafSearch = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const response = await axios.get(
-      `${grafanaUrl}/api/search?id=10`,
-      {
-        headers: {
-            'Authorization': `Basic ${basicAuth}`,
-            'Content-Type': 'application/json',
-        }
+    const response = await axios.get(`${grafanaUrl}/api/search?id=10`, {
+      headers: {
+        Authorization: `Basic ${basicAuth}`,
+        'Content-Type': 'application/json',
+      },
     });
     const queryData: any = response.data;
     console.log(queryData);
 
-    const link = "/graf/d-solo".concat((queryData[0]["url"]).slice(7));
+    const link = '/graf/d-solo'.concat(queryData[0]['url'].slice(7));
 
-    
     // res.locals.link = (`${grafanaUrl}${queryData[0]["url"]}?orgId=1`);
-    res.locals.link = (`${grafanaUrl}${link}?orgId=1`);
+    res.locals.link = `${grafanaUrl}${link}?orgId=1`;
     // res.locals.queryData = queryData;
 
-    console.log(queryData[0]["url"]);
+    console.log(queryData[0]['url']);
     console.log(res.locals.link);
 
     //store uids in db?
@@ -49,8 +43,6 @@ const grafSearch = async (
     // console.log(dashboardData);
     // res.send(dashboardData);
     // res.locals.dashboardData = dashboardData;
-
-
   } catch (err) {
     console.log(err);
     res.status(500).send(err);
@@ -59,4 +51,3 @@ const grafSearch = async (
 };
 
 export default grafSearch;
-

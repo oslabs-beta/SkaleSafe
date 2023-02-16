@@ -1,3 +1,5 @@
+import { server } from '../../client/src/data/server';
+
 const request = require('supertest');
 // import { app } from '../../server/server';
 const app = require('../../server/server');
@@ -15,6 +17,6 @@ describe('Server', () => {
   it('should start the server', async () => {
     const spy = jest.spyOn(console, 'log');
     app.listen(3000);
-    expect(spy).toHaveBeenCalledWith('Server running: http://localhost:3000/');
+    expect(spy).toHaveBeenCalledWith(`Server running: ${server}`);
   });
 });

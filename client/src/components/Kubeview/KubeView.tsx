@@ -1,11 +1,11 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable consistent-return */
 import React, { useEffect, useState } from 'react';
+import { server } from '../../data/server';
 
 function KubeView() {
   // const kubePort = 8080;
   // ^get this variable from database
-  // const kubeUrl = `http://localhost:${kubePort}`;
   // ^store this in .env file
   const username = localStorage.getItem('username');
   const [kubeUrl, setKubeUrl] = useState('');
@@ -14,7 +14,7 @@ function KubeView() {
   const handleFetchData = async () => {
     try {
       const userResponse = await fetch(
-        `http://localhost:3000/graf/kubeview?username=${username}`
+        `${server}/graf/kubeview?username=${username}`
       );
       const data = await userResponse.json();
       setKubeUrl(data.kubeUrl);

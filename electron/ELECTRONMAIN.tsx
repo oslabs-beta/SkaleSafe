@@ -1,6 +1,7 @@
 const { BrowserWindow, app } = require('electron');
+import { electronServer } from '../client/src/data/server';
 
-function createWindow(){
+function createWindow() {
   const win = new BrowserWindow({
     // width: 1920,
     width: 1440,
@@ -8,27 +9,11 @@ function createWindow(){
     backgroundColor: 'white',
     webPreferences: {
       nodeIntegration: false,
-    //   worldSafeExecuteJavascript: true,
+      //   worldSafeExecuteJavascript: true,
       contextIsolation: true,
     },
   });
-  win.loadURL('http://localhost:4000');
+  win.loadURL(electronServer);
 }
 
 app.whenReady().then(createWindow);
-
-
-//Best practice across all platforms
-//  app.on('activate', () => {
-//   if (BrowserWindow.getAllWindows().length === 0) {
-//     createWindow();
-//   }
-// });
-// });
-
-//For exiting the app on Macs
-// app.on('window-all-closed', () => {
-// if (process.platform !== 'darwin') {
-//   app.quit();
-// }
-// });

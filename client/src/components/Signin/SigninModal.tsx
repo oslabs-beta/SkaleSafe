@@ -1,20 +1,11 @@
-/* eslint-disable import/no-unresolved */
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
-/* eslint-disable import/extensions */
-/* eslint-disable react/button-has-type */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable max-len */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable import/order */
-// import { AiFillGithub, AiFillGoogleCircle } from 'react-icons/ai';
 import React, { useState } from 'react';
 import { setIsLoggedIn, setUserData } from '../../../redux/Slices/UserSlice';
-
 import Modal from 'react-modal';
 import SignInData from '../../interfaces/signin';
 import axios from 'axios';
 import { useAppDispatch } from '../../../redux/Hooks/Hooks';
 import { useNavigate } from 'react-router-dom';
+import { server } from '../../data/server';
 
 function SignInModal() {
   const navigate = useNavigate();
@@ -35,7 +26,7 @@ function SignInModal() {
     e.preventDefault();
 
     axios
-      .post('http://localhost:3000/users/signin', formData)
+      .post(`${server}/users/signin`, formData)
       .then((res) => {
         if (res.status === 200) {
           const { firstname, lastname, email, username } = res.data.user;

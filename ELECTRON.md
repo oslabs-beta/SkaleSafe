@@ -16,12 +16,13 @@
    ```
 </p>
 
+<!--  # For Windows Users
+<p> 
+ 
 
-<!-- <p> DELETE FOR LAUNCH
-   <br/>PENDING: Create own mongo database & configure that in your own .env file???
-   <br/>add to another section of the readme?
-<br/>have users create their own .env file???
-   
-<br/> Add windows/other OS instructions?
+  ```sh
+   npm run elec
+   ```
 
-</p> -->
+</p>
+ -->

@@ -24,12 +24,8 @@ function Navbar() {
     (state: RootState) => state.userData.firstname
   );
   const isLoggedIn = useAppSelector((state) => state.isLoggedIn);
-  // const isLoggedIn = useAppSelector((state) => state.isLoggedIn);
-  // const isLoggedIn = false;
-  // const userName = 'John';
   const dispatch = useAppDispatch();
   useEffect(() => {
-    console.log('Navbar useEffect is firing');
     if (hash) {
       const id = hash.replace('#', '');
       const element = document.getElementById(id);
@@ -37,7 +33,7 @@ function Navbar() {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     }
-  }, [location]);
+  }, [hash, location]);
 
   // ADD ID BELOW
   const outLinks =
@@ -54,7 +50,7 @@ function Navbar() {
       <Link to="/">
         <div
           id="backgroundoflogo"
-          className="flex flex-row justify-evenly items-center w-60 h-12 rounded-full"
+          className="flex flex-row justify-evenly items-center w-60 h-12 rounded-full bg-sapphire-blue"
           onClick={() => dispatch(setIsLoggedIn(false))}
         >
           <img
@@ -74,8 +70,8 @@ function Navbar() {
           {[
             ['Home', '#home'],
             ['About', '#about'],
+            ['Features', '#features'],
             ['Demo', '#demo'],
-            ['Documentation', '#documentation'],
             ['The Team', '#team'],
           ].map(([title, url]) => (
             <li key={title}>

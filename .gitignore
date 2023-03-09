@@ -23,6 +23,8 @@ Dockerfile
 *.njsproj
 *.sln
 *.sw?
+Dockerfile
+.dockerignore
 
 # env file
 .env

@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import axios from 'axios';
+import { server } from '../../../client/src/data/server';
 
 // LIST
 const specificMetricsList = async (
@@ -17,9 +18,7 @@ const specificMetricsList = async (
     let metricsData: any = {};
     for (let metric of metrics) {
       const query = `{__name__=~"${metric}", job="prom-job"}`;
-      const { data } = await axios.get(
-        `http://localhost:8080/api/v1/query?query=${query}`
-      );
+      const { data } = await axios.get(`${server}/api/v1/query?query=${query}`);
       metricsData[metric] = data.data.result;
     }
     res.json(metricsData);
@@ -39,9 +38,7 @@ const specificMetric = async (
   try {
     const metric = 'kube_pod_labels';
     const query = `{__name__=~"${metric}", job="prom-job"}`;
-    const { data } = await axios.get(
-      `http://localhost:8080/api/v1/query?query=${query}`
-    );
+    const { data } = await axios.get(`${server}/api/v1/query?query=${query}`);
     const metricsData = { [metric]: data.data.result };
     res.json(metricsData);
   } catch (err) {

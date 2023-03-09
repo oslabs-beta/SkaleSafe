@@ -1,16 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable consistent-return */
-/* eslint-disable import/no-unresolved */
-/* eslint-disable import/extensions */
-/* eslint-disable max-len */
-/* eslint-disable react/jsx-key */
-/* eslint-disable react/react-in-jsx-scope */
-/* eslint-disable jsx-a11y/iframe-has-title */
 import React, { useEffect, useState } from 'react';
 import { GiShipWheel } from 'react-icons/gi';
-import axios from 'axios';
-import { alertsData } from './AlertsData.ts';
+import { alertsData } from './AlertsData';
 import dashboardState from '../../../interfaces/dashboardState';
+import { server } from '../../../data/server';
+import axios from 'axios';
 
 // import { UID } from '../../../../../server/controllers/grafana/createAlertsDashboard';
 
@@ -27,11 +20,10 @@ function AlertsMetrics(props: Props) {
     alertsUID: '',
   });
 
-  // fetch alertsUID and grafPort from DBs
   const handleFetchData = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:3000/graf/alerts?username=${username}`
+        `${server}/graf/alerts?username=${username}`
       );
       setUserData(data);
       if (data.grafPort) {
@@ -55,7 +47,6 @@ function AlertsMetrics(props: Props) {
   // this needs to be removed, but is here to hopefully clean my commits
   // if (!userData) return null;
 
-  //  http://localhost:8888/graf/d-solo/o33xe-0Vk/Alerts-Dashboard?orgId=1&panelId=2
   //
 
   return (
@@ -73,8 +64,6 @@ function AlertsMetrics(props: Props) {
               // the or3xtlo4k should be coming from DB
               key={idx}
               src={`${userData.grafPort}/graf/d-solo/${userData.alertsUID}/Alerts-Dashboard?orgId=1&panelId=${item.ID}`}
-              // src={`http://localhost:8888/graf/d-solo/or3xtlo4k/Custom-Dashboard?orgId=1&panelId=${item.ID}`}
-
               width={item.width}
               height={item.height}
               frameBorder="0"

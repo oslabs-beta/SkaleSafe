@@ -1,5 +1,6 @@
 const path = require('path')
 const { BrowserWindow, app } = require('electron');
+// import { electronServer } from '../client/src/data/server';
 
 
 
@@ -11,11 +12,11 @@ function createWindow(){
     backgroundColor: 'white',
     webPreferences: {
       nodeIntegration: false,
-    //   worldSafeExecuteJavascript: true,
+      //   worldSafeExecuteJavascript: true,
       contextIsolation: true,
     },
   });
-  win.;
+  win.loadURL('http://localhost:4000/');
 }
 
 app.whenReady().then(createWindow);

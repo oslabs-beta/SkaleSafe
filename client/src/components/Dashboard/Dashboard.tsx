@@ -71,7 +71,9 @@ function Dashboard() {
         <div className="flex">
           <div
             id="dashboardbg"
-            className="flex flex-col p-3 bg-honeydew shadow w-60 h-full"
+            className="flex flex-col p-3 bg-honeydew shadow w-60 h-[60rem]"
+            // below is the styling used that does not display the last dashboard options such as logout
+            // className="flex flex-col p-3 bg-honeydew shadow w-60 h-full"
           >
             <div className="space-y-3 fixed">
               <div className="flex items-center pt-6">

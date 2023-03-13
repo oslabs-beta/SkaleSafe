@@ -47,7 +47,9 @@ const ClusterMetrics = (props: Props) => {
   return (
     <div
       id="clustertab"
-      className="w-screen overflow-auto flex flex-col items-center justify-evenly text-honeydew"
+      className = 'w-screen h-screen flex flex-col items-center mt-10 text-honeydew'
+      //the code below produces incorrect positioning when the dashboard height >= [60rem]
+      //className="w-screen overflow-auto flex flex-col items-center justify-evenly text-honeydew"
     >
       <div className="text-4xl font-bold uppercase tracking-wider pt-10 pb-5">
         Cluster Health

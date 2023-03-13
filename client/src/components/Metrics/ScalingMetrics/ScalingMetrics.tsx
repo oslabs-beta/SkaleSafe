@@ -42,12 +42,20 @@ function ScalingMetrics() {
   return (
     <div
       id="clustertab"
-      className="w-screen overflow-auto flex flex-col items-center justify-evenly text-honeydew"
+      className='w-screen h-screen flex flex-col items-center mt-10 text-honeydew'
+      //the code below produces incorrect positioning when the dashboard height >= [60rem]
+      //className="w-screen overflow-auto flex flex-col items-center justify-evenly text-honeydew"
     >
+
+
+
+
       <div className="text-4xl font-bold uppercase tracking-wider pt-10 pb-5">
         Scaling Metrics
       </div>
       {dataAvailable ? (
+
+        //remove max-w-fit
         <div className="flex flex-row flex-wrap justify-center items-center gap-8 py-5 max-w-fit">
           {scalingData.map((item: any, idx: number) => (
             <iframe
@@ -60,6 +68,11 @@ function ScalingMetrics() {
             />
           ))}
         </div>
+
+
+
+
+
       ) : (
         <div className="flex flex-col place-items-center pt-28 gap-y-16 justify-center">
           <p className="italic">Hang on while we fetch your cluster data...</p>

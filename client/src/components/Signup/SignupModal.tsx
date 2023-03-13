@@ -50,6 +50,7 @@ const SignupModal = () => {
         if (res.status === 200) {
           setIsSignedUp(true);
           setIsOpen(false);
+          alert('You have successfully signed up! \nPlease sign in with your new credentials.');
           navigate('/');
         }
         if (res.status === 204) {
@@ -58,7 +59,8 @@ const SignupModal = () => {
         }
       })
       .catch((err) => {
-        setError('Could not make axios request');
+        setError('This Username and/or Email is unavailable at this time');
+        // setError('Could not make axios request');
       });
 
     setFormData({

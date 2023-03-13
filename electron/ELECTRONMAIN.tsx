@@ -1,4 +1,4 @@
-const path = require('path')
+// const path = require('path')
 const { BrowserWindow, app } = require('electron');
 // import { electronServer } from '../client/src/data/server';
 
@@ -7,6 +7,7 @@ const { BrowserWindow, app } = require('electron');
 
 function createWindow(){
   const win = new BrowserWindow({
+    title: 'SkaleSafe',
     width: 1440,
     height: 1080,
     backgroundColor: 'white',

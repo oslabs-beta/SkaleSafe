@@ -5,7 +5,7 @@
 
 ## Table of Contents
  - [Our Mission](#our-mission)
- - [General Installation](#general-installation)
+ - [Installation](#installation)
    - [Prometheus](#prometheus-installation)
    - [Grafana](#grafana-installation)
    - [KubeView](#kubeview-installation)
@@ -23,7 +23,7 @@ SkaleSafe empowers organizations to confidently navigate the complexity of their
 
 <br/>
 
-## General Installation
+# Installation
 
 1. Fork SkaleSafe's repository & then clone your forked repository using your GitHub handle
    ```sh
@@ -45,13 +45,15 @@ SkaleSafe empowers organizations to confidently navigate the complexity of their
    SALT_WORK_FACTOR= 10;
    ```
   
-5. If your cluster is running you may start the app via the command
+5. Ensure that you have kubectl - Kubernetes CLI installed on your local machine
+
+6. If your cluster is running you may start the app via the command
 
    ```sh
    npm run app
    ```
  
-6. Or if you'd like to utilize Electron's embedded Chromium/Node.JS combination, you may start the app via the command
+7. Or if you'd like to utilize Electron's embedded Chromium/Node.JS combination, you may start the app via the command
 
    ```sh
    npm run elec
@@ -61,17 +63,9 @@ SkaleSafe empowers organizations to confidently navigate the complexity of their
 
 <br/>
 
-# Getting Started
+## Prometheus, Grafana and KubeView
 
-Prior to beginning, please ensure that you have Kubectl - Kubernetes CLI installed locally.
-
-Start by cloning our repository down to your local machine using the following command:
-
-```
-git clone https://github.com/oslabs-beta/SkaleSafe.git
-```
-
-We will begin by installing Prometheus, Grafana and KubeView.  The requisite files for installing these three programs have been created for you and are included in the SkaleSafe repo you have just cloned within the folder labeled 'cluster-setup' in the root folder of the directory.
+We will proceed by installing Prometheus, Grafana and KubeView.  The requisite files for installing these three programs have been created for you and are included in the SkaleSafe repo you have just cloned within the folder labeled 'cluster-setup' in the root folder of the directory.
 
 <br/>
 
@@ -83,7 +77,7 @@ Prometheus is a collection of pods intended to monitor your Kubernetes cluster. 
 
 <br/>
 
-   Firstly we will create a cluster namespace for all of our monitoring components. We create a dedicated namespace so as not to have all of our monitoring pods floating around within the default namespace.
+   Firstly we will create a cluster namespace called 'monitoring' for all of our monitoring components. We create a dedicated namespace so as not to have all of our monitoring pods floating around within the default namespace.
 
 1. Execute the following command to create a new namespace: monitoring.
 
@@ -91,31 +85,47 @@ Prometheus is a collection of pods intended to monitor your Kubernetes cluster. 
    kubectl create namespace monitoring
    ```
   
-2. From within the newly cloned SkaleSafe repo, navigate to 'cluster-setup' with the Prometheus files, apply the 'cluster-role.yaml' file to create a Cluster Role with the following RBAC policies: (get, watch, read). 
+
+2. From within the newly cloned SkaleSafe repo, navigate to the 'cluster-setup' file in your terminal.  
+<br>
+## NOTE: 
+We will be applying the enclosed .yaml files to create a cluster role, config map, ingress controller, deployment and service for Prometheus.  The remainder of this section gives a detailed breakdown of each component and the opportunity for customization.  Steps 3 - 7 can be completed with default settings and omitted using the following command:
+
+   ```
+   kubectl apply -f prometheus
+   ```
+
+3. Navigate into the 'prometheus' folder and apply the 'cluster-role.yaml' file to create a Cluster Role with the following RBAC policies: (get, watch, read). 
 
    ```
    kubectl apply -f cluster-role.yaml
    ```
    
-3. Next, create a Config Map by applying 'config-map.yaml' to externalize the Prometheus configurations
+4. Next, create a Config Map by applying 'config-map.yaml' to externalize the Prometheus configurations
 
    ```
    kubectl apply -f config-map.yaml
    ```
 
-4. Create the Prometheus Deployment by applying 'prom-deploy.yaml'
+5. Create the Prometheus Deployment by applying 'prom-deploy.yaml'
 
    ```
    kubectl apply -f prom-deploy.yaml
    ```
   
-5. Expose Prometheus using Ingress by applying the 'ingress-controller.yaml' file.
+6. Create the Prometheus Service by applying 'prom-service.yaml'
+
+   ```
+   kubectl apply -f prom-service.yaml
+   ```
+
+7. Expose Prometheus using Ingress by applying the 'ingress-controller.yaml' file.
 
    ```
    kubectl apply -f cluster-role.yaml
    ```
-   
-   This exposes the ingress object on port 8080. To change the port, just edit the servicePort field in the ingress file!
+
+   NOTE: This exposes the ingress object on port 8080. To change the port, specify your desired port within the 'servicePort' field in the 'ingress-controller' file.
    
    ```
    apiVersion: extensions/v1beta1
@@ -145,26 +155,40 @@ Prometheus is a collection of pods intended to monitor your Kubernetes cluster. 
 
 ## Grafana Installation:
 <br/>
-In our previous step, we set up Prometheus to monitor our cluster. Next, we will add Grafana for real-time cluster metric visualization.
+In our previous step, we set up Prometheus to monitor our cluster. Next, we will add Grafana for real-time cluster metric visualization. 
+For the complete list of setup instructions and customizations, please see: 
 
-For the complete list of setup instructions and customizations, please see: &nbsp;[Grafana Docs](https://grafana.com/docs/grafana/latest/setup-grafana/installation/kubernetes/).
+&nbsp;[Grafana Docs](https://grafana.com/docs/grafana/latest/setup-grafana/installation/kubernetes/).
 
-1. All Grafana config files in this section are created for you and hosted on GitHub. Clone this repo using the following command:
+<br>
+All Grafana config files can also be found in the 'cluster-setup' file of this repo. Ensure than you begin this phase of installation from within this directory.  
+
+<br>
+
+## NOTE: 
+We will be applying the enclosed .yaml files to create a config map, deployment and service for Grafana.  The remainder of this section gives a detailed breakdown of each component and the opportunity for customization.  Steps 1 - 3 can be completed with default settings and omitted using the following command:
 
    ```
-   git clone https://github.com/daniel-doody/grafana-setup-kubernetes.git
+   kubectl apply -f grafana
    ```
 
-2. Create the Grafana / Prometheus data source ConfigMap:
+1. Navigate into the grafana file and create the Grafana / Prometheus data source ConfigMap:
 
    Note: This is configured for Prometheus. If you have other data sources such as DataDog, you can add them with different YAMLs under the data section.
+
    Inside of your cloned Grafana folder, apply the 'graf-config.yaml'
 
    ```
    kubectl apply -f graf-config.yaml
    ```
   
-3. Apply the Grafana service file to expose the Grafana port.
+2. Apply the Grafana Deployment file with the command:
+  ```
+   kubectl apply -f graf-deployment.yaml
+   ```
+
+
+3. Apply the Grafana Service file to expose the Grafana port.
    ```
    kubectl apply -f graf-service.yaml
    ```
@@ -212,16 +236,17 @@ For the complete list of setup instructions and customizations, please see: &nbs
 
 ## KubeView Installation:
 <br/>
-Now that Prometheus and Grafana is all set-up, we will add Kubeview for real-time cluster visualization. Kubeview will provide an overview of your cluster objects in icons.
+Now that Prometheus and Grafana are all set-up, we will add Kubeview for real-time cluster visualization. Kubeview provides an overview of your cluster objects as interactive icons.
 
 For the complete list of setup instructions and customizations, please see: &nbsp;[Kubeview Docs](https://kubeview.benco.io/).
 
-1. All Kubeview config files in this section are created for you and hosted on GitHub. Clone this repo using the following command:
-  ```
-  git clone https://github.com/sxhanx/setup-kubeview.git  
-  ```
+1. All Kubeview config files in this section have also been created for you and are located within the 'cluster-setup' folder.  As with Prometheus and Grafana, this phase of installation (steps 2 & 3) can be expedited by running the following command from within the 'cluster-setup' directory:
+
+```
+kubectl apply -f kubeview
+```
   
-2. Inside of your cloned Kubeview folder, apply the ‘service.yaml'
+2. Inside of the Kubeview folder, apply the ‘service.yaml'
   ```
   kubectl apply -f service.yaml
   ```

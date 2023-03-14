@@ -1,13 +1,11 @@
 /* eslint-disable max-len */
-// ts possible
 
-function LightOrDark():void {
-  
-}
+//Allows for customization of the app's color scheme as needed, for accessibility purposes
+  //currently set to invert between honeydew & prussian-blue, can be used to apply any color as needed via TailwindCSS
 
 // const LightOrDark = () => {
-  // //not DRY
-  //     //polish ids/classnames
+  // not DRY
+
   // //can contain inversions that should occur across both pages
   // let element = document.body
   // element.classList.toggle('light-mode')

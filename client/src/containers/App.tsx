@@ -4,7 +4,7 @@
 import { Route, Routes } from 'react-router-dom';
 import React from 'react'
 import Dashboard from '../components/Dashboard/Dashboard';
-import { Error } from '../components/Error';
+import { Error } from '../components/Error/Error';
 import Footer from '../components/Footer/Footer';
 import HomeContainer from '../containers/HomeContainer';
 import Navbar from '../components/Navbar/Navbar';

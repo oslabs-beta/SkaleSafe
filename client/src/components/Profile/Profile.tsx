@@ -52,12 +52,16 @@ function Profile() {
             <div className="mt-16">
               <h1 className="font-bold text-center text-4xl">My Profile</h1>
               <div className="my-8 px-8">
+
+                
+                {/*
+                Below code is being replaced by buttons
                 <a
                   href="#"
                   className="block rounded-lg text-center text-2xl leading-6 px-6 py-3 hover:text-light-blue hover:scale-110"
                 >
                   Edit Profile Info
-                </a>
+                </a> */}
               </div>
               <div className="w-full">
                 <div className="mt-8 w-full flex flex-col items-center text-l">
@@ -80,6 +84,16 @@ function Profile() {
                     Email:
                     <span className="font-bold"> {email}</span>
                   </a>
+                
+                 {/* <div> 
+                  <button className='border-2 border-black text-prussian-blue'> 
+                    Edit Profile
+                  </button>
+                  <button className='border-2 border-black text-error-red'>
+                    Delete Profile
+                  </button>
+                  </div> */}
+
                 </div>
               </div>
             </div>

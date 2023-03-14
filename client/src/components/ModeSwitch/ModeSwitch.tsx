@@ -1,12 +1,17 @@
 /* eslint-disable max-len */
 // ts possible
 
-const LightOrDark = () => {
+function LightOrDark():void {
+  
+}
+
+// const LightOrDark = () => {
   // //not DRY
   //     //polish ids/classnames
   // //can contain inversions that should occur across both pages
   // let element = document.body
   // element.classList.toggle('light-mode')
+
   // //INVERTS NAVBAR
   //     //invert the Logo image - DONE
   //     const navLogo = document.getElementById('navbarlogo')
@@ -246,6 +251,6 @@ const LightOrDark = () => {
   //             teamText.className = "text-4xl text-honeydew font-bold uppercase tracking-wider border-b-4"
   //         }
   // }
-};
+// };
 
 export default LightOrDark;

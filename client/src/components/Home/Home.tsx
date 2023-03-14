@@ -8,12 +8,12 @@ function Home() {
     >
       <h1
         id="eleh1"
-        className="text-6xl text-primary-color leading-relaxed tracking-wide m-0 p-0"
+        className="text-5xl text-primary-color leading-relaxed tracking-wide m-0 p-0"
       >
         Kubernetes
-        <br />
+        <br/>
         Auto-scaling
-        <br />
+        <br/>
         <span
           id="elespan"
           className="font-semibold text-honeydew underline underline-offset-4 capitalize"
@@ -23,7 +23,7 @@ function Home() {
       </h1>
       <img
         id="homeLogo"
-        className="w-2/5 max-w-lg"
+        className="w-1/3 max-w-lg"
         src="../../../assets/SkaleSafe-color.svg"
         alt="A fish inside a shield. SkaleSafe"
       />

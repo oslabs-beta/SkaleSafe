@@ -1,4 +1,5 @@
 /* eslint-disable max-len */
+//AKA features section of the home page
 import React from 'react';
 
 function Documentation() {

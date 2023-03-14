@@ -5,7 +5,7 @@ function About() {
   return (
     <div
       id="about"
-      className="h-[38rem] w-screen flex flex-col items-center justify-center gap-16 px-10"
+      className="h-[60rem] w-screen flex flex-col items-center justify-center gap-16 px-10"
     >
       <h1
         id="aboutText"

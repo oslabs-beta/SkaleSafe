@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { Request, Response, NextFunction } from 'express';
+import { server } from '../../../client/src/data/server';
 
 const getDefaultMetrics = async (
   req: Request,
@@ -7,9 +8,7 @@ const getDefaultMetrics = async (
   next: NextFunction
 ) => {
   try {
-    const { data } = await axios.get(
-      'http://localhost:8080/api/v1/query?query=up'
-    );
+    const { data } = await axios.get(`${server}/api/v1/query?query=up`);
     const metrics = data.data.result;
     console.log(metrics);
     res.send(metrics);

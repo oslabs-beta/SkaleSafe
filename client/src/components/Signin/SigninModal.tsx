@@ -50,7 +50,9 @@ function SignInModal() {
         }
       })
       .catch((err) => {
-        setError('Could not make axios request');
+        setError('Incorrect Username and/or Password.');
+        //This error below was being displayed when using an incorrect password
+        //setError('Could not make axios request');
         console.log(err);
       });
 
